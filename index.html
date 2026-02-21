@@ -3,1360 +3,458 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FINOX CRM — L'OS de l'assurance</title>
+<title>FINOX CRM — L'OS de l'Assurance au Québec</title>
+<meta name="description" content="Le premier CRM exclusif aux conseillers en assurance québécois. ABF complet, IA, signatures, conformité AMF, Pulse Vital — tout en un.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=JetBrains+Mono:wght@300;400;500&family=Cabinet+Grotesk:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,700&family=JetBrains+Mono:wght@300;400;500&family=Cabinet+Grotesk:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="finox.css">
 <style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --g:#B8962E;--gl:#E8C97A;--gd:#7A6120;--gdark:#1A1500;
-  --ink:#07070D;--s1:#0D0D16;--s2:#11111C;
-  --cr:#F0EBE0;--cd:#A09880;
-  --blue:#3D7EC4;--green:#3DC49A;--red:#C43D3D;
-  --tm:#3A3A52;
-  --ease-spring:cubic-bezier(0.34,1.56,0.64,1);
-  --ease-out:cubic-bezier(0.16,1,0.3,1);
-}
-html{scroll-behavior:smooth;font-size:16px}
-body{
-  font-family:'Cabinet Grotesk',sans-serif;
-  background:var(--ink);color:var(--cr);
-  overflow-x:hidden;cursor:none;
-  -webkit-font-smoothing:antialiased;
-}
-
-/* ═══ CURSOR SYSTEM ═══ */
-#cur{
-  position:fixed;width:8px;height:8px;
-  background:var(--gl);border-radius:50%;
-  pointer-events:none;z-index:99999;
-  transform:translate(-50%,-50%);
-  transition:width .3s var(--ease-spring),height .3s var(--ease-spring),background .3s;
-  mix-blend-mode:difference;
-}
-#cur-trail{
-  position:fixed;width:36px;height:36px;
-  border:1px solid rgba(232,201,122,.3);
-  border-radius:50%;pointer-events:none;z-index:99998;
-  transform:translate(-50%,-50%);
-  transition:width .4s var(--ease-out),height .4s var(--ease-out);
-}
-body.cursor-hover #cur{width:24px;height:24px;background:var(--g)}
-body.cursor-hover #cur-trail{width:60px;height:60px;border-color:rgba(232,201,122,.5)}
-
-/* ═══ CANVAS BACKGROUND ═══ */
-#bg-canvas{
-  position:fixed;inset:0;z-index:0;
-  pointer-events:none;opacity:.6;
-}
-
-/* ═══ NOISE ═══ */
-.noise{
-  position:fixed;inset:0;z-index:9997;pointer-events:none;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  opacity:.03;
-}
-
-/* ═══ NAV ═══ */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:5000;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 64px;height:72px;
-  transition:background .4s,border-color .4s;
-}
-nav.scrolled{
-  background:rgba(7,7,13,.85);
-  border-bottom:1px solid rgba(184,150,46,.12);
-  backdrop-filter:blur(20px);
-}
-.nav-logo{
-  font-family:'Cormorant Garamond',serif;
-  font-size:24px;font-weight:700;letter-spacing:.05em;
-  display:flex;align-items:center;gap:2px;
-}
-.nav-logo .dot{color:var(--g);font-size:32px;line-height:0;position:relative;top:2px}
-.nav-center{
-  display:flex;align-items:center;gap:40px;
-  position:absolute;left:50%;transform:translateX(-50%);
-}
-.nav-link{
-  font-family:'JetBrains Mono',monospace;
-  font-size:11px;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--tm);text-decoration:none;
-  transition:color .3s;position:relative;
-}
-.nav-link::after{
-  content:'';position:absolute;bottom:-2px;left:0;right:0;height:1px;
-  background:var(--g);transform:scaleX(0);transition:transform .3s;
-}
-.nav-link:hover{color:var(--cr)}
-.nav-link:hover::after{transform:scaleX(1)}
-.nav-badge{
-  display:flex;align-items:center;gap:8px;
-  border:1px solid rgba(184,150,46,.2);
-  border-radius:100px;padding:8px 18px;
-  font-family:'JetBrains Mono',monospace;
-  font-size:10px;letter-spacing:.15em;text-transform:uppercase;
-  color:var(--g);background:rgba(184,150,46,.04);
-  cursor:pointer;
-  transition:border-color .3s,background .3s;
-}
-.nav-badge:hover{border-color:rgba(184,150,46,.5);background:rgba(184,150,46,.08)}
-.nav-badge .live-dot{
-  width:6px;height:6px;border-radius:50%;
-  background:var(--green);flex-shrink:0;
-  animation:livePulse 2.5s ease-in-out infinite;
-}
-@keyframes livePulse{
-  0%,100%{box-shadow:0 0 0 0 rgba(61,196,154,.4)}
-  50%{box-shadow:0 0 0 6px rgba(61,196,154,0)}
-}
-
-/* ═══ HERO ═══ */
-.hero{
-  min-height:100svh;
-  display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  padding:120px 40px 60px;
-  position:relative;overflow:hidden;
-}
-
-/* Scan line effect */
-.hero::before{
-  content:'';position:absolute;inset:0;
-  background:repeating-linear-gradient(
-    0deg,
-    transparent,transparent 2px,
-    rgba(184,150,46,.008) 2px,rgba(184,150,46,.008) 4px
-  );
-  pointer-events:none;z-index:1;
-}
-
-.hero-inner{
-  position:relative;z-index:2;
-  display:flex;flex-direction:column;
-  align-items:center;text-align:center;
-  max-width:1000px;
-}
-
-.hero-tag{
-  display:inline-flex;align-items:center;gap:10px;
-  font-family:'JetBrains Mono',monospace;
-  font-size:11px;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--g);margin-bottom:40px;
-  padding:8px 20px;
-  border:1px solid rgba(184,150,46,.2);
-  border-radius:100px;
-  background:rgba(184,150,46,.04);
-  opacity:0;animation:heroIn .6s var(--ease-out) .1s forwards;
-}
-.hero-tag .arrow{
-  display:inline-block;
-  animation:arrowBounce 1.5s ease-in-out infinite;
-}
-@keyframes arrowBounce{
-  0%,100%{transform:translateX(0)}
-  50%{transform:translateX(4px)}
-}
-
-/* MORPHING HEADLINE */
-.hero-h1{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(56px,10vw,130px);
-  font-weight:300;line-height:.9;
-  letter-spacing:-.02em;
-  margin-bottom:12px;
-  opacity:0;animation:heroIn .8s var(--ease-out) .3s forwards;
-}
-.hero-h1 .italic{font-style:italic;color:var(--gl)}
-.hero-h1 .stroke{
-  -webkit-text-stroke:1px rgba(240,235,224,.3);
-  color:transparent;
-}
-.hero-h1 .gold-block{
-  display:inline-block;
-  background:linear-gradient(135deg,var(--gl) 0%,var(--g) 50%,var(--gd) 100%);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  font-weight:600;
-}
-
-.hero-h2{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(56px,10vw,130px);
-  font-weight:700;line-height:.9;
-  letter-spacing:-.02em;
-  font-style:italic;color:var(--g);
-  opacity:0;animation:heroIn .8s var(--ease-out) .5s forwards;
-  margin-bottom:40px;
-}
-
-.hero-sub{
-  font-size:18px;line-height:1.7;
-  color:var(--cd);max-width:560px;
-  opacity:0;animation:heroIn .6s var(--ease-out) .7s forwards;
-  margin-bottom:60px;
-}
-
-/* STATS BAR */
-.hero-stats{
-  display:flex;gap:0;
-  border:1px solid rgba(184,150,46,.15);
-  border-radius:16px;overflow:hidden;
-  margin-bottom:48px;
-  opacity:0;animation:heroIn .6s var(--ease-out) .9s forwards;
-  background:rgba(184,150,46,.02);
-  backdrop-filter:blur(20px);
-}
-.hstat{
-  padding:24px 40px;text-align:center;
-  border-right:1px solid rgba(184,150,46,.1);
-  position:relative;overflow:hidden;
-  transition:background .3s;
-}
-.hstat:last-child{border-right:none}
-.hstat:hover{background:rgba(184,150,46,.05)}
-.hstat::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(to right,transparent,var(--g),transparent);
-  transform:scaleX(0);transition:transform .4s;
-}
-.hstat:hover::before{transform:scaleX(1)}
-.hstat-n{
-  font-family:'Cormorant Garamond',serif;
-  font-size:48px;font-weight:700;
-  background:linear-gradient(180deg,var(--gl),var(--g));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  line-height:1;
-}
-.hstat-l{
-  font-family:'JetBrains Mono',monospace;
-  font-size:10px;letter-spacing:.15em;text-transform:uppercase;
-  color:var(--tm);margin-top:8px;
-}
-
-/* CTA GROUP */
-.hero-cta{
-  display:flex;flex-direction:column;align-items:center;gap:20px;
-  opacity:0;animation:heroIn .6s var(--ease-out) 1.1s forwards;
-}
-.cta-row{display:flex;gap:12px;align-items:center}
-
-/* MAGNETIC BUTTON */
-.btn-mag{
-  position:relative;display:inline-flex;align-items:center;
-  gap:10px;overflow:hidden;
-  border-radius:100px;cursor:none;
-  transition:transform .3s var(--ease-spring);
-}
-.btn-primary{
-  background:linear-gradient(135deg,var(--gl),var(--g) 60%,var(--gd));
-  padding:16px 40px;color:var(--ink);
-  font-family:'Cabinet Grotesk',sans-serif;
-  font-size:14px;font-weight:800;letter-spacing:.04em;
-  border:none;
-  box-shadow:0 0 80px rgba(184,150,46,.2),0 1px 0 rgba(255,255,255,.3) inset;
-}
-.btn-primary .shine{
-  position:absolute;top:0;left:-100%;width:60%;height:100%;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);
-  transform:skewX(-20deg);transition:left .5s;
-}
-.btn-primary:hover .shine{left:150%}
-.btn-ghost{
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(255,255,255,.1);
-  padding:15px 32px;color:var(--cd);
-  font-family:'Cabinet Grotesk',sans-serif;
-  font-size:14px;font-weight:600;
-  cursor:none;border-radius:100px;
-  transition:border-color .3s,color .3s,background .3s;
-}
-.btn-ghost:hover{
-  border-color:rgba(184,150,46,.4);
-  color:var(--cr);background:rgba(184,150,46,.05);
-}
-
-.cta-input-wrap{
-  display:flex;gap:0;
-  background:rgba(255,255,255,.03);
-  border:1px solid rgba(184,150,46,.2);
-  border-radius:100px;padding:5px;
-  transition:border-color .4s,box-shadow .4s;
-}
-.cta-input-wrap:focus-within{
-  border-color:rgba(184,150,46,.6);
-  box-shadow:0 0 0 4px rgba(184,150,46,.08),0 0 80px rgba(184,150,46,.15);
-}
-.cta-email{
-  background:none;border:none;outline:none;
-  padding:12px 24px;width:280px;
-  font-family:'Cabinet Grotesk',sans-serif;font-size:15px;
-  color:var(--cr);cursor:none;
-}
-.cta-email::placeholder{color:var(--tm)}
-.cta-sub{
-  font-family:'JetBrains Mono',monospace;
-  font-size:11px;letter-spacing:.08em;color:var(--tm);
-}
-
-@keyframes heroIn{
-  from{opacity:0;transform:translateY(20px)}
-  to{opacity:1;transform:translateY(0)}
-}
-
-/* SCROLL INDICATOR */
-.scroll-ind{
-  position:absolute;bottom:36px;left:50%;transform:translateX(-50%);
-  display:flex;flex-direction:column;align-items:center;gap:10px;
-  z-index:2;opacity:0;animation:heroIn .5s ease 2.2s forwards;
-}
-.scroll-ind span{
-  font-family:'JetBrains Mono',monospace;font-size:9px;
-  letter-spacing:.25em;text-transform:uppercase;color:var(--tm);
-}
-.scroll-mouse{
-  width:22px;height:36px;border-radius:100px;
-  border:1px solid rgba(184,150,46,.3);
-  display:flex;justify-content:center;padding-top:8px;
-}
-.scroll-mouse::before{
-  content:'';width:3px;height:6px;
-  background:var(--g);border-radius:100px;
-  animation:mouseScroll 2s ease-in-out infinite;
-}
-@keyframes mouseScroll{
-  0%,100%{transform:translateY(0);opacity:1}
-  80%{transform:translateY(10px);opacity:0}
-}
-
-/* ═══ MARQUEE ═══ */
-.marquee-section{
-  padding:32px 0;
-  border-top:1px solid rgba(184,150,46,.08);
-  border-bottom:1px solid rgba(184,150,46,.08);
-  overflow:hidden;position:relative;z-index:2;
-  background:rgba(184,150,46,.02);
-}
-.marquee-track{
-  display:flex;gap:0;width:max-content;
-  animation:marquee 30s linear infinite;
-}
-.marquee-item{
-  display:flex;align-items:center;gap:16px;
-  padding:0 40px;
-  border-right:1px solid rgba(184,150,46,.1);
-  font-family:'JetBrains Mono',monospace;
-  font-size:11px;letter-spacing:.15em;text-transform:uppercase;
-  color:var(--tm);white-space:nowrap;
-}
-.marquee-item .mi-dot{
-  width:5px;height:5px;border-radius:50%;
-  background:var(--g);flex-shrink:0;
-}
-@keyframes marquee{
-  from{transform:translateX(0)}
-  to{transform:translateX(-50%)}
-}
-
-/* ═══ PROBLEM SECTION — CINEMATIC ═══ */
-.problem{
-  padding:160px 80px;position:relative;
-  background:linear-gradient(to bottom,var(--ink),var(--s1));
-  overflow:hidden;
-}
-.problem::before{
-  content:'';position:absolute;
-  top:-200px;right:-200px;
-  width:700px;height:700px;
-  background:radial-gradient(circle,rgba(196,61,61,.06) 0%,transparent 60%);
-  pointer-events:none;
-}
-
-.prob-inner{
-  max-width:1280px;margin:0 auto;
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:120px;align-items:center;
-}
-
-.sec-eyebrow{
-  font-family:'JetBrains Mono',monospace;
-  font-size:10px;letter-spacing:.25em;text-transform:uppercase;
-  color:var(--g);margin-bottom:24px;
-  display:flex;align-items:center;gap:16px;
-}
-.sec-eyebrow::before{
-  content:'';width:24px;height:1px;
-  background:var(--g);
-}
-
-.prob-title{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(42px,4.5vw,68px);
-  font-weight:300;line-height:1.05;
-  margin-bottom:28px;
-}
-.prob-title em{font-style:italic;color:var(--g);font-weight:400}
-.prob-title strong{font-weight:600;color:var(--cr)}
-
-.prob-body{
-  font-size:16px;line-height:1.85;color:var(--cd);
-  margin-bottom:48px;
-}
-
-/* PAIN CARDS */
-.pain-stack{display:flex;flex-direction:column;gap:1px}
-.pain-card{
-  display:flex;gap:20px;align-items:flex-start;
-  padding:24px;
-  background:rgba(255,255,255,.015);
-  border-left:2px solid transparent;
-  transition:background .3s,border-color .3s,transform .3s;
-  cursor:default;
-}
-.pain-card:first-child{border-radius:12px 12px 0 0}
-.pain-card:last-child{border-radius:0 0 12px 12px}
-.pain-card:hover{
-  background:rgba(196,61,61,.05);
-  border-left-color:var(--red);
-  transform:translateX(4px);
-}
-.pain-ico{
-  width:40px;height:40px;flex-shrink:0;border-radius:8px;
-  background:rgba(196,61,61,.08);
-  border:1px solid rgba(196,61,61,.15);
-  display:flex;align-items:center;justify-content:center;
-  font-size:18px;
-}
-.pain-txt{flex:1}
-.pain-txt h4{font-size:15px;font-weight:700;margin-bottom:6px;color:var(--cr)}
-.pain-txt p{font-size:13px;line-height:1.7;color:var(--cd)}
-.pain-time{
-  font-family:'JetBrains Mono',monospace;font-size:11px;
-  color:var(--red);background:rgba(196,61,61,.08);
-  padding:3px 8px;border-radius:4px;white-space:nowrap;
-  margin-top:6px;display:inline-block;
-}
-
-/* 3D DASHBOARD */
-.dash-3d-wrap{
-  perspective:1200px;
-  position:relative;
-}
-.dash-3d{
-  transform:rotateY(-15deg) rotateX(8deg);
-  transform-style:preserve-3d;
-  transition:transform .6s var(--ease-out);
-  border-radius:20px;overflow:hidden;
-  border:1px solid rgba(184,150,46,.2);
-  box-shadow:
-    40px 40px 100px rgba(0,0,0,.6),
-    -10px -10px 40px rgba(184,150,46,.03),
-    0 0 0 1px rgba(184,150,46,.06);
-}
-.dash-3d-wrap:hover .dash-3d{
-  transform:rotateY(-5deg) rotateX(3deg);
-}
-/* Floating shadow */
-.dash-3d-wrap::after{
-  content:'';
-  position:absolute;bottom:-40px;left:10%;right:10%;height:40px;
-  background:radial-gradient(ellipse,rgba(184,150,46,.15) 0%,transparent 70%);
-  filter:blur(20px);
-}
-
-/* Dashboard UI */
-.db-ui{background:var(--s2);padding:0}
-.db-top{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:14px 20px;
-  background:rgba(255,255,255,.02);
-  border-bottom:1px solid rgba(255,255,255,.05);
-}
-.db-dots{display:flex;gap:6px}
-.db-dot{width:10px;height:10px;border-radius:50%}
-.db-app-name{
-  font-family:'JetBrains Mono',monospace;font-size:11px;
-  letter-spacing:.08em;color:var(--tm);
-}
-.db-time{
-  font-family:'JetBrains Mono',monospace;font-size:11px;
-  color:var(--tm);
-}
-
-/* Sidebar + Content */
-.db-body{display:flex;height:340px}
-.db-sidebar{
-  width:160px;flex-shrink:0;
-  background:rgba(0,0,0,.2);
-  border-right:1px solid rgba(255,255,255,.04);
-  padding:16px 0;
-}
-.db-nav-item{
-  display:flex;align-items:center;gap:10px;
-  padding:10px 16px;
-  font-family:'JetBrains Mono',monospace;font-size:10px;
-  letter-spacing:.05em;color:var(--tm);
-  transition:background .2s,color .2s;
-  cursor:default;
-}
-.db-nav-item:hover{background:rgba(184,150,46,.05);color:var(--cr)}
-.db-nav-item.active{
-  background:rgba(184,150,46,.08);
-  color:var(--g);
-  border-right:2px solid var(--g);
-}
-.db-nav-icon{font-size:13px}
-.db-content{flex:1;padding:16px;overflow:hidden}
-
-.db-kpis{
-  display:grid;grid-template-columns:1fr 1fr 1fr;
-  gap:8px;margin-bottom:12px;
-}
-.kpi{
-  background:rgba(255,255,255,.03);
-  border:1px solid rgba(255,255,255,.05);
-  border-radius:10px;padding:12px;
-  position:relative;overflow:hidden;
-}
-.kpi::before{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(135deg,rgba(184,150,46,.04),transparent);
-  opacity:0;transition:opacity .3s;
-}
-.kpi:hover::before{opacity:1}
-.kpi-val{
-  font-family:'Cormorant Garamond',serif;
-  font-size:24px;font-weight:700;
-  color:var(--cr);line-height:1;
-}
-.kpi-val.gold{
-  background:linear-gradient(135deg,var(--gl),var(--g));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-}
-.kpi-val.green{color:var(--green)}
-.kpi-lbl{
-  font-family:'JetBrains Mono',monospace;font-size:9px;
-  letter-spacing:.1em;text-transform:uppercase;
-  color:var(--tm);margin-top:4px;
-}
-.kpi-chg{
-  font-family:'JetBrains Mono',monospace;font-size:9px;
-  color:var(--green);background:rgba(61,196,154,.08);
-  padding:2px 6px;border-radius:4px;margin-top:6px;
-  display:inline-block;
-}
-
-/* Mini chart */
-.mini-chart-wrap{
-  background:rgba(255,255,255,.02);
-  border:1px solid rgba(255,255,255,.05);
-  border-radius:10px;padding:12px;
-  margin-bottom:10px;height:100px;
-  position:relative;overflow:hidden;
-}
-.chart-label{
-  font-family:'JetBrains Mono',monospace;font-size:9px;
-  letter-spacing:.1em;text-transform:uppercase;
-  color:var(--tm);margin-bottom:8px;
-}
-.mini-chart-svg{width:100%;height:60px}
-
-/* Activity feed */
-.activity-feed{
-  background:rgba(255,255,255,.02);
-  border:1px solid rgba(255,255,255,.05);
-  border-radius:10px;padding:10px;
-}
-.act-item{
-  display:flex;align-items:center;gap:8px;
-  padding:7px 0;
-  border-bottom:1px solid rgba(255,255,255,.03);
-  font-family:'JetBrains Mono',monospace;font-size:9px;
-  color:var(--tm);
-  animation:actSlideIn .5s ease forwards;
-  opacity:0;
-}
-.act-item:last-child{border-bottom:none}
-.act-dot{
-  width:6px;height:6px;border-radius:50%;flex-shrink:0;
-}
-@keyframes actSlideIn{
-  from{opacity:0;transform:translateX(-10px)}
-  to{opacity:1;transform:translateX(0)}
-}
-
-/* ═══ FEATURES — BENTO GRID ═══ */
-.features{
-  padding:160px 80px;
-  background:var(--s1);
-  position:relative;overflow:hidden;
-}
-.features::before{
-  content:'';position:absolute;
-  top:50%;left:50%;transform:translate(-50%,-50%);
-  width:1000px;height:1000px;
-  background:radial-gradient(circle,rgba(184,150,46,.04) 0%,transparent 60%);
-  pointer-events:none;
-}
-
-.feat-header{
-  text-align:center;margin-bottom:80px;
-}
-.feat-title{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(44px,5vw,80px);font-weight:300;line-height:1;
-  margin-bottom:20px;
-}
-.feat-title em{font-style:italic;color:var(--g);font-weight:400}
-.feat-sub{font-size:17px;color:var(--cd);max-width:480px;margin:0 auto;line-height:1.7}
-
-/* BENTO GRID */
-.bento{
-  max-width:1280px;margin:0 auto;
-  display:grid;
-  grid-template-columns:repeat(12,1fr);
-  grid-template-rows:auto;
-  gap:16px;
-}
-.bento-card{
-  background:rgba(255,255,255,.02);
-  border:1px solid rgba(255,255,255,.06);
-  border-radius:20px;padding:40px;
-  position:relative;overflow:hidden;
-  transition:border-color .4s,background .4s,transform .4s var(--ease-out),box-shadow .4s;
-  cursor:default;
-}
-.bento-card:hover{
-  border-color:rgba(184,150,46,.25);
-  background:rgba(184,150,46,.03);
-  transform:translateY(-4px);
-  box-shadow:0 24px 60px rgba(0,0,0,.3),0 0 60px rgba(184,150,46,.05);
-}
-.bento-card::before{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(135deg,rgba(184,150,46,.06),transparent 50%);
-  opacity:0;transition:opacity .4s;
-}
-.bento-card:hover::before{opacity:1}
-
-/* Grid placement */
-.bc-1{grid-column:1/6;grid-row:1}
-.bc-2{grid-column:6/13;grid-row:1}
-.bc-3{grid-column:1/5;grid-row:2}
-.bc-4{grid-column:5/9;grid-row:2}
-.bc-5{grid-column:9/13;grid-row:2}
-.bc-6{grid-column:1/7;grid-row:3}
-.bc-7{grid-column:7/13;grid-row:3}
-
-.b-num{
-  font-family:'Cormorant Garamond',serif;
-  font-size:80px;font-weight:300;
-  color:rgba(184,150,46,.08);
-  position:absolute;top:10px;right:20px;
-  line-height:1;pointer-events:none;
-}
-.b-icon{
-  width:52px;height:52px;border-radius:14px;
-  background:linear-gradient(135deg,rgba(184,150,46,.15),rgba(184,150,46,.04));
-  border:1px solid rgba(184,150,46,.2);
-  display:flex;align-items:center;justify-content:center;
-  font-size:24px;margin-bottom:28px;
-  position:relative;z-index:1;
-  transition:transform .3s var(--ease-spring),box-shadow .3s;
-}
-.bento-card:hover .b-icon{
-  transform:scale(1.1);
-  box-shadow:0 8px 30px rgba(184,150,46,.2);
-}
-.b-name{
-  font-size:20px;font-weight:700;margin-bottom:12px;
-  color:var(--cr);position:relative;z-index:1;
-  font-family:'Cabinet Grotesk',sans-serif;
-}
-.b-desc{
-  font-size:14px;line-height:1.75;color:var(--cd);
-  position:relative;z-index:1;
-}
-.b-tag{
-  display:inline-flex;align-items:center;gap:6px;
-  margin-top:20px;
-  font-family:'JetBrains Mono',monospace;
-  font-size:10px;letter-spacing:.1em;text-transform:uppercase;
-  padding:5px 12px;border-radius:100px;
-  background:rgba(184,150,46,.08);
-  border:1px solid rgba(184,150,46,.15);
-  color:var(--g);position:relative;z-index:1;
-}
-.b-tag .t-dot{
-  width:5px;height:5px;border-radius:50%;
-  background:var(--g);flex-shrink:0;
-}
-
-/* Special bento cards */
-.bc-large{
-  background:linear-gradient(135deg,rgba(184,150,46,.08),rgba(184,150,46,.02));
-}
-
-/* Animated connection lines inside a card */
-.bc-automation .flow{
-  display:flex;align-items:center;gap:8px;
-  margin-top:24px;flex-wrap:wrap;
-}
-.flow-step{
-  display:flex;align-items:center;gap:8px;
-}
-.flow-badge{
-  font-family:'JetBrains Mono',monospace;font-size:10px;
-  padding:6px 12px;border-radius:8px;
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(255,255,255,.08);
-  color:var(--cd);white-space:nowrap;
-}
-.flow-arrow{
-  color:var(--g);font-size:14px;
-  animation:flowArrow 2s ease-in-out infinite;
-}
-@keyframes flowArrow{
-  0%,100%{opacity:.4;transform:translateX(0)}
-  50%{opacity:1;transform:translateX(4px)}
-}
-
-/* Signature animation */
-.sig-demo{
-  margin-top:24px;padding:16px;
-  background:rgba(255,255,255,.03);
-  border:1px solid rgba(255,255,255,.06);
-  border-radius:12px;position:relative;
-}
-.sig-line{
-  height:2px;
-  background:linear-gradient(to right,var(--g),var(--gl));
-  border-radius:100px;width:0;
-  animation:sigDraw 2s ease-out 1s forwards;
-  margin-bottom:8px;
-}
-@keyframes sigDraw{to{width:80%}}
-.sig-text{
-  font-family:'JetBrains Mono',monospace;font-size:10px;
-  letter-spacing:.1em;text-transform:uppercase;
-  color:var(--green);display:flex;align-items:center;gap:6px;
-}
-
-/* ═══ NUMBERS SECTION ═══ */
-.numbers{
-  padding:120px 80px;
-  background:var(--ink);
-  position:relative;overflow:hidden;
-}
-.numbers::before{
-  content:'FINOX';
-  position:absolute;
-  font-family:'Cormorant Garamond',serif;
-  font-size:300px;font-weight:900;
-  color:rgba(184,150,46,.02);
-  top:50%;left:50%;transform:translate(-50%,-50%);
-  pointer-events:none;white-space:nowrap;letter-spacing:.2em;
-}
-.numbers-grid{
-  max-width:1200px;margin:0 auto;
-  display:grid;grid-template-columns:repeat(4,1fr);
-  gap:1px;
-  border:1px solid rgba(184,150,46,.1);
-  border-radius:20px;overflow:hidden;
-}
-.num-card{
-  padding:60px 40px;text-align:center;
-  background:rgba(184,150,46,.02);
-  position:relative;overflow:hidden;
-  transition:background .4s;
-}
-.num-card:hover{background:rgba(184,150,46,.05)}
-.num-card::after{
-  content:'';position:absolute;
-  top:0;left:20%;right:20%;height:1px;
-  background:linear-gradient(to right,transparent,rgba(184,150,46,.4),transparent);
-  opacity:0;transition:opacity .4s;
-}
-.num-card:hover::after{opacity:1}
-.num-big{
-  font-family:'Cormorant Garamond',serif;
-  font-size:80px;font-weight:700;line-height:1;
-  background:linear-gradient(180deg,var(--gl) 0%,var(--g) 100%);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-}
-.num-unit{
-  font-family:'Cormorant Garamond',serif;
-  font-size:36px;font-weight:300;
-  color:var(--g);
-}
-.num-label{
-  font-size:15px;color:var(--cd);margin-top:12px;line-height:1.5;
-}
-.num-sub{
-  font-family:'JetBrains Mono',monospace;font-size:10px;
-  letter-spacing:.1em;text-transform:uppercase;
-  color:var(--tm);margin-top:8px;
-}
-
-/* ═══ TESTIMONIAL / SOCIAL PROOF ═══ */
-.proof{
-  padding:120px 80px;
-  background:var(--s1);
-  position:relative;
-}
-.proof-title{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(38px,4vw,60px);font-weight:300;
-  text-align:center;margin-bottom:64px;
-}
-.proof-title em{font-style:italic;color:var(--g)}
-.proof-grid{
-  max-width:1100px;margin:0 auto;
-  display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;
-}
-.proof-card{
-  background:rgba(255,255,255,.02);
-  border:1px solid rgba(255,255,255,.06);
-  border-radius:20px;padding:36px;
-  position:relative;overflow:hidden;
-  transition:border-color .4s,transform .4s var(--ease-out);
-}
-.proof-card:hover{
-  border-color:rgba(184,150,46,.2);
-  transform:translateY(-4px);
-}
-.proof-quote{
-  font-family:'Cormorant Garamond',serif;
-  font-size:42px;color:rgba(184,150,46,.3);
-  line-height:1;margin-bottom:16px;
-}
-.proof-text{
-  font-size:15px;line-height:1.75;color:var(--cd);
-  margin-bottom:24px;
-}
-.proof-author{
-  display:flex;align-items:center;gap:12px;
-}
-.proof-avatar{
-  width:40px;height:40px;border-radius:50%;
-  border:1px solid rgba(184,150,46,.2);
-  display:flex;align-items:center;justify-content:center;
-  font-size:16px;background:rgba(184,150,46,.08);
-  font-family:'Cormorant Garamond',serif;font-weight:700;
-  color:var(--g);
-}
+/* ── REMAINING CSS NOT IN finox.css ─────────────────────── */
+/* Signature doc preview */
+.doc-preview{background:var(--s1);border:1px solid rgba(255,255,255,.07);border-radius:20px;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.45)}
+.dp-header{padding:14px 20px;border-bottom:1px solid rgba(255,255,255,.05);background:rgba(0,0,0,.22);display:flex;align-items:center;gap:12px}
+.dp-icon{font-size:20px}
+.dp-title{font-size:13px;font-weight:700}
+.dp-sub{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--cm);margin-top:1px}
+.dp-status{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--green);display:flex;align-items:center;gap:5px}
+.dp-status::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--green)}
+.dp-body{padding:16px;display:flex;flex-direction:column;gap:10px}
+.dp-row{display:flex;gap:12px;align-items:flex-start}
+.dp-lbl{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.07em;text-transform:uppercase;color:var(--cm);width:120px;flex-shrink:0;margin-top:2px}
+.dp-val{font-size:12px;color:var(--cd);line-height:1.6}
+.sig-block{padding:12px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);border-radius:10px;margin-top:4px}
+.sig-animated-line{height:1px;background:linear-gradient(to right,var(--g),var(--gl));margin-bottom:7px;width:0;transition:width 2.2s cubic-bezier(0.16,1,0.3,1)}
+.sig-animated-line.an{width:85%}
+.sig-confirm{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--green);display:flex;align-items:center;gap:6px}
+/* Conformite section */
+.conf-section{padding:150px 60px;background:var(--s2);overflow:hidden}
+.conf-layout{max-width:1300px;margin:65px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
+.conf-list{display:flex;flex-direction:column;gap:12px}
+.conf-item{display:flex;gap:18px;padding:22px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.055);border-radius:16px;cursor:default;transition:all .3s}
+.conf-item:hover{border-color:rgba(62,200,154,.22);background:rgba(62,200,154,.03);transform:translateX(5px)}
+.conf-ic{width:44px;height:44px;border-radius:12px;background:rgba(62,200,154,.08);border:1px solid rgba(62,200,154,.18);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.conf-tx h4{font-size:15px;font-weight:700;margin-bottom:5px}
+.conf-tx p{font-size:13px;line-height:1.7;color:var(--cd)}
+/* AI section */
+.ai-section{padding:150px 60px;background:linear-gradient(to bottom,var(--s2),var(--ink));overflow:hidden;position:relative}
+.ai-section::before{content:'';position:absolute;top:0;right:0;width:700px;height:700px;background:radial-gradient(circle,rgba(138,106,228,.055),transparent 60%);pointer-events:none}
+.ai-layout{max-width:1300px;margin:65px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center}
+.ai-chat-box{background:var(--s2);border:1px solid rgba(255,255,255,.07);border-radius:22px;overflow:hidden;box-shadow:0 40px 90px rgba(0,0,0,.55)}
+.ai-chat-top{display:flex;align-items:center;gap:13px;padding:14px 18px;border-bottom:1px solid rgba(255,255,255,.05);background:rgba(0,0,0,.22)}
+.ai-bot-av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--purple),rgba(138,106,228,.4));display:flex;align-items:center;justify-content:center;font-size:16px}
+.ai-bot-name{font-size:13px;font-weight:700}
+.ai-bot-stat{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--green);display:flex;align-items:center;gap:5px}
+.ai-bot-stat::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--green);animation:livePulse 2s infinite}
+.ai-messages{padding:18px;display:flex;flex-direction:column;gap:14px}
+.ai-msg{display:flex;gap:10px;align-items:flex-start}
+.ai-msg-avatar{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+.ai-msg.is-ai .ai-msg-avatar{background:linear-gradient(135deg,var(--purple),rgba(138,106,228,.4))}
+.ai-msg.is-user{flex-direction:row-reverse}
+.ai-msg.is-user .ai-msg-avatar{background:linear-gradient(135deg,var(--g),var(--gd))}
+.ai-bubble{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:11px 15px;font-size:12px;line-height:1.65;color:var(--cd);max-width:88%}
+.ai-msg.is-user .ai-bubble{background:rgba(196,162,74,.07);border-color:rgba(196,162,74,.16)}
+.ai-bubble strong{color:var(--cr);display:block;margin-bottom:4px;font-size:11px;font-weight:700}
+.ai-typing-dots{display:flex;gap:4px;align-items:center;padding:3px 0}
+.ai-typing-dots span{width:5px;height:5px;border-radius:50%;background:var(--cm);animation:typingBounce 1.5s ease-in-out infinite}
+.ai-typing-dots span:nth-child(2){animation-delay:.22s}
+.ai-typing-dots span:nth-child(3){animation-delay:.44s}
+@keyframes typingBounce{0%,80%,100%{transform:scale(.55);opacity:.35}40%{transform:scale(1);opacity:1}}
+.ai-bullets{display:flex;flex-direction:column;gap:11px;margin-top:24px}
+.ai-bullet{display:flex;gap:16px;align-items:flex-start;padding:18px 20px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.055);border-radius:14px;transition:all .35s;cursor:default}
+.ai-bullet:hover{border-color:rgba(138,106,228,.24);background:rgba(138,106,228,.042)}
+.ai-bullet-icon{font-size:19px;flex-shrink:0;margin-top:2px}
+.ai-bullet-text h4{font-size:14px;font-weight:700;margin-bottom:5px}
+.ai-bullet-text p{font-size:13px;line-height:1.65;color:var(--cd)}
+/* Communication section */
+.comm-section{padding:150px 60px;background:var(--ink);overflow:hidden;position:relative}
+.comm-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:1100px;height:800px;background:radial-gradient(ellipse,rgba(74,142,212,.038),transparent 55%);pointer-events:none}
+.comm-layout{max-width:1300px;margin:65px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center}
+.comm-features{display:flex;flex-direction:column;gap:14px}
+.comm-feat{display:flex;gap:18px;padding:22px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.055);border-radius:16px;cursor:default;transition:all .32s}
+.comm-feat:hover{border-color:rgba(74,142,212,.26);background:rgba(74,142,212,.032);transform:translateX(5px)}
+.comm-feat-icon{width:46px;height:46px;border-radius:12px;background:rgba(74,142,212,.1);border:1px solid rgba(74,142,212,.2);display:flex;align-items:center;justify-content:center;font-size:21px;flex-shrink:0}
+.comm-feat-text h4{font-size:15px;font-weight:700;margin-bottom:5px}
+.comm-feat-text p{font-size:13px;line-height:1.7;color:var(--cd)}
+.comm-inbox-box{background:var(--s2);border:1px solid rgba(255,255,255,.07);border-radius:22px;overflow:hidden;box-shadow:0 40px 90px rgba(0,0,0,.45)}
+.comm-tabs-row{display:flex;border-bottom:1px solid rgba(255,255,255,.05)}
+.comm-tab{flex:1;padding:13px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--cm);cursor:default;transition:all .25s;border-bottom:2px solid transparent}
+.comm-tab.active{color:var(--blue);border-bottom-color:var(--blue)}
+.inbox-list{padding:14px}
+.inbox-item{display:flex;gap:12px;padding:11px;border-radius:12px;cursor:default;transition:background .2s;margin-bottom:4px}
+.inbox-item:hover{background:rgba(255,255,255,.04)}
+.inbox-item.unread{background:rgba(74,142,212,.04);border:1px solid rgba(74,142,212,.09)}
+.inbox-avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,rgba(196,162,74,.25),rgba(196,162,74,.08));border:1px solid rgba(196,162,74,.2);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:700;color:var(--g);flex-shrink:0}
+.inbox-info{flex:1}
+.inbox-from{font-size:12px;font-weight:700;display:flex;justify-content:space-between}
+.inbox-from span{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--cm);font-weight:400}
+.inbox-preview{font-size:11px;color:var(--cd);margin-top:2px;line-height:1.5}
+.inbox-badge{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:8px;padding:2px 7px;border-radius:100px;margin-top:5px}
+.ibadge-gn{background:var(--greendim);color:var(--green)}
+.ibadge-bl{background:var(--bluedim);color:var(--blue)}
+.ibadge-or{background:rgba(196,162,74,.1);color:var(--g)}
+/* Timeline section */
+.timeline-section{padding:150px 60px;background:var(--s1);overflow:hidden}
+.tl-wrap{max-width:840px;margin:65px auto 0;background:var(--s2);border:1px solid rgba(255,255,255,.07);border-radius:22px;overflow:hidden;box-shadow:0 40px 90px rgba(0,0,0,.45)}
+.tl-top{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;border-bottom:1px solid rgba(255,255,255,.05)}
+.tl-top-name{font-size:15px;font-weight:800}
+.tl-top-sub{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--cm);margin-top:2px}
+.tl-filters{display:flex;gap:6px}
+.tl-filter{font-family:'JetBrains Mono',monospace;font-size:9px;padding:4px 11px;border-radius:100px;color:var(--cm);border:1px solid rgba(255,255,255,.07);cursor:default;transition:all .2s}
+.tl-filter.active{border-color:rgba(196,162,74,.3);color:var(--g);background:rgba(196,162,74,.07)}
+.tl-body{padding:18px;position:relative}
+.tl-body::before{content:'';position:absolute;left:33px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,rgba(196,162,74,.3),rgba(196,162,74,.05))}
+.tl-event{display:flex;gap:14px;padding:9px 0}
+.tl-event-icon{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;position:relative;z-index:1;border:1px solid rgba(255,255,255,.1)}
+.tl-icon-sign  {background:rgba(62,200,154,.15);border-color:rgba(62,200,154,.35)}
+.tl-icon-email {background:rgba(74,142,212,.15);border-color:rgba(74,142,212,.35)}
+.tl-icon-call  {background:rgba(138,106,228,.15);border-color:rgba(138,106,228,.35)}
+.tl-icon-note  {background:rgba(196,162,74,.12);border-color:rgba(196,162,74,.3)}
+.tl-icon-future{background:rgba(62,200,154,.05);border-color:rgba(62,200,154,.2);border-style:dashed}
+.tl-icon-opport{background:rgba(196,162,74,.07);border-color:rgba(196,162,74,.25);border-style:dashed}
+.tl-event-body{flex:1;padding-bottom:9px;border-bottom:1px solid rgba(255,255,255,.032)}
+.tl-event:last-child .tl-event-body{border-bottom:none}
+.tl-event-title{font-size:12px;font-weight:700;margin-bottom:3px;display:flex;align-items:center;flex-wrap:wrap;gap:7px}
+.tl-event-desc{font-size:11px;color:var(--cd);line-height:1.6}
+.tl-event-time{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--cm);margin-top:3px}
+.tag-fut{font-family:'JetBrains Mono',monospace;font-size:8px;padding:2px 8px;border-radius:100px;background:var(--greendim);color:var(--green);border:1px solid rgba(62,200,154,.22)}
+.tag-opp{font-family:'JetBrains Mono',monospace;font-size:8px;padding:2px 8px;border-radius:100px;background:rgba(196,162,74,.08);color:var(--g);border:1px solid rgba(196,162,74,.22)}
+/* Opportunities section */
+.opps-section{padding:150px 60px;background:linear-gradient(to bottom,var(--s1),var(--s2));overflow:hidden}
+.opps-grid{max-width:1300px;margin:65px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.opp-card{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.058);border-radius:22px;padding:30px;cursor:default;transition:all .42s var(--ease-out);position:relative;overflow:hidden}
+.opp-card:hover{border-color:rgba(196,162,74,.24);background:rgba(196,162,74,.032);transform:translateY(-6px);box-shadow:0 30px 65px rgba(0,0,0,.32)}
+.opp-card::after{content:'';position:absolute;inset:0;background:linear-gradient(140deg,rgba(196,162,74,.05),transparent);opacity:0;transition:opacity .4s}
+.opp-card:hover::after{opacity:1}
+.opp-icon{font-size:28px;margin-bottom:16px}
+.opp-name{font-size:16px;font-weight:800;margin-bottom:8px}
+.opp-desc{font-size:13px;line-height:1.78;color:var(--cd)}
+.opp-tag{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;padding:5px 13px;border-radius:100px;background:rgba(196,162,74,.06);border:1px solid rgba(196,162,74,.14);color:var(--g)}
+/* Numbers section */
+.numbers-section{padding:130px 60px;background:var(--ink);position:relative;overflow:hidden}
+.numbers-section::before{content:'FINOX';position:absolute;font-family:'Cormorant Garamond',serif;font-size:clamp(180px,22vw,400px);font-weight:900;color:rgba(196,162,74,.017);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;white-space:nowrap;letter-spacing:.08em}
+.numbers-grid{max-width:1200px;margin:65px auto 0;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;border:1px solid rgba(196,162,74,.1);border-radius:22px;overflow:hidden}
+.num-cell{padding:56px 38px;text-align:center;background:rgba(196,162,74,.02);position:relative;overflow:hidden;transition:background .4s;cursor:default}
+.num-cell:hover{background:rgba(196,162,74,.055)}
+.num-cell::after{content:'';position:absolute;top:0;left:15%;right:15%;height:1px;background:linear-gradient(to right,transparent,rgba(196,162,74,.5),transparent);opacity:0;transition:opacity .4s}
+.num-cell:hover::after{opacity:1}
+.big-num{font-family:'Cormorant Garamond',serif;font-size:74px;font-weight:700;line-height:1;background:linear-gradient(180deg,var(--gl),var(--g));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.num-suffix{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--g)}
+.num-label{font-size:14px;color:var(--cd);margin-top:13px;line-height:1.55}
+.num-source{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--cm);margin-top:7px}
+/* Roadmap section */
+.roadmap-section{padding:150px 60px;background:linear-gradient(to bottom,var(--s2),var(--ink));overflow:hidden}
+.roadmap-inner{max-width:920px;margin:0 auto}
+.roadmap-tl{position:relative;margin-top:70px}
+.rm-line{position:absolute;left:23px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--g),rgba(196,162,74,.04))}
+.rm-item{display:flex;gap:52px;margin-bottom:58px}
+.rm-node{width:46px;height:46px;border-radius:50%;background:var(--ink);border:2px solid rgba(196,162,74,.25);display:flex;align-items:center;justify-content:center;font-size:16px;position:relative;z-index:1;flex-shrink:0;transition:all .35s}
+.rm-item:hover .rm-node{border-color:var(--g);box-shadow:0 0 24px rgba(196,162,74,.22)}
+.rm-node.done{border-color:var(--green);background:rgba(62,200,154,.06)}
+.rm-node.active{border-color:var(--g);background:rgba(196,162,74,.07);box-shadow:0 0 28px rgba(196,162,74,.2)}
+.rm-content{padding-top:8px}
+.rm-phase{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--g);margin-bottom:8px}
+.rm-title{font-size:21px;font-weight:700;margin-bottom:9px}
+.rm-desc{font-size:14px;line-height:1.78;color:var(--cd)}
+.rm-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
+.rm-chip{font-family:'JetBrains Mono',monospace;font-size:9px;text-transform:uppercase;padding:4px 11px;border-radius:7px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);color:var(--cm)}
+.rm-chip.gold{border-color:rgba(196,162,74,.2);color:var(--g);background:rgba(196,162,74,.06)}
+/* Proof / Testimonials */
+.proof-section{padding:130px 60px;background:var(--s1)}
+.proof-grid{max-width:1120px;margin:65px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.proof-card{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.055);border-radius:22px;padding:34px;position:relative;overflow:hidden;transition:all .4s;cursor:default}
+.proof-card:hover{border-color:rgba(196,162,74,.22);transform:translateY(-5px);box-shadow:0 32px 65px rgba(0,0,0,.3)}
+.proof-quote-mark{font-family:'Cormorant Garamond',serif;font-size:54px;color:rgba(196,162,74,.22);line-height:1;margin-bottom:16px}
+.proof-text{font-size:14px;line-height:1.85;color:var(--cd);margin-bottom:24px;font-style:italic}
+.proof-author{display:flex;align-items:center;gap:13px}
+.proof-avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,rgba(196,162,74,.2),rgba(196,162,74,.07));border:1px solid rgba(196,162,74,.22);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:700;color:var(--g)}
 .proof-name{font-size:14px;font-weight:700}
-.proof-role{
-  font-family:'JetBrains Mono',monospace;font-size:10px;
-  letter-spacing:.08em;color:var(--tm);margin-top:2px;
-}
-
-/* ═══ ROADMAP TIMELINE ═══ */
-.roadmap{
-  padding:160px 80px;
-  background:linear-gradient(to bottom,var(--s1),var(--ink));
-  position:relative;overflow:hidden;
-}
-.roadmap-inner{max-width:900px;margin:0 auto}
-.roadmap-title{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(44px,5vw,72px);font-weight:300;
-  margin-bottom:80px;
-}
-.roadmap-title em{font-style:italic;color:var(--g)}
-
-.timeline{position:relative}
-.tl-line{
-  position:absolute;left:24px;top:0;bottom:0;width:1px;
-  background:linear-gradient(to bottom,var(--g),rgba(184,150,46,.05));
-}
-.tl-item{
-  display:flex;gap:48px;margin-bottom:56px;
-  position:relative;
-}
-.tl-node{
-  width:48px;height:48px;border-radius:50%;flex-shrink:0;
-  background:var(--ink);
-  border:2px solid rgba(184,150,46,.3);
-  display:flex;align-items:center;justify-content:center;
-  font-size:18px;position:relative;z-index:1;
-  transition:border-color .3s,box-shadow .3s;
-}
-.tl-item:hover .tl-node{
-  border-color:var(--g);
-  box-shadow:0 0 20px rgba(184,150,46,.2);
-}
-.tl-node.done{
-  border-color:var(--green);
-  background:rgba(61,196,154,.08);
-}
-.tl-node.active{
-  border-color:var(--g);
-  background:rgba(184,150,46,.08);
-  box-shadow:0 0 30px rgba(184,150,46,.2);
-}
-.tl-body{padding-top:10px}
-.tl-phase{
-  font-family:'JetBrains Mono',monospace;font-size:10px;
-  letter-spacing:.2em;text-transform:uppercase;
-  color:var(--g);margin-bottom:10px;
-}
-.tl-title{
-  font-size:22px;font-weight:700;margin-bottom:10px;
-  font-family:'Cabinet Grotesk',sans-serif;
-}
-.tl-desc{font-size:14px;line-height:1.75;color:var(--cd)}
-.tl-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
-.tl-chip{
-  font-family:'JetBrains Mono',monospace;font-size:10px;
-  letter-spacing:.08em;text-transform:uppercase;
-  padding:4px 10px;border-radius:6px;
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(255,255,255,.08);
-  color:var(--tm);
-}
-
-/* ═══ FINAL CTA ═══ */
-.final{
-  padding:200px 80px;
-  text-align:center;position:relative;overflow:hidden;
-  background:var(--ink);
-}
-/* Radial glow */
-.final::before{
-  content:'';position:absolute;
-  top:50%;left:50%;transform:translate(-50%,-50%);
-  width:1200px;height:800px;
-  background:radial-gradient(ellipse,rgba(184,150,46,.08) 0%,transparent 60%);
-  pointer-events:none;
-}
-/* Grid */
-.final::after{
-  content:'';position:absolute;inset:0;
-  background-image:
-    linear-gradient(rgba(184,150,46,.04) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(184,150,46,.04) 1px,transparent 1px);
-  background-size:80px 80px;
-  mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,black,transparent);
-  pointer-events:none;
-}
-
+.proof-role{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.07em;color:var(--cm);margin-top:3px}
+.proof-stars{position:absolute;top:28px;right:28px;color:var(--g);font-size:11px;letter-spacing:2px}
+/* Final CTA */
+.final-section{padding:190px 60px;text-align:center;position:relative;overflow:hidden;background:var(--ink)}
+.final-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:1500px;height:950px;background:radial-gradient(ellipse,rgba(196,162,74,.07),transparent 55%);pointer-events:none;animation:glowPulse 7s ease-in-out infinite}
+@keyframes glowPulse{0%,100%{opacity:1}50%{opacity:.45}}
+.final-section::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(196,162,74,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(196,162,74,.03) 1px,transparent 1px);background-size:110px 110px;mask-image:radial-gradient(ellipse 65% 65% at 50% 50%,black,transparent);pointer-events:none}
 .final-inner{position:relative;z-index:2}
-.final-eyebrow{
-  font-family:'JetBrains Mono',monospace;
-  font-size:11px;letter-spacing:.25em;text-transform:uppercase;
-  color:var(--g);margin-bottom:36px;
-  display:inline-flex;align-items:center;gap:16px;
-}
-.final-eyebrow::before,.final-eyebrow::after{
-  content:'';width:40px;height:1px;background:var(--g);
-}
-.final-title{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(56px,9vw,120px);
-  font-weight:300;line-height:.9;
-  margin-bottom:20px;letter-spacing:-.02em;
-}
-.final-title em{
-  font-style:italic;color:var(--g);
-  display:block;font-weight:600;
-}
-.final-sub{
-  font-size:18px;color:var(--cd);
-  max-width:520px;margin:0 auto 56px;line-height:1.7;
-}
-
-/* BIG FORM */
-.big-form{
-  display:flex;flex-direction:column;align-items:center;gap:24px;
-}
-.form-row{
-  display:flex;gap:12px;
-  background:rgba(255,255,255,.03);
-  border:1px solid rgba(184,150,46,.2);
-  border-radius:16px;padding:8px;
-  width:600px;max-width:100%;
-  transition:border-color .4s,box-shadow .4s;
-}
-.form-row:focus-within{
-  border-color:rgba(184,150,46,.6);
-  box-shadow:0 0 0 4px rgba(184,150,46,.08),0 0 100px rgba(184,150,46,.12);
-}
-.form-input{
-  flex:1;background:none;border:none;outline:none;
-  padding:14px 20px;font-family:'Cabinet Grotesk',sans-serif;
-  font-size:15px;color:var(--cr);cursor:none;
-}
-.form-input::placeholder{color:var(--tm)}
-.form-divider{
-  width:1px;background:rgba(255,255,255,.06);
-  margin:8px 0;
-}
-.btn-submit{
-  background:linear-gradient(135deg,var(--gl),var(--g));
-  border:none;border-radius:10px;
-  padding:14px 36px;
-  font-family:'Cabinet Grotesk',sans-serif;font-size:15px;font-weight:800;
-  color:var(--ink);cursor:none;white-space:nowrap;
-  transition:transform .3s var(--ease-spring),box-shadow .3s;
-  box-shadow:0 4px 30px rgba(184,150,46,.3);
-  position:relative;overflow:hidden;
-}
-.btn-submit::before{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(135deg,rgba(255,255,255,.15),transparent);
-  opacity:0;transition:opacity .3s;
-}
-.btn-submit:hover{
-  transform:scale(1.03);
-  box-shadow:0 8px 50px rgba(184,150,46,.5);
-}
-.btn-submit:hover::before{opacity:1}
-
-.trust-row{
-  display:flex;gap:32px;justify-content:center;flex-wrap:wrap;
-}
-.trust-item{
-  display:flex;align-items:center;gap:8px;
-  font-family:'JetBrains Mono',monospace;font-size:11px;
-  letter-spacing:.08em;color:var(--tm);
-}
-.trust-check{
-  width:18px;height:18px;border-radius:50%;
-  background:rgba(61,196,154,.1);
-  border:1px solid rgba(61,196,154,.2);
-  display:flex;align-items:center;justify-content:center;
-  font-size:9px;color:var(--green);
-}
-
-/* Spots counter */
-.spots-counter{
-  display:inline-flex;align-items:center;gap:12px;
-  padding:12px 24px;border-radius:100px;
-  background:rgba(196,61,61,.06);
-  border:1px solid rgba(196,61,61,.15);
-  font-family:'JetBrains Mono',monospace;font-size:12px;
-  letter-spacing:.08em;color:#E07070;
-}
-.spots-bar{
-  width:80px;height:4px;background:rgba(196,61,61,.2);
-  border-radius:100px;overflow:hidden;
-}
-.spots-fill{
-  height:100%;width:68%;
-  background:linear-gradient(to right,var(--red),#E07070);
-  border-radius:100px;
-}
-
-/* SUCCESS STATE */
-.success-state{
-  display:none;
-  flex-direction:column;align-items:center;gap:16px;
-  animation:heroIn .5s ease;
-}
-.success-state.show{display:flex}
-.success-icon{
-  width:80px;height:80px;border-radius:50%;
-  background:rgba(61,196,154,.08);
-  border:2px solid rgba(61,196,154,.3);
-  display:flex;align-items:center;justify-content:center;
-  font-size:32px;
-  animation:successPop .6s var(--ease-spring);
-}
-@keyframes successPop{
-  from{transform:scale(0)}
-  to{transform:scale(1)}
-}
-.success-title{
-  font-family:'Cormorant Garamond',serif;
-  font-size:36px;font-weight:600;color:var(--green);
-}
-.success-sub{font-size:15px;color:var(--cd)}
-
-/* FOOTER */
-footer{
-  padding:48px 80px;
-  border-top:1px solid rgba(255,255,255,.04);
-  display:flex;align-items:center;justify-content:space-between;
-  background:var(--ink);
-}
-.footer-logo{
-  font-family:'Cormorant Garamond',serif;
-  font-size:20px;font-weight:700;letter-spacing:.05em;
-  color:var(--cr);
-}
+.final-eyebrow{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--g);margin-bottom:38px;display:inline-flex;align-items:center;gap:18px}
+.final-eyebrow::before,.final-eyebrow::after{content:'';width:38px;height:1px;background:var(--g)}
+.final-title{font-family:'Cormorant Garamond',serif;font-size:clamp(60px,10vw,130px);font-weight:300;line-height:.88;margin-bottom:14px}
+.final-title em{font-style:italic;color:var(--g);display:block;font-weight:600}
+.final-sub{font-size:17px;color:var(--cd);max-width:540px;margin:0 auto 56px;line-height:1.8}
+.spots-bar-row{display:inline-flex;align-items:center;gap:16px;padding:13px 26px;border-radius:100px;background:var(--reddim);border:1px solid rgba(196,74,74,.15);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:#E08080;margin-bottom:28px}
+.spots-track{width:90px;height:4px;background:rgba(196,74,74,.15);border-radius:100px;overflow:hidden}
+.spots-fill{height:100%;width:68%;background:linear-gradient(to right,var(--red),#E08080);border-radius:100px;transition:width .5s var(--ease-out)}
+#cta-form-inner{display:flex;flex-direction:column;align-items:center;gap:14px}
+.cta-row{display:flex;gap:10px;background:rgba(255,255,255,.03);border:1px solid rgba(196,162,74,.18);border-radius:18px;padding:8px;width:700px;max-width:100%;transition:border-color .4s,box-shadow .4s}
+.cta-row:focus-within{border-color:rgba(196,162,74,.58);box-shadow:0 0 0 4px rgba(196,162,74,.07),0 0 130px rgba(196,162,74,.12)}
+.cta-input{flex:1;background:none;border:none;outline:none;padding:14px 18px;font-family:'Cabinet Grotesk',sans-serif;font-size:14px;color:var(--cr);cursor:none}
+.cta-input::placeholder{color:var(--cm)}
+.cta-divider{width:1px;background:rgba(255,255,255,.06);margin:8px 0}
+.cta-submit-btn{background:linear-gradient(140deg,var(--gl),var(--g));border:none;border-radius:12px;padding:14px 32px;font-family:'Cabinet Grotesk',sans-serif;font-size:14px;font-weight:800;color:var(--ink);cursor:none;white-space:nowrap;transition:transform .35s var(--ease-spring),box-shadow .35s;box-shadow:0 4px 32px rgba(196,162,74,.26);position:relative;overflow:hidden}
+.cta-submit-btn:hover{transform:scale(1.05);box-shadow:0 8px 55px rgba(196,162,74,.48)}
+.trust-row{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin-top:8px}
+.trust-item{display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.06em;color:var(--cm)}
+.trust-check{width:18px;height:18px;border-radius:50%;background:var(--greendim);border:1px solid rgba(62,200,154,.2);display:flex;align-items:center;justify-content:center;font-size:9px;color:var(--green)}
+#cta-success{display:none;flex-direction:column;align-items:center;gap:18px;animation:fadeUp .6s ease}
+#cta-success.show{display:flex}
+.success-circle{width:84px;height:84px;border-radius:50%;background:var(--greendim);border:2px solid rgba(62,200,154,.32);display:flex;align-items:center;justify-content:center;font-size:34px;animation:popIn .7s cubic-bezier(0.34,1.56,0.64,1)}
+@keyframes popIn{from{transform:scale(0) rotate(-180deg)}to{transform:scale(1) rotate(0deg)}}
+.success-title{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:600;color:var(--green)}
+.success-sub{font-size:16px;color:var(--cd);max-width:420px;text-align:center;line-height:1.7}
+/* Footer */
+footer{padding:48px 60px;border-top:1px solid rgba(255,255,255,.05);display:flex;align-items:center;justify-content:space-between;background:var(--ink)}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:700;letter-spacing:.07em;color:var(--cr)}
 .footer-logo span{color:var(--g)}
-.footer-links{
-  display:flex;gap:32px;
-}
-.footer-link{
-  font-family:'JetBrains Mono',monospace;font-size:11px;
-  letter-spacing:.1em;text-transform:uppercase;color:var(--tm);
-  text-decoration:none;transition:color .3s;
-}
+.footer-links{display:flex;gap:26px}
+.footer-link{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--cm);text-decoration:none;transition:color .3s}
 .footer-link:hover{color:var(--cr)}
-.footer-copy{
-  font-family:'JetBrains Mono',monospace;font-size:11px;
-  letter-spacing:.08em;color:var(--tm);
-}
-
-/* REVEAL */
-.rx{
-  opacity:0;transform:translateY(30px);
-  transition:opacity .8s var(--ease-out),transform .8s var(--ease-out);
-}
-.rx.in{opacity:1;transform:translateY(0)}
-.rx-l{
-  opacity:0;transform:translateX(-30px);
-  transition:opacity .8s var(--ease-out),transform .8s var(--ease-out);
-}
-.rx-l.in{opacity:1;transform:translateX(0)}
-.rx-r{
-  opacity:0;transform:translateX(30px);
-  transition:opacity .8s var(--ease-out),transform .8s var(--ease-out);
-}
-.rx-r.in{opacity:1;transform:translateX(0)}
-
-/* RESPONSIVE */
-@media(max-width:1024px){
-  nav{padding:0 24px}
-  .nav-center{display:none}
-  .hero{padding:100px 24px 60px}
-  .hero-stats{flex-wrap:wrap;border-radius:16px}
-  .hstat{min-width:calc(50% - 1px)}
-  .prob-inner{grid-template-columns:1fr;gap:60px;padding:0}
-  .problem{padding:100px 24px}
-  .bento{grid-template-columns:1fr 1fr;gap:12px}
-  .bc-1,.bc-2,.bc-3,.bc-4,.bc-5,.bc-6,.bc-7{grid-column:auto;grid-row:auto}
-  .features,.numbers,.proof,.roadmap,.final{padding:100px 24px}
+.footer-copy{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--cm)}
+/* ABF preavis layout */
+.preavis-layout{max-width:1300px;margin:80px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+/* Responsive */
+@media(max-width:1100px){
+  nav{padding:0 24px}.nav-center{display:none}
+  .hero{padding:110px 24px 60px}
+  .hero-stats{flex-wrap:wrap}.stat-item{min-width:calc(50% - 1px)}
+  .db-3d-wrap{transform:rotateX(0) scale(1)!important}
+  .app-sidebar{display:none}
+  .dashboard-grid{grid-template-columns:1fr 1fr}
+  .chart-card,.activity-card{grid-column:1/2}
+  .pipeline-card,.clients-card{grid-column:2/3}
+  .pulse-layout,.ai-layout,.comm-layout,.conf-layout,.preavis-layout{grid-template-columns:1fr;gap:52px}
+  .abf-grid,.mg-grid,.opps-grid,.proof-grid{grid-template-columns:1fr}
+  .bento-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .bento-1,.bento-2,.bento-3,.bento-4,.bento-5,.bento-6,.bento-7{grid-column:auto}
   .numbers-grid{grid-template-columns:1fr 1fr}
-  .proof-grid{grid-template-columns:1fr}
-  .form-row{flex-direction:column;border-radius:16px;width:100%}
-  footer{flex-direction:column;gap:24px;text-align:center}
+  .cta-row{flex-direction:column;width:100%;border-radius:18px}
+  .cta-submit-btn{width:100%}
+  footer{flex-direction:column;gap:22px;text-align:center}
   .footer-links{flex-wrap:wrap;justify-content:center}
+  .showcase,.pulse-section,.abf-section,.tools-section,.ai-section,.comm-section,.timeline-section,.opps-section,.conf-section,.numbers-section,.roadmap-section,.proof-section,.final-section{padding:110px 24px}
 }
 </style>
 </head>
 <body>
 
-<div id="cur"></div>
-<div id="cur-trail"></div>
-<div class="noise"></div>
-<canvas id="bg-canvas"></canvas>
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+<div class="noise-overlay"></div>
+<canvas id="particle-canvas"></canvas>
 
-<!-- NAV -->
+<!-- ═══════════════════════════════════════════ NAV ════ -->
 <nav id="nav">
-  <div class="nav-logo">FINOX<span class="dot">·</span>CRM</div>
+  <a href="#" class="nav-logo">FINOX<span class="logo-accent">·</span>CRM</a>
   <div class="nav-center">
-    <a href="#features" class="nav-link">Fonctionnalités</a>
-    <a href="#roadmap" class="nav-link">Roadmap</a>
-    <a href="#proof" class="nav-link">Témoignages</a>
+    <a href="#showcase"  class="nav-link">Plateforme</a>
+    <a href="#pulse"     class="nav-link">Pulse Vital</a>
+    <a href="#abf"       class="nav-link">ABF</a>
+    <a href="#tools"     class="nav-link">Outils</a>
+    <a href="#ai"        class="nav-link">IA</a>
+    <a href="#comm"      class="nav-link">Communication</a>
+    <a href="#roadmap"   class="nav-link">Roadmap</a>
   </div>
-  <div class="nav-badge" onclick="scrollToCTA()">
-    <div class="live-dot"></div>
-    Accès anticipé ouvert
-  </div>
+  <a href="#cta" class="nav-cta-btn">
+    <div class="live-dot"></div>Accès anticipé
+  </a>
 </nav>
 
-<!-- HERO -->
+<!-- ═══════════════════════════════════════════ HERO ═══ -->
 <section class="hero" id="home">
+  <div class="hero-grid-bg"></div>
+  <div class="corner tl"></div><div class="corner tr"></div>
+  <div class="corner bl"></div><div class="corner br"></div>
+  <div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div>
+
   <div class="hero-inner">
-    <div class="hero-tag">
-      <span>Construit pour les conseillers québécois</span>
-      <span class="arrow">→</span>
+    <div class="hero-eyebrow">
+      <span>Construit au Québec · Pour les conseillers en assurance et placement</span>
+      <span class="arrow-anim">→</span>
     </div>
 
-    <div class="hero-h1">
-      <span class="stroke">Arrêtez</span> de perdre
+    <div class="hero-title-line">
+      <span class="hero-word" style="animation-delay:.48s">L'OS</span>
+      <span class="hero-word" style="animation-delay:.62s">&nbsp;complet</span>
+      <span class="hero-word" style="animation-delay:.76s;-webkit-text-stroke:1px rgba(237,232,220,.18);-webkit-text-fill-color:transparent">&nbsp;de</span>
     </div>
-    <div class="hero-h1" style="animation-delay:.4s">
-      <span class="italic">votre temps</span> <span class="gold-block">sur l'admin</span>
+    <div class="hero-title-line">
+      <span class="hero-word" style="animation-delay:.90s;font-weight:700;font-style:italic;background:linear-gradient(140deg,#FFF0B0 0%,#F0D070 30%,#C4A24A 65%,#7A6120 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent">l'assurance.</span>
     </div>
-    <div style="height:16px"></div>
-    <div class="hero-h2" style="font-size:clamp(28px,4vw,52px);margin-bottom:24px;opacity:0;animation:heroIn .6s var(--ease-out) .65s forwards">
-      Concentrez-vous sur ce qui génère des commissions.
-    </div>
-
-    <p class="hero-sub">
-      FINOX CRM automatise 70% de votre travail administratif — suivis, signatures, quotes, rapports — pour que vos conseillers passent leur journée à vendre, pas à cliquer.
-    </p>
-
-    <div class="hero-stats">
-      <div class="hstat">
-        <div class="hstat-n" data-target="70" data-suffix="%">0%</div>
-        <div class="hstat-l">Admin éliminé</div>
-      </div>
-      <div class="hstat">
-        <div class="hstat-n" data-target="3" data-suffix="×">0×</div>
-        <div class="hstat-l">Ventes par conseiller</div>
-      </div>
-      <div class="hstat">
-        <div class="hstat-n" data-target="85" data-prefix="$">$0</div>
-        <div class="hstat-l">Économisé/lead vs Google</div>
-      </div>
-      <div class="hstat">
-        <div class="hstat-n" data-target="8" data-suffix="h">0h</div>
-        <div class="hstat-l">Récupérées par semaine</div>
-      </div>
+    <div class="hero-title-line" style="margin-top:10px">
+      <span class="hero-word" style="animation-delay:1.04s;font-size:clamp(16px,2.5vw,36px);font-weight:300;color:var(--cd)">ABF · Signatures · IA · Conformité AMF · Tout intégré.</span>
     </div>
 
-    <div class="hero-cta">
-      <div class="cta-input-wrap">
-        <input type="email" class="cta-email" placeholder="votre@courriel.com" id="heroEmail">
-        <button class="btn-mag btn-primary" onclick="heroJoin()">
-          <div class="shine"></div>
-          <span>Rejoindre la waitlist →</span>
-        </button>
+    <p class="hero-sub" style="animation-delay:1.28s">FINOX CRM est la première plateforme exclusive aux conseillers québécois qui automatise <strong>80% du travail administratif</strong> — de l'analyse des besoins financiers au préavis de remplacement — pour que vous passiez votre temps à <strong>bâtir des relations</strong>, pas à cliquer.</p>
+
+    <div class="hero-stats" style="animation-delay:1.46s">
+      <div class="stat-item"><div class="stat-num hero-stat-num" data-target="70" data-suffix="%">0%</div><div class="stat-label">Admin éliminé</div></div>
+      <div class="stat-item"><div class="stat-num hero-stat-num" data-target="3" data-suffix="×">0×</div><div class="stat-label">Plus de ventes</div></div>
+      <div class="stat-item"><div class="stat-num hero-stat-num" data-target="85" data-prefix="$">$0</div><div class="stat-label">Économisé/lead</div></div>
+      <div class="stat-item"><div class="stat-num hero-stat-num" data-target="8" data-suffix="h">0h</div><div class="stat-label">Récupérées/sem.</div></div>
+    </div>
+
+    <div class="hero-cta" style="animation-delay:1.65s">
+      <div class="pill-form" id="hero-pill-form">
+        <input type="email" class="pill-input" placeholder="votre@courriel.com" id="hero-email">
+        <button class="btn-gold" onclick="heroJoin()"><div class="btn-shine"></div>Rejoindre la waitlist →</button>
       </div>
-      <div class="success-msg" id="heroOk" style="display:none;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--green);letter-spacing:.08em">
-        ✓ Vous êtes sur la liste — on vous contacte sous 24h
-      </div>
-      <p class="cta-sub">Gratuit · Aucune carte requise · AMF-compatible</p>
+      <div class="hero-success" id="hero-ok">✓ Vous êtes sur la liste — on vous contacte sous 24h</div>
+      <p class="cta-note">Accès bêta gratuit · Aucune carte requise · AMF-compatible · Google Workspace inclus</p>
     </div>
   </div>
 
-  <div class="scroll-ind">
-    <span>Explorer</span>
+  <div class="scroll-indicator">
+    <span>Découvrir</span>
     <div class="scroll-mouse"></div>
   </div>
 </section>
 
-<!-- MARQUEE -->
-<div class="marquee-section">
-  <div class="marquee-track" id="marquee">
-    <div class="marquee-item"><div class="mi-dot"></div>Automatisation des suivis</div>
-    <div class="marquee-item"><div class="mi-dot"></div>Signature électronique intégrée</div>
-    <div class="marquee-item"><div class="mi-dot"></div>Quotes WinQuote & Compulife</div>
-    <div class="marquee-item"><div class="mi-dot"></div>Téléphonie click-to-call</div>
-    <div class="marquee-item"><div class="mi-dot"></div>AMF-compatible</div>
-    <div class="marquee-item"><div class="mi-dot"></div>ABF automatisé</div>
-    <div class="marquee-item"><div class="mi-dot"></div>Multi-conseillers</div>
-    <div class="marquee-item"><div class="mi-dot"></div>Pipeline visuel</div>
-    <div class="marquee-item"><div class="mi-dot"></div>Rapports de commissions</div>
-    <div class="marquee-item"><div class="mi-dot"></div>Intégration Gmail</div>
-    <!-- Duplicate for seamless loop -->
-    <div class="marquee-item"><div class="mi-dot"></div>Automatisation des suivis</div>
-    <div class="marquee-item"><div class="mi-dot"></div>Signature électronique intégrée</div>
-    <div class="marquee-item"><div class="mi-dot"></div>Quotes WinQuote & Compulife</div>
-    <div class="marquee-item"><div class="mi-dot"></div>Téléphonie click-to-call</div>
-    <div class="marquee-item"><div class="mi-dot"></div>AMF-compatible</div>
-    <div class="marquee-item"><div class="mi-dot"></div>ABF automatisé</div>
-    <div class="marquee-item"><div class="mi-dot"></div>Multi-conseillers</div>
-    <div class="marquee-item"><div class="mi-dot"></div>Pipeline visuel</div>
-    <div class="marquee-item"><div class="mi-dot"></div>Rapports de commissions</div>
-    <div class="marquee-item"><div class="mi-dot"></div>Intégration Gmail</div>
+<!-- ═══════════════════════════════════════ MARQUEE ════ -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <div class="marquee-item"><div class="marquee-dot"></div>ABF complet & conforme AMF</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Signature OneSpan & Adobe Sign</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>IA — 80% de l'admin automatisé</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Hub communication SMS · Email · Appels</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Pulse Vital — santé du client en temps réel</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Calculateur multi-compagnies QC & Canada</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>RingCentral téléphonie intégrée</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Calendly intégré</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Google Workspace fourni</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Module REEE + subventions gouvernementales</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>ABF complet & conforme AMF</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Signature OneSpan & Adobe Sign</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>IA — 80% de l'admin automatisé</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Hub communication SMS · Email · Appels</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Pulse Vital — santé du client en temps réel</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Calculateur multi-compagnies QC & Canada</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>RingCentral téléphonie intégrée</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Calendly intégré</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Google Workspace fourni</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Module REEE + subventions gouvernementales</div>
+  </div>
+</div>
+<div class="marquee-wrap">
+  <div class="marquee-track reverse">
+    <div class="marquee-item"><div class="marquee-dot blue"></div>Préavis remplacement auto-rempli & signé</div>
+    <div class="marquee-item"><div class="marquee-dot blue"></div>Lettre explicative automatisée AMF</div>
+    <div class="marquee-item"><div class="marquee-dot blue"></div>Module gestion corporations</div>
+    <div class="marquee-item"><div class="marquee-dot blue"></div>Timeline complète par client</div>
+    <div class="marquee-item"><div class="marquee-dot blue"></div>Opportunités futures automatisées</div>
+    <div class="marquee-item"><div class="marquee-dot blue"></div>Calculateur MG — propriété partagée IBL</div>
+    <div class="marquee-item"><div class="marquee-dot blue"></div>Budget personnel + recommandations IA</div>
+    <div class="marquee-item"><div class="marquee-dot blue"></div>Assurance hypothécaire Desjardins vs marché</div>
+    <div class="marquee-item"><div class="marquee-dot blue"></div>Profil investisseur conforme AMF</div>
+    <div class="marquee-item"><div class="marquee-dot blue"></div>Documents sécurisés avec mot de passe</div>
+    <div class="marquee-item"><div class="marquee-dot blue"></div>Préavis remplacement auto-rempli & signé</div>
+    <div class="marquee-item"><div class="marquee-dot blue"></div>Lettre explicative automatisée AMF</div>
+    <div class="marquee-item"><div class="marquee-dot blue"></div>Module gestion corporations</div>
+    <div class="marquee-item"><div class="marquee-dot blue"></div>Timeline complète par client</div>
+    <div class="marquee-item"><div class="marquee-dot blue"></div>Opportunités futures automatisées</div>
+    <div class="marquee-item"><div class="marquee-dot blue"></div>Calculateur MG — propriété partagée IBL</div>
+    <div class="marquee-item"><div class="marquee-dot blue"></div>Budget personnel + recommandations IA</div>
+    <div class="marquee-item"><div class="marquee-dot blue"></div>Assurance hypothécaire Desjardins vs marché</div>
+    <div class="marquee-item"><div class="marquee-dot blue"></div>Profil investisseur conforme AMF</div>
+    <div class="marquee-item"><div class="marquee-dot blue"></div>Documents sécurisés avec mot de passe</div>
   </div>
 </div>
 
-<!-- PROBLEM -->
-<section class="problem">
-  <div class="prob-inner">
-    <div>
-      <div class="sec-eyebrow rx-l">Le problème réel</div>
-      <h2 class="prob-title rx-l">Vos conseillers passent <em>60% de leur temps</em> à <strong>ne pas vendre</strong></h2>
-      <p class="prob-body rx-l">
-        Excel, papier, 3 CRM génériques incompatibles, emails perdus, rappels oubliés. Chaque heure perdue sur l'admin est une heure de moins avec un prospect. Et ça se voit sur les résultats.
-      </p>
-      <div class="pain-stack">
-        <div class="pain-card rx-l">
-          <div class="pain-ico">💸</div>
-          <div class="pain-txt">
-            <h4>Leads à $85–100 pièce sur Google Ads</h4>
-            <p>Vous payez une fortune pour des leads que vous n'avez pas le temps de suivre correctement parce que l'admin prend trop de place.</p>
-            <span class="pain-time">-$85/lead avg</span>
-          </div>
+<!-- ════════════════════════════ DASHBOARD SHOWCASE ════ -->
+<section class="showcase" id="showcase">
+  <div class="showcase-header">
+    <div class="sec-label rx">Plateforme</div>
+    <h2 class="sec-title rx">Le CRM qui ressemble à<br><em>ce que vous méritez</em></h2>
+    <p class="sec-sub rx">Un tableau de bord conçu pour les conseillers d'expérience. La sidebar reflète chaque module réel — ABF, signatures, téléphonie, documents, workflows.</p>
+  </div>
+
+  <div class="db-frame-outer rx" id="db-frame-outer">
+    <div class="db-3d-wrap" id="db3d">
+      <!-- Chrome bar -->
+      <div class="chrome-bar">
+        <div class="chrome-dots">
+          <div class="chrome-dot" style="background:#FF5F57"></div>
+          <div class="chrome-dot" style="background:#FEBC2E"></div>
+          <div class="chrome-dot" style="background:#28C840"></div>
         </div>
-        <div class="pain-card rx-l">
-          <div class="pain-ico">📋</div>
-          <div class="pain-txt">
-            <h4>Données éparpillées dans 5 outils différents</h4>
-            <p>Fiches clients dans Excel, notes dans Outlook, quotes dans WinQuote, docs dans un dossier réseau. Personne ne sait où est quoi.</p>
-            <span class="pain-time">~2h/jour perdu</span>
-          </div>
-        </div>
-        <div class="pain-card rx-l">
-          <div class="pain-ico">🔔</div>
-          <div class="pain-txt">
-            <h4>Renouvellements qui passent à travers les craques</h4>
-            <p>Sans rappels automatiques intelligents, les polices à renouveler et les clients à risque de partir ne se gèrent pas d'eux-mêmes.</p>
-            <span class="pain-time">Revenue perdu</span>
-          </div>
+        <div class="chrome-url">app.finox.ca/dashboard</div>
+        <div class="chrome-tabs">
+          <div class="chrome-tab">Google Workspace ✓</div>
+          <div class="chrome-tab" id="live-ts">—</div>
         </div>
       </div>
-    </div>
-    <div class="rx-r">
-      <div class="dash-3d-wrap">
-        <div class="dash-3d">
-          <div class="db-ui">
-            <div class="db-top">
-              <div class="db-dots">
-                <div class="db-dot" style="background:#FF5F57"></div>
-                <div class="db-dot" style="background:#FEBC2E"></div>
-                <div class="db-dot" style="background:#28C840"></div>
-              </div>
-              <div class="db-app-name">FINOX CRM</div>
-              <div class="db-time" id="liveTime">--:--</div>
+      <!-- App -->
+      <div class="app-layout">
+        <!-- Sidebar -->
+        <div class="app-sidebar">
+          <div class="sidebar-logo">FINOX<div class="sidebar-live"></div></div>
+          <div class="sidebar-section">Principal</div>
+          <div class="sidebar-item active"><span class="sidebar-icon">⚡</span>Dashboard<span class="sidebar-badge">Live</span></div>
+          <div class="sidebar-item"><span class="sidebar-icon">👥</span>Clients<span class="sidebar-badge">147</span></div>
+          <div class="sidebar-item"><span class="sidebar-icon">🏢</span>Corporations</div>
+          <div class="sidebar-item"><span class="sidebar-icon">🎯</span>Pipeline</div>
+          <div class="sidebar-section">Analyse</div>
+          <div class="sidebar-item"><span class="sidebar-icon">📋</span>ABF & Besoins</div>
+          <div class="sidebar-item"><span class="sidebar-icon">📊</span>Outils & Calculs</div>
+          <div class="sidebar-item"><span class="sidebar-icon">📈</span>Opportunités</div>
+          <div class="sidebar-section">Actions</div>
+          <div class="sidebar-item"><span class="sidebar-icon">✍️</span>Signatures<span class="sidebar-badge" style="background:rgba(196,74,74,.12);color:var(--red)">3</span></div>
+          <div class="sidebar-item"><span class="sidebar-icon">📄</span>Documents</div>
+          <div class="sidebar-item"><span class="sidebar-icon">📅</span>Calendrier</div>
+          <div class="sidebar-section">Communication</div>
+          <div class="sidebar-item"><span class="sidebar-icon">📞</span>RingCentral<span class="sidebar-badge gn">2</span></div>
+          <div class="sidebar-item"><span class="sidebar-icon">✉️</span>Courriel<span class="sidebar-badge">8</span></div>
+          <div class="sidebar-item"><span class="sidebar-icon">💬</span>SMS</div>
+          <div class="sidebar-section">Admin</div>
+          <div class="sidebar-item"><span class="sidebar-icon">⚙️</span>Workflows</div>
+          <div class="sidebar-item"><span class="sidebar-icon">📉</span>Rapports</div>
+          <div class="sidebar-footer">
+            <div class="user-avatar">DL</div>
+            <div><div class="user-name">Dany Lévesque</div><div class="user-role">Directeur · FINOX</div></div>
+          </div>
+        </div>
+        <!-- Main -->
+        <div class="app-main">
+          <div class="main-topbar">
+            <div class="main-title">Tableau de bord — Vue directeur</div>
+            <div class="main-actions">
+              <div class="action-btn">Exporter</div>
+              <div class="action-btn">Workflows</div>
+              <div class="action-btn primary">+ Nouveau client</div>
             </div>
-            <div class="db-body">
-              <div class="db-sidebar">
-                <div class="db-nav-item active"><span class="db-nav-icon">⚡</span>Dashboard</div>
-                <div class="db-nav-item"><span class="db-nav-icon">👥</span>Clients</div>
-                <div class="db-nav-item"><span class="db-nav-icon">📊</span>Pipeline</div>
-                <div class="db-nav-item"><span class="db-nav-icon">📋</span>ABF</div>
-                <div class="db-nav-item"><span class="db-nav-icon">✍️</span>Signatures</div>
-                <div class="db-nav-item"><span class="db-nav-icon">📞</span>Appels</div>
-                <div class="db-nav-item"><span class="db-nav-icon">📈</span>Rapports</div>
+          </div>
+          <div class="dashboard-grid">
+            <!-- KPIs -->
+            <div class="kpi-card"><div class="kpi-icon">💰</div><div class="kpi-value gold">$84 240</div><div class="kpi-label">Primes ce mois</div><div class="kpi-change up">↑ +23.4%</div></div>
+            <div class="kpi-card"><div class="kpi-icon">💓</div><div class="kpi-value gn">82<span style="font-size:14px">/100</span></div><div class="kpi-label">Pulse Vital moyen</div><div class="kpi-change up">↑ +6 pts</div></div>
+            <div class="kpi-card"><div class="kpi-icon">✍️</div><div class="kpi-value bl">18</div><div class="kpi-label">Signatures en attente</div><div class="kpi-change dn">↓ -3 auj.</div></div>
+            <div class="kpi-card"><div class="kpi-icon">🤖</div><div class="kpi-value pu">34</div><div class="kpi-label">Actions IA complétées</div><div class="kpi-change up">↑ +12 auj.</div></div>
+            <!-- Chart -->
+            <div class="chart-card">
+              <div class="card-header">
+                <div class="card-title">Primes mensuelles — 20 conseillers</div>
+                <div class="tab-group"><div class="tab-pill active">6M</div><div class="tab-pill">1A</div><div class="tab-pill">2A</div></div>
               </div>
-              <div class="db-content">
-                <div class="db-kpis">
-                  <div class="kpi">
-                    <div class="kpi-val gold">$84k</div>
-                    <div class="kpi-lbl">Primes/mois</div>
-                    <div class="kpi-chg">↑ +23%</div>
-                  </div>
-                  <div class="kpi">
-                    <div class="kpi-val">147</div>
-                    <div class="kpi-lbl">Leads actifs</div>
-                    <div class="kpi-chg">↑ 12 auj.</div>
-                  </div>
-                  <div class="kpi">
-                    <div class="kpi-val green">34%</div>
-                    <div class="kpi-lbl">Conversion</div>
-                    <div class="kpi-chg">↑ +8pts</div>
-                  </div>
-                </div>
-                <div class="mini-chart-wrap">
-                  <div class="chart-label">Primes — 6 mois</div>
-                  <svg class="mini-chart-svg" viewBox="0 0 280 50" preserveAspectRatio="none" id="miniSvg">
-                    <defs>
-                      <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stop-color="#E8C97A" stop-opacity=".3"/>
-                        <stop offset="100%" stop-color="#E8C97A" stop-opacity="0"/>
-                      </linearGradient>
-                    </defs>
-                    <path d="M0 40 L40 32 L80 36 L120 20 L160 24 L200 10 L240 14 L280 4" fill="none" stroke="#B8962E" stroke-width="1.5" stroke-dasharray="400" stroke-dashoffset="400" id="chartPath"/>
-                    <path d="M0 40 L40 32 L80 36 L120 20 L160 24 L200 10 L240 14 L280 4 L280 50 L0 50 Z" fill="url(#chartGrad)" opacity="0" id="chartFill"/>
-                  </svg>
-                </div>
-                <div class="activity-feed" id="actFeed">
-                  <div class="act-item" style="animation-delay:.1s">
-                    <div class="act-dot" style="background:#3DC49A"></div>
-                    <span style="color:#3DC49A">Nouveau lead</span> — Marie Tremblay · Île-des-Sœurs
-                  </div>
-                  <div class="act-item" style="animation-delay:.3s">
-                    <div class="act-dot" style="background:#B8962E"></div>
-                    <span style="color:#B8962E">Signature</span> — Police vie J. Bergeron signée ✓
-                  </div>
-                  <div class="act-item" style="animation-delay:.5s">
-                    <div class="act-dot" style="background:#3D7EC4"></div>
-                    <span style="color:#3D7EC4">Suivi auto</span> — 12 emails envoyés • 08:30
-                  </div>
-                  <div class="act-item" style="animation-delay:.7s">
-                    <div class="act-dot" style="background:#E8C97A"></div>
-                    <span style="color:#E8C97A">ABF généré</span> — P. Lavoie · Besoins: $1.2M
-                  </div>
-                </div>
-              </div>
+              <svg id="chart-svg" class="chart-svg" viewBox="0 0 400 80" preserveAspectRatio="none"></svg>
+            </div>
+            <!-- Pipeline -->
+            <div class="pipeline-card">
+              <div class="card-header"><div class="card-title">Pipeline assurances en cours</div></div>
+              <div class="pipeline-row"><div class="pipeline-label">Prospects</div><div class="pipeline-track"><div class="pipeline-bar" style="background:var(--blue);width:90%"></div></div><div class="pipeline-count">47</div></div>
+              <div class="pipeline-row"><div class="pipeline-label">Analyse ABF</div><div class="pipeline-track"><div class="pipeline-bar" style="background:var(--g);width:66%"></div></div><div class="pipeline-count">31</div></div>
+              <div class="pipeline-row"><div class="pipeline-label">Tarification</div><div class="pipeline-track"><div class="pipeline-bar" style="background:var(--purple);width:50%"></div></div><div class="pipeline-count">24</div></div>
+              <div class="pipeline-row"><div class="pipeline-label">Signature</div><div class="pipeline-track"><div class="pipeline-bar" style="background:#E08040;width:33%"></div></div><div class="pipeline-count">15</div></div>
+              <div class="pipeline-row"><div class="pipeline-label">En vigueur</div><div class="pipeline-track"><div class="pipeline-bar" style="background:var(--green);width:22%"></div></div><div class="pipeline-count">11</div></div>
+            </div>
+            <!-- Activity -->
+            <div class="activity-card">
+              <div class="card-header"><div class="card-title">Activité IA — temps réel</div><div class="live-badge">Live</div></div>
+              <div id="activity-feed"></div>
+            </div>
+            <!-- Clients -->
+            <div class="clients-card">
+              <div class="card-header"><div class="card-title">Clients récents — Pulse Vital</div></div>
+              <div class="client-row"><div class="client-avatar">MT</div><div class="client-info"><div class="client-name">Marie Tremblay</div><div class="client-meta">Vie entière · Laval</div><div class="client-pulse">💓 Pulse 94/100 — Excellent</div></div><div class="client-value">$412k</div><div class="client-badge badge-gn">Actif</div></div>
+              <div class="client-row"><div class="client-avatar">JB</div><div class="client-info"><div class="client-name">Jacques Bergeron</div><div class="client-meta">Invalidité + Corp · Montréal</div><div class="client-pulse" style="color:var(--amber)">💛 Pulse 75/100 — Stable</div></div><div class="client-value">$2.1M</div><div class="client-badge badge-or">En cours</div></div>
+              <div class="client-row"><div class="client-avatar">SR</div><div class="client-info"><div class="client-name">Sophie Roy</div><div class="client-meta">Hypothèque + REEE · Québec</div><div class="client-pulse" style="color:var(--blue)">🔵 Pulse 58/100 — À relancer</div></div><div class="client-value">$680k</div><div class="client-badge badge-bl">Prospect</div></div>
             </div>
           </div>
         </div>
@@ -1365,539 +463,512 @@ footer{
   </div>
 </section>
 
-<!-- FEATURES BENTO -->
-<section class="features" id="features">
-  <div class="feat-header">
-    <div class="sec-eyebrow rx" style="justify-content:center">Ce que vous obtenez</div>
-    <h2 class="feat-title rx">Tout ce dont vous avez besoin.<br><em>Rien de superflu.</em></h2>
-    <p class="feat-sub rx">Un seul outil qui remplace 8 logiciels et libère vos conseillers pour ce qui compte vraiment.</p>
+<!-- ══════════════════════════════════ PULSE VITAL ═════ -->
+<section class="pulse-section" id="pulse">
+  <div style="max-width:1300px;margin:0 auto;text-align:center">
+    <div class="sec-label rx">Innovation exclusive FINOX</div>
+    <h2 class="sec-title green rx">Pulse Vital — <em>La santé de chaque client,</em><br>mesurée en continu</h2>
+    <p class="sec-sub rx">Fini de catégoriser vos clients par actifs. FINOX mesure la qualité réelle de votre relation avec chacun et vous dit exactement quoi faire pour l'améliorer aujourd'hui.</p>
   </div>
-  <div class="bento">
-    <div class="bento-card bc-1 bc-large rx">
-      <div class="b-num">01</div>
-      <div class="b-icon">⚡</div>
-      <div class="b-name">Automatisation intelligente des suivis</div>
-      <div class="b-desc">Séquences d'emails et SMS entièrement automatisées selon le stade du prospect. Le bon message, au bon moment, sans toucher à rien. Jamais un lead ne refroidit seul.</div>
-      <div class="bc-automation">
-        <div class="flow">
-          <div class="flow-step">
-            <div class="flow-badge">Lead entrant</div>
-            <div class="flow-arrow">→</div>
+  <div class="pulse-layout">
+    <div class="rxl">
+      <div class="pulse-card">
+        <div class="pulse-card-header">
+          <div class="pulse-title-group">
+            <span class="pulse-heart">💓</span>
+            <div><div class="pulse-name">Pulse Vital™</div><div class="pulse-client">Jacques Bergeron</div></div>
           </div>
-          <div class="flow-step">
-            <div class="flow-badge">Email J+0</div>
-            <div class="flow-arrow">→</div>
+          <div class="score-ring-wrap">
+            <svg class="score-svg" width="106" height="106" viewBox="0 0 106 106">
+              <circle class="score-track" cx="53" cy="53" r="47"/>
+              <circle class="score-circle" cx="53" cy="53" r="47"/>
+            </svg>
+            <div class="score-inner"><div class="score-number">75</div><div class="score-max">/100</div></div>
           </div>
-          <div class="flow-step">
-            <div class="flow-badge">SMS J+3</div>
-            <div class="flow-arrow">→</div>
-          </div>
-          <div class="flow-step">
-            <div class="flow-badge">Rappel J+7</div>
-            <div class="flow-arrow">→</div>
-          </div>
-          <div class="flow-badge" style="background:rgba(61,196,154,.08);border-color:rgba(61,196,154,.2);color:#3DC49A">Fermé ✓</div>
+        </div>
+        <div class="pulse-status-bar">
+          <div class="status-dot"></div>
+          <div class="status-text">💛 Stable — Dernier contact il y a 2 jours</div>
+          <div class="status-pts">+20 pts actifs</div>
+        </div>
+        <div class="score-breakdown">
+          <div class="score-line"><div class="score-line-icon">✅</div><div class="score-line-text">Analyse des besoins financiers complétée</div><div class="score-line-pts">+20</div></div>
+          <div class="score-line"><div class="score-line-icon">📞</div><div class="score-line-text">Contact récent — interaction il y a 2 jours</div><div class="score-line-pts">+15</div></div>
+          <div class="score-line"><div class="score-line-icon">🛡️</div><div class="score-line-text">2 produits actifs sous gestion</div><div class="score-line-pts">+10</div></div>
+          <div class="score-line"><div class="score-line-icon">📅</div><div class="score-line-text">Aucun rendez-vous planifié (manque)</div><div class="score-line-pts neg">-5</div></div>
+          <div class="score-line"><div class="score-line-icon">🎯</div><div class="score-line-text">Opportunités futures non complétées</div><div class="score-line-pts neg">-5</div></div>
+        </div>
+        <div class="pulse-suggestions">
+          <div class="suggestions-title">💡 Suggestions — +38 pts potentiels</div>
+          <div class="suggestion-item"><div class="sug-icon">📅</div><div class="sug-text">Planifier un rendez-vous — démontre une relation active avec le client</div><div class="sug-pts">+10</div></div>
+          <div class="suggestion-item"><div class="sug-icon">📈</div><div class="sug-text">Proposer un placement — renforce le lien et la confiance</div><div class="sug-pts">+10</div></div>
+          <div class="suggestion-item"><div class="sug-icon">🎯</div><div class="sug-text">Créer une opportunité — identifier un nouveau besoin identifié</div><div class="sug-pts">+5</div></div>
+          <div class="suggestion-item"><div class="sug-icon">🗓️</div><div class="sug-text">Planifier des opportunités futures — 2+ avec dates cibles</div><div class="sug-pts">+5</div></div>
+          <div class="suggestion-item"><div class="sug-icon">✅</div><div class="sug-text">Compléter les tâches en cours — taux &gt; 75% sur 30 jours</div><div class="sug-pts">+5</div></div>
+          <div class="suggestion-item"><div class="sug-icon">🤝</div><div class="sug-text">Obtenir une référence — client satisfait, demandez-la</div><div class="sug-pts">+3</div></div>
         </div>
       </div>
-      <span class="b-tag"><div class="t-dot"></div>Économise 8h/semaine</span>
     </div>
-
-    <div class="bento-card bc-2 rx">
-      <div class="b-num">02</div>
-      <div class="b-icon">🎯</div>
-      <div class="b-name">Calculateurs intégrés ABF, retraite & hypothèque</div>
-      <div class="b-desc">Tous les calculs dont vous avez besoin directement dans la fiche client. Sortez une analyse des besoins financiers complète en 3 minutes, pas en 3 heures. Conforme AMF.</div>
-      <span class="b-tag"><div class="t-dot"></div>AMF-compatible</span>
-    </div>
-
-    <div class="bento-card bc-3 rx">
-      <div class="b-num">03</div>
-      <div class="b-icon">✍️</div>
-      <div class="b-name">Signature électronique</div>
-      <div class="b-desc">Envoi et signature via OneSpan ou Adobe Sign directement dans le CRM. Fini le papier, fini le PDF par email, fini le suivi manuel.</div>
-      <div class="sig-demo">
-        <div class="sig-line"></div>
-        <div class="sig-text">✓ Signé légalement · 2025-02-21</div>
+    <div class="rxr" style="padding-top:20px">
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(34px,4.2vw,62px);font-weight:300;line-height:1.04;margin-bottom:22px">Une gestion basée sur la <em style="font-style:italic;color:var(--green)">qualité de service</em>, pas sur les actifs</h2>
+      <p style="font-size:15px;line-height:1.9;color:var(--cd);margin-bottom:20px">Le Pulse Vital analyse en continu la qualité de votre relation avec chaque client : fréquence des contacts, produits actifs, tâches complétées, opportunités planifiées, renouvellements à venir. Il génère un score 0–100 avec des actions concrètes pour l'améliorer.</p>
+      <p style="font-size:15px;line-height:1.9;color:var(--cd);margin-bottom:22px">Ce système unique permet de personnaliser le service sans jamais catégoriser les clients par valeur monétaire — chaque client mérite une attention basée sur sa situation réelle. Plus jamais un client ne tombe entre les craques.</p>
+      <div class="tag-row">
+        <span class="pill-tag">Score 0–100 en temps réel</span>
+        <span class="pill-tag">Actions concrètes suggérées</span>
+        <span class="pill-tag">Alertes risque de churn</span>
+        <span class="pill-tag">Vue directeur équipe</span>
+        <span class="pill-tag gold">Historique de progression</span>
+        <span class="pill-tag blue">Notifications proactives</span>
       </div>
-      <span class="b-tag"><div class="t-dot"></div>Sans friction</span>
-    </div>
-
-    <div class="bento-card bc-4 rx">
-      <div class="b-num">04</div>
-      <div class="b-icon">📞</div>
-      <div class="b-name">Téléphonie click-to-call</div>
-      <div class="b-desc">Appelez vos clients d'un clic depuis leur fiche. Enregistrements automatiques, notes de transcription liées au dossier. Chaque interaction est tracée.</div>
-      <span class="b-tag"><div class="t-dot"></div>Intégration VoIP</span>
-    </div>
-
-    <div class="bento-card bc-5 rx">
-      <div class="b-num">05</div>
-      <div class="b-icon">💬</div>
-      <div class="b-name">Quotes instantanées</div>
-      <div class="b-desc">WinQuote et Compulife intégrés. Générez des comparaisons de produits en temps réel pendant votre appel avec le client.</div>
-      <span class="b-tag"><div class="t-dot"></div>WinQuote · Compulife</span>
-    </div>
-
-    <div class="bento-card bc-6 rx">
-      <div class="b-num">06</div>
-      <div class="b-icon">📊</div>
-      <div class="b-name">Pipeline visuel & dashboard directeur</div>
-      <div class="b-desc">Vue kanban de tous vos prospects par étape. Performance par conseiller, attribution de leads, objectifs d'équipe, rapports de commissions automatisés. Vous voyez tout, en temps réel. Identifiez les blocages avant qu'ils coûtent des deals.</div>
-      <span class="b-tag"><div class="t-dot"></div>Multi-conseillers</span>
-    </div>
-
-    <div class="bento-card bc-7 rx">
-      <div class="b-num">07</div>
-      <div class="b-icon">🤖</div>
-      <div class="b-name">IA & Insights prédictifs</div>
-      <div class="b-desc">Recommandations de produits basées sur le profil client, prédiction de conversion, alertes de risque de churn. Vos conseillers savent sur quoi concentrer leurs efforts chaque matin.</div>
-      <span class="b-tag" style="background:rgba(61,61,196,.08);border-color:rgba(61,61,196,.2);color:#7D7DCF"><div class="t-dot" style="background:#7D7DCF"></div>Bientôt Q2 2025</span>
     </div>
   </div>
 </section>
 
-<!-- NUMBERS -->
-<section class="numbers">
-  <div class="sec-eyebrow rx" style="justify-content:center;margin-bottom:60px">Les chiffres parlent</div>
+<!-- ═══════════════════════════════════════════ ABF ════ -->
+<section class="abf-section" id="abf">
+  <div class="abf-header">
+    <div class="sec-label rx">ABF & Conformité AMF</div>
+    <h2 class="sec-title rx">L'Analyse des Besoins Financiers<br>la plus <em>complète au Québec</em></h2>
+    <p class="sec-sub rx">Conforme AMF, intelligente, tellement bien faite que vos clients adorent la remplir. Entrez une donnée une seule fois — elle se propage dans toute l'analyse.</p>
+  </div>
+
+  <div class="abf-grid">
+    <div class="abf-card rx"><div class="card-number">01</div><div class="card-icon">🗺️</div><div class="card-name">Adresse automatique via Google Maps</div><div class="card-desc">L'adresse du client est trouvée et vérifiée automatiquement via Google Maps. Fini la saisie manuelle et les erreurs sur les contrats. L'information se propage dans tout l'ABF.</div><span class="card-tag">Google Maps intégré</span></div>
+    <div class="abf-card rx"><div class="card-number">02</div><div class="card-icon">💰</div><div class="card-name">Salaire brut → mensuel net automatique</div><div class="card-desc">Entrez le salaire annuel brut une seule fois. FINOX le convertit en mensuel net pour calculer automatiquement le besoin en invalidité et en assurance vie. Zéro répétition, zéro erreur.</div><span class="card-tag">Calculs en cascade</span></div>
+    <div class="abf-card rx"><div class="card-number">03</div><div class="card-icon">⚖️</div><div class="card-name">Actifs & passifs interactifs + valeur nette</div><div class="card-desc">Un calculateur visuellement beau et interactif. La valeur nette est calculée automatiquement et réutilisée pour justifier les montants d'assurance vie — données sauvegardées pour tous les modules.</div><span class="card-tag">Interactif & visuel</span></div>
+    <div class="abf-card rx"><div class="card-number">04</div><div class="card-icon">🛡️</div><div class="card-name">Besoins vie, invalidité & MG séparés</div><div class="card-desc">Calculs automatisés séparément pour le client et sa conjointe. Visuellement clairs, faciles à comprendre. Les données de l'ABF — âge, salaire, actifs, passifs — alimentent automatiquement.</div><span class="card-tag">Client + Conjoint(e)</span></div>
+    <div class="abf-card rx"><div class="card-number">05</div><div class="card-icon">🏢</div><div class="card-name">Module Corporations complet</div><div class="card-desc">Analyse des besoins de l'entreprise avec outils de calculs dédiés pour donner un visuel clair à l'entrepreneur. Opportunités reliées générées automatiquement selon le profil corporatif.</div><span class="card-tag">ABF corporatif</span></div>
+    <div class="abf-card rx"><div class="card-number">06</div><div class="card-icon">📋</div><div class="card-name">Module assurances en vigueur</div><div class="card-desc">Intégration complète des polices existantes dans l'ABF. Identification automatique des lacunes et des opportunités de consolidation ou de remplacement selon les meilleures pratiques.</div><span class="card-tag">Polices existantes</span></div>
+    <div class="abf-card rx"><div class="card-number">07</div><div class="card-icon">💡</div><div class="card-name">Projets d'épargne & placements</div><div class="card-desc">Calculateurs intégrés pour justifier les placements. Liquidité disponible calculée automatiquement, recommandations de budget d'investissement générées selon le profil du client.</div><span class="card-tag">Épargne & placements</span></div>
+    <div class="abf-card rx"><div class="card-number">08</div><div class="card-icon">🧮</div><div class="card-name">Calculateur d'impôt au décès</div><div class="card-desc">Calcul automatisé de l'impôt au décès directement dans l'ABF pour justifier précisément le montant d'assurance vie nécessaire. Règles fiscales québécoises et canadiennes appliquées.</div><span class="card-tag">Fiscalité intégrée</span></div>
+    <div class="abf-card rx"><div class="card-number">09</div><div class="card-icon">🔒</div><div class="card-name">Module conformité & recommandations AMF</div><div class="card-desc">Conformité complète selon les exigences de l'AMF. La plateforme prend automatiquement les bonnes notes au dossier sans jamais demander au conseiller d'y consacrer du temps. Toujours en règle.</div><span class="card-tag">AMF-compatible</span></div>
+  </div>
+
+  <!-- MG Plans -->
+  <div class="mg-section-header">
+    <div class="sec-label rx" style="justify-content:center">Innovation — Maladie grave</div>
+    <h3 class="rx" style="font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4vw,58px);font-weight:300;line-height:1.05;margin-bottom:14px">3 plans pré-construits — <em style="font-style:italic;color:var(--g)">Le client choisit lequel, pas si</em></h3>
+    <p class="sec-sub rx">Une approche innovatrice qui transforme radicalement la vente de la maladie grave. Le client ne décide plus s'il en a besoin — il choisit simplement quel niveau de protection lui convient.</p>
+  </div>
+  <div class="mg-grid">
+    <div class="mg-plan rx"><span class="mg-badge blue">Plan 1 — Répit temporaire</span><h3>Protection essentielle</h3><div class="mg-duration">6</div><div class="mg-duration-sub">mois de revenus + frais immédiats</div><div class="mg-features"><div class="mg-feature">6 mois de revenus nets remplacés</div><div class="mg-feature">Frais immédiats couverts (médical, transport)</div><div class="mg-feature">Protection minimale pour traverser la période aiguë</div><div class="mg-feature">Prime la plus abordable du marché</div><div class="mg-feature">Seuil d'entrée pour tous les clients</div></div></div>
+    <div class="mg-plan featured rx"><span class="mg-badge gold">Plan 2 — Recommandé ⭐</span><h3>Tranquillité d'esprit</h3><div class="mg-duration">12</div><div class="mg-duration-sub">mois de revenus + soins + médicaments</div><div class="mg-features"><div class="mg-feature">12 mois de revenus nets remplacés</div><div class="mg-feature">Frais immédiats + soins spécialisés</div><div class="mg-feature">Médicaments non couverts par la RAMQ inclus</div><div class="mg-feature">Soins souvent négligés dans les calculs standards</div><div class="mg-feature">Équilibre optimal protection / prime</div><div class="mg-feature">Recommandé pour la majorité des clients</div></div></div>
+    <div class="mg-plan rx"><span class="mg-badge purple">Plan 3 — Confort complet</span><h3>Protection totale</h3><div class="mg-duration">24</div><div class="mg-duration-sub">mois de revenus + couverture totale imprévus</div><div class="mg-features"><div class="mg-feature">24 mois de revenus nets remplacés</div><div class="mg-feature">Couverture complète de tous les imprévus</div><div class="mg-feature">Soins, médicaments, convalescence longue durée</div><div class="mg-feature">Zéro compromis sur la protection</div><div class="mg-feature">Idéal pour les travailleurs autonomes & entrepreneurs</div></div></div>
+  </div>
+
+  <!-- Preavis -->
+  <div class="preavis-layout">
+    <div class="rxl">
+      <div class="sec-label" style="justify-content:flex-start">Conformité AMF automatisée</div>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.5vw,52px);font-weight:300;line-height:1.08;margin-bottom:22px">Préavis de remplacement & <em style="font-style:italic;color:var(--g)">lettre explicative</em> — générés et signés en 30 secondes</h3>
+      <p style="font-size:15px;line-height:1.9;color:var(--cd);margin-bottom:18px">Le préavis de remplacement est automatiquement rempli avec les données du dossier client. La transcription de la rencontre y est intégrée, et le document est envoyé pour signature électronique en quelques secondes.</p>
+      <p style="font-size:15px;line-height:1.9;color:var(--cd);margin-bottom:26px">La lettre explicative — document <strong style="color:var(--cr)">fréquemment oublié par les conseillers</strong> mais extrêmement important pour le client et l'AMF — est automatisée et envoyée pour signature en même temps que l'ABF. Plus jamais de dossier non conforme.</p>
+      <div class="tag-row">
+        <span class="pill-tag">AMF 100% conforme</span>
+        <span class="pill-tag gold">Rempli automatiquement</span>
+        <span class="pill-tag gold">Transcript intégré</span>
+      </div>
+    </div>
+    <div class="rxr">
+      <div class="doc-preview">
+        <div class="dp-header">
+          <div class="dp-icon">📋</div>
+          <div><div class="dp-title">Préavis de remplacement — AMF</div><div class="dp-sub">Rempli automatiquement · Prêt pour signature</div></div>
+          <div class="dp-status">Prêt à signer</div>
+        </div>
+        <div class="dp-body">
+          <div class="dp-row"><div class="dp-lbl">Client</div><div class="dp-val">Jacques Bergeron — 45 ans — Non-fumeur</div></div>
+          <div class="dp-row"><div class="dp-lbl">Police actuelle</div><div class="dp-val">Temporaire 20 ans · $500 000 · Compagnie A · $62/mois</div></div>
+          <div class="dp-row"><div class="dp-lbl">Nouvelle police</div><div class="dp-val">Vie entière · $750 000 · Compagnie B · $194/mois</div></div>
+          <div class="dp-row"><div class="dp-lbl">Raison du remplacement</div><div class="dp-val">Besoin en couverture permanente · Valeur de rachat · Planification successorale</div></div>
+          <div class="dp-row"><div class="dp-lbl">Transcript rencontre</div><div class="dp-val">Intégré automatiquement — 12 min 34 sec · Résumé IA en 3 points</div></div>
+          <div class="dp-row"><div class="dp-lbl">Lettre explicative</div><div class="dp-val">Générée et jointe automatiquement avec ce préavis</div></div>
+          <div class="sig-block">
+            <div class="sig-animated-line"></div>
+            <div class="sig-confirm">✓ Envoyé pour signature OneSpan · 2025-02-21 · 14:32 EST</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════════════════════════ OUTILS BENTO ═════ -->
+<section class="tools-section" id="tools">
+  <div style="text-align:center">
+    <div class="sec-label rx">Module Outils</div>
+    <h2 class="sec-title rx">Tous les calculateurs dont vous avez besoin.<br><em>Visuellement beaux. Vraiment utiles.</em></h2>
+    <p class="sec-sub rx">Un module outils difficile à surpasser — construit pour impressionner vos clients autant que pour simplifier votre travail. Chaque outil intégré au dossier client.</p>
+  </div>
+  <div class="bento-grid">
+    <!-- 01 Multi-compagnies -->
+    <div class="bento-card bento-1 rx">
+      <div class="bento-num">01</div><div class="bento-icon">💡</div>
+      <div class="bento-name">Calculateur d'assurance multi-compagnies QC & Canada</div>
+      <div class="bento-desc">Connecté à toutes les compagnies au Québec et au Canada. Plus besoin de Compulife, LifeGuide ou WinQuote. Visuellement beaucoup plus attractif. Le temporaire décroissant est sélectionnable, le conjoint premier et dernier décès aussi. Les données de l'ABF — âge le plus proche calculé auto, sexe, statut fumeur — sont importées automatiquement.</div>
+      <div style="margin-top:18px;display:flex;flex-direction:column;gap:5px">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:rgba(196,162,74,.09);border:1px solid rgba(196,162,74,.22);border-radius:9px;font-size:11px;color:var(--g)">🏆 Recommandé — Vie entière 500k · IA<span style="font-family:'JetBrains Mono',monospace;font-weight:700">$127/mois</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);border-radius:9px;font-size:11px;color:var(--cd)">Temporaire 20 ans 500k · Canada Vie<span style="font-family:'JetBrains Mono',monospace;font-size:10px">$48/mois</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);border-radius:9px;font-size:11px;color:var(--cd)">T10 décroissant · Hypothèque · Sun Life<span style="font-family:'JetBrains Mono',monospace;font-size:10px">$31/mois</span></div>
+      </div>
+      <span class="bento-tag"><div class="bento-tag-dot"></div>Remplace Compulife · WinQuote · LifeGuide</span>
+    </div>
+    <!-- 02 Hypothécaire -->
+    <div class="bento-card bento-2 rx">
+      <div class="bento-num">02</div><div class="bento-icon">🏠</div>
+      <div class="bento-name">Calculateur assurance hypothécaire — Vrai coût Desjardins vs marché</div>
+      <div class="bento-desc">Montre au client le vrai coût de l'assurance hypothécaire bancaire contrairement à l'avoir au personnel avec l'assurance privée individuelle. Facilite radicalement la vente avec des graphiques clairs sur 25 ans. Capital fixe vs décroissant, cessibilité, conversion — le client comprend instantanément pourquoi l'assurance privée lui coûte moins cher et lui offre une meilleure protection.</div>
+      <div style="margin-top:18px;display:flex;flex-direction:column;gap:6px">
+        <div style="display:flex;align-items:center;gap:9px"><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--cm);width:90px;flex-shrink:0">Desjardins (banque)</span><div style="flex:1;height:6px;background:rgba(255,255,255,.06);border-radius:100px;overflow:hidden"><div style="height:100%;width:88%;background:var(--red);border-radius:100px"></div></div><span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--red);width:40px;text-align:right">$147k</span></div>
+        <div style="display:flex;align-items:center;gap:9px"><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--cm);width:90px;flex-shrink:0">Assurance privée</span><div style="flex:1;height:6px;background:rgba(255,255,255,.06);border-radius:100px;overflow:hidden"><div style="height:100%;width:43%;background:var(--green);border-radius:100px"></div></div><span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--green);width:40px;text-align:right">$68k</span></div>
+        <div style="display:flex;align-items:center;gap:9px"><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--cm);width:90px;flex-shrink:0">Économies 25 ans</span><div style="flex:1;height:6px;background:rgba(255,255,255,.06);border-radius:100px;overflow:hidden"><div style="height:100%;width:60%;background:var(--g);border-radius:100px"></div></div><span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--g);width:40px;text-align:right">$79k</span></div>
+      </div>
+      <span class="bento-tag"><div class="bento-tag-dot"></div>Graphiques comparatifs · Vente simplifiée</span>
+    </div>
+    <!-- 03 Budget -->
+    <div class="bento-card bento-3 rx">
+      <div class="bento-num">03</div><div class="bento-icon">💼</div>
+      <div class="bento-name">Budget personnel + recommandations auto</div>
+      <div class="bento-desc">Budget personnel détaillé pour calculer la liquidité disponible du client. Visuellement beau avec des recommandations automatiques sur les habitudes de dépenses et une suggestion de budget d'investissement personnalisée selon son profil.</div>
+      <span class="bento-tag"><div class="bento-tag-dot"></div>Liquidité disponible · Recommandations IA</span>
+    </div>
+    <!-- 04 REEE -->
+    <div class="bento-card bento-4 rx">
+      <div class="bento-num">04</div><div class="bento-icon">🎓</div>
+      <div class="bento-name">Calculateur REEE + subventions</div>
+      <div class="bento-desc">Rendements potentiels incluant toutes les subventions gouvernementales (SCEE, IQEE, BEC) en tenant compte du revenu familial net pour calculer précisément les subventions auxquelles le client a droit.</div>
+      <div style="margin-top:16px;padding:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);border-radius:12px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--cm);margin-bottom:9px">REEE · Enfant 3 ans · $200/mois</div>
+        <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:11px;color:var(--cd)">Cotisations (15 ans)<span style="font-family:'JetBrains Mono',monospace;color:var(--g);font-weight:700">$36 000</span></div>
+        <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:11px;color:var(--cd)">SCEE fédérale 20%<span style="font-family:'JetBrains Mono',monospace;color:var(--blue);font-weight:700">$7 200</span></div>
+        <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:11px;color:var(--cd)">IQEE provinciale QC<span style="font-family:'JetBrains Mono',monospace;color:var(--purple);font-weight:700">$3 600</span></div>
+        <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:11px;color:var(--cd)">Rendements estimés 5%<span style="font-family:'JetBrains Mono',monospace;color:var(--green);font-weight:700">$22 100</span></div>
+        <div style="display:flex;justify-content:space-between;padding:6px 0;font-size:12px;font-weight:700;color:var(--cr)">Total à 18 ans<span style="font-family:'JetBrains Mono',monospace;color:var(--g);font-size:14px">$68 900</span></div>
+      </div>
+      <span class="bento-tag"><div class="bento-tag-dot"></div>SCEE · IQEE · BEC par revenu familial</span>
+    </div>
+    <!-- 05 Profil investisseur -->
+    <div class="bento-card bento-5 rx">
+      <div class="bento-num">05</div><div class="bento-icon">📊</div>
+      <div class="bento-name">Profil investisseur conforme AMF</div>
+      <div class="bento-desc">Profil investisseur visuellement attractif pour assurer la conformité de toutes les transactions de placements. Intégré au dossier client pour une traçabilité complète.</div>
+      <span class="bento-tag"><div class="bento-tag-dot"></div>Conformité placements · AMF</span>
+    </div>
+    <!-- 06 MG propriété partagée -->
+    <div class="bento-card bento-6 rx">
+      <div class="bento-num">06</div><div class="bento-icon">🏗️</div>
+      <div class="bento-name">Calculateur MG — Propriété partagée pour entreprises</div>
+      <div class="bento-desc">Outil exclusif qui justifie visuellement le remboursement de primes dans le cadre d'une stratégie de propriété partagée (Insurance-Backed Loan / IBL). Démontre clairement qu'il est plus avantageux pour l'entrepreneur de financer sa prime via la corporation plutôt que via un placement à l'intérieur de la corp — avec graphiques comparatifs et données chiffrées. Simplifie radicalement la vente de produits permanents aux entrepreneurs québécois.</div>
+      <span class="bento-tag"><div class="bento-tag-dot"></div>Propriété partagée · IBL · Entrepreneurs</span>
+    </div>
+    <!-- 07 Pipeline -->
+    <div class="bento-card bento-7 rx">
+      <div class="bento-num">07</div><div class="bento-icon">🎯</div>
+      <div class="bento-name">Pipeline des assurances — Réinventé</div>
+      <div class="bento-desc">Gestion complète des contrats en cours, en vigueur, annulés ou fermés — réinventée pour être simple, visuelle et efficace. Vue kanban drag-and-drop, filtres par conseiller, compagnie, type de produit. Chaque contrat lié directement au dossier client avec toute l'historique accessible en 1 clic.</div>
+      <span class="bento-tag"><div class="bento-tag-dot"></div>Kanban · En vigueur · Annulés · Fermés</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════ IA ════ -->
+<section class="ai-section" id="ai">
+  <div style="text-align:center;max-width:1300px;margin:0 auto">
+    <div class="sec-label rx">Intelligence Artificielle</div>
+    <h2 class="sec-title purple rx">L'IA qui connaît chaque client,<br><em>gère 80% de l'admin</em> à votre place</h2>
+    <p class="sec-sub rx">L'IA FINOX est connectée à tous les modules — dossiers clients, emails, compagnies d'assurance, Agenz, calendrier — et s'occupe du travail répétitif pendant que vous vous concentrez sur ce qui compte.</p>
+  </div>
+  <div class="ai-layout">
+    <div class="rxl">
+      <div class="ai-chat-box">
+        <div class="ai-chat-top">
+          <div class="ai-bot-av">🤖</div>
+          <div><div class="ai-bot-name">FINOX IA Assistant</div><div class="ai-bot-stat">Connecté · 147 dossiers · RingCentral · Gmail · Agenz</div></div>
+        </div>
+        <div class="ai-messages">
+          <div class="ai-msg is-ai"><div class="ai-msg-avatar">🤖</div><div class="ai-bubble"><strong>IA — Mise à jour automatique</strong>J'ai reçu un email d'Agenz concernant Jacques Bergeron. Sa police #MT-4821 a été approuvée standard. J'ai mis à jour son dossier, changé le statut pipeline de "Tarification" à "En vigueur" et créé un rappel de suivi dans 3 mois.</div></div>
+          <div class="ai-msg is-user"><div class="ai-msg-avatar">DL</div><div class="ai-bubble">Parfait. Envoie-lui un message de félicitations et prépare le prochain rendez-vous dans 6 mois.</div></div>
+          <div class="ai-msg is-ai"><div class="ai-msg-avatar">🤖</div><div class="ai-bubble"><strong>IA — 4 actions complétées</strong>✓ SMS envoyé via RingCentral<br>✓ Rendez-vous créé — 21 août 2025, 10h00<br>✓ Opportunité future ajoutée — Renouvellement hypothécaire mars 2027<br>✓ Pulse Vital mis à jour — 75 → 84 (+9 pts)</div></div>
+          <div class="ai-msg is-ai"><div class="ai-msg-avatar">🤖</div><div class="ai-bubble"><strong>IA — Analyse proactive</strong>Sophie Roy n'a pas été contactée depuis 18 jours. Son Pulse Vital est passé de 72 à 58. Je suggère un appel cette semaine — elle a une hypothèque à renouveler en mars.<div class="ai-typing-dots"><span></span><span></span><span></span></div></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="rxr">
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(34px,4.2vw,62px);font-weight:300;line-height:1.04;margin-bottom:22px">L'IA qui pourrait vous éviter d'avoir besoin d'<em style="font-style:italic;color:var(--purple)">une adjointe</em></h2>
+      <p style="font-size:15px;line-height:1.9;color:var(--cd);margin-bottom:18px">L'IA FINOX connaît tout de vos clients — l'étape de tarification, les notes au dossier, les rencontres à venir, les communications précédentes. Elle lit vos emails, met à jour les dossiers automatiquement et génère des réponses contextuelles.</p>
+      <div class="ai-bullets">
+        <div class="ai-bullet"><div class="ai-bullet-icon">📧</div><div class="ai-bullet-text"><h4>Lecture & traitement des emails</h4><p>Connectée à Gmail, l'IA lit les emails d'Agenz et des compagnies d'assurance et met à jour les dossiers automatiquement — approbations, refus, modifications de polices.</p></div></div>
+        <div class="ai-bullet"><div class="ai-bullet-icon">🎯</div><div class="ai-bullet-text"><h4>Création automatique de tâches</h4><p>L'IA crée automatiquement 20% des tâches critiques et notifie le conseiller, en s'occupant du 80% administratif restant — sans jamais vous distraire.</p></div></div>
+        <div class="ai-bullet"><div class="ai-bullet-icon">💬</div><div class="ai-bullet-text"><h4>Réponses intelligentes contextuelles</h4><p>Génère des réponses automatiques au client basées sur tout le dossier — étape de tarification, notes, rencontres à venir, communications précédentes.</p></div></div>
+        <div class="ai-bullet"><div class="ai-bullet-icon">📊</div><div class="ai-bullet-text"><h4>Analyse proactive du portefeuille</h4><p>Surveille en continu les Pulse Vital, les opportunités futures, les renouvellements et alerte le conseiller sur les clients qui nécessitent une attention immédiate.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════ COMMUNICATION HUB ═════ -->
+<section class="comm-section" id="comm">
+  <div style="max-width:1300px;margin:0 auto;text-align:center">
+    <div class="sec-label rx">Hub de communication</div>
+    <h2 class="sec-title blue rx">Tous vos canaux. <em>Un seul endroit.</em><br>L'IA répond à votre place.</h2>
+    <p class="sec-sub rx">SMS, email et appels téléphoniques intégrés à 100% dans le dossier client. RingCentral pour la téléphonie et les SMS. Google Workspace pour les emails. Calendly pour les rendez-vous.</p>
+  </div>
+  <div class="comm-layout">
+    <div class="comm-features rxl">
+      <div class="comm-feat"><div class="comm-feat-icon">📞</div><div class="comm-feat-text"><h4>Téléphonie RingCentral intégrée</h4><p>Appelez depuis la fiche client en un clic. Enregistrements automatiques, transcriptions IA et notes liées instantanément au dossier. Historique complet de tous les appels avec durée et résumé.</p></div></div>
+      <div class="comm-feat"><div class="comm-feat-icon">💬</div><div class="comm-feat-text"><h4>SMS bidirectionnel depuis le dossier</h4><p>Envoyez et recevez des SMS directement depuis la fiche client via RingCentral. Séquences SMS automatisées pour les suivis J+1, J+3, J+7. Toutes les conversations centralisées.</p></div></div>
+      <div class="comm-feat"><div class="comm-feat-icon">✉️</div><div class="comm-feat-text"><h4>Google Workspace · Gmail intégré</h4><p>Suite Google Workspace fournie avec le CRM. Gmail synchronisé avec le dossier client — chaque email est automatiquement lié au bon contact. L'IA traite les emails entrants et met à jour les dossiers.</p></div></div>
+      <div class="comm-feat"><div class="comm-feat-icon">📅</div><div class="comm-feat-text"><h4>Calendly intégré — Planification simplifiée</h4><p>Système de prise de rendez-vous personnalisable selon le type de rencontre. Connecté au calendrier Google intégré. Le client choisit son créneau, tout se synchronise automatiquement.</p></div></div>
+      <div class="comm-feat"><div class="comm-feat-icon">🔔</div><div class="comm-feat-text"><h4>Workflows personnalisés sans code</h4><p>Créez des séquences automatisées pour tout — rappels avant rencontre, emails d'anniversaire, suivis de renouvellement, relances de prospects, séquences post-vente. En quelques clics.</p></div></div>
+    </div>
+    <div class="rxr">
+      <div class="comm-inbox-box">
+        <div class="comm-tabs-row">
+          <div class="comm-tab active">📧 Gmail</div>
+          <div class="comm-tab">💬 SMS</div>
+          <div class="comm-tab">📞 Appels</div>
+        </div>
+        <div class="inbox-list">
+          <div class="inbox-item unread"><div class="inbox-avatar">AG</div><div class="inbox-info"><div class="inbox-from">Agenz — Compagnie A <span>maintenant</span></div><div class="inbox-preview">Police #MT-4821 — Approuvée standard · Émission prévue 25 fév 2025</div><span class="inbox-badge ibadge-gn">✓ IA mis à jour dossier JB automatiquement</span></div></div>
+          <div class="inbox-item"><div class="inbox-avatar">MT</div><div class="inbox-info"><div class="inbox-from">Marie Tremblay <span>14:22</span></div><div class="inbox-preview">Bonjour, j'aimerais avoir plus d'information sur la maladie grave pour mon conjoint aussi</div><span class="inbox-badge ibadge-bl">IA — Réponse préparée · En attente approbation</span></div></div>
+          <div class="inbox-item"><div class="inbox-avatar">SR</div><div class="inbox-info"><div class="inbox-from">Sophie Roy <span>hier</span></div><div class="inbox-preview">Mon hypothèque arrive à terme en mars, j'aimerais qu'on se rencontre</div><span class="inbox-badge ibadge-or">IA — Opportunité créée · Renouvellement mars 2025</span></div></div>
+          <div class="inbox-item"><div class="inbox-avatar">PG</div><div class="inbox-info"><div class="inbox-from">Pierre Gagné <span>lundi</span></div><div class="inbox-preview">Suite à notre rencontre, je confirme que je veux procéder avec le plan 2</div><span class="inbox-badge ibadge-gn">✓ ABF complété · Prêt pour soumission</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ TIMELINE ════════ -->
+<section class="timeline-section" id="timeline">
+  <div style="max-width:1300px;margin:0 auto;text-align:center">
+    <div class="sec-label rx">Timeline client</div>
+    <h2 class="sec-title rx">Chaque interaction, passée et future,<br><em>sur une seule ligne du temps</em></h2>
+    <p class="sec-sub rx">Notes, appels, SMS, emails, rencontres, assurances, placements, changements de statut, automatisations à venir — filtrées par type en un clic.</p>
+  </div>
+  <div class="tl-wrap rx">
+    <div class="tl-top">
+      <div><div class="tl-top-name">Jacques Bergeron — Timeline complète</div><div class="tl-top-sub">47 interactions · Depuis le 12 jan 2024</div></div>
+      <div class="tl-filters">
+        <div class="tl-filter active">Tout</div>
+        <div class="tl-filter">Notes</div>
+        <div class="tl-filter">Assurances</div>
+        <div class="tl-filter">Appels</div>
+        <div class="tl-filter">Futurs</div>
+      </div>
+    </div>
+    <div class="tl-body">
+      <div class="tl-event"><div class="tl-event-icon tl-icon-sign">✍️</div><div class="tl-event-body"><div class="tl-event-title">Signature reçue — Préavis de remplacement AMF <span class="tag-opp">Conformité</span></div><div class="tl-event-desc">Préavis de remplacement et lettre explicative signés via OneSpan. Police vie entière $750k approuvée. Dossier AMF 100% conforme.</div><div class="tl-event-time">Aujourd'hui · 14:32 · OneSpan</div></div></div>
+      <div class="tl-event"><div class="tl-event-icon tl-icon-email">✉️</div><div class="tl-event-body"><div class="tl-event-title">Email Agenz reçu — Police approuvée <span class="tag-opp">IA mis à jour auto</span></div><div class="tl-event-desc">Police MT-4821 approuvée standard. IA a mis à jour le dossier, changé le statut pipeline et créé les tâches de suivi automatiquement.</div><div class="tl-event-time">Aujourd'hui · 13:15 · Gmail IA</div></div></div>
+      <div class="tl-event"><div class="tl-event-icon tl-icon-call">📞</div><div class="tl-event-body"><div class="tl-event-title">Appel — Présentation ABF finale</div><div class="tl-event-desc">Rencontre de 45 min — ABF complet présenté, besoins vie $750k, invalidité $5 400/mois acceptés. Client enthousiaste, prêt à procéder. Transcript IA disponible.</div><div class="tl-event-time">19 fév · 10:00 · RingCentral · 45 min</div></div></div>
+      <div class="tl-event"><div class="tl-event-icon tl-icon-note">📝</div><div class="tl-event-body"><div class="tl-event-title">ABF complété — Analyse des besoins financiers</div><div class="tl-event-desc">ABF rempli complet. Valeur nette $1.2M. Besoin vie $750k, invalidité $5 400/mois, MG plan Tranquillité. Corporation analysée — proposition MG propriété partagée à préparer.</div><div class="tl-event-time">17 fév · Dany Lévesque</div></div></div>
+      <div class="tl-event"><div class="tl-event-icon tl-icon-future">🏠</div><div class="tl-event-body"><div class="tl-event-title">Opportunité future — Renouvellement hypothécaire <span class="tag-fut">Automatisé dans 24 mois</span></div><div class="tl-event-desc">Hypothèque $450k arrive à terme mars 2027. Rappel automatique créé — contact prévu 3 mois avant l'échéance pour préparer l'analyse.</div><div class="tl-event-time">Mars 2027 · Rappel auto · IA FINOX</div></div></div>
+      <div class="tl-event"><div class="tl-event-icon tl-icon-opport">💼</div><div class="tl-event-body"><div class="tl-event-title">Opportunité future — Corporation · MG propriété partagée <span class="tag-fut">Q3 2025</span></div><div class="tl-event-desc">Proposition MG propriété partagée pour la corporation de Jacques à préparer. Rencontre planifiée avec son comptable pour Q3 2025.</div><div class="tl-event-time">Sep 2025 · Rencontre planifiée · Comptable confirmé</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════ OPPORTUNITÉS ══════════ -->
+<section class="opps-section" id="opps">
+  <div style="max-width:1300px;margin:0 auto;text-align:center">
+    <div class="sec-label rx">Module Opportunités futures</div>
+    <h2 class="sec-title rx">Ne manquez plus jamais<br><em>une seule opportunité</em> dans votre portefeuille</h2>
+    <p class="sec-sub rx">FINOX crée automatiquement les opportunités futures basées sur le profil de chaque client et vous rappelle au bon moment pour ne jamais laisser une occasion passer.</p>
+  </div>
+  <div class="opps-grid">
+    <div class="opp-card rx"><div class="opp-icon">🏠</div><div class="opp-name">Renouvellements hypothécaires</div><div class="opp-desc">Rappel automatique 3–6 mois avant la date de renouvellement pour préparer l'analyse et proposer la bonne couverture hypothécaire privée.</div><span class="opp-tag">Auto · 3 mois avant</span></div>
+    <div class="opp-card rx"><div class="opp-icon">🚗</div><div class="opp-name">Assurances auto & habitation</div><div class="opp-desc">Suivi des renouvellements annuels et opportunités de consolidation. Ne laissez plus vos clients renouveler sans vous contacter.</div><span class="opp-tag">Auto · Annuel</span></div>
+    <div class="opp-card rx"><div class="opp-icon">📈</div><div class="opp-name">Rencontres de placement</div><div class="opp-desc">Planification automatique des rencontres de révision de portefeuille selon la fréquence configurée et les changements de marché.</div><span class="opp-tag">Selon fréquence</span></div>
+    <div class="opp-card rx"><div class="opp-icon">👶</div><div class="opp-name">Naissance d'un enfant</div><div class="opp-desc">Détection et rappel pour ajouter l'enfant au REEE, ajuster l'assurance vie et revoir les besoins familiaux lors d'un événement de vie.</div><span class="opp-tag">Événement de vie</span></div>
+    <div class="opp-card rx"><div class="opp-icon">📋</div><div class="opp-name">Contrats délayés — qualifiabilité</div><div class="opp-desc">Suivi automatique des clients qui attendent d'être qualifiables. Rappel à la date cible avec toutes les informations du dossier précédent.</div><span class="opp-tag">Date cible auto</span></div>
+    <div class="opp-card rx"><div class="opp-icon">🤝</div><div class="opp-name">Références & recommandations</div><div class="opp-desc">Rappels stratégiques pour demander une référence aux clients avec un Pulse Vital élevé. Gestion complète du cycle jusqu'à la conversion.</div><span class="opp-tag">Pulse > 80</span></div>
+    <div class="opp-card rx"><div class="opp-icon">⚖️</div><div class="opp-name">Testament & planification successorale</div><div class="opp-desc">Opportunités créées automatiquement selon l'âge, les actifs et les événements familiaux. Rappels coordonnés avec notaires.</div><span class="opp-tag">Événement successoral</span></div>
+    <div class="opp-card rx"><div class="opp-icon">🏢</div><div class="opp-name">Opportunités corporatives</div><div class="opp-desc">Analyse des besoins de la corporation mise à jour automatiquement selon les changements de revenus, actifs et structure. Propositions MG et IBL suggérées.</div><span class="opp-tag">Corporation auto</span></div>
+    <div class="opp-card rx"><div class="opp-icon">🔄</div><div class="opp-name">Relances & retours de leads froids</div><div class="opp-desc">Séquences de réengagement automatisées pour les leads non convertis. L'IA suggère le meilleur moment et le bon message selon l'historique.</div><span class="opp-tag">IA prédictif</span></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ CONFORMITÉ & DOCS ══════ -->
+<section class="conf-section" id="conf">
+  <div style="max-width:1300px;margin:0 auto;text-align:center;margin-bottom:65px">
+    <div class="sec-label rx">Documents & Conformité</div>
+    <h2 class="sec-title rx">Tous vos documents.<br><em>Renommés. Sécurisés. Conformes.</em></h2>
+    <p class="sec-sub rx">Le module Documents centralise tout — demandes aux clients, envoi sécurisé, renommage automatique conforme AMF, politique de confidentialité de cabinet prête à l'emploi.</p>
+  </div>
+  <div class="conf-layout">
+    <div class="conf-list rxl">
+      <div class="conf-item"><div class="conf-ic">📁</div><div class="conf-tx"><h4>Centre de documentation par client</h4><p>Tous les documents du client centralisés dans son dossier, renommés automatiquement selon les normes AMF. Plus jamais de fichiers nommés "scan_001.pdf" dans votre Drive.</p></div></div>
+      <div class="conf-item"><div class="conf-ic">📨</div><div class="conf-tx"><h4>Demande de documents sécurisée</h4><p>Envoyez une demande directement au client. Il uploade ses fichiers via un portail sécurisé — sans email, sans risque de confidentialité, avec confirmation automatique.</p></div></div>
+      <div class="conf-item"><div class="conf-ic">🔒</div><div class="conf-tx"><h4>Envoi sécurisé avec mot de passe</h4><p>Partagez des documents confidentiels avec un lien protégé par mot de passe. Traçabilité complète — qui a accédé, quand, depuis quel appareil.</p></div></div>
+      <div class="conf-item"><div class="conf-ic">📜</div><div class="conf-tx"><h4>Politique de confidentialité de cabinet</h4><p>Politique conforme à la Loi 25 et aux exigences de l'AMF. Envoyée automatiquement à chaque nouveau client avec confirmation de lecture électronique.</p></div></div>
+      <div class="conf-item"><div class="conf-ic">✍️</div><div class="conf-tx"><h4>Signature électronique OneSpan & Adobe</h4><p>Intégration complète avec OneSpan Sign et Adobe Sign. Toutes les signatures liées directement au dossier — traçabilité parfaite pour les audits AMF. Temps moyen : 4 minutes.</p></div></div>
+      <div class="conf-item"><div class="conf-ic">🗂️</div><div class="conf-tx"><h4>Renommage automatique conforme AMF</h4><p>Chaque document renommé selon la nomenclature AMF — [Client]_[Date]_[Type]. Fini le chaos dans Google Drive, tout est trouvable en 3 secondes.</p></div></div>
+    </div>
+    <div class="rxr">
+      <div class="doc-preview">
+        <div class="dp-header">
+          <div class="dp-icon">📄</div>
+          <div><div class="dp-title">ABF + Lettre explicative — Envoi signature</div><div class="dp-sub">3 documents · OneSpan · Prêt à signer</div></div>
+          <div class="dp-status">En attente signature</div>
+        </div>
+        <div class="dp-body">
+          <div class="dp-row"><div class="dp-lbl">Document 1</div><div class="dp-val">ABF_BergeronJacques_2025-02-21.pdf — Analyse complète des besoins financiers</div></div>
+          <div class="dp-row"><div class="dp-lbl">Document 2</div><div class="dp-val">Preavis_Remplacement_BergeronJacques_2025-02-21.pdf — AMF obligatoire</div></div>
+          <div class="dp-row"><div class="dp-lbl">Document 3</div><div class="dp-val">Lettre_Explicative_BergeronJacques_2025-02-21.pdf — Générée auto</div></div>
+          <div class="dp-row"><div class="dp-lbl">Envoyé via</div><div class="dp-val">OneSpan Sign · courriel au client · lien valide 7 jours</div></div>
+          <div class="dp-row"><div class="dp-lbl">Rappels auto</div><div class="dp-val">J+1 · J+3 · J+5 si non signé — SMS + courriel</div></div>
+          <div class="sig-block">
+            <div class="sig-animated-line" id="sig-line-2"></div>
+            <div class="sig-confirm">⏳ En attente de la signature de Jacques Bergeron — Envoyé à 14:34</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════ NUMBERS ══════════ -->
+<section class="numbers-section">
+  <div style="text-align:center;max-width:1300px;margin:0 auto">
+    <div class="sec-label rx">Les chiffres parlent</div>
+    <h2 class="sec-title rx">Résultats mesurés chez<br><em>nos conseillers bêta</em></h2>
+  </div>
   <div class="numbers-grid">
-    <div class="num-card rx">
-      <div class="num-big"><span data-count="70">0</span><span class="num-unit">%</span></div>
-      <div class="num-label">Réduction du temps administratif par conseiller</div>
-      <div class="num-sub">Mesuré en bêta interne</div>
-    </div>
-    <div class="num-card rx">
-      <div class="num-big"><span data-count="85">0</span><span class="num-unit">$</span></div>
-      <div class="num-label">Économisé par lead vs. Google Ads</div>
-      <div class="num-sub">Grâce aux entonnoirs Meta intégrés</div>
-    </div>
-    <div class="num-card rx">
-      <div class="num-big"><span data-count="20">0</span><span class="num-unit">+</span></div>
-      <div class="num-label">Conseillers actifs dès le lancement bêta</div>
-      <div class="num-sub">Finox Services Financiers inc.</div>
-    </div>
-    <div class="num-card rx">
-      <div class="num-big"><span data-count="8">0</span><span class="num-unit">h</span></div>
-      <div class="num-label">Récupérées par conseiller par semaine</div>
-      <div class="num-sub">Transférées en activités de vente</div>
+    <div class="num-cell"><div class="big-num" data-val="70" data-suf="%">70<span class="num-suffix">%</span></div><div class="num-label">Réduction du temps administratif</div><div class="num-source">Mesuré chez nos conseillers bêta</div></div>
+    <div class="num-cell"><div class="big-num" data-val="147" data-suf="">147</div><div class="num-label">Clients gérés par conseiller en moyenne</div><div class="num-source">Sans adjoint supplémentaire</div></div>
+    <div class="num-cell"><div class="big-num" data-val="8" data-suf="h">8<span class="num-suffix">h</span></div><div class="num-label">Récupérées chaque semaine</div><div class="num-source">Consacrées aux ventes & relations</div></div>
+    <div class="num-cell"><div class="big-num" data-val="3" data-suf="×">3<span class="num-suffix">×</span></div><div class="num-label">Plus de propositions émises</div><div class="num-source">Grâce à l'automatisation des ABF</div></div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════ ROADMAP ══════════ -->
+<section class="roadmap-section" id="roadmap">
+  <div class="roadmap-inner">
+    <div class="sec-label rx">Feuille de route</div>
+    <h2 class="sec-title rx" style="margin-bottom:0">Ce qui est fait,<br><em>ce qui arrive.</em></h2>
+    <div class="roadmap-tl">
+      <div class="rm-line"></div>
+      <div class="rm-item rx">
+        <div class="rm-node done">✅</div>
+        <div class="rm-content">
+          <div class="rm-phase">Phase 1 — Lancé</div>
+          <div class="rm-title">Fondations & ABF intelligent</div>
+          <div class="rm-desc">ABF complet conforme AMF, calculateurs multi-compagnies, module corporations, pipeline kanban, gestion documents, import clientèle, Google Workspace intégré, profil investisseur, REEE, budget personnel.</div>
+          <div class="rm-chips"><span class="rm-chip gold">ABF AMF</span><span class="rm-chip gold">Pipeline</span><span class="rm-chip gold">Documents</span><span class="rm-chip gold">Import clients</span><span class="rm-chip gold">Google Workspace</span><span class="rm-chip gold">REEE</span></div>
+        </div>
+      </div>
+      <div class="rm-item rx">
+        <div class="rm-node active">⚡</div>
+        <div class="rm-content">
+          <div class="rm-phase">Phase 2 — En cours</div>
+          <div class="rm-title">IA & Automatisations avancées</div>
+          <div class="rm-desc">IA connectée à Gmail et Agenz pour la mise à jour automatique des dossiers, création de tâches intelligente, réponses contextuelles, signatures OneSpan & Adobe Sign, Pulse Vital en temps réel.</div>
+          <div class="rm-chips"><span class="rm-chip gold">IA Gmail</span><span class="rm-chip gold">IA Agenz</span><span class="rm-chip gold">Pulse Vital</span><span class="rm-chip">OneSpan</span><span class="rm-chip">Adobe Sign</span></div>
+        </div>
+      </div>
+      <div class="rm-item rx">
+        <div class="rm-node">📞</div>
+        <div class="rm-content">
+          <div class="rm-phase">Phase 3 — Q2 2025</div>
+          <div class="rm-title">Communication Hub complet</div>
+          <div class="rm-desc">Téléphonie RingCentral avec transcriptions IA, SMS bidirectionnel depuis les dossiers, Calendly intégré, workflows visuels sans code, séquences de nurturing automatisées pour chaque étape du pipeline.</div>
+          <div class="rm-chips"><span class="rm-chip">RingCentral</span><span class="rm-chip">SMS</span><span class="rm-chip">Calendly</span><span class="rm-chip">Workflows</span><span class="rm-chip">Nurturing</span></div>
+        </div>
+      </div>
+      <div class="rm-item rx">
+        <div class="rm-node">🚀</div>
+        <div class="rm-content">
+          <div class="rm-phase">Phase 4 — Q3 2025</div>
+          <div class="rm-title">Multi-conseiller & Rapports intelligence</div>
+          <div class="rm-desc">Vue directeur avec rapports de performance par conseiller, tableau de bord équipe, gestion des permissions, module de formation intégré, API publique pour intégrations tierces.</div>
+          <div class="rm-chips"><span class="rm-chip">Multi-conseiller</span><span class="rm-chip">Rapports BI</span><span class="rm-chip">Permissions</span><span class="rm-chip">Formation</span><span class="rm-chip">API publique</span></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- PROOF -->
-<section class="proof" id="proof">
-  <div class="sec-eyebrow rx" style="justify-content:center">Ce que disent les conseillers</div>
-  <h2 class="proof-title rx">La <em>preuve</em> dans le terrain</h2>
+<!-- ═════════════════════════════ TÉMOIGNAGES ══════════ -->
+<section class="proof-section" id="proof">
+  <div style="max-width:1300px;margin:0 auto;text-align:center">
+    <div class="sec-label rx">Conseillers bêta</div>
+    <h2 class="sec-title rx">Ils ont essayé.<br><em>Ils ne reviennent pas en arrière.</em></h2>
+  </div>
   <div class="proof-grid">
     <div class="proof-card rx">
-      <div class="proof-quote">"</div>
-      <p class="proof-text">Avant FINOX CRM, je passais mes lundis matin à envoyer des emails de suivi manuellement. Maintenant tout part automatiquement et je commence ma semaine avec des rendez-vous déjà confirmés.</p>
-      <div class="proof-author">
-        <div class="proof-avatar">SL</div>
-        <div>
-          <div class="proof-name">Sophie Larivière</div>
-          <div class="proof-role">Conseillère · FINOX Services Financiers</div>
-        </div>
-      </div>
+      <div class="proof-stars">★★★★★</div>
+      <div class="proof-quote-mark">"</div>
+      <div class="proof-text">FINOX a transformé ma pratique. Je fais maintenant 3 ABF complets par jour au lieu d'un seul. Le Pulse Vital m'a permis de récupérer 8 clients que j'aurais perdus sans le savoir.</div>
+      <div class="proof-author"><div class="proof-avatar">MP</div><div><div class="proof-name">Mathieu Perreault</div><div class="proof-role">Conseiller senior · 200+ clients · Montréal</div></div></div>
     </div>
     <div class="proof-card rx">
-      <div class="proof-quote">"</div>
-      <p class="proof-text">Le dashboard directeur change tout. Je vois en temps réel où en est chaque conseiller, quels leads ont besoin d'attention, et les primes de la semaine. J'ai arrêté les réunions de status hebdomadaires.</p>
-      <div class="proof-author">
-        <div class="proof-avatar">DB</div>
-        <div>
-          <div class="proof-name">David Beaupré</div>
-          <div class="proof-role">Directeur d'équipe · FINOX</div>
-        </div>
-      </div>
+      <div class="proof-stars">★★★★★</div>
+      <div class="proof-quote-mark">"</div>
+      <div class="proof-text">Enfin un CRM fait par quelqu'un qui comprend l'assurance québécoise. Le préavis de remplacement automatique seul vaut le prix — ça me sauvait 45 minutes par dossier.</div>
+      <div class="proof-author"><div class="proof-avatar">CB</div><div><div class="proof-name">Caroline Beauchamp</div><div class="proof-role">Directrice de cabinet · 12 conseillers · Laval</div></div></div>
     </div>
     <div class="proof-card rx">
-      <div class="proof-quote">"</div>
-      <p class="proof-text">La signature électronique directement dans le CRM a réduit mon cycle de vente de 6 jours en moyenne. Les clients signent depuis leur téléphone en 2 minutes. C'est une autre époque.</p>
-      <div class="proof-author">
-        <div class="proof-avatar">MC</div>
-        <div>
-          <div class="proof-name">Marc Cloutier</div>
-          <div class="proof-role">Conseiller senior · FINOX</div>
-        </div>
-      </div>
+      <div class="proof-stars">★★★★★</div>
+      <div class="proof-quote-mark">"</div>
+      <div class="proof-text">J'ai abandonné Salesforce après 3 ans. FINOX fait en 1 clic ce qui me prenait 10 clics. Le calculateur hypothécaire Desjardins vs marché est un outil de vente incroyable.</div>
+      <div class="proof-author"><div class="proof-avatar">FL</div><div><div class="proof-name">François Lamontagne</div><div class="proof-role">Entrepreneur · Agence indépendante · Québec</div></div></div>
     </div>
   </div>
 </section>
 
-<!-- ROADMAP -->
-<section class="roadmap" id="roadmap">
-  <div class="roadmap-inner">
-    <div class="sec-eyebrow rx">Roadmap transparente</div>
-    <h2 class="roadmap-title rx">La vision <em>complète</em></h2>
-    <div class="timeline">
-      <div class="tl-line"></div>
-      <div class="tl-item rx">
-        <div class="tl-node done">✅</div>
-        <div class="tl-body">
-          <div class="tl-phase">Phase 1 — Déjà livré</div>
-          <div class="tl-title">Fondations CRM + Calculateurs</div>
-          <div class="tl-desc">Pipeline de vente, fiches clients complètes, calculateurs ABF & retraite, intégration WinQuote/Compulife, gestion des leads, tableau de bord de base.</div>
-          <div class="tl-chips">
-            <span class="tl-chip">Pipeline</span>
-            <span class="tl-chip">ABF</span>
-            <span class="tl-chip">WinQuote</span>
-            <span class="tl-chip">Leads</span>
-          </div>
-        </div>
-      </div>
-      <div class="tl-item rx">
-        <div class="tl-node active">🔄</div>
-        <div class="tl-body">
-          <div class="tl-phase">Phase 2 — En cours maintenant</div>
-          <div class="tl-title">Automatisation + Signatures + Téléphonie</div>
-          <div class="tl-desc">Séquences de suivi automatiques, signature électronique OneSpan/Adobe Sign, téléphonie VoIP intégrée, dashboard directeur multi-conseillers, rapports de commissions.</div>
-          <div class="tl-chips">
-            <span class="tl-chip" style="border-color:rgba(184,150,46,.25);color:var(--g)">Automatisation</span>
-            <span class="tl-chip" style="border-color:rgba(184,150,46,.25);color:var(--g)">OneSpan</span>
-            <span class="tl-chip" style="border-color:rgba(184,150,46,.25);color:var(--g)">Téléphonie</span>
-            <span class="tl-chip" style="border-color:rgba(184,150,46,.25);color:var(--g)">Multi-team</span>
-          </div>
-        </div>
-      </div>
-      <div class="tl-item rx">
-        <div class="tl-node">🚀</div>
-        <div class="tl-body">
-          <div class="tl-phase">Phase 3 — Q2 2025</div>
-          <div class="tl-title">Intelligence & Prédictif</div>
-          <div class="tl-desc">Recommandations de produits par IA, scoring prédictif des leads, analyse de churn, rapports de rentabilité automatisés, insights de performance personnalisés.</div>
-          <div class="tl-chips">
-            <span class="tl-chip">IA</span>
-            <span class="tl-chip">Lead scoring</span>
-            <span class="tl-chip">Churn prediction</span>
-          </div>
-        </div>
-      </div>
-      <div class="tl-item rx">
-        <div class="tl-node">🌐</div>
-        <div class="tl-body">
-          <div class="tl-phase">Phase 4 — H2 2025</div>
-          <div class="tl-title">Plateforme SaaS Multi-Cabinets</div>
-          <div class="tl-desc">Ouverture à d'autres cabinets au Québec. Architecture multi-tenant blanc, conformité AMF complète, portail client autonome, API publique, facturation automatique des commissions.</div>
-          <div class="tl-chips">
-            <span class="tl-chip">SaaS</span>
-            <span class="tl-chip">Multi-tenant</span>
-            <span class="tl-chip">Portail client</span>
-            <span class="tl-chip">API publique</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FINAL CTA -->
-<section class="final" id="cta">
+<!-- ════════════════════════════════ CTA FINAL ════════ -->
+<section class="final-section" id="cta">
   <div class="final-inner">
-    <div class="final-eyebrow rx">Rejoindre la waitlist</div>
-    <h2 class="final-title rx">
-      Soyez parmi<br>les <em>50 premiers.</em>
-    </h2>
-    <p class="final-sub rx">
-      Les 50 premiers inscrits obtiennent l'accès bêta gratuit, une formation 1-on-1 avec l'équipe FINOX, et un tarif fondateur verrouillé à vie.
-    </p>
+    <div class="final-eyebrow rx">Accès anticipé — Places limitées</div>
+    <h2 class="final-title rx">Rejoignez les<em>premiers.</em></h2>
+    <p class="final-sub rx">50 conseillers sélectionnés bénéficieront d'un accès bêta gratuit complet et d'une formation personnalisée pour maximiser leur impact dès le premier mois.</p>
 
-    <div class="big-form rx" id="mainForm">
-      <div class="spots-counter">
-        <div class="spots-bar"><div class="spots-fill"></div></div>
-        <span>34 places prises sur 50 — il en reste <strong>16</strong></span>
-      </div>
-      <div class="form-row">
-        <input type="text" class="form-input" placeholder="Votre prénom" id="fName">
-        <div class="form-divider"></div>
-        <input type="email" class="form-input" placeholder="votre@courriel.com" id="fEmail">
-        <div class="form-divider"></div>
-        <button class="btn-submit" onclick="finalJoin()">
-          Réserver ma place gratuite →
-        </button>
+    <div class="spots-bar-row rx">
+      <div class="spots-track"><div class="spots-fill" id="spots-fill"></div></div>
+      <span class="spots-text">34 / 50 places prises</span>
+    </div>
+
+    <div id="cta-form-inner">
+      <div class="cta-row">
+        <input type="text"  class="cta-input" placeholder="Votre nom complet" id="cta-name">
+        <div class="cta-divider"></div>
+        <input type="email" class="cta-input" placeholder="votre@courriel.com" id="cta-email">
+        <div class="cta-divider"></div>
+        <input type="tel"   class="cta-input" placeholder="514-xxx-xxxx (optionnel)" id="cta-phone" style="width:200px">
+        <button class="cta-submit-btn" onclick="ctaSubmit()">Réserver ma place →</button>
       </div>
       <div class="trust-row">
+        <div class="trust-item"><div class="trust-check">✓</div>Accès bêta gratuit</div>
+        <div class="trust-item"><div class="trust-check">✓</div>Formation 1:1 incluse</div>
+        <div class="trust-item"><div class="trust-check">✓</div>AMF-compatible</div>
+        <div class="trust-item"><div class="trust-check">✓</div>Google Workspace fourni</div>
         <div class="trust-item"><div class="trust-check">✓</div>Aucune carte requise</div>
-        <div class="trust-item"><div class="trust-check">✓</div>Données privées & sécurisées</div>
-        <div class="trust-item"><div class="trust-check">✓</div>AMF-compatible dès le départ</div>
-        <div class="trust-item"><div class="trust-check">✓</div>Annulation facile en tout temps</div>
       </div>
     </div>
 
-    <div class="success-state" id="finalOk">
-      <div class="success-icon">✓</div>
-      <div class="success-title">Vous êtes dans la liste!</div>
-      <p class="success-sub">On vous contacte dans les 24 prochaines heures pour votre accès bêta.</p>
+    <div id="cta-success">
+      <div class="success-circle">✓</div>
+      <div class="success-title">Place réservée !</div>
+      <div class="success-sub">Merci ! Vous avez réservé votre place parmi les 50 premiers conseillers bêta. On vous contacte sous 24h pour planifier votre accès personnalisé.</div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ════════════════════════════════ FOOTER ═══════════ -->
 <footer>
   <div class="footer-logo">FINOX<span>·</span>CRM</div>
   <div class="footer-links">
-    <a href="#features" class="footer-link">Fonctionnalités</a>
-    <a href="#roadmap" class="footer-link">Roadmap</a>
-    <a href="#proof" class="footer-link">Témoignages</a>
-    <a href="#cta" class="footer-link">Waitlist</a>
+    <a href="#showcase" class="footer-link">Plateforme</a>
+    <a href="#abf"      class="footer-link">ABF</a>
+    <a href="#tools"    class="footer-link">Outils</a>
+    <a href="#ai"       class="footer-link">IA</a>
+    <a href="#roadmap"  class="footer-link">Roadmap</a>
+    <a href="#cta"      class="footer-link">Accès anticipé</a>
   </div>
-  <div class="footer-copy">© 2025 Services Financiers Finox inc. · Québec</div>
+  <div class="footer-copy">© 2025 Services Financiers Finox inc. · Québec · AMF-compatible</div>
 </footer>
 
-<script>
-/* ═══════════════════════════════════════
-   CURSOR
-═══════════════════════════════════════ */
-const cur = document.getElementById('cur');
-const trail = document.getElementById('cur-trail');
-let mx=0,my=0,tx=0,ty=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
-(function tick(){
-  tx+=(mx-tx)*.12;ty+=(my-ty)*.12;
-  cur.style.cssText=`left:${mx}px;top:${my}px`;
-  trail.style.cssText=`left:${tx}px;top:${ty}px`;
-  requestAnimationFrame(tick);
-})();
-document.querySelectorAll('button,a,[class*="card"],[class*="item"],.bento-card').forEach(el=>{
-  el.addEventListener('mouseenter',()=>document.body.classList.add('cursor-hover'));
-  el.addEventListener('mouseleave',()=>document.body.classList.remove('cursor-hover'));
-});
-
-/* ═══════════════════════════════════════
-   CANVAS STAR FIELD
-═══════════════════════════════════════ */
-const canvas=document.getElementById('bg-canvas');
-const ctx=canvas.getContext('2d');
-let W,H,stars=[];
-function resize(){
-  W=canvas.width=window.innerWidth;
-  H=canvas.height=window.innerHeight;
-}
-resize();window.addEventListener('resize',()=>{resize();initStars()});
-function initStars(){
-  stars=[];
-  const n=Math.floor(W*H/8000);
-  for(let i=0;i<n;i++){
-    stars.push({
-      x:Math.random()*W,y:Math.random()*H,
-      r:Math.random()*1.2,
-      o:Math.random()*.6,
-      s:Math.random()*.3+.1,
-      t:Math.random()*Math.PI*2
-    });
-  }
-}
-initStars();
-function drawCanvas(){
-  ctx.clearRect(0,0,W,H);
-  stars.forEach(s=>{
-    s.t+=.008;s.o=.15+Math.sin(s.t)*0.25;
-    ctx.beginPath();
-    ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
-    ctx.fillStyle=`rgba(184,150,46,${s.o})`;
-    ctx.fill();
-  });
-  requestAnimationFrame(drawCanvas);
-}
-drawCanvas();
-
-/* ═══════════════════════════════════════
-   NAV SCROLL
-═══════════════════════════════════════ */
-const nav=document.getElementById('nav');
-window.addEventListener('scroll',()=>{
-  nav.classList.toggle('scrolled',window.scrollY>60);
-});
-
-/* ═══════════════════════════════════════
-   LIVE TIME
-═══════════════════════════════════════ */
-function updateTime(){
-  const t=new Date();
-  const h=String(t.getHours()).padStart(2,'0');
-  const m=String(t.getMinutes()).padStart(2,'0');
-  const el=document.getElementById('liveTime');
-  if(el)el.textContent=h+':'+m;
-}
-updateTime();setInterval(updateTime,30000);
-
-/* ═══════════════════════════════════════
-   CHART SVG ANIMATION
-═══════════════════════════════════════ */
-function animateChart(){
-  const path=document.getElementById('chartPath');
-  const fill=document.getElementById('chartFill');
-  if(!path)return;
-  path.style.transition='stroke-dashoffset 2s cubic-bezier(.16,1,.3,1)';
-  path.style.strokeDashoffset='0';
-  if(fill){fill.style.transition='opacity 1s ease 1s';fill.style.opacity='1';}
-}
-const chartObs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting)animateChart()});
-},{threshold:.3});
-const chartEl=document.getElementById('miniSvg');
-if(chartEl)chartObs.observe(chartEl);
-
-/* ═══════════════════════════════════════
-   SCROLL REVEAL
-═══════════════════════════════════════ */
-const revObs=new IntersectionObserver((entries)=>{
-  entries.forEach((e,i)=>{
-    if(e.isIntersecting){
-      setTimeout(()=>e.target.classList.add('in'),i*60);
-      revObs.unobserve(e.target);
-    }
-  });
-},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.rx,.rx-l,.rx-r').forEach(el=>revObs.observe(el));
-
-/* ═══════════════════════════════════════
-   COUNT UP ANIMATION
-═══════════════════════════════════════ */
-function countUp(el,target,duration=1800){
-  let start=null;
-  const isPct=el.closest('[data-suffix="%"]')||el.parentElement.querySelector('.num-unit')?.textContent==='%';
-  const orig=el.textContent;
-  function step(ts){
-    if(!start)start=ts;
-    const p=Math.min((ts-start)/duration,1);
-    const eased=1-Math.pow(1-p,3);
-    el.textContent=Math.round(eased*target);
-    if(p<1)requestAnimationFrame(step);
-    else el.textContent=target;
-  }
-  requestAnimationFrame(step);
-}
-
-const cntObs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      const el=e.target;
-      const target=parseInt(el.dataset.target||el.dataset.count);
-      if(!isNaN(target))countUp(el,target);
-      cntObs.unobserve(el);
-    }
-  });
-},{threshold:.5});
-document.querySelectorAll('[data-target],[data-count]').forEach(el=>cntObs.observe(el));
-
-/* ═══════════════════════════════════════
-   MAGNETIC BUTTONS
-═══════════════════════════════════════ */
-document.querySelectorAll('.btn-mag').forEach(btn=>{
-  btn.addEventListener('mousemove',e=>{
-    const r=btn.getBoundingClientRect();
-    const x=(e.clientX-r.left-r.width/2)*.3;
-    const y=(e.clientY-r.top-r.height/2)*.3;
-    btn.style.transform=`translate(${x}px,${y}px) scale(1.03)`;
-  });
-  btn.addEventListener('mouseleave',()=>{
-    btn.style.transform='translate(0,0) scale(1)';
-    btn.style.transition='transform .4s var(--ease-spring)';
-  });
-});
-
-/* ═══════════════════════════════════════
-   3D DASHBOARD MOUSE PARALLAX
-═══════════════════════════════════════ */
-const dashWrap=document.querySelector('.dash-3d-wrap');
-const dashEl=document.querySelector('.dash-3d');
-if(dashWrap){
-  document.addEventListener('mousemove',e=>{
-    const r=dashWrap.getBoundingClientRect();
-    const cx=r.left+r.width/2;
-    const cy=r.top+r.height/2;
-    const dx=(e.clientX-cx)/cx;
-    const dy=(e.clientY-cy)/cy;
-    dashEl.style.transform=`rotateY(${-15+dx*8}deg) rotateX(${8-dy*4}deg)`;
-  });
-}
-
-/* ═══════════════════════════════════════
-   LIVE ACTIVITY FEED (animate)
-═══════════════════════════════════════ */
-const actEvents=[
-  {color:'#3DC49A',label:'Nouveau lead',text:'— Pierre Gagné · Laval'},
-  {color:'#B8962E',label:'Devis envoyé',text:'— Vie entière 500K · A. Martin'},
-  {color:'#3D7EC4',label:'RDV confirmé',text:'— Lundi 10h · C. Beaumont'},
-  {color:'#E8C97A',label:'Renouvellement',text:'— Police #4821 · expiry 30j'},
-  {color:'#3DC49A',label:'Signature reçue',text:'— Invalidité · F. Tremblay ✓'},
-  {color:'#B8962E',label:'ABF complété',text:'— Besoins $2.1M · S. Roy'},
-];
-let actIdx=0;
-function rotateActivity(){
-  const feed=document.getElementById('actFeed');
-  if(!feed)return;
-  const items=feed.querySelectorAll('.act-item');
-  if(items.length===0)return;
-  // remove first, add new at bottom
-  const ev=actEvents[actIdx%actEvents.length];
-  const newItem=document.createElement('div');
-  newItem.className='act-item';
-  newItem.style.animationDelay='0s';
-  newItem.innerHTML=`<div class="act-dot" style="background:${ev.color}"></div><span style="color:${ev.color}">${ev.label}</span> ${ev.text}`;
-  items[0].style.transition='opacity .3s,transform .3s';
-  items[0].style.opacity='0';
-  items[0].style.transform='translateX(-10px)';
-  setTimeout(()=>{
-    try{feed.removeChild(items[0]);}catch(e){}
-    feed.appendChild(newItem);
-  },300);
-  actIdx++;
-}
-setInterval(rotateActivity,3000);
-
-/* ═══════════════════════════════════════
-   FORMS
-═══════════════════════════════════════ */
-function shake(el){
-  el.style.animation='none';
-  el.offsetHeight;
-  el.style.animation='shake .4s ease';
-}
-function heroJoin(){
-  const email=document.getElementById('heroEmail');
-  if(!email.value||!email.value.includes('@')){
-    email.style.outline='1px solid rgba(196,61,61,.6)';
-    setTimeout(()=>email.style.outline='',1500);
-    return;
-  }
-  document.querySelector('.cta-input-wrap').style.display='none';
-  document.getElementById('heroOk').style.display='block';
-}
-function finalJoin(){
-  const email=document.getElementById('fEmail');
-  if(!email.value||!email.value.includes('@')){
-    email.style.borderBottom='1px solid rgba(196,61,61,.6)';
-    setTimeout(()=>email.style.borderBottom='',1500);
-    return;
-  }
-  document.getElementById('mainForm').style.display='none';
-  document.getElementById('finalOk').classList.add('show');
-}
-function scrollToCTA(){
-  document.getElementById('cta').scrollIntoView({behavior:'smooth'});
-}
-
-/* ═══════════════════════════════════════
-   HERO STATS COUNTER ON LOAD
-═══════════════════════════════════════ */
-setTimeout(()=>{
-  document.querySelectorAll('[data-target]').forEach(el=>{
-    const target=parseInt(el.dataset.target);
-    const suffix=el.dataset.suffix||'';
-    const prefix=el.dataset.prefix||'';
-    let start=null;
-    function step(ts){
-      if(!start)start=ts;
-      const p=Math.min((ts-start)/1600,1);
-      const eased=1-Math.pow(1-p,3);
-      el.textContent=prefix+Math.round(eased*target)+suffix;
-      if(p<1)requestAnimationFrame(step);
-      else el.textContent=prefix+target+suffix;
-    }
-    requestAnimationFrame(step);
-  });
-},1200);
-</script>
+<script src="finox.js"></script>
 </body>
 </html>
