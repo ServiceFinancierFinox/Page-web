@@ -1,0 +1,1903 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FINOX CRM — L'OS de l'assurance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=JetBrains+Mono:wght@300;400;500&family=Cabinet+Grotesk:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --g:#B8962E;--gl:#E8C97A;--gd:#7A6120;--gdark:#1A1500;
+  --ink:#07070D;--s1:#0D0D16;--s2:#11111C;
+  --cr:#F0EBE0;--cd:#A09880;
+  --blue:#3D7EC4;--green:#3DC49A;--red:#C43D3D;
+  --tm:#3A3A52;
+  --ease-spring:cubic-bezier(0.34,1.56,0.64,1);
+  --ease-out:cubic-bezier(0.16,1,0.3,1);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  font-family:'Cabinet Grotesk',sans-serif;
+  background:var(--ink);color:var(--cr);
+  overflow-x:hidden;cursor:none;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ═══ CURSOR SYSTEM ═══ */
+#cur{
+  position:fixed;width:8px;height:8px;
+  background:var(--gl);border-radius:50%;
+  pointer-events:none;z-index:99999;
+  transform:translate(-50%,-50%);
+  transition:width .3s var(--ease-spring),height .3s var(--ease-spring),background .3s;
+  mix-blend-mode:difference;
+}
+#cur-trail{
+  position:fixed;width:36px;height:36px;
+  border:1px solid rgba(232,201,122,.3);
+  border-radius:50%;pointer-events:none;z-index:99998;
+  transform:translate(-50%,-50%);
+  transition:width .4s var(--ease-out),height .4s var(--ease-out);
+}
+body.cursor-hover #cur{width:24px;height:24px;background:var(--g)}
+body.cursor-hover #cur-trail{width:60px;height:60px;border-color:rgba(232,201,122,.5)}
+
+/* ═══ CANVAS BACKGROUND ═══ */
+#bg-canvas{
+  position:fixed;inset:0;z-index:0;
+  pointer-events:none;opacity:.6;
+}
+
+/* ═══ NOISE ═══ */
+.noise{
+  position:fixed;inset:0;z-index:9997;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity:.03;
+}
+
+/* ═══ NAV ═══ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:5000;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 64px;height:72px;
+  transition:background .4s,border-color .4s;
+}
+nav.scrolled{
+  background:rgba(7,7,13,.85);
+  border-bottom:1px solid rgba(184,150,46,.12);
+  backdrop-filter:blur(20px);
+}
+.nav-logo{
+  font-family:'Cormorant Garamond',serif;
+  font-size:24px;font-weight:700;letter-spacing:.05em;
+  display:flex;align-items:center;gap:2px;
+}
+.nav-logo .dot{color:var(--g);font-size:32px;line-height:0;position:relative;top:2px}
+.nav-center{
+  display:flex;align-items:center;gap:40px;
+  position:absolute;left:50%;transform:translateX(-50%);
+}
+.nav-link{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--tm);text-decoration:none;
+  transition:color .3s;position:relative;
+}
+.nav-link::after{
+  content:'';position:absolute;bottom:-2px;left:0;right:0;height:1px;
+  background:var(--g);transform:scaleX(0);transition:transform .3s;
+}
+.nav-link:hover{color:var(--cr)}
+.nav-link:hover::after{transform:scaleX(1)}
+.nav-badge{
+  display:flex;align-items:center;gap:8px;
+  border:1px solid rgba(184,150,46,.2);
+  border-radius:100px;padding:8px 18px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--g);background:rgba(184,150,46,.04);
+  cursor:pointer;
+  transition:border-color .3s,background .3s;
+}
+.nav-badge:hover{border-color:rgba(184,150,46,.5);background:rgba(184,150,46,.08)}
+.nav-badge .live-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--green);flex-shrink:0;
+  animation:livePulse 2.5s ease-in-out infinite;
+}
+@keyframes livePulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(61,196,154,.4)}
+  50%{box-shadow:0 0 0 6px rgba(61,196,154,0)}
+}
+
+/* ═══ HERO ═══ */
+.hero{
+  min-height:100svh;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:120px 40px 60px;
+  position:relative;overflow:hidden;
+}
+
+/* Scan line effect */
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(
+    0deg,
+    transparent,transparent 2px,
+    rgba(184,150,46,.008) 2px,rgba(184,150,46,.008) 4px
+  );
+  pointer-events:none;z-index:1;
+}
+
+.hero-inner{
+  position:relative;z-index:2;
+  display:flex;flex-direction:column;
+  align-items:center;text-align:center;
+  max-width:1000px;
+}
+
+.hero-tag{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--g);margin-bottom:40px;
+  padding:8px 20px;
+  border:1px solid rgba(184,150,46,.2);
+  border-radius:100px;
+  background:rgba(184,150,46,.04);
+  opacity:0;animation:heroIn .6s var(--ease-out) .1s forwards;
+}
+.hero-tag .arrow{
+  display:inline-block;
+  animation:arrowBounce 1.5s ease-in-out infinite;
+}
+@keyframes arrowBounce{
+  0%,100%{transform:translateX(0)}
+  50%{transform:translateX(4px)}
+}
+
+/* MORPHING HEADLINE */
+.hero-h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(56px,10vw,130px);
+  font-weight:300;line-height:.9;
+  letter-spacing:-.02em;
+  margin-bottom:12px;
+  opacity:0;animation:heroIn .8s var(--ease-out) .3s forwards;
+}
+.hero-h1 .italic{font-style:italic;color:var(--gl)}
+.hero-h1 .stroke{
+  -webkit-text-stroke:1px rgba(240,235,224,.3);
+  color:transparent;
+}
+.hero-h1 .gold-block{
+  display:inline-block;
+  background:linear-gradient(135deg,var(--gl) 0%,var(--g) 50%,var(--gd) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  font-weight:600;
+}
+
+.hero-h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(56px,10vw,130px);
+  font-weight:700;line-height:.9;
+  letter-spacing:-.02em;
+  font-style:italic;color:var(--g);
+  opacity:0;animation:heroIn .8s var(--ease-out) .5s forwards;
+  margin-bottom:40px;
+}
+
+.hero-sub{
+  font-size:18px;line-height:1.7;
+  color:var(--cd);max-width:560px;
+  opacity:0;animation:heroIn .6s var(--ease-out) .7s forwards;
+  margin-bottom:60px;
+}
+
+/* STATS BAR */
+.hero-stats{
+  display:flex;gap:0;
+  border:1px solid rgba(184,150,46,.15);
+  border-radius:16px;overflow:hidden;
+  margin-bottom:48px;
+  opacity:0;animation:heroIn .6s var(--ease-out) .9s forwards;
+  background:rgba(184,150,46,.02);
+  backdrop-filter:blur(20px);
+}
+.hstat{
+  padding:24px 40px;text-align:center;
+  border-right:1px solid rgba(184,150,46,.1);
+  position:relative;overflow:hidden;
+  transition:background .3s;
+}
+.hstat:last-child{border-right:none}
+.hstat:hover{background:rgba(184,150,46,.05)}
+.hstat::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(to right,transparent,var(--g),transparent);
+  transform:scaleX(0);transition:transform .4s;
+}
+.hstat:hover::before{transform:scaleX(1)}
+.hstat-n{
+  font-family:'Cormorant Garamond',serif;
+  font-size:48px;font-weight:700;
+  background:linear-gradient(180deg,var(--gl),var(--g));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  line-height:1;
+}
+.hstat-l{
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--tm);margin-top:8px;
+}
+
+/* CTA GROUP */
+.hero-cta{
+  display:flex;flex-direction:column;align-items:center;gap:20px;
+  opacity:0;animation:heroIn .6s var(--ease-out) 1.1s forwards;
+}
+.cta-row{display:flex;gap:12px;align-items:center}
+
+/* MAGNETIC BUTTON */
+.btn-mag{
+  position:relative;display:inline-flex;align-items:center;
+  gap:10px;overflow:hidden;
+  border-radius:100px;cursor:none;
+  transition:transform .3s var(--ease-spring);
+}
+.btn-primary{
+  background:linear-gradient(135deg,var(--gl),var(--g) 60%,var(--gd));
+  padding:16px 40px;color:var(--ink);
+  font-family:'Cabinet Grotesk',sans-serif;
+  font-size:14px;font-weight:800;letter-spacing:.04em;
+  border:none;
+  box-shadow:0 0 80px rgba(184,150,46,.2),0 1px 0 rgba(255,255,255,.3) inset;
+}
+.btn-primary .shine{
+  position:absolute;top:0;left:-100%;width:60%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);
+  transform:skewX(-20deg);transition:left .5s;
+}
+.btn-primary:hover .shine{left:150%}
+.btn-ghost{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.1);
+  padding:15px 32px;color:var(--cd);
+  font-family:'Cabinet Grotesk',sans-serif;
+  font-size:14px;font-weight:600;
+  cursor:none;border-radius:100px;
+  transition:border-color .3s,color .3s,background .3s;
+}
+.btn-ghost:hover{
+  border-color:rgba(184,150,46,.4);
+  color:var(--cr);background:rgba(184,150,46,.05);
+}
+
+.cta-input-wrap{
+  display:flex;gap:0;
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(184,150,46,.2);
+  border-radius:100px;padding:5px;
+  transition:border-color .4s,box-shadow .4s;
+}
+.cta-input-wrap:focus-within{
+  border-color:rgba(184,150,46,.6);
+  box-shadow:0 0 0 4px rgba(184,150,46,.08),0 0 80px rgba(184,150,46,.15);
+}
+.cta-email{
+  background:none;border:none;outline:none;
+  padding:12px 24px;width:280px;
+  font-family:'Cabinet Grotesk',sans-serif;font-size:15px;
+  color:var(--cr);cursor:none;
+}
+.cta-email::placeholder{color:var(--tm)}
+.cta-sub{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;letter-spacing:.08em;color:var(--tm);
+}
+
+@keyframes heroIn{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* SCROLL INDICATOR */
+.scroll-ind{
+  position:absolute;bottom:36px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:10px;
+  z-index:2;opacity:0;animation:heroIn .5s ease 2.2s forwards;
+}
+.scroll-ind span{
+  font-family:'JetBrains Mono',monospace;font-size:9px;
+  letter-spacing:.25em;text-transform:uppercase;color:var(--tm);
+}
+.scroll-mouse{
+  width:22px;height:36px;border-radius:100px;
+  border:1px solid rgba(184,150,46,.3);
+  display:flex;justify-content:center;padding-top:8px;
+}
+.scroll-mouse::before{
+  content:'';width:3px;height:6px;
+  background:var(--g);border-radius:100px;
+  animation:mouseScroll 2s ease-in-out infinite;
+}
+@keyframes mouseScroll{
+  0%,100%{transform:translateY(0);opacity:1}
+  80%{transform:translateY(10px);opacity:0}
+}
+
+/* ═══ MARQUEE ═══ */
+.marquee-section{
+  padding:32px 0;
+  border-top:1px solid rgba(184,150,46,.08);
+  border-bottom:1px solid rgba(184,150,46,.08);
+  overflow:hidden;position:relative;z-index:2;
+  background:rgba(184,150,46,.02);
+}
+.marquee-track{
+  display:flex;gap:0;width:max-content;
+  animation:marquee 30s linear infinite;
+}
+.marquee-item{
+  display:flex;align-items:center;gap:16px;
+  padding:0 40px;
+  border-right:1px solid rgba(184,150,46,.1);
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--tm);white-space:nowrap;
+}
+.marquee-item .mi-dot{
+  width:5px;height:5px;border-radius:50%;
+  background:var(--g);flex-shrink:0;
+}
+@keyframes marquee{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+
+/* ═══ PROBLEM SECTION — CINEMATIC ═══ */
+.problem{
+  padding:160px 80px;position:relative;
+  background:linear-gradient(to bottom,var(--ink),var(--s1));
+  overflow:hidden;
+}
+.problem::before{
+  content:'';position:absolute;
+  top:-200px;right:-200px;
+  width:700px;height:700px;
+  background:radial-gradient(circle,rgba(196,61,61,.06) 0%,transparent 60%);
+  pointer-events:none;
+}
+
+.prob-inner{
+  max-width:1280px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:120px;align-items:center;
+}
+
+.sec-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;letter-spacing:.25em;text-transform:uppercase;
+  color:var(--g);margin-bottom:24px;
+  display:flex;align-items:center;gap:16px;
+}
+.sec-eyebrow::before{
+  content:'';width:24px;height:1px;
+  background:var(--g);
+}
+
+.prob-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(42px,4.5vw,68px);
+  font-weight:300;line-height:1.05;
+  margin-bottom:28px;
+}
+.prob-title em{font-style:italic;color:var(--g);font-weight:400}
+.prob-title strong{font-weight:600;color:var(--cr)}
+
+.prob-body{
+  font-size:16px;line-height:1.85;color:var(--cd);
+  margin-bottom:48px;
+}
+
+/* PAIN CARDS */
+.pain-stack{display:flex;flex-direction:column;gap:1px}
+.pain-card{
+  display:flex;gap:20px;align-items:flex-start;
+  padding:24px;
+  background:rgba(255,255,255,.015);
+  border-left:2px solid transparent;
+  transition:background .3s,border-color .3s,transform .3s;
+  cursor:default;
+}
+.pain-card:first-child{border-radius:12px 12px 0 0}
+.pain-card:last-child{border-radius:0 0 12px 12px}
+.pain-card:hover{
+  background:rgba(196,61,61,.05);
+  border-left-color:var(--red);
+  transform:translateX(4px);
+}
+.pain-ico{
+  width:40px;height:40px;flex-shrink:0;border-radius:8px;
+  background:rgba(196,61,61,.08);
+  border:1px solid rgba(196,61,61,.15);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;
+}
+.pain-txt{flex:1}
+.pain-txt h4{font-size:15px;font-weight:700;margin-bottom:6px;color:var(--cr)}
+.pain-txt p{font-size:13px;line-height:1.7;color:var(--cd)}
+.pain-time{
+  font-family:'JetBrains Mono',monospace;font-size:11px;
+  color:var(--red);background:rgba(196,61,61,.08);
+  padding:3px 8px;border-radius:4px;white-space:nowrap;
+  margin-top:6px;display:inline-block;
+}
+
+/* 3D DASHBOARD */
+.dash-3d-wrap{
+  perspective:1200px;
+  position:relative;
+}
+.dash-3d{
+  transform:rotateY(-15deg) rotateX(8deg);
+  transform-style:preserve-3d;
+  transition:transform .6s var(--ease-out);
+  border-radius:20px;overflow:hidden;
+  border:1px solid rgba(184,150,46,.2);
+  box-shadow:
+    40px 40px 100px rgba(0,0,0,.6),
+    -10px -10px 40px rgba(184,150,46,.03),
+    0 0 0 1px rgba(184,150,46,.06);
+}
+.dash-3d-wrap:hover .dash-3d{
+  transform:rotateY(-5deg) rotateX(3deg);
+}
+/* Floating shadow */
+.dash-3d-wrap::after{
+  content:'';
+  position:absolute;bottom:-40px;left:10%;right:10%;height:40px;
+  background:radial-gradient(ellipse,rgba(184,150,46,.15) 0%,transparent 70%);
+  filter:blur(20px);
+}
+
+/* Dashboard UI */
+.db-ui{background:var(--s2);padding:0}
+.db-top{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 20px;
+  background:rgba(255,255,255,.02);
+  border-bottom:1px solid rgba(255,255,255,.05);
+}
+.db-dots{display:flex;gap:6px}
+.db-dot{width:10px;height:10px;border-radius:50%}
+.db-app-name{
+  font-family:'JetBrains Mono',monospace;font-size:11px;
+  letter-spacing:.08em;color:var(--tm);
+}
+.db-time{
+  font-family:'JetBrains Mono',monospace;font-size:11px;
+  color:var(--tm);
+}
+
+/* Sidebar + Content */
+.db-body{display:flex;height:340px}
+.db-sidebar{
+  width:160px;flex-shrink:0;
+  background:rgba(0,0,0,.2);
+  border-right:1px solid rgba(255,255,255,.04);
+  padding:16px 0;
+}
+.db-nav-item{
+  display:flex;align-items:center;gap:10px;
+  padding:10px 16px;
+  font-family:'JetBrains Mono',monospace;font-size:10px;
+  letter-spacing:.05em;color:var(--tm);
+  transition:background .2s,color .2s;
+  cursor:default;
+}
+.db-nav-item:hover{background:rgba(184,150,46,.05);color:var(--cr)}
+.db-nav-item.active{
+  background:rgba(184,150,46,.08);
+  color:var(--g);
+  border-right:2px solid var(--g);
+}
+.db-nav-icon{font-size:13px}
+.db-content{flex:1;padding:16px;overflow:hidden}
+
+.db-kpis{
+  display:grid;grid-template-columns:1fr 1fr 1fr;
+  gap:8px;margin-bottom:12px;
+}
+.kpi{
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.05);
+  border-radius:10px;padding:12px;
+  position:relative;overflow:hidden;
+}
+.kpi::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(184,150,46,.04),transparent);
+  opacity:0;transition:opacity .3s;
+}
+.kpi:hover::before{opacity:1}
+.kpi-val{
+  font-family:'Cormorant Garamond',serif;
+  font-size:24px;font-weight:700;
+  color:var(--cr);line-height:1;
+}
+.kpi-val.gold{
+  background:linear-gradient(135deg,var(--gl),var(--g));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.kpi-val.green{color:var(--green)}
+.kpi-lbl{
+  font-family:'JetBrains Mono',monospace;font-size:9px;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--tm);margin-top:4px;
+}
+.kpi-chg{
+  font-family:'JetBrains Mono',monospace;font-size:9px;
+  color:var(--green);background:rgba(61,196,154,.08);
+  padding:2px 6px;border-radius:4px;margin-top:6px;
+  display:inline-block;
+}
+
+/* Mini chart */
+.mini-chart-wrap{
+  background:rgba(255,255,255,.02);
+  border:1px solid rgba(255,255,255,.05);
+  border-radius:10px;padding:12px;
+  margin-bottom:10px;height:100px;
+  position:relative;overflow:hidden;
+}
+.chart-label{
+  font-family:'JetBrains Mono',monospace;font-size:9px;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--tm);margin-bottom:8px;
+}
+.mini-chart-svg{width:100%;height:60px}
+
+/* Activity feed */
+.activity-feed{
+  background:rgba(255,255,255,.02);
+  border:1px solid rgba(255,255,255,.05);
+  border-radius:10px;padding:10px;
+}
+.act-item{
+  display:flex;align-items:center;gap:8px;
+  padding:7px 0;
+  border-bottom:1px solid rgba(255,255,255,.03);
+  font-family:'JetBrains Mono',monospace;font-size:9px;
+  color:var(--tm);
+  animation:actSlideIn .5s ease forwards;
+  opacity:0;
+}
+.act-item:last-child{border-bottom:none}
+.act-dot{
+  width:6px;height:6px;border-radius:50%;flex-shrink:0;
+}
+@keyframes actSlideIn{
+  from{opacity:0;transform:translateX(-10px)}
+  to{opacity:1;transform:translateX(0)}
+}
+
+/* ═══ FEATURES — BENTO GRID ═══ */
+.features{
+  padding:160px 80px;
+  background:var(--s1);
+  position:relative;overflow:hidden;
+}
+.features::before{
+  content:'';position:absolute;
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  width:1000px;height:1000px;
+  background:radial-gradient(circle,rgba(184,150,46,.04) 0%,transparent 60%);
+  pointer-events:none;
+}
+
+.feat-header{
+  text-align:center;margin-bottom:80px;
+}
+.feat-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(44px,5vw,80px);font-weight:300;line-height:1;
+  margin-bottom:20px;
+}
+.feat-title em{font-style:italic;color:var(--g);font-weight:400}
+.feat-sub{font-size:17px;color:var(--cd);max-width:480px;margin:0 auto;line-height:1.7}
+
+/* BENTO GRID */
+.bento{
+  max-width:1280px;margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  grid-template-rows:auto;
+  gap:16px;
+}
+.bento-card{
+  background:rgba(255,255,255,.02);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:20px;padding:40px;
+  position:relative;overflow:hidden;
+  transition:border-color .4s,background .4s,transform .4s var(--ease-out),box-shadow .4s;
+  cursor:default;
+}
+.bento-card:hover{
+  border-color:rgba(184,150,46,.25);
+  background:rgba(184,150,46,.03);
+  transform:translateY(-4px);
+  box-shadow:0 24px 60px rgba(0,0,0,.3),0 0 60px rgba(184,150,46,.05);
+}
+.bento-card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(184,150,46,.06),transparent 50%);
+  opacity:0;transition:opacity .4s;
+}
+.bento-card:hover::before{opacity:1}
+
+/* Grid placement */
+.bc-1{grid-column:1/6;grid-row:1}
+.bc-2{grid-column:6/13;grid-row:1}
+.bc-3{grid-column:1/5;grid-row:2}
+.bc-4{grid-column:5/9;grid-row:2}
+.bc-5{grid-column:9/13;grid-row:2}
+.bc-6{grid-column:1/7;grid-row:3}
+.bc-7{grid-column:7/13;grid-row:3}
+
+.b-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:80px;font-weight:300;
+  color:rgba(184,150,46,.08);
+  position:absolute;top:10px;right:20px;
+  line-height:1;pointer-events:none;
+}
+.b-icon{
+  width:52px;height:52px;border-radius:14px;
+  background:linear-gradient(135deg,rgba(184,150,46,.15),rgba(184,150,46,.04));
+  border:1px solid rgba(184,150,46,.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:24px;margin-bottom:28px;
+  position:relative;z-index:1;
+  transition:transform .3s var(--ease-spring),box-shadow .3s;
+}
+.bento-card:hover .b-icon{
+  transform:scale(1.1);
+  box-shadow:0 8px 30px rgba(184,150,46,.2);
+}
+.b-name{
+  font-size:20px;font-weight:700;margin-bottom:12px;
+  color:var(--cr);position:relative;z-index:1;
+  font-family:'Cabinet Grotesk',sans-serif;
+}
+.b-desc{
+  font-size:14px;line-height:1.75;color:var(--cd);
+  position:relative;z-index:1;
+}
+.b-tag{
+  display:inline-flex;align-items:center;gap:6px;
+  margin-top:20px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  padding:5px 12px;border-radius:100px;
+  background:rgba(184,150,46,.08);
+  border:1px solid rgba(184,150,46,.15);
+  color:var(--g);position:relative;z-index:1;
+}
+.b-tag .t-dot{
+  width:5px;height:5px;border-radius:50%;
+  background:var(--g);flex-shrink:0;
+}
+
+/* Special bento cards */
+.bc-large{
+  background:linear-gradient(135deg,rgba(184,150,46,.08),rgba(184,150,46,.02));
+}
+
+/* Animated connection lines inside a card */
+.bc-automation .flow{
+  display:flex;align-items:center;gap:8px;
+  margin-top:24px;flex-wrap:wrap;
+}
+.flow-step{
+  display:flex;align-items:center;gap:8px;
+}
+.flow-badge{
+  font-family:'JetBrains Mono',monospace;font-size:10px;
+  padding:6px 12px;border-radius:8px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  color:var(--cd);white-space:nowrap;
+}
+.flow-arrow{
+  color:var(--g);font-size:14px;
+  animation:flowArrow 2s ease-in-out infinite;
+}
+@keyframes flowArrow{
+  0%,100%{opacity:.4;transform:translateX(0)}
+  50%{opacity:1;transform:translateX(4px)}
+}
+
+/* Signature animation */
+.sig-demo{
+  margin-top:24px;padding:16px;
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:12px;position:relative;
+}
+.sig-line{
+  height:2px;
+  background:linear-gradient(to right,var(--g),var(--gl));
+  border-radius:100px;width:0;
+  animation:sigDraw 2s ease-out 1s forwards;
+  margin-bottom:8px;
+}
+@keyframes sigDraw{to{width:80%}}
+.sig-text{
+  font-family:'JetBrains Mono',monospace;font-size:10px;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--green);display:flex;align-items:center;gap:6px;
+}
+
+/* ═══ NUMBERS SECTION ═══ */
+.numbers{
+  padding:120px 80px;
+  background:var(--ink);
+  position:relative;overflow:hidden;
+}
+.numbers::before{
+  content:'FINOX';
+  position:absolute;
+  font-family:'Cormorant Garamond',serif;
+  font-size:300px;font-weight:900;
+  color:rgba(184,150,46,.02);
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  pointer-events:none;white-space:nowrap;letter-spacing:.2em;
+}
+.numbers-grid{
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:1px;
+  border:1px solid rgba(184,150,46,.1);
+  border-radius:20px;overflow:hidden;
+}
+.num-card{
+  padding:60px 40px;text-align:center;
+  background:rgba(184,150,46,.02);
+  position:relative;overflow:hidden;
+  transition:background .4s;
+}
+.num-card:hover{background:rgba(184,150,46,.05)}
+.num-card::after{
+  content:'';position:absolute;
+  top:0;left:20%;right:20%;height:1px;
+  background:linear-gradient(to right,transparent,rgba(184,150,46,.4),transparent);
+  opacity:0;transition:opacity .4s;
+}
+.num-card:hover::after{opacity:1}
+.num-big{
+  font-family:'Cormorant Garamond',serif;
+  font-size:80px;font-weight:700;line-height:1;
+  background:linear-gradient(180deg,var(--gl) 0%,var(--g) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.num-unit{
+  font-family:'Cormorant Garamond',serif;
+  font-size:36px;font-weight:300;
+  color:var(--g);
+}
+.num-label{
+  font-size:15px;color:var(--cd);margin-top:12px;line-height:1.5;
+}
+.num-sub{
+  font-family:'JetBrains Mono',monospace;font-size:10px;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--tm);margin-top:8px;
+}
+
+/* ═══ TESTIMONIAL / SOCIAL PROOF ═══ */
+.proof{
+  padding:120px 80px;
+  background:var(--s1);
+  position:relative;
+}
+.proof-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(38px,4vw,60px);font-weight:300;
+  text-align:center;margin-bottom:64px;
+}
+.proof-title em{font-style:italic;color:var(--g)}
+.proof-grid{
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;
+}
+.proof-card{
+  background:rgba(255,255,255,.02);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:20px;padding:36px;
+  position:relative;overflow:hidden;
+  transition:border-color .4s,transform .4s var(--ease-out);
+}
+.proof-card:hover{
+  border-color:rgba(184,150,46,.2);
+  transform:translateY(-4px);
+}
+.proof-quote{
+  font-family:'Cormorant Garamond',serif;
+  font-size:42px;color:rgba(184,150,46,.3);
+  line-height:1;margin-bottom:16px;
+}
+.proof-text{
+  font-size:15px;line-height:1.75;color:var(--cd);
+  margin-bottom:24px;
+}
+.proof-author{
+  display:flex;align-items:center;gap:12px;
+}
+.proof-avatar{
+  width:40px;height:40px;border-radius:50%;
+  border:1px solid rgba(184,150,46,.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;background:rgba(184,150,46,.08);
+  font-family:'Cormorant Garamond',serif;font-weight:700;
+  color:var(--g);
+}
+.proof-name{font-size:14px;font-weight:700}
+.proof-role{
+  font-family:'JetBrains Mono',monospace;font-size:10px;
+  letter-spacing:.08em;color:var(--tm);margin-top:2px;
+}
+
+/* ═══ ROADMAP TIMELINE ═══ */
+.roadmap{
+  padding:160px 80px;
+  background:linear-gradient(to bottom,var(--s1),var(--ink));
+  position:relative;overflow:hidden;
+}
+.roadmap-inner{max-width:900px;margin:0 auto}
+.roadmap-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(44px,5vw,72px);font-weight:300;
+  margin-bottom:80px;
+}
+.roadmap-title em{font-style:italic;color:var(--g)}
+
+.timeline{position:relative}
+.tl-line{
+  position:absolute;left:24px;top:0;bottom:0;width:1px;
+  background:linear-gradient(to bottom,var(--g),rgba(184,150,46,.05));
+}
+.tl-item{
+  display:flex;gap:48px;margin-bottom:56px;
+  position:relative;
+}
+.tl-node{
+  width:48px;height:48px;border-radius:50%;flex-shrink:0;
+  background:var(--ink);
+  border:2px solid rgba(184,150,46,.3);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;position:relative;z-index:1;
+  transition:border-color .3s,box-shadow .3s;
+}
+.tl-item:hover .tl-node{
+  border-color:var(--g);
+  box-shadow:0 0 20px rgba(184,150,46,.2);
+}
+.tl-node.done{
+  border-color:var(--green);
+  background:rgba(61,196,154,.08);
+}
+.tl-node.active{
+  border-color:var(--g);
+  background:rgba(184,150,46,.08);
+  box-shadow:0 0 30px rgba(184,150,46,.2);
+}
+.tl-body{padding-top:10px}
+.tl-phase{
+  font-family:'JetBrains Mono',monospace;font-size:10px;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--g);margin-bottom:10px;
+}
+.tl-title{
+  font-size:22px;font-weight:700;margin-bottom:10px;
+  font-family:'Cabinet Grotesk',sans-serif;
+}
+.tl-desc{font-size:14px;line-height:1.75;color:var(--cd)}
+.tl-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.tl-chip{
+  font-family:'JetBrains Mono',monospace;font-size:10px;
+  letter-spacing:.08em;text-transform:uppercase;
+  padding:4px 10px;border-radius:6px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  color:var(--tm);
+}
+
+/* ═══ FINAL CTA ═══ */
+.final{
+  padding:200px 80px;
+  text-align:center;position:relative;overflow:hidden;
+  background:var(--ink);
+}
+/* Radial glow */
+.final::before{
+  content:'';position:absolute;
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  width:1200px;height:800px;
+  background:radial-gradient(ellipse,rgba(184,150,46,.08) 0%,transparent 60%);
+  pointer-events:none;
+}
+/* Grid */
+.final::after{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(184,150,46,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(184,150,46,.04) 1px,transparent 1px);
+  background-size:80px 80px;
+  mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,black,transparent);
+  pointer-events:none;
+}
+
+.final-inner{position:relative;z-index:2}
+.final-eyebrow{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;letter-spacing:.25em;text-transform:uppercase;
+  color:var(--g);margin-bottom:36px;
+  display:inline-flex;align-items:center;gap:16px;
+}
+.final-eyebrow::before,.final-eyebrow::after{
+  content:'';width:40px;height:1px;background:var(--g);
+}
+.final-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(56px,9vw,120px);
+  font-weight:300;line-height:.9;
+  margin-bottom:20px;letter-spacing:-.02em;
+}
+.final-title em{
+  font-style:italic;color:var(--g);
+  display:block;font-weight:600;
+}
+.final-sub{
+  font-size:18px;color:var(--cd);
+  max-width:520px;margin:0 auto 56px;line-height:1.7;
+}
+
+/* BIG FORM */
+.big-form{
+  display:flex;flex-direction:column;align-items:center;gap:24px;
+}
+.form-row{
+  display:flex;gap:12px;
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(184,150,46,.2);
+  border-radius:16px;padding:8px;
+  width:600px;max-width:100%;
+  transition:border-color .4s,box-shadow .4s;
+}
+.form-row:focus-within{
+  border-color:rgba(184,150,46,.6);
+  box-shadow:0 0 0 4px rgba(184,150,46,.08),0 0 100px rgba(184,150,46,.12);
+}
+.form-input{
+  flex:1;background:none;border:none;outline:none;
+  padding:14px 20px;font-family:'Cabinet Grotesk',sans-serif;
+  font-size:15px;color:var(--cr);cursor:none;
+}
+.form-input::placeholder{color:var(--tm)}
+.form-divider{
+  width:1px;background:rgba(255,255,255,.06);
+  margin:8px 0;
+}
+.btn-submit{
+  background:linear-gradient(135deg,var(--gl),var(--g));
+  border:none;border-radius:10px;
+  padding:14px 36px;
+  font-family:'Cabinet Grotesk',sans-serif;font-size:15px;font-weight:800;
+  color:var(--ink);cursor:none;white-space:nowrap;
+  transition:transform .3s var(--ease-spring),box-shadow .3s;
+  box-shadow:0 4px 30px rgba(184,150,46,.3);
+  position:relative;overflow:hidden;
+}
+.btn-submit::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.15),transparent);
+  opacity:0;transition:opacity .3s;
+}
+.btn-submit:hover{
+  transform:scale(1.03);
+  box-shadow:0 8px 50px rgba(184,150,46,.5);
+}
+.btn-submit:hover::before{opacity:1}
+
+.trust-row{
+  display:flex;gap:32px;justify-content:center;flex-wrap:wrap;
+}
+.trust-item{
+  display:flex;align-items:center;gap:8px;
+  font-family:'JetBrains Mono',monospace;font-size:11px;
+  letter-spacing:.08em;color:var(--tm);
+}
+.trust-check{
+  width:18px;height:18px;border-radius:50%;
+  background:rgba(61,196,154,.1);
+  border:1px solid rgba(61,196,154,.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:9px;color:var(--green);
+}
+
+/* Spots counter */
+.spots-counter{
+  display:inline-flex;align-items:center;gap:12px;
+  padding:12px 24px;border-radius:100px;
+  background:rgba(196,61,61,.06);
+  border:1px solid rgba(196,61,61,.15);
+  font-family:'JetBrains Mono',monospace;font-size:12px;
+  letter-spacing:.08em;color:#E07070;
+}
+.spots-bar{
+  width:80px;height:4px;background:rgba(196,61,61,.2);
+  border-radius:100px;overflow:hidden;
+}
+.spots-fill{
+  height:100%;width:68%;
+  background:linear-gradient(to right,var(--red),#E07070);
+  border-radius:100px;
+}
+
+/* SUCCESS STATE */
+.success-state{
+  display:none;
+  flex-direction:column;align-items:center;gap:16px;
+  animation:heroIn .5s ease;
+}
+.success-state.show{display:flex}
+.success-icon{
+  width:80px;height:80px;border-radius:50%;
+  background:rgba(61,196,154,.08);
+  border:2px solid rgba(61,196,154,.3);
+  display:flex;align-items:center;justify-content:center;
+  font-size:32px;
+  animation:successPop .6s var(--ease-spring);
+}
+@keyframes successPop{
+  from{transform:scale(0)}
+  to{transform:scale(1)}
+}
+.success-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:36px;font-weight:600;color:var(--green);
+}
+.success-sub{font-size:15px;color:var(--cd)}
+
+/* FOOTER */
+footer{
+  padding:48px 80px;
+  border-top:1px solid rgba(255,255,255,.04);
+  display:flex;align-items:center;justify-content:space-between;
+  background:var(--ink);
+}
+.footer-logo{
+  font-family:'Cormorant Garamond',serif;
+  font-size:20px;font-weight:700;letter-spacing:.05em;
+  color:var(--cr);
+}
+.footer-logo span{color:var(--g)}
+.footer-links{
+  display:flex;gap:32px;
+}
+.footer-link{
+  font-family:'JetBrains Mono',monospace;font-size:11px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--tm);
+  text-decoration:none;transition:color .3s;
+}
+.footer-link:hover{color:var(--cr)}
+.footer-copy{
+  font-family:'JetBrains Mono',monospace;font-size:11px;
+  letter-spacing:.08em;color:var(--tm);
+}
+
+/* REVEAL */
+.rx{
+  opacity:0;transform:translateY(30px);
+  transition:opacity .8s var(--ease-out),transform .8s var(--ease-out);
+}
+.rx.in{opacity:1;transform:translateY(0)}
+.rx-l{
+  opacity:0;transform:translateX(-30px);
+  transition:opacity .8s var(--ease-out),transform .8s var(--ease-out);
+}
+.rx-l.in{opacity:1;transform:translateX(0)}
+.rx-r{
+  opacity:0;transform:translateX(30px);
+  transition:opacity .8s var(--ease-out),transform .8s var(--ease-out);
+}
+.rx-r.in{opacity:1;transform:translateX(0)}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  nav{padding:0 24px}
+  .nav-center{display:none}
+  .hero{padding:100px 24px 60px}
+  .hero-stats{flex-wrap:wrap;border-radius:16px}
+  .hstat{min-width:calc(50% - 1px)}
+  .prob-inner{grid-template-columns:1fr;gap:60px;padding:0}
+  .problem{padding:100px 24px}
+  .bento{grid-template-columns:1fr 1fr;gap:12px}
+  .bc-1,.bc-2,.bc-3,.bc-4,.bc-5,.bc-6,.bc-7{grid-column:auto;grid-row:auto}
+  .features,.numbers,.proof,.roadmap,.final{padding:100px 24px}
+  .numbers-grid{grid-template-columns:1fr 1fr}
+  .proof-grid{grid-template-columns:1fr}
+  .form-row{flex-direction:column;border-radius:16px;width:100%}
+  footer{flex-direction:column;gap:24px;text-align:center}
+  .footer-links{flex-wrap:wrap;justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="cur-trail"></div>
+<div class="noise"></div>
+<canvas id="bg-canvas"></canvas>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-logo">FINOX<span class="dot">·</span>CRM</div>
+  <div class="nav-center">
+    <a href="#features" class="nav-link">Fonctionnalités</a>
+    <a href="#roadmap" class="nav-link">Roadmap</a>
+    <a href="#proof" class="nav-link">Témoignages</a>
+  </div>
+  <div class="nav-badge" onclick="scrollToCTA()">
+    <div class="live-dot"></div>
+    Accès anticipé ouvert
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-tag">
+      <span>Construit pour les conseillers québécois</span>
+      <span class="arrow">→</span>
+    </div>
+
+    <div class="hero-h1">
+      <span class="stroke">Arrêtez</span> de perdre
+    </div>
+    <div class="hero-h1" style="animation-delay:.4s">
+      <span class="italic">votre temps</span> <span class="gold-block">sur l'admin</span>
+    </div>
+    <div style="height:16px"></div>
+    <div class="hero-h2" style="font-size:clamp(28px,4vw,52px);margin-bottom:24px;opacity:0;animation:heroIn .6s var(--ease-out) .65s forwards">
+      Concentrez-vous sur ce qui génère des commissions.
+    </div>
+
+    <p class="hero-sub">
+      FINOX CRM automatise 70% de votre travail administratif — suivis, signatures, quotes, rapports — pour que vos conseillers passent leur journée à vendre, pas à cliquer.
+    </p>
+
+    <div class="hero-stats">
+      <div class="hstat">
+        <div class="hstat-n" data-target="70" data-suffix="%">0%</div>
+        <div class="hstat-l">Admin éliminé</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-n" data-target="3" data-suffix="×">0×</div>
+        <div class="hstat-l">Ventes par conseiller</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-n" data-target="85" data-prefix="$">$0</div>
+        <div class="hstat-l">Économisé/lead vs Google</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-n" data-target="8" data-suffix="h">0h</div>
+        <div class="hstat-l">Récupérées par semaine</div>
+      </div>
+    </div>
+
+    <div class="hero-cta">
+      <div class="cta-input-wrap">
+        <input type="email" class="cta-email" placeholder="votre@courriel.com" id="heroEmail">
+        <button class="btn-mag btn-primary" onclick="heroJoin()">
+          <div class="shine"></div>
+          <span>Rejoindre la waitlist →</span>
+        </button>
+      </div>
+      <div class="success-msg" id="heroOk" style="display:none;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--green);letter-spacing:.08em">
+        ✓ Vous êtes sur la liste — on vous contacte sous 24h
+      </div>
+      <p class="cta-sub">Gratuit · Aucune carte requise · AMF-compatible</p>
+    </div>
+  </div>
+
+  <div class="scroll-ind">
+    <span>Explorer</span>
+    <div class="scroll-mouse"></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track" id="marquee">
+    <div class="marquee-item"><div class="mi-dot"></div>Automatisation des suivis</div>
+    <div class="marquee-item"><div class="mi-dot"></div>Signature électronique intégrée</div>
+    <div class="marquee-item"><div class="mi-dot"></div>Quotes WinQuote & Compulife</div>
+    <div class="marquee-item"><div class="mi-dot"></div>Téléphonie click-to-call</div>
+    <div class="marquee-item"><div class="mi-dot"></div>AMF-compatible</div>
+    <div class="marquee-item"><div class="mi-dot"></div>ABF automatisé</div>
+    <div class="marquee-item"><div class="mi-dot"></div>Multi-conseillers</div>
+    <div class="marquee-item"><div class="mi-dot"></div>Pipeline visuel</div>
+    <div class="marquee-item"><div class="mi-dot"></div>Rapports de commissions</div>
+    <div class="marquee-item"><div class="mi-dot"></div>Intégration Gmail</div>
+    <!-- Duplicate for seamless loop -->
+    <div class="marquee-item"><div class="mi-dot"></div>Automatisation des suivis</div>
+    <div class="marquee-item"><div class="mi-dot"></div>Signature électronique intégrée</div>
+    <div class="marquee-item"><div class="mi-dot"></div>Quotes WinQuote & Compulife</div>
+    <div class="marquee-item"><div class="mi-dot"></div>Téléphonie click-to-call</div>
+    <div class="marquee-item"><div class="mi-dot"></div>AMF-compatible</div>
+    <div class="marquee-item"><div class="mi-dot"></div>ABF automatisé</div>
+    <div class="marquee-item"><div class="mi-dot"></div>Multi-conseillers</div>
+    <div class="marquee-item"><div class="mi-dot"></div>Pipeline visuel</div>
+    <div class="marquee-item"><div class="mi-dot"></div>Rapports de commissions</div>
+    <div class="marquee-item"><div class="mi-dot"></div>Intégration Gmail</div>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section class="problem">
+  <div class="prob-inner">
+    <div>
+      <div class="sec-eyebrow rx-l">Le problème réel</div>
+      <h2 class="prob-title rx-l">Vos conseillers passent <em>60% de leur temps</em> à <strong>ne pas vendre</strong></h2>
+      <p class="prob-body rx-l">
+        Excel, papier, 3 CRM génériques incompatibles, emails perdus, rappels oubliés. Chaque heure perdue sur l'admin est une heure de moins avec un prospect. Et ça se voit sur les résultats.
+      </p>
+      <div class="pain-stack">
+        <div class="pain-card rx-l">
+          <div class="pain-ico">💸</div>
+          <div class="pain-txt">
+            <h4>Leads à $85–100 pièce sur Google Ads</h4>
+            <p>Vous payez une fortune pour des leads que vous n'avez pas le temps de suivre correctement parce que l'admin prend trop de place.</p>
+            <span class="pain-time">-$85/lead avg</span>
+          </div>
+        </div>
+        <div class="pain-card rx-l">
+          <div class="pain-ico">📋</div>
+          <div class="pain-txt">
+            <h4>Données éparpillées dans 5 outils différents</h4>
+            <p>Fiches clients dans Excel, notes dans Outlook, quotes dans WinQuote, docs dans un dossier réseau. Personne ne sait où est quoi.</p>
+            <span class="pain-time">~2h/jour perdu</span>
+          </div>
+        </div>
+        <div class="pain-card rx-l">
+          <div class="pain-ico">🔔</div>
+          <div class="pain-txt">
+            <h4>Renouvellements qui passent à travers les craques</h4>
+            <p>Sans rappels automatiques intelligents, les polices à renouveler et les clients à risque de partir ne se gèrent pas d'eux-mêmes.</p>
+            <span class="pain-time">Revenue perdu</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="rx-r">
+      <div class="dash-3d-wrap">
+        <div class="dash-3d">
+          <div class="db-ui">
+            <div class="db-top">
+              <div class="db-dots">
+                <div class="db-dot" style="background:#FF5F57"></div>
+                <div class="db-dot" style="background:#FEBC2E"></div>
+                <div class="db-dot" style="background:#28C840"></div>
+              </div>
+              <div class="db-app-name">FINOX CRM</div>
+              <div class="db-time" id="liveTime">--:--</div>
+            </div>
+            <div class="db-body">
+              <div class="db-sidebar">
+                <div class="db-nav-item active"><span class="db-nav-icon">⚡</span>Dashboard</div>
+                <div class="db-nav-item"><span class="db-nav-icon">👥</span>Clients</div>
+                <div class="db-nav-item"><span class="db-nav-icon">📊</span>Pipeline</div>
+                <div class="db-nav-item"><span class="db-nav-icon">📋</span>ABF</div>
+                <div class="db-nav-item"><span class="db-nav-icon">✍️</span>Signatures</div>
+                <div class="db-nav-item"><span class="db-nav-icon">📞</span>Appels</div>
+                <div class="db-nav-item"><span class="db-nav-icon">📈</span>Rapports</div>
+              </div>
+              <div class="db-content">
+                <div class="db-kpis">
+                  <div class="kpi">
+                    <div class="kpi-val gold">$84k</div>
+                    <div class="kpi-lbl">Primes/mois</div>
+                    <div class="kpi-chg">↑ +23%</div>
+                  </div>
+                  <div class="kpi">
+                    <div class="kpi-val">147</div>
+                    <div class="kpi-lbl">Leads actifs</div>
+                    <div class="kpi-chg">↑ 12 auj.</div>
+                  </div>
+                  <div class="kpi">
+                    <div class="kpi-val green">34%</div>
+                    <div class="kpi-lbl">Conversion</div>
+                    <div class="kpi-chg">↑ +8pts</div>
+                  </div>
+                </div>
+                <div class="mini-chart-wrap">
+                  <div class="chart-label">Primes — 6 mois</div>
+                  <svg class="mini-chart-svg" viewBox="0 0 280 50" preserveAspectRatio="none" id="miniSvg">
+                    <defs>
+                      <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#E8C97A" stop-opacity=".3"/>
+                        <stop offset="100%" stop-color="#E8C97A" stop-opacity="0"/>
+                      </linearGradient>
+                    </defs>
+                    <path d="M0 40 L40 32 L80 36 L120 20 L160 24 L200 10 L240 14 L280 4" fill="none" stroke="#B8962E" stroke-width="1.5" stroke-dasharray="400" stroke-dashoffset="400" id="chartPath"/>
+                    <path d="M0 40 L40 32 L80 36 L120 20 L160 24 L200 10 L240 14 L280 4 L280 50 L0 50 Z" fill="url(#chartGrad)" opacity="0" id="chartFill"/>
+                  </svg>
+                </div>
+                <div class="activity-feed" id="actFeed">
+                  <div class="act-item" style="animation-delay:.1s">
+                    <div class="act-dot" style="background:#3DC49A"></div>
+                    <span style="color:#3DC49A">Nouveau lead</span> — Marie Tremblay · Île-des-Sœurs
+                  </div>
+                  <div class="act-item" style="animation-delay:.3s">
+                    <div class="act-dot" style="background:#B8962E"></div>
+                    <span style="color:#B8962E">Signature</span> — Police vie J. Bergeron signée ✓
+                  </div>
+                  <div class="act-item" style="animation-delay:.5s">
+                    <div class="act-dot" style="background:#3D7EC4"></div>
+                    <span style="color:#3D7EC4">Suivi auto</span> — 12 emails envoyés • 08:30
+                  </div>
+                  <div class="act-item" style="animation-delay:.7s">
+                    <div class="act-dot" style="background:#E8C97A"></div>
+                    <span style="color:#E8C97A">ABF généré</span> — P. Lavoie · Besoins: $1.2M
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES BENTO -->
+<section class="features" id="features">
+  <div class="feat-header">
+    <div class="sec-eyebrow rx" style="justify-content:center">Ce que vous obtenez</div>
+    <h2 class="feat-title rx">Tout ce dont vous avez besoin.<br><em>Rien de superflu.</em></h2>
+    <p class="feat-sub rx">Un seul outil qui remplace 8 logiciels et libère vos conseillers pour ce qui compte vraiment.</p>
+  </div>
+  <div class="bento">
+    <div class="bento-card bc-1 bc-large rx">
+      <div class="b-num">01</div>
+      <div class="b-icon">⚡</div>
+      <div class="b-name">Automatisation intelligente des suivis</div>
+      <div class="b-desc">Séquences d'emails et SMS entièrement automatisées selon le stade du prospect. Le bon message, au bon moment, sans toucher à rien. Jamais un lead ne refroidit seul.</div>
+      <div class="bc-automation">
+        <div class="flow">
+          <div class="flow-step">
+            <div class="flow-badge">Lead entrant</div>
+            <div class="flow-arrow">→</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-badge">Email J+0</div>
+            <div class="flow-arrow">→</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-badge">SMS J+3</div>
+            <div class="flow-arrow">→</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-badge">Rappel J+7</div>
+            <div class="flow-arrow">→</div>
+          </div>
+          <div class="flow-badge" style="background:rgba(61,196,154,.08);border-color:rgba(61,196,154,.2);color:#3DC49A">Fermé ✓</div>
+        </div>
+      </div>
+      <span class="b-tag"><div class="t-dot"></div>Économise 8h/semaine</span>
+    </div>
+
+    <div class="bento-card bc-2 rx">
+      <div class="b-num">02</div>
+      <div class="b-icon">🎯</div>
+      <div class="b-name">Calculateurs intégrés ABF, retraite & hypothèque</div>
+      <div class="b-desc">Tous les calculs dont vous avez besoin directement dans la fiche client. Sortez une analyse des besoins financiers complète en 3 minutes, pas en 3 heures. Conforme AMF.</div>
+      <span class="b-tag"><div class="t-dot"></div>AMF-compatible</span>
+    </div>
+
+    <div class="bento-card bc-3 rx">
+      <div class="b-num">03</div>
+      <div class="b-icon">✍️</div>
+      <div class="b-name">Signature électronique</div>
+      <div class="b-desc">Envoi et signature via OneSpan ou Adobe Sign directement dans le CRM. Fini le papier, fini le PDF par email, fini le suivi manuel.</div>
+      <div class="sig-demo">
+        <div class="sig-line"></div>
+        <div class="sig-text">✓ Signé légalement · 2025-02-21</div>
+      </div>
+      <span class="b-tag"><div class="t-dot"></div>Sans friction</span>
+    </div>
+
+    <div class="bento-card bc-4 rx">
+      <div class="b-num">04</div>
+      <div class="b-icon">📞</div>
+      <div class="b-name">Téléphonie click-to-call</div>
+      <div class="b-desc">Appelez vos clients d'un clic depuis leur fiche. Enregistrements automatiques, notes de transcription liées au dossier. Chaque interaction est tracée.</div>
+      <span class="b-tag"><div class="t-dot"></div>Intégration VoIP</span>
+    </div>
+
+    <div class="bento-card bc-5 rx">
+      <div class="b-num">05</div>
+      <div class="b-icon">💬</div>
+      <div class="b-name">Quotes instantanées</div>
+      <div class="b-desc">WinQuote et Compulife intégrés. Générez des comparaisons de produits en temps réel pendant votre appel avec le client.</div>
+      <span class="b-tag"><div class="t-dot"></div>WinQuote · Compulife</span>
+    </div>
+
+    <div class="bento-card bc-6 rx">
+      <div class="b-num">06</div>
+      <div class="b-icon">📊</div>
+      <div class="b-name">Pipeline visuel & dashboard directeur</div>
+      <div class="b-desc">Vue kanban de tous vos prospects par étape. Performance par conseiller, attribution de leads, objectifs d'équipe, rapports de commissions automatisés. Vous voyez tout, en temps réel. Identifiez les blocages avant qu'ils coûtent des deals.</div>
+      <span class="b-tag"><div class="t-dot"></div>Multi-conseillers</span>
+    </div>
+
+    <div class="bento-card bc-7 rx">
+      <div class="b-num">07</div>
+      <div class="b-icon">🤖</div>
+      <div class="b-name">IA & Insights prédictifs</div>
+      <div class="b-desc">Recommandations de produits basées sur le profil client, prédiction de conversion, alertes de risque de churn. Vos conseillers savent sur quoi concentrer leurs efforts chaque matin.</div>
+      <span class="b-tag" style="background:rgba(61,61,196,.08);border-color:rgba(61,61,196,.2);color:#7D7DCF"><div class="t-dot" style="background:#7D7DCF"></div>Bientôt Q2 2025</span>
+    </div>
+  </div>
+</section>
+
+<!-- NUMBERS -->
+<section class="numbers">
+  <div class="sec-eyebrow rx" style="justify-content:center;margin-bottom:60px">Les chiffres parlent</div>
+  <div class="numbers-grid">
+    <div class="num-card rx">
+      <div class="num-big"><span data-count="70">0</span><span class="num-unit">%</span></div>
+      <div class="num-label">Réduction du temps administratif par conseiller</div>
+      <div class="num-sub">Mesuré en bêta interne</div>
+    </div>
+    <div class="num-card rx">
+      <div class="num-big"><span data-count="85">0</span><span class="num-unit">$</span></div>
+      <div class="num-label">Économisé par lead vs. Google Ads</div>
+      <div class="num-sub">Grâce aux entonnoirs Meta intégrés</div>
+    </div>
+    <div class="num-card rx">
+      <div class="num-big"><span data-count="20">0</span><span class="num-unit">+</span></div>
+      <div class="num-label">Conseillers actifs dès le lancement bêta</div>
+      <div class="num-sub">Finox Services Financiers inc.</div>
+    </div>
+    <div class="num-card rx">
+      <div class="num-big"><span data-count="8">0</span><span class="num-unit">h</span></div>
+      <div class="num-label">Récupérées par conseiller par semaine</div>
+      <div class="num-sub">Transférées en activités de vente</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="proof" id="proof">
+  <div class="sec-eyebrow rx" style="justify-content:center">Ce que disent les conseillers</div>
+  <h2 class="proof-title rx">La <em>preuve</em> dans le terrain</h2>
+  <div class="proof-grid">
+    <div class="proof-card rx">
+      <div class="proof-quote">"</div>
+      <p class="proof-text">Avant FINOX CRM, je passais mes lundis matin à envoyer des emails de suivi manuellement. Maintenant tout part automatiquement et je commence ma semaine avec des rendez-vous déjà confirmés.</p>
+      <div class="proof-author">
+        <div class="proof-avatar">SL</div>
+        <div>
+          <div class="proof-name">Sophie Larivière</div>
+          <div class="proof-role">Conseillère · FINOX Services Financiers</div>
+        </div>
+      </div>
+    </div>
+    <div class="proof-card rx">
+      <div class="proof-quote">"</div>
+      <p class="proof-text">Le dashboard directeur change tout. Je vois en temps réel où en est chaque conseiller, quels leads ont besoin d'attention, et les primes de la semaine. J'ai arrêté les réunions de status hebdomadaires.</p>
+      <div class="proof-author">
+        <div class="proof-avatar">DB</div>
+        <div>
+          <div class="proof-name">David Beaupré</div>
+          <div class="proof-role">Directeur d'équipe · FINOX</div>
+        </div>
+      </div>
+    </div>
+    <div class="proof-card rx">
+      <div class="proof-quote">"</div>
+      <p class="proof-text">La signature électronique directement dans le CRM a réduit mon cycle de vente de 6 jours en moyenne. Les clients signent depuis leur téléphone en 2 minutes. C'est une autre époque.</p>
+      <div class="proof-author">
+        <div class="proof-avatar">MC</div>
+        <div>
+          <div class="proof-name">Marc Cloutier</div>
+          <div class="proof-role">Conseiller senior · FINOX</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section class="roadmap" id="roadmap">
+  <div class="roadmap-inner">
+    <div class="sec-eyebrow rx">Roadmap transparente</div>
+    <h2 class="roadmap-title rx">La vision <em>complète</em></h2>
+    <div class="timeline">
+      <div class="tl-line"></div>
+      <div class="tl-item rx">
+        <div class="tl-node done">✅</div>
+        <div class="tl-body">
+          <div class="tl-phase">Phase 1 — Déjà livré</div>
+          <div class="tl-title">Fondations CRM + Calculateurs</div>
+          <div class="tl-desc">Pipeline de vente, fiches clients complètes, calculateurs ABF & retraite, intégration WinQuote/Compulife, gestion des leads, tableau de bord de base.</div>
+          <div class="tl-chips">
+            <span class="tl-chip">Pipeline</span>
+            <span class="tl-chip">ABF</span>
+            <span class="tl-chip">WinQuote</span>
+            <span class="tl-chip">Leads</span>
+          </div>
+        </div>
+      </div>
+      <div class="tl-item rx">
+        <div class="tl-node active">🔄</div>
+        <div class="tl-body">
+          <div class="tl-phase">Phase 2 — En cours maintenant</div>
+          <div class="tl-title">Automatisation + Signatures + Téléphonie</div>
+          <div class="tl-desc">Séquences de suivi automatiques, signature électronique OneSpan/Adobe Sign, téléphonie VoIP intégrée, dashboard directeur multi-conseillers, rapports de commissions.</div>
+          <div class="tl-chips">
+            <span class="tl-chip" style="border-color:rgba(184,150,46,.25);color:var(--g)">Automatisation</span>
+            <span class="tl-chip" style="border-color:rgba(184,150,46,.25);color:var(--g)">OneSpan</span>
+            <span class="tl-chip" style="border-color:rgba(184,150,46,.25);color:var(--g)">Téléphonie</span>
+            <span class="tl-chip" style="border-color:rgba(184,150,46,.25);color:var(--g)">Multi-team</span>
+          </div>
+        </div>
+      </div>
+      <div class="tl-item rx">
+        <div class="tl-node">🚀</div>
+        <div class="tl-body">
+          <div class="tl-phase">Phase 3 — Q2 2025</div>
+          <div class="tl-title">Intelligence & Prédictif</div>
+          <div class="tl-desc">Recommandations de produits par IA, scoring prédictif des leads, analyse de churn, rapports de rentabilité automatisés, insights de performance personnalisés.</div>
+          <div class="tl-chips">
+            <span class="tl-chip">IA</span>
+            <span class="tl-chip">Lead scoring</span>
+            <span class="tl-chip">Churn prediction</span>
+          </div>
+        </div>
+      </div>
+      <div class="tl-item rx">
+        <div class="tl-node">🌐</div>
+        <div class="tl-body">
+          <div class="tl-phase">Phase 4 — H2 2025</div>
+          <div class="tl-title">Plateforme SaaS Multi-Cabinets</div>
+          <div class="tl-desc">Ouverture à d'autres cabinets au Québec. Architecture multi-tenant blanc, conformité AMF complète, portail client autonome, API publique, facturation automatique des commissions.</div>
+          <div class="tl-chips">
+            <span class="tl-chip">SaaS</span>
+            <span class="tl-chip">Multi-tenant</span>
+            <span class="tl-chip">Portail client</span>
+            <span class="tl-chip">API publique</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final" id="cta">
+  <div class="final-inner">
+    <div class="final-eyebrow rx">Rejoindre la waitlist</div>
+    <h2 class="final-title rx">
+      Soyez parmi<br>les <em>50 premiers.</em>
+    </h2>
+    <p class="final-sub rx">
+      Les 50 premiers inscrits obtiennent l'accès bêta gratuit, une formation 1-on-1 avec l'équipe FINOX, et un tarif fondateur verrouillé à vie.
+    </p>
+
+    <div class="big-form rx" id="mainForm">
+      <div class="spots-counter">
+        <div class="spots-bar"><div class="spots-fill"></div></div>
+        <span>34 places prises sur 50 — il en reste <strong>16</strong></span>
+      </div>
+      <div class="form-row">
+        <input type="text" class="form-input" placeholder="Votre prénom" id="fName">
+        <div class="form-divider"></div>
+        <input type="email" class="form-input" placeholder="votre@courriel.com" id="fEmail">
+        <div class="form-divider"></div>
+        <button class="btn-submit" onclick="finalJoin()">
+          Réserver ma place gratuite →
+        </button>
+      </div>
+      <div class="trust-row">
+        <div class="trust-item"><div class="trust-check">✓</div>Aucune carte requise</div>
+        <div class="trust-item"><div class="trust-check">✓</div>Données privées & sécurisées</div>
+        <div class="trust-item"><div class="trust-check">✓</div>AMF-compatible dès le départ</div>
+        <div class="trust-item"><div class="trust-check">✓</div>Annulation facile en tout temps</div>
+      </div>
+    </div>
+
+    <div class="success-state" id="finalOk">
+      <div class="success-icon">✓</div>
+      <div class="success-title">Vous êtes dans la liste!</div>
+      <p class="success-sub">On vous contacte dans les 24 prochaines heures pour votre accès bêta.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">FINOX<span>·</span>CRM</div>
+  <div class="footer-links">
+    <a href="#features" class="footer-link">Fonctionnalités</a>
+    <a href="#roadmap" class="footer-link">Roadmap</a>
+    <a href="#proof" class="footer-link">Témoignages</a>
+    <a href="#cta" class="footer-link">Waitlist</a>
+  </div>
+  <div class="footer-copy">© 2025 Services Financiers Finox inc. · Québec</div>
+</footer>
+
+<script>
+/* ═══════════════════════════════════════
+   CURSOR
+═══════════════════════════════════════ */
+const cur = document.getElementById('cur');
+const trail = document.getElementById('cur-trail');
+let mx=0,my=0,tx=0,ty=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+(function tick(){
+  tx+=(mx-tx)*.12;ty+=(my-ty)*.12;
+  cur.style.cssText=`left:${mx}px;top:${my}px`;
+  trail.style.cssText=`left:${tx}px;top:${ty}px`;
+  requestAnimationFrame(tick);
+})();
+document.querySelectorAll('button,a,[class*="card"],[class*="item"],.bento-card').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('cursor-hover'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('cursor-hover'));
+});
+
+/* ═══════════════════════════════════════
+   CANVAS STAR FIELD
+═══════════════════════════════════════ */
+const canvas=document.getElementById('bg-canvas');
+const ctx=canvas.getContext('2d');
+let W,H,stars=[];
+function resize(){
+  W=canvas.width=window.innerWidth;
+  H=canvas.height=window.innerHeight;
+}
+resize();window.addEventListener('resize',()=>{resize();initStars()});
+function initStars(){
+  stars=[];
+  const n=Math.floor(W*H/8000);
+  for(let i=0;i<n;i++){
+    stars.push({
+      x:Math.random()*W,y:Math.random()*H,
+      r:Math.random()*1.2,
+      o:Math.random()*.6,
+      s:Math.random()*.3+.1,
+      t:Math.random()*Math.PI*2
+    });
+  }
+}
+initStars();
+function drawCanvas(){
+  ctx.clearRect(0,0,W,H);
+  stars.forEach(s=>{
+    s.t+=.008;s.o=.15+Math.sin(s.t)*0.25;
+    ctx.beginPath();
+    ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+    ctx.fillStyle=`rgba(184,150,46,${s.o})`;
+    ctx.fill();
+  });
+  requestAnimationFrame(drawCanvas);
+}
+drawCanvas();
+
+/* ═══════════════════════════════════════
+   NAV SCROLL
+═══════════════════════════════════════ */
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('scrolled',window.scrollY>60);
+});
+
+/* ═══════════════════════════════════════
+   LIVE TIME
+═══════════════════════════════════════ */
+function updateTime(){
+  const t=new Date();
+  const h=String(t.getHours()).padStart(2,'0');
+  const m=String(t.getMinutes()).padStart(2,'0');
+  const el=document.getElementById('liveTime');
+  if(el)el.textContent=h+':'+m;
+}
+updateTime();setInterval(updateTime,30000);
+
+/* ═══════════════════════════════════════
+   CHART SVG ANIMATION
+═══════════════════════════════════════ */
+function animateChart(){
+  const path=document.getElementById('chartPath');
+  const fill=document.getElementById('chartFill');
+  if(!path)return;
+  path.style.transition='stroke-dashoffset 2s cubic-bezier(.16,1,.3,1)';
+  path.style.strokeDashoffset='0';
+  if(fill){fill.style.transition='opacity 1s ease 1s';fill.style.opacity='1';}
+}
+const chartObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)animateChart()});
+},{threshold:.3});
+const chartEl=document.getElementById('miniSvg');
+if(chartEl)chartObs.observe(chartEl);
+
+/* ═══════════════════════════════════════
+   SCROLL REVEAL
+═══════════════════════════════════════ */
+const revObs=new IntersectionObserver((entries)=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){
+      setTimeout(()=>e.target.classList.add('in'),i*60);
+      revObs.unobserve(e.target);
+    }
+  });
+},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rx,.rx-l,.rx-r').forEach(el=>revObs.observe(el));
+
+/* ═══════════════════════════════════════
+   COUNT UP ANIMATION
+═══════════════════════════════════════ */
+function countUp(el,target,duration=1800){
+  let start=null;
+  const isPct=el.closest('[data-suffix="%"]')||el.parentElement.querySelector('.num-unit')?.textContent==='%';
+  const orig=el.textContent;
+  function step(ts){
+    if(!start)start=ts;
+    const p=Math.min((ts-start)/duration,1);
+    const eased=1-Math.pow(1-p,3);
+    el.textContent=Math.round(eased*target);
+    if(p<1)requestAnimationFrame(step);
+    else el.textContent=target;
+  }
+  requestAnimationFrame(step);
+}
+
+const cntObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const el=e.target;
+      const target=parseInt(el.dataset.target||el.dataset.count);
+      if(!isNaN(target))countUp(el,target);
+      cntObs.unobserve(el);
+    }
+  });
+},{threshold:.5});
+document.querySelectorAll('[data-target],[data-count]').forEach(el=>cntObs.observe(el));
+
+/* ═══════════════════════════════════════
+   MAGNETIC BUTTONS
+═══════════════════════════════════════ */
+document.querySelectorAll('.btn-mag').forEach(btn=>{
+  btn.addEventListener('mousemove',e=>{
+    const r=btn.getBoundingClientRect();
+    const x=(e.clientX-r.left-r.width/2)*.3;
+    const y=(e.clientY-r.top-r.height/2)*.3;
+    btn.style.transform=`translate(${x}px,${y}px) scale(1.03)`;
+  });
+  btn.addEventListener('mouseleave',()=>{
+    btn.style.transform='translate(0,0) scale(1)';
+    btn.style.transition='transform .4s var(--ease-spring)';
+  });
+});
+
+/* ═══════════════════════════════════════
+   3D DASHBOARD MOUSE PARALLAX
+═══════════════════════════════════════ */
+const dashWrap=document.querySelector('.dash-3d-wrap');
+const dashEl=document.querySelector('.dash-3d');
+if(dashWrap){
+  document.addEventListener('mousemove',e=>{
+    const r=dashWrap.getBoundingClientRect();
+    const cx=r.left+r.width/2;
+    const cy=r.top+r.height/2;
+    const dx=(e.clientX-cx)/cx;
+    const dy=(e.clientY-cy)/cy;
+    dashEl.style.transform=`rotateY(${-15+dx*8}deg) rotateX(${8-dy*4}deg)`;
+  });
+}
+
+/* ═══════════════════════════════════════
+   LIVE ACTIVITY FEED (animate)
+═══════════════════════════════════════ */
+const actEvents=[
+  {color:'#3DC49A',label:'Nouveau lead',text:'— Pierre Gagné · Laval'},
+  {color:'#B8962E',label:'Devis envoyé',text:'— Vie entière 500K · A. Martin'},
+  {color:'#3D7EC4',label:'RDV confirmé',text:'— Lundi 10h · C. Beaumont'},
+  {color:'#E8C97A',label:'Renouvellement',text:'— Police #4821 · expiry 30j'},
+  {color:'#3DC49A',label:'Signature reçue',text:'— Invalidité · F. Tremblay ✓'},
+  {color:'#B8962E',label:'ABF complété',text:'— Besoins $2.1M · S. Roy'},
+];
+let actIdx=0;
+function rotateActivity(){
+  const feed=document.getElementById('actFeed');
+  if(!feed)return;
+  const items=feed.querySelectorAll('.act-item');
+  if(items.length===0)return;
+  // remove first, add new at bottom
+  const ev=actEvents[actIdx%actEvents.length];
+  const newItem=document.createElement('div');
+  newItem.className='act-item';
+  newItem.style.animationDelay='0s';
+  newItem.innerHTML=`<div class="act-dot" style="background:${ev.color}"></div><span style="color:${ev.color}">${ev.label}</span> ${ev.text}`;
+  items[0].style.transition='opacity .3s,transform .3s';
+  items[0].style.opacity='0';
+  items[0].style.transform='translateX(-10px)';
+  setTimeout(()=>{
+    try{feed.removeChild(items[0]);}catch(e){}
+    feed.appendChild(newItem);
+  },300);
+  actIdx++;
+}
+setInterval(rotateActivity,3000);
+
+/* ═══════════════════════════════════════
+   FORMS
+═══════════════════════════════════════ */
+function shake(el){
+  el.style.animation='none';
+  el.offsetHeight;
+  el.style.animation='shake .4s ease';
+}
+function heroJoin(){
+  const email=document.getElementById('heroEmail');
+  if(!email.value||!email.value.includes('@')){
+    email.style.outline='1px solid rgba(196,61,61,.6)';
+    setTimeout(()=>email.style.outline='',1500);
+    return;
+  }
+  document.querySelector('.cta-input-wrap').style.display='none';
+  document.getElementById('heroOk').style.display='block';
+}
+function finalJoin(){
+  const email=document.getElementById('fEmail');
+  if(!email.value||!email.value.includes('@')){
+    email.style.borderBottom='1px solid rgba(196,61,61,.6)';
+    setTimeout(()=>email.style.borderBottom='',1500);
+    return;
+  }
+  document.getElementById('mainForm').style.display='none';
+  document.getElementById('finalOk').classList.add('show');
+}
+function scrollToCTA(){
+  document.getElementById('cta').scrollIntoView({behavior:'smooth'});
+}
+
+/* ═══════════════════════════════════════
+   HERO STATS COUNTER ON LOAD
+═══════════════════════════════════════ */
+setTimeout(()=>{
+  document.querySelectorAll('[data-target]').forEach(el=>{
+    const target=parseInt(el.dataset.target);
+    const suffix=el.dataset.suffix||'';
+    const prefix=el.dataset.prefix||'';
+    let start=null;
+    function step(ts){
+      if(!start)start=ts;
+      const p=Math.min((ts-start)/1600,1);
+      const eased=1-Math.pow(1-p,3);
+      el.textContent=prefix+Math.round(eased*target)+suffix;
+      if(p<1)requestAnimationFrame(step);
+      else el.textContent=prefix+target+suffix;
+    }
+    requestAnimationFrame(step);
+  });
+},1200);
+</script>
+</body>
+</html>
