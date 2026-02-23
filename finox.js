@@ -330,7 +330,7 @@ class ParticleSystem {
 
   init() {
     this.particles = [];
-    const count = Math.min(Math.floor(window.innerWidth * window.innerHeight / 18000), 280);
+    const count = Math.min(Math.floor(window.innerWidth * window.innerHeight / 18000), 90);
     for (let i = 0; i < count; i++) {
       this.particles.push({
         x: Math.random() * this.canvas.width,
@@ -342,20 +342,28 @@ class ParticleSystem {
         baseAlpha: Math.random() * .4 + .1,
       });
     }
+    this.lastFrame = 0;
     this.animate();
   }
 
-  animate() {
+  animate(timestamp) {
+    this.raf = requestAnimationFrame((t) => this.animate(t));
+
+    // Limit to ~30 FPS instead of 60
+    if (timestamp - this.lastFrame < 33) return;
+    this.lastFrame = timestamp;
+
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     const mx = this.mouse.x, my = this.mouse.y;
+    const influenceSq = 130 * 130;
 
     for (const p of this.particles) {
       const dx = mx - p.x, dy = my - p.y;
-      const dist = Math.sqrt(dx * dx + dy * dy);
-      const influence = 130;
+      const distSq = dx * dx + dy * dy;
 
-      if (dist < influence) {
-        const force = (influence - dist) / influence;
+      if (distSq < influenceSq) {
+        const dist = Math.sqrt(distSq);
+        const force = (130 - dist) / 130;
         p.vx -= (dx / dist) * force * .018;
         p.vy -= (dy / dist) * force * .018;
         p.alpha = Math.min(p.baseAlpha + force * .5, .75);
@@ -379,13 +387,15 @@ class ParticleSystem {
       this.ctx.fill();
     }
 
-    // Connections
+    // Connections — use squared distance to avoid sqrt
+    const connSq = 88 * 88;
     for (let i = 0; i < this.particles.length; i++) {
       for (let j = i + 1; j < this.particles.length; j++) {
         const a = this.particles[i], b = this.particles[j];
         const dx = a.x - b.x, dy = a.y - b.y;
-        const d = Math.sqrt(dx * dx + dy * dy);
-        if (d < 88) {
+        const dSq = dx * dx + dy * dy;
+        if (dSq < connSq) {
+          const d = Math.sqrt(dSq);
           this.ctx.beginPath();
           this.ctx.moveTo(a.x, a.y);
           this.ctx.lineTo(b.x, b.y);
@@ -395,8 +405,6 @@ class ParticleSystem {
         }
       }
     }
-
-    this.raf = requestAnimationFrame(() => this.animate());
   }
 }
 
