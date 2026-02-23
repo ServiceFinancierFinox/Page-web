@@ -563,6 +563,16 @@ footer{padding:48px 60px;border-top:1px solid rgba(255,255,255,.05);display:flex
 .footer-link:hover{color:var(--cr)}
 .footer-copy{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--cm)}
 
+/* ─── SECTION GATE ─── */
+.section-gated{display:none!important}
+#section-gate-btn{position:fixed;bottom:36px;left:50%;transform:translateX(-50%);width:56px;height:56px;border-radius:50%;border:1px solid rgba(196,162,74,.3);background:rgba(10,9,8,.85);backdrop-filter:blur(12px);display:none;align-items:center;justify-content:center;cursor:pointer;z-index:9999;color:var(--g);transition:all .3s;padding:0}
+#section-gate-btn:hover{border-color:rgba(196,162,74,.7);box-shadow:0 0 30px rgba(196,162,74,.2),0 0 60px rgba(196,162,74,.08)}
+#section-gate-btn svg{animation:gateArrowBounce 1.8s ease-in-out infinite}
+@keyframes gateArrowBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+#gate-pulse{position:fixed;border-radius:50%;pointer-events:none;z-index:9998;width:56px;height:56px;opacity:0}
+#gate-pulse.active{animation:gatePulseWave .9s cubic-bezier(.25,.46,.45,.94) forwards}
+@keyframes gatePulseWave{0%{width:56px;height:56px;border:2px solid rgba(196,162,74,.9);box-shadow:0 0 40px 15px rgba(196,162,74,.35),0 0 80px 30px rgba(196,162,74,.15),inset 0 0 30px rgba(196,162,74,.2);opacity:1}40%{opacity:.7}100%{width:300vmax;height:300vmax;border:2px solid rgba(196,162,74,0);box-shadow:0 0 120px 60px rgba(196,162,74,0);opacity:0}}
+
 /* ─── RESPONSIVE ─── */
 @media(max-width:1100px){
   nav{padding:0 24px}
