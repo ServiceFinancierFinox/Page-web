@@ -39,7 +39,7 @@ nav.scrolled{background:rgba(6,6,8,.92);border-bottom:1px solid rgba(196,162,74,
 .nav-logo .logo-accent{color:var(--g);font-size:28px;line-height:0;position:relative;top:1px;animation:dpulse 4s ease-in-out infinite}
 @keyframes dpulse{0%,100%{text-shadow:none}50%{text-shadow:0 0 20px rgba(196,162,74,.7),0 0 40px rgba(196,162,74,.3)}}
 .nav-center{position:absolute;left:50%;transform:translateX(-50%);display:flex;gap:32px}
-.nav-link{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--cm);text-decoration:none;transition:color .3s;position:relative;padding-bottom:4px}
+.nav-link{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--cr);text-decoration:none;transition:color .3s;position:relative;padding-bottom:4px;font-weight:700}
 .nav-link::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--g);transition:width .3s var(--ease-out)}
 .nav-link:hover{color:var(--cr)}.nav-link:hover::after{width:100%}
 .nav-badge{display:flex;align-items:center;gap:10px}
