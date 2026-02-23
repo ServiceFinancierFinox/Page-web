@@ -324,13 +324,15 @@ class ParticleSystem {
   }
 
   resize() {
-    this.canvas.width = window.innerWidth;
-    this.canvas.height = window.innerHeight;
+    // Cap canvas resolution to avoid massive canvas when zoomed out
+    this.canvas.width = Math.min(window.innerWidth, 1920);
+    this.canvas.height = Math.min(window.innerHeight, 1080);
   }
 
   init() {
     this.particles = [];
-    const count = Math.min(Math.floor(window.innerWidth * window.innerHeight / 18000), 90);
+    const area = Math.min(window.innerWidth, 1920) * Math.min(window.innerHeight, 1080);
+    const count = Math.min(Math.floor(area / 18000), 90);
     for (let i = 0; i < count; i++) {
       this.particles.push({
         x: Math.random() * this.canvas.width,
@@ -452,8 +454,7 @@ class Cursor {
     this.rx += (this.px - this.rx) * .11;
     this.ry += (this.py - this.ry) * .11;
     if (this.ring) {
-      this.ring.style.left = this.rx + 'px';
-      this.ring.style.top = this.ry + 'px';
+      this.ring.style.transform = `translate(${this.rx}px, ${this.ry}px)`;
     }
     requestAnimationFrame(() => this.loop());
   }
