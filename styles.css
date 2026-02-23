@@ -563,52 +563,6 @@ footer{padding:48px 60px;border-top:1px solid rgba(255,255,255,.05);display:flex
 .footer-link:hover{color:var(--cr)}
 .footer-copy{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--cm)}
 
-/* ─── SECTION GATE ─── */
-.section-gated{display:none!important}
-
-/* Gate zone — sits between sections */
-.gate-zone{display:flex;align-items:center;justify-content:center;padding:56px 20px 64px;position:relative;overflow:visible}
-.gate-zone::before{content:'';position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(196,162,74,.12),transparent)}
-.gate-zone.gate-used{opacity:0;pointer-events:none;max-height:0;padding:0;overflow:hidden;transition:opacity .4s,max-height .4s .1s,padding .4s .1s}
-
-.gate-zone-inner{display:flex;flex-direction:column;align-items:center;gap:14px}
-
-/* Decorative arrows above button */
-.gate-arrows{display:flex;gap:18px;opacity:.35}
-.gate-arrows span{color:var(--g);font-size:18px;animation:gateArrowFloat 2s ease-in-out infinite}
-.gate-arrows span:nth-child(1){animation-delay:0s}
-.gate-arrows span:nth-child(2){animation-delay:.25s}
-.gate-arrows span:nth-child(3){animation-delay:.5s}
-@keyframes gateArrowFloat{0%,100%{transform:translateY(0);opacity:.35}50%{transform:translateY(6px);opacity:.7}}
-
-/* The button */
-.gate-btn{width:64px;height:64px;border-radius:50%;border:1.5px solid rgba(196,162,74,.35);background:rgba(196,162,74,.05);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--g);transition:all .35s var(--ease-spring);padding:0;position:relative;z-index:2}
-.gate-btn:hover{border-color:rgba(196,162,74,.8);background:rgba(196,162,74,.12);box-shadow:0 0 40px rgba(196,162,74,.25),0 0 80px rgba(196,162,74,.08);transform:scale(1.1)}
-.gate-btn svg{width:22px;height:22px;animation:gateBtnBounce 2s ease-in-out infinite}
-@keyframes gateBtnBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
-
-/* Hint text below button */
-.gate-hint{font-family:'Cabinet Grotesk',sans-serif;font-size:13px;color:var(--cm);opacity:.45;text-align:center;max-width:260px;line-height:1.5}
-
-/* Pulse ring — positioned absolute inside gate-zone */
-.gate-pulse-ring{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;pointer-events:none;width:64px;height:64px;opacity:0;z-index:0}
-
-/* Variant 1 — Gold ring */
-.gate-pulse-ring.gp-v1{animation:gpV1 .85s ease-out forwards}
-@keyframes gpV1{0%{width:64px;height:64px;border:2px solid rgba(196,162,74,.8);box-shadow:0 0 30px 10px rgba(196,162,74,.3);opacity:1}100%{width:140vmax;height:140vmax;border:1px solid rgba(196,162,74,0);box-shadow:0 0 60px 20px rgba(196,162,74,0);opacity:0}}
-
-/* Variant 2 — Soft white shimmer */
-.gate-pulse-ring.gp-v2{animation:gpV2 .7s ease-out forwards}
-@keyframes gpV2{0%{width:64px;height:64px;border:1.5px solid rgba(255,255,255,.45);box-shadow:0 0 25px 8px rgba(255,255,255,.15);opacity:1}100%{width:110vmax;height:110vmax;border:1px solid rgba(255,255,255,0);box-shadow:none;opacity:0}}
-
-/* Variant 3 — Radial gold glow (no hard ring) */
-.gate-pulse-ring.gp-v3{animation:gpV3 .9s ease-out forwards}
-@keyframes gpV3{0%{width:64px;height:64px;background:radial-gradient(circle,rgba(196,162,74,.25) 0%,transparent 70%);opacity:1}100%{width:100vmax;height:100vmax;background:radial-gradient(circle,rgba(196,162,74,0) 0%,transparent 70%);opacity:0}}
-
-/* Variant 4 — Thin fast blue-gold */
-.gate-pulse-ring.gp-v4{animation:gpV4 .65s ease-out forwards}
-@keyframes gpV4{0%{width:64px;height:64px;border:1px solid rgba(160,180,220,.6);box-shadow:0 0 20px 6px rgba(160,180,220,.2);opacity:1}100%{width:120vmax;height:120vmax;border:1px solid rgba(160,180,220,0);box-shadow:none;opacity:0}}
-
 /* ─── RESPONSIVE ─── */
 @media(max-width:1100px){
   nav{padding:0 24px}
