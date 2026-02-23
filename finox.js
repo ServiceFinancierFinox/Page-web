@@ -454,7 +454,8 @@ class Cursor {
     this.rx += (this.px - this.rx) * .11;
     this.ry += (this.py - this.ry) * .11;
     if (this.ring) {
-      this.ring.style.transform = `translate(${this.rx}px, ${this.ry}px)`;
+      this.ring.style.left = this.rx + 'px';
+      this.ring.style.top = this.ry + 'px';
     }
     requestAnimationFrame(() => this.loop());
   }
