@@ -12,8 +12,8 @@ const DATA = {
 
   hero: {
     eyebrow: 'Construit au Québec · Pour les conseillers en assurance et placement',
-    line1: ['L'OS', ' complet'],
-    line2: ['de l'assurance.'],
+    line1: ["L'OS", ' complet'],
+    line2: ["de l'assurance."],
     line3: ['ABF · Signatures · IA · Conformité AMF · Tout intégré.'],
     sub: 'FINOX CRM est la première plateforme exclusive aux conseillers québécois qui automatise <strong>80% du travail administratif</strong> — de l\'analyse des besoins financiers au préavis de remplacement — pour que vous passiez votre temps à <strong>bâtir des relations</strong>, pas à cliquer.',
     stats: [
