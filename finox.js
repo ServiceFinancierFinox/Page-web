@@ -454,8 +454,7 @@ class Cursor {
     this.rx += (this.px - this.rx) * .11;
     this.ry += (this.py - this.ry) * .11;
     if (this.ring) {
-      this.ring.style.left = this.rx + 'px';
-      this.ring.style.top = this.ry + 'px';
+      this.ring.style.transform = `translate(${this.rx}px, ${this.ry}px)`;
     }
     requestAnimationFrame(() => this.loop());
   }
@@ -841,37 +840,20 @@ function initCommTabs() {
 
 /* ──────────────────────────────────────────────────────────────
    SECTION GATE — forces users to read each section
-   Gate zones are injected between sections in the DOM flow.
-   Users scroll freely within revealed sections; at the end
-   they hit a gate zone prompting them to click to continue.
 ────────────────────────────────────────────────────────────── */
 const sectionGate = {
-  gates: [],
+  currentGate: 0,
   sections: [],
+  btn: null,
+  pulse: null,
   busy: false,
 
-  // Varied hint messages
-  hints: [
-    'Cliquez sur la flèche pour découvrir la plateforme',
-    'Cliquez pour explorer nos fonctionnalités',
-    'Continuez votre exploration',
-    'Découvrez ce qui vous attend',
-    'Cliquez pour voir la suite',
-    'Explorez la prochaine section',
-    'Poursuivez la visite',
-    'Il y a encore plus à découvrir',
-    'Cliquez pour continuer',
-    'La suite vous attend',
-    'Encore quelques sections à explorer',
-    'Presque terminé — continuez',
-    'Découvrez nos preuves sociales',
-    'Une dernière section vous attend',
-  ],
-
-  // Pulse animation variants (cycled)
-  pulseVariants: ['gp-v1', 'gp-v2', 'gp-v3', 'gp-v4'],
-
   init() {
+    this.btn = document.getElementById('section-gate-btn');
+    this.pulse = document.getElementById('gate-pulse');
+    if (!this.btn || !this.pulse) return;
+
+    // Collect all gateable sections (everything after the marquees)
     const selectors = [
       '.showcase', '.pulse-section', '.abf-section',
       '.tools-section', '.ai-section', '.comm-section',
@@ -879,74 +861,61 @@ const sectionGate = {
       '.numbers-section', '.roadmap-section', '.proof-section',
       '.final-section', 'footer'
     ];
-
-    selectors.forEach((sel, i) => {
-      const section = document.querySelector(sel);
-      if (!section) return;
-
-      // Hide the section
-      section.classList.add('section-gated');
-      this.sections.push(section);
-
-      // Create a gate zone and insert it BEFORE the hidden section
-      const gate = document.createElement('div');
-      gate.className = 'gate-zone' + (i > 0 ? ' section-gated' : '');
-      gate.innerHTML = `
-        <div class="gate-zone-inner">
-          <div class="gate-arrows"><span>↓</span><span>↓</span><span>↓</span></div>
-          <button class="gate-btn" aria-label="Voir la suite">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </button>
-          <p class="gate-hint">${this.hints[i] || this.hints[i % this.hints.length]}</p>
-        </div>
-        <div class="gate-pulse-ring"></div>
-      `;
-
-      section.parentNode.insertBefore(gate, section);
-
-      // Click handler
-      gate.querySelector('.gate-btn').addEventListener('click', () => this.unlock(i));
-      this.gates.push(gate);
+    selectors.forEach(sel => {
+      const el = document.querySelector(sel);
+      if (el) {
+        el.classList.add('section-gated');
+        this.sections.push(el);
+      }
     });
 
-    // Scroll to top
+    // Scroll to top on load
     window.scrollTo(0, 0);
 
-    // Hide old scroll indicator
+    // Show button
+    this.btn.style.display = 'flex';
+
+    // Click handler
+    this.btn.addEventListener('click', () => this.unlock());
+
+    // Hide the old scroll indicator
     const scrollInd = document.querySelector('.scroll-indicator');
     if (scrollInd) scrollInd.style.display = 'none';
   },
 
-  unlock(index) {
-    if (this.busy) return;
+  unlock() {
+    if (this.busy || this.currentGate >= this.sections.length) return;
     this.busy = true;
 
-    const gate = this.gates[index];
-    const section = this.sections[index];
-    const pulse = gate.querySelector('.gate-pulse-ring');
-
-    // Fire pulse animation (cycle through variants)
-    const variant = this.pulseVariants[index % this.pulseVariants.length];
-    pulse.classList.remove('gp-v1', 'gp-v2', 'gp-v3', 'gp-v4');
-    void pulse.offsetWidth;
-    pulse.classList.add(variant);
-
-    // Collapse the gate zone
-    setTimeout(() => gate.classList.add('gate-used'), 300);
+    // Fire pulse animation from button center
+    const rect = this.btn.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    this.pulse.style.left = cx + 'px';
+    this.pulse.style.top = cy + 'px';
+    this.pulse.style.transform = 'translate(-50%, -50%)';
+    this.pulse.classList.remove('active');
+    void this.pulse.offsetWidth;
+    this.pulse.classList.add('active');
 
     // Reveal the section
+    const section = this.sections[this.currentGate];
+    section.classList.remove('section-gated');
+    this.currentGate++;
+
+    // Smooth scroll to the revealed section
     setTimeout(() => {
-      section.classList.remove('section-gated');
-
-      // Also reveal the next gate zone (if any)
-      if (index + 1 < this.gates.length) {
-        this.gates[index + 1].classList.remove('section-gated');
-      }
-
-      // Scroll to the revealed section
       section.scrollIntoView({ behavior: 'smooth', block: 'start' });
       this.busy = false;
-    }, 350);
+    }, 250);
+
+    // If all sections revealed, remove button
+    if (this.currentGate >= this.sections.length) {
+      setTimeout(() => {
+        this.btn.style.opacity = '0';
+        setTimeout(() => { this.btn.style.display = 'none'; }, 400);
+      }, 800);
+    }
   }
 };
 
