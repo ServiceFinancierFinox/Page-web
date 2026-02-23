@@ -743,6 +743,98 @@ function initNav() {
 }
 
 /* ──────────────────────────────────────────────────────────────
+   CRM NAV — Scroll tracking, active states, arrow navigation
+────────────────────────────────────────────────────────────── */
+function initCrmNav() {
+  const track = document.getElementById('crm-nav-track');
+  const arrowL = document.getElementById('crm-arrow-left');
+  const arrowR = document.getElementById('crm-arrow-right');
+  if (!track) return;
+
+  const navItems = Array.from(track.querySelectorAll('.crm-nav-item'));
+  const navGroups = Array.from(track.querySelectorAll('.crm-nav-group'));
+
+  // Arrow scroll buttons
+  const scrollAmount = 180;
+  if (arrowL) arrowL.addEventListener('click', () => track.scrollBy({ left: -scrollAmount, behavior: 'smooth' }));
+  if (arrowR) arrowR.addEventListener('click', () => track.scrollBy({ left: scrollAmount, behavior: 'smooth' }));
+
+  // Update arrow visibility based on scroll position
+  function updateArrows() {
+    if (!arrowL || !arrowR) return;
+    arrowL.classList.toggle('hidden', track.scrollLeft <= 5);
+    arrowR.classList.toggle('hidden', track.scrollLeft >= track.scrollWidth - track.clientWidth - 5);
+  }
+  track.addEventListener('scroll', updateArrows, { passive: true });
+  updateArrows();
+
+  // Scroll spy — detect which section is active
+  let ticking = false;
+  function updateActiveSection() {
+    const scrollY = window.scrollY;
+    const viewH = window.innerHeight;
+    const triggerPoint = scrollY + viewH * 0.35;
+    let activeIndex = -1;
+
+    navItems.forEach((item, i) => {
+      const sectionId = item.dataset.section;
+      const section = document.getElementById(sectionId);
+      if (!section) return;
+
+      const top = section.offsetTop;
+      const bottom = top + section.offsetHeight;
+
+      if (triggerPoint >= top && triggerPoint < bottom) {
+        activeIndex = i;
+      }
+    });
+
+    // Update states
+    navItems.forEach((item, i) => {
+      item.classList.remove('active', 'passed');
+      if (i === activeIndex) {
+        item.classList.add('active');
+      } else if (activeIndex > -1 && i < activeIndex) {
+        item.classList.add('passed');
+      }
+    });
+
+    // Update group active state
+    navGroups.forEach(group => {
+      const items = group.querySelectorAll('.crm-nav-item');
+      const hasActive = Array.from(items).some(item => item.classList.contains('active'));
+      group.classList.toggle('active', hasActive);
+    });
+
+    // Auto-scroll track to keep active item visible
+    const activeEl = track.querySelector('.crm-nav-item.active');
+    if (activeEl) {
+      const elRect = activeEl.getBoundingClientRect();
+      const trackRect = track.getBoundingClientRect();
+      const elCenter = elRect.left + elRect.width / 2;
+      const trackCenter = trackRect.left + trackRect.width / 2;
+      const diff = elCenter - trackCenter;
+      if (Math.abs(diff) > trackRect.width * 0.3) {
+        track.scrollBy({ left: diff, behavior: 'smooth' });
+      }
+    }
+
+    updateArrows();
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(updateActiveSection);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  // Initial update
+  updateActiveSection();
+}
+
+/* ──────────────────────────────────────────────────────────────
    HERO WORD ANIMATION
 ────────────────────────────────────────────────────────────── */
 function initHeroWords() {
@@ -858,6 +950,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Nav
   initNav();
+  initCrmNav();
 
   // Hero
   initHeroWords();
