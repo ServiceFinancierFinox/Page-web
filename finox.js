@@ -839,6 +839,87 @@ function initCommTabs() {
 }
 
 /* ──────────────────────────────────────────────────────────────
+   SECTION GATE — forces users to read each section
+────────────────────────────────────────────────────────────── */
+const sectionGate = {
+  currentGate: 0,
+  sections: [],
+  btn: null,
+  pulse: null,
+  busy: false,
+
+  init() {
+    this.btn = document.getElementById('section-gate-btn');
+    this.pulse = document.getElementById('gate-pulse');
+    if (!this.btn || !this.pulse) return;
+
+    // Collect all gateable sections (everything after the marquees)
+    const selectors = [
+      '.showcase', '.pulse-section', '.abf-section',
+      '.tools-section', '.ai-section', '.comm-section',
+      '.timeline-section', '.opps-section', '.conf-section',
+      '.numbers-section', '.roadmap-section', '.proof-section',
+      '.final-section', 'footer'
+    ];
+    selectors.forEach(sel => {
+      const el = document.querySelector(sel);
+      if (el) {
+        el.classList.add('section-gated');
+        this.sections.push(el);
+      }
+    });
+
+    // Scroll to top on load
+    window.scrollTo(0, 0);
+
+    // Show button
+    this.btn.style.display = 'flex';
+
+    // Click handler
+    this.btn.addEventListener('click', () => this.unlock());
+
+    // Hide the old scroll indicator
+    const scrollInd = document.querySelector('.scroll-indicator');
+    if (scrollInd) scrollInd.style.display = 'none';
+  },
+
+  unlock() {
+    if (this.busy || this.currentGate >= this.sections.length) return;
+    this.busy = true;
+
+    // Fire pulse animation from button center
+    const rect = this.btn.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    this.pulse.style.left = cx + 'px';
+    this.pulse.style.top = cy + 'px';
+    this.pulse.style.transform = 'translate(-50%, -50%)';
+    this.pulse.classList.remove('active');
+    void this.pulse.offsetWidth;
+    this.pulse.classList.add('active');
+
+    // Reveal the section
+    const section = this.sections[this.currentGate];
+    section.classList.remove('section-gated');
+    this.currentGate++;
+
+    // Smooth scroll to the revealed section
+    setTimeout(() => {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      this.busy = false;
+    }, 250);
+
+    // If all sections revealed, remove button
+    if (this.currentGate >= this.sections.length) {
+      setTimeout(() => {
+        this.btn.style.opacity = '0';
+        setTimeout(() => { this.btn.style.display = 'none'; }, 400);
+      }, 800);
+    }
+  }
+};
+
+/* ──────────────────────────────────────────────────────────────
    EXPOSE TO HTML (onclick)
 ────────────────────────────────────────────────────────────── */
 window.heroJoin   = heroJoin;
@@ -891,4 +972,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.opps-grid .opp-card').forEach((el, i)  => el.dataset.delay = i * 55);
   document.querySelectorAll('.proof-grid .proof-card').forEach((el, i) => el.dataset.delay = i * 90);
   document.querySelectorAll('.bento-card').forEach((el, i)           => el.dataset.delay = i * 70);
+
+  // Section gate — lock scroll, force reading
+  sectionGate.init();
 });
