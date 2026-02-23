@@ -743,10 +743,11 @@ function initNav() {
 }
 
 /* ──────────────────────────────────────────────────────────────
-   CRM NAV — Scroll tracking, active states, arrow navigation
+   CRM NAV — Scroll tracking, active states, progress line
 ────────────────────────────────────────────────────────────── */
 function initCrmNav() {
   const track = document.getElementById('crm-nav-track');
+  const lineFill = document.getElementById('crm-nav-line-fill');
   const arrowL = document.getElementById('crm-arrow-left');
   const arrowR = document.getElementById('crm-arrow-right');
   if (!track) return;
@@ -755,11 +756,11 @@ function initCrmNav() {
   const navGroups = Array.from(track.querySelectorAll('.crm-nav-group'));
 
   // Arrow scroll buttons
-  const scrollAmount = 180;
+  const scrollAmount = 200;
   if (arrowL) arrowL.addEventListener('click', () => track.scrollBy({ left: -scrollAmount, behavior: 'smooth' }));
   if (arrowR) arrowR.addEventListener('click', () => track.scrollBy({ left: scrollAmount, behavior: 'smooth' }));
 
-  // Update arrow visibility based on scroll position
+  // Update arrow visibility
   function updateArrows() {
     if (!arrowL || !arrowR) return;
     arrowL.classList.toggle('hidden', track.scrollLeft <= 5);
@@ -768,7 +769,19 @@ function initCrmNav() {
   track.addEventListener('scroll', updateArrows, { passive: true });
   updateArrows();
 
-  // Scroll spy — detect which section is active
+  // Calculate the center X of each nav circle relative to the track
+  function getCircleCenters() {
+    const trackRect = track.getBoundingClientRect();
+    const trackScrollLeft = track.scrollLeft;
+    return navItems.map(item => {
+      const circle = item.querySelector('.crm-nav-circle');
+      const circleRect = circle.getBoundingClientRect();
+      // Position relative to track's content (accounting for scroll)
+      return (circleRect.left - trackRect.left + trackScrollLeft) + circleRect.width / 2;
+    });
+  }
+
+  // Scroll spy — detect which section is active + update progress line
   let ticking = false;
   function updateActiveSection() {
     const scrollY = window.scrollY;
@@ -789,7 +802,7 @@ function initCrmNav() {
       }
     });
 
-    // Update states
+    // Update item states
     navItems.forEach((item, i) => {
       item.classList.remove('active', 'passed');
       if (i === activeIndex) {
@@ -799,12 +812,25 @@ function initCrmNav() {
       }
     });
 
-    // Update group active state
+    // Update group states — active if contains active, passed if all items passed
     navGroups.forEach(group => {
-      const items = group.querySelectorAll('.crm-nav-item');
-      const hasActive = Array.from(items).some(item => item.classList.contains('active'));
-      group.classList.toggle('active', hasActive);
+      const items = Array.from(group.querySelectorAll('.crm-nav-item'));
+      const hasActive = items.some(item => item.classList.contains('active'));
+      const allPassed = items.every(item => item.classList.contains('passed'));
+      group.classList.remove('active', 'passed');
+      if (hasActive) group.classList.add('active');
+      else if (allPassed) group.classList.add('passed');
     });
+
+    // Update progress line fill — gold line advances to the active circle
+    if (lineFill && activeIndex >= 0) {
+      const centers = getCircleCenters();
+      // Fill line from start to the center of the active circle
+      const fillTo = centers[activeIndex];
+      lineFill.style.width = fillTo + 'px';
+    } else if (lineFill) {
+      lineFill.style.width = '0px';
+    }
 
     // Auto-scroll track to keep active item visible
     const activeEl = track.querySelector('.crm-nav-item.active');
@@ -829,6 +855,14 @@ function initCrmNav() {
       ticking = true;
     }
   }, { passive: true });
+
+  // Recalc on resize
+  window.addEventListener('resize', () => {
+    if (!ticking) {
+      requestAnimationFrame(updateActiveSection);
+      ticking = true;
+    }
+  });
 
   // Initial update
   updateActiveSection();
