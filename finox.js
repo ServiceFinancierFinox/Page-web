@@ -783,6 +783,7 @@ function initCrmNav() {
 
   // Scroll spy — detect which section is active + update progress line
   let ticking = false;
+  let lastActiveIndex = -1;
   function updateActiveSection() {
     const scrollY = window.scrollY;
     const viewH = window.innerHeight;
@@ -801,6 +802,22 @@ function initCrmNav() {
         activeIndex = i;
       }
     });
+
+    // If between sections (no match), find the last nav-section we scrolled past
+    if (activeIndex === -1) {
+      let lastPassed = -1;
+      navItems.forEach((item, i) => {
+        const sectionId = item.dataset.section;
+        const section = document.getElementById(sectionId);
+        if (!section) return;
+        if (triggerPoint >= section.offsetTop + section.offsetHeight) {
+          lastPassed = i;
+        }
+      });
+      if (lastPassed >= 0) activeIndex = lastPassed;
+    }
+
+    lastActiveIndex = activeIndex;
 
     // Update item states
     navItems.forEach((item, i) => {
