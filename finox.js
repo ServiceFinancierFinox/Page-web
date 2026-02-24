@@ -911,20 +911,41 @@ function initHeroStats() {
 /* ──────────────────────────────────────────────────────────────
    FORM HANDLERS
 ────────────────────────────────────────────────────────────── */
-function heroJoin() {
-  const input = document.getElementById('hero-email');
-  const ok = document.getElementById('hero-ok');
-  const form = document.getElementById('hero-pill-form');
-  if (!input) return;
-  const email = input.value.trim();
-  if (!email || !email.includes('@')) {
-    input.style.borderBottom = '1px solid var(--red)';
-    input.placeholder = 'Entrez un courriel valide';
-    setTimeout(() => { input.style.borderBottom = ''; input.placeholder = 'votre@courriel.com'; }, 2200);
-    return;
+function openWaitlistModal(e) {
+  if (e) e.preventDefault();
+  const overlay = document.getElementById('wl-overlay');
+  if (overlay) {
+    overlay.style.display = 'flex';
+    requestAnimationFrame(() => overlay.classList.add('open'));
+    document.body.style.overflow = 'hidden';
   }
+}
+function closeWaitlistModal(e) {
+  if (e && e.target && e.target !== document.getElementById('wl-overlay')) return;
+  const overlay = document.getElementById('wl-overlay');
+  if (overlay) {
+    overlay.classList.remove('open');
+    setTimeout(() => { overlay.style.display = 'none'; }, 350);
+    document.body.style.overflow = '';
+  }
+}
+function submitWaitlist() {
+  const name = document.getElementById('wl-name');
+  const email = document.getElementById('wl-email');
+  const form = document.getElementById('wl-form');
+  const suc = document.getElementById('wl-success');
+  let valid = true;
+  [name, email].forEach(el => {
+    el.classList.remove('error');
+    if (!el.value.trim() || (el.type === 'email' && !el.value.includes('@'))) {
+      el.classList.add('error');
+      setTimeout(() => el.classList.remove('error'), 2500);
+      valid = false;
+    }
+  });
+  if (!valid) return;
   if (form) form.style.display = 'none';
-  if (ok) { ok.classList.add('show'); }
+  if (suc) suc.classList.add('show');
 }
 
 function ctaSubmit() {
@@ -975,8 +996,10 @@ function initCommTabs() {
 /* ──────────────────────────────────────────────────────────────
    EXPOSE TO HTML (onclick)
 ────────────────────────────────────────────────────────────── */
-window.heroJoin   = heroJoin;
-window.ctaSubmit  = ctaSubmit;
+window.openWaitlistModal  = openWaitlistModal;
+window.closeWaitlistModal = closeWaitlistModal;
+window.submitWaitlist     = submitWaitlist;
+window.ctaSubmit          = ctaSubmit;
 
 /* ──────────────────────────────────────────────────────────────
    BOOT

@@ -140,11 +140,7 @@
     </div>
 
     <div class="hero-cta" style="animation-delay:1.65s">
-      <div class="pill-form" id="hero-pill-form">
-        <input type="email" class="pill-input" placeholder="votre@courriel.com" id="hero-email">
-        <button class="btn-gold" onclick="heroJoin()"><div class="btn-shine"></div>Rejoindre la waitlist →</button>
-      </div>
-      <div class="hero-success" id="hero-ok">✓ Vous êtes sur la liste — on vous contacte sous 24h</div>
+      <button class="btn-gold btn-gold-lg" onclick="openWaitlistModal()"><div class="btn-shine"></div>Rejoindre la waitlist →</button>
       <p class="cta-note">Accès bêta gratuit · Aucune carte requise · AMF-compatible · Google Workspace inclus</p>
     </div>
   </div>
@@ -154,6 +150,45 @@
     <div class="scroll-mouse"></div>
   </div>
 </section>
+
+<!-- ═══════════════════════ WAITLIST MODAL ══════════════ -->
+<div class="wl-overlay" id="wl-overlay" onclick="closeWaitlistModal(event)">
+  <div class="wl-modal" onclick="event.stopPropagation()">
+    <button class="wl-close" onclick="closeWaitlistModal()">&times;</button>
+    <div class="wl-header">
+      <div class="wl-eyebrow">Accès anticipé — Places limitées</div>
+      <h3 class="wl-title">Réservez votre place</h3>
+      <p class="wl-sub">Rejoignez les 50 premiers conseillers bêta et bénéficiez d'un accès gratuit complet avec formation personnalisée.</p>
+    </div>
+    <div id="wl-form">
+      <div class="wl-fields">
+        <div class="wl-field">
+          <label class="wl-label" for="wl-name">Nom complet <span class="wl-req">*</span></label>
+          <input type="text" class="wl-input" id="wl-name" placeholder="Jean Tremblay">
+        </div>
+        <div class="wl-field">
+          <label class="wl-label" for="wl-email">Courriel <span class="wl-req">*</span></label>
+          <input type="email" class="wl-input" id="wl-email" placeholder="votre@courriel.com">
+        </div>
+        <div class="wl-field">
+          <label class="wl-label" for="wl-phone">Téléphone <span class="wl-opt">(optionnel)</span></label>
+          <input type="tel" class="wl-input" id="wl-phone" placeholder="514-xxx-xxxx">
+        </div>
+      </div>
+      <button class="wl-submit" onclick="submitWaitlist()">Réserver ma place →</button>
+      <div class="wl-trust">
+        <span>✓ Gratuit</span>
+        <span>✓ Aucune carte</span>
+        <span>✓ AMF-compatible</span>
+      </div>
+    </div>
+    <div class="wl-success" id="wl-success">
+      <div class="wl-success-icon">✓</div>
+      <div class="wl-success-title">Place réservée !</div>
+      <div class="wl-success-sub">On vous contacte sous 24h pour planifier votre accès.</div>
+    </div>
+  </div>
+</div>
 
 <!-- ═══════════════════════════════════════ MARQUEE ════ -->
 <div class="marquee-wrap">
@@ -750,8 +785,9 @@
   <div class="proof-bg-glow"></div>
   <div style="max-width:1300px;margin:0 auto;text-align:center;position:relative;z-index:1">
     <div class="sec-label rx">Conseillers bêta</div>
-    <h2 class="sec-title rx" style="font-size:clamp(42px,6vw,80px)">Ils ont essayé.<br><em>Ils ne reviennent pas en arrière.</em></h2>
-    <p class="sec-sub rx" style="max-width:560px;margin:0 auto">Voici ce que disent les conseillers qui utilisent FINOX au quotidien.</p>
+    <h2 class="sec-title rx" style="font-size:clamp(42px,6vw,80px)">Ils ont essayé.</h2>
+    <h2 class="sec-title rx" style="font-size:clamp(42px,6vw,80px);margin-top:-4px" data-delay="250"><em>Ils ne reviennent pas en arrière.</em></h2>
+    <p class="sec-sub rx" style="max-width:560px;margin:0 auto" data-delay="400">Voici ce que disent les conseillers qui utilisent FINOX au quotidien.</p>
   </div>
   <div class="proof-grid">
     <div class="proof-card proof-card-anim">
