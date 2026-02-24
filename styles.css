@@ -52,8 +52,8 @@ nav.scrolled{background:rgba(6,6,8,.96);border-bottom:1px solid rgba(196,162,74,
 .crm-nav-track::-webkit-scrollbar{display:none}
 
 /* Progress lines — base (gray) + fill (gold) */
-.crm-nav-line{position:absolute;top:50%;left:24px;right:24px;height:2px;background:rgba(255,255,255,.06);pointer-events:none;transform:translateY(4px);z-index:0;border-radius:2px}
-.crm-nav-line-fill{position:absolute;top:50%;left:24px;height:2px;width:0;background:linear-gradient(to right,var(--g),var(--gl));pointer-events:none;transform:translateY(4px);z-index:0;border-radius:2px;transition:width .5s var(--ease-out);box-shadow:0 0 8px rgba(196,162,74,.25)}
+.crm-nav-line{position:absolute;top:50%;left:24px;right:24px;height:2px;background:rgba(255,255,255,.06);pointer-events:none;transform:translateY(1px);z-index:0;border-radius:2px}
+.crm-nav-line-fill{position:absolute;top:50%;left:24px;height:2px;width:0;background:linear-gradient(to right,var(--g),var(--gl));pointer-events:none;transform:translateY(1px);z-index:0;border-radius:2px;transition:width .5s var(--ease-out);box-shadow:0 0 8px rgba(196,162,74,.25)}
 
 .crm-nav-group{display:flex;flex-direction:column;align-items:center;flex-shrink:0;position:relative;z-index:1;padding:0 10px}
 .crm-nav-group-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--cm);margin-bottom:6px;white-space:nowrap;padding:0 6px;transition:color .3s}
