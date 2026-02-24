@@ -690,7 +690,7 @@
         </div>
         <!-- Partnership diagram -->
         <div class="partnership-diagram" id="partnership-diagram">
-          <svg viewBox="0 0 480 240" style="width:100%;display:block">
+          <svg viewBox="0 0 480 340" style="width:100%;display:block">
             <defs>
               <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
                 <stop offset="0%" stop-color="var(--gl)"/>
@@ -698,40 +698,40 @@
               </linearGradient>
             </defs>
             <!-- Dashed background lines (edge to edge) -->
-            <line x1="124" y1="110" x2="335" y2="58" stroke="rgba(196,162,74,.12)" stroke-width="1.5" stroke-dasharray="5 4"/>
-            <line x1="124" y1="120" x2="334" y2="120" stroke="rgba(196,162,74,.12)" stroke-width="1.5" stroke-dasharray="5 4"/>
-            <line x1="124" y1="130" x2="335" y2="182" stroke="rgba(196,162,74,.12)" stroke-width="1.5" stroke-dasharray="5 4"/>
+            <line x1="123" y1="153" x2="335" y2="69" stroke="rgba(196,162,74,.12)" stroke-width="1.5" stroke-dasharray="5 4"/>
+            <line x1="126" y1="170" x2="332" y2="170" stroke="rgba(196,162,74,.12)" stroke-width="1.5" stroke-dasharray="5 4"/>
+            <line x1="123" y1="187" x2="335" y2="271" stroke="rgba(196,162,74,.12)" stroke-width="1.5" stroke-dasharray="5 4"/>
             <!-- Gold animated lines (edge to edge) -->
-            <line class="partner-line-fill" x1="124" y1="110" x2="335" y2="58" stroke="url(#goldGrad)" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="300" stroke-dashoffset="300"/>
-            <line class="partner-line-fill" x1="124" y1="120" x2="334" y2="120" stroke="url(#goldGrad)" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="300" stroke-dashoffset="300"/>
-            <line class="partner-line-fill" x1="124" y1="130" x2="335" y2="182" stroke="url(#goldGrad)" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="300" stroke-dashoffset="300"/>
+            <line class="pline pline-1" x1="123" y1="153" x2="335" y2="69" stroke="url(#goldGrad)" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="320" stroke-dashoffset="320"/>
+            <line class="pline pline-2" x1="126" y1="170" x2="332" y2="170" stroke="url(#goldGrad)" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="320" stroke-dashoffset="320"/>
+            <line class="pline pline-3" x1="123" y1="187" x2="335" y2="271" stroke="url(#goldGrad)" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="320" stroke-dashoffset="320"/>
             <!-- Adjointe circle (left) -->
             <g class="partner-node" style="cursor:default">
-              <circle cx="80" cy="120" r="46" fill="#111114" stroke="rgba(196,162,74,.3)" stroke-width="2"/>
-              <circle cx="80" cy="120" r="46" fill="none" stroke="rgba(196,162,74,.06)" stroke-width="8"/>
-              <text x="80" y="116" text-anchor="middle" fill="var(--g)" font-size="13" font-family="Cabinet Grotesk,sans-serif" font-weight="700">Adjointe</text>
-              <text x="80" y="131" text-anchor="middle" fill="var(--cd)" font-size="8" font-family="JetBrains Mono,monospace">Accès partagé</text>
+              <circle cx="80" cy="170" r="46" fill="#111114" stroke="rgba(196,162,74,.3)" stroke-width="2"/>
+              <circle cx="80" cy="170" r="46" fill="none" stroke="rgba(196,162,74,.06)" stroke-width="8"/>
+              <text x="80" y="166" text-anchor="middle" fill="var(--g)" font-size="13" font-family="Cabinet Grotesk,sans-serif" font-weight="700">Adjointe</text>
+              <text x="80" y="181" text-anchor="middle" fill="var(--cd)" font-size="8" font-family="JetBrains Mono,monospace">Accès partagé</text>
             </g>
             <!-- Conseiller 1 (top right) -->
             <g class="partner-node" style="cursor:default">
-              <circle cx="370" cy="50" r="38" fill="#111114" stroke="rgba(100,180,255,.25)" stroke-width="2"/>
-              <circle cx="370" cy="50" r="38" fill="none" stroke="rgba(100,180,255,.04)" stroke-width="6"/>
-              <text x="370" y="46" text-anchor="middle" fill="var(--blue)" font-size="11" font-family="Cabinet Grotesk,sans-serif" font-weight="600">Conseiller 1</text>
-              <text x="370" y="60" text-anchor="middle" fill="var(--cd)" font-size="8" font-family="JetBrains Mono,monospace">147 clients</text>
+              <circle cx="370" cy="55" r="40" fill="#111114" stroke="rgba(100,180,255,.25)" stroke-width="2"/>
+              <circle cx="370" cy="55" r="40" fill="none" stroke="rgba(100,180,255,.04)" stroke-width="6"/>
+              <text x="370" y="51" text-anchor="middle" fill="var(--blue)" font-size="11" font-family="Cabinet Grotesk,sans-serif" font-weight="600">Conseiller 1</text>
+              <text x="370" y="65" text-anchor="middle" fill="var(--cd)" font-size="8" font-family="JetBrains Mono,monospace">147 clients</text>
             </g>
             <!-- Conseiller 2 (middle right) -->
             <g class="partner-node" style="cursor:default">
-              <circle cx="370" cy="120" r="38" fill="#111114" stroke="rgba(100,180,255,.25)" stroke-width="2"/>
-              <circle cx="370" cy="120" r="38" fill="none" stroke="rgba(100,180,255,.04)" stroke-width="6"/>
-              <text x="370" y="116" text-anchor="middle" fill="var(--blue)" font-size="11" font-family="Cabinet Grotesk,sans-serif" font-weight="600">Conseiller 2</text>
-              <text x="370" y="130" text-anchor="middle" fill="var(--cd)" font-size="8" font-family="JetBrains Mono,monospace">89 clients</text>
+              <circle cx="370" cy="170" r="40" fill="#111114" stroke="rgba(100,180,255,.25)" stroke-width="2"/>
+              <circle cx="370" cy="170" r="40" fill="none" stroke="rgba(100,180,255,.04)" stroke-width="6"/>
+              <text x="370" y="166" text-anchor="middle" fill="var(--blue)" font-size="11" font-family="Cabinet Grotesk,sans-serif" font-weight="600">Conseiller 2</text>
+              <text x="370" y="180" text-anchor="middle" fill="var(--cd)" font-size="8" font-family="JetBrains Mono,monospace">89 clients</text>
             </g>
             <!-- Conseiller 3 (bottom right) -->
             <g class="partner-node" style="cursor:default">
-              <circle cx="370" cy="190" r="38" fill="#111114" stroke="rgba(100,180,255,.25)" stroke-width="2"/>
-              <circle cx="370" cy="190" r="38" fill="none" stroke="rgba(100,180,255,.04)" stroke-width="6"/>
-              <text x="370" y="186" text-anchor="middle" fill="var(--blue)" font-size="11" font-family="Cabinet Grotesk,sans-serif" font-weight="600">Conseiller 3</text>
-              <text x="370" y="200" text-anchor="middle" fill="var(--cd)" font-size="8" font-family="JetBrains Mono,monospace">64 clients</text>
+              <circle cx="370" cy="285" r="40" fill="#111114" stroke="rgba(100,180,255,.25)" stroke-width="2"/>
+              <circle cx="370" cy="285" r="40" fill="none" stroke="rgba(100,180,255,.04)" stroke-width="6"/>
+              <text x="370" y="281" text-anchor="middle" fill="var(--blue)" font-size="11" font-family="Cabinet Grotesk,sans-serif" font-weight="600">Conseiller 3</text>
+              <text x="370" y="295" text-anchor="middle" fill="var(--cd)" font-size="8" font-family="JetBrains Mono,monospace">64 clients</text>
             </g>
           </svg>
         </div>
@@ -745,43 +745,37 @@
   </div>
 </section>
 
-<!-- ════════════════════════════════ NUMBERS ══════════ -->
-<section class="numbers-section">
-  <div style="text-align:center;max-width:1300px;margin:0 auto">
-    <div class="sec-label rx">Les chiffres parlent</div>
-    <h2 class="sec-title rx">Résultats mesurés chez<br><em>nos conseillers bêta</em></h2>
-  </div>
-  <div class="numbers-grid">
-    <div class="num-cell"><div class="big-num" data-val="70" data-suf="%">70<span class="num-suffix">%</span></div><div class="num-label">Réduction du temps administratif</div><div class="num-source">Mesuré chez nos conseillers bêta</div></div>
-    <div class="num-cell"><div class="big-num" data-val="147" data-suf="">147</div><div class="num-label">Clients gérés par conseiller en moyenne</div><div class="num-source">Sans adjoint supplémentaire</div></div>
-    <div class="num-cell"><div class="big-num" data-val="8" data-suf="h">8<span class="num-suffix">h</span></div><div class="num-label">Récupérées chaque semaine</div><div class="num-source">Consacrées aux ventes & relations</div></div>
-    <div class="num-cell"><div class="big-num" data-val="3" data-suf="×">3<span class="num-suffix">×</span></div><div class="num-label">Plus de propositions émises</div><div class="num-source">Grâce à l'automatisation des ABF</div></div>
-  </div>
-</section>
-
 <!-- ═════════════════════════════ TÉMOIGNAGES ══════════ -->
 <section class="proof-section" id="proof">
-  <div style="max-width:1300px;margin:0 auto;text-align:center">
+  <div class="proof-bg-glow"></div>
+  <div style="max-width:1300px;margin:0 auto;text-align:center;position:relative;z-index:1">
     <div class="sec-label rx">Conseillers bêta</div>
-    <h2 class="sec-title rx">Ils ont essayé.<br><em>Ils ne reviennent pas en arrière.</em></h2>
+    <h2 class="sec-title rx" style="font-size:clamp(42px,6vw,80px)">Ils ont essayé.<br><em>Ils ne reviennent pas en arrière.</em></h2>
+    <p class="sec-sub rx" style="max-width:560px;margin:0 auto">Voici ce que disent les conseillers qui utilisent FINOX au quotidien.</p>
   </div>
   <div class="proof-grid">
-    <div class="proof-card rx">
+    <div class="proof-card proof-card-anim">
+      <div class="proof-glow"></div>
       <div class="proof-stars">★★★★★</div>
       <div class="proof-quote-mark">"</div>
-      <div class="proof-text">FINOX a transformé ma pratique. Je fais maintenant 3 ABF complets par jour au lieu d'un seul. Le Pulse Vital m'a permis de récupérer 8 clients que j'aurais perdus sans le savoir.</div>
+      <div class="proof-text">FINOX a transformé ma pratique. Je fais maintenant <strong>3 ABF complets par jour</strong> au lieu d'un seul. Le Pulse Vital m'a permis de récupérer 8 clients que j'aurais perdus sans le savoir.</div>
+      <div class="proof-highlight">3× plus d'ABF par jour</div>
       <div class="proof-author"><div class="proof-avatar">MP</div><div><div class="proof-name">Mathieu Perreault</div><div class="proof-role">Conseiller senior · 200+ clients · Montréal</div></div></div>
     </div>
-    <div class="proof-card rx">
+    <div class="proof-card proof-card-anim">
+      <div class="proof-glow"></div>
       <div class="proof-stars">★★★★★</div>
       <div class="proof-quote-mark">"</div>
-      <div class="proof-text">Enfin un CRM fait par quelqu'un qui comprend l'assurance québécoise. Le préavis de remplacement automatique seul vaut le prix — ça me sauvait 45 minutes par dossier.</div>
+      <div class="proof-text">Enfin un OS fait par quelqu'un qui comprend l'assurance québécoise. Le préavis de remplacement automatique seul vaut le prix — ça me sauvait <strong>45 minutes par dossier</strong>.</div>
+      <div class="proof-highlight">45 min économisées/dossier</div>
       <div class="proof-author"><div class="proof-avatar">CB</div><div><div class="proof-name">Caroline Beauchamp</div><div class="proof-role">Directrice de cabinet · 12 conseillers · Laval</div></div></div>
     </div>
-    <div class="proof-card rx">
+    <div class="proof-card proof-card-anim">
+      <div class="proof-glow"></div>
       <div class="proof-stars">★★★★★</div>
       <div class="proof-quote-mark">"</div>
-      <div class="proof-text">J'ai abandonné Salesforce après 3 ans. FINOX fait en 1 clic ce qui me prenait 10 clics. Le calculateur hypothécaire Desjardins vs marché est un outil de vente incroyable.</div>
+      <div class="proof-text">J'ai abandonné Salesforce après 3 ans. FINOX fait <strong>en 1 clic</strong> ce qui me prenait 10 clics. Le calculateur hypothécaire Desjardins vs marché est un outil de vente incroyable.</div>
+      <div class="proof-highlight">Ex-Salesforce converti</div>
       <div class="proof-author"><div class="proof-avatar">FL</div><div><div class="proof-name">François Lamontagne</div><div class="proof-role">Entrepreneur · Agence indépendante · Québec</div></div></div>
     </div>
   </div>
@@ -791,7 +785,7 @@
 <section class="final-section" id="cta">
   <div class="final-inner">
     <div class="final-eyebrow rx">Accès anticipé — Places limitées</div>
-    <h2 class="final-title rx">Rejoignez les<em>premiers.</em></h2>
+    <h2 class="final-title rx">Rejoignez les<br><em>premiers.</em></h2>
     <p class="final-sub rx">50 conseillers sélectionnés bénéficieront d'un accès bêta gratuit complet et d'une formation personnalisée pour maximiser leur impact dès le premier mois.</p>
 
     <div class="spots-bar-row rx">
@@ -800,12 +794,12 @@
     </div>
 
     <div id="cta-form-inner">
-      <div class="cta-row">
-        <input type="text"  class="cta-input" placeholder="Votre nom complet" id="cta-name">
-        <div class="cta-divider"></div>
-        <input type="email" class="cta-input" placeholder="votre@courriel.com" id="cta-email">
-        <div class="cta-divider"></div>
-        <input type="tel"   class="cta-input" placeholder="514-xxx-xxxx (optionnel)" id="cta-phone" style="width:200px">
+      <div class="cta-fields">
+        <div class="cta-field-row">
+          <input type="text"  class="cta-input" placeholder="Votre nom complet" id="cta-name">
+          <input type="email" class="cta-input" placeholder="votre@courriel.com" id="cta-email">
+          <input type="tel"   class="cta-input" placeholder="514-xxx-xxxx (optionnel)" id="cta-phone">
+        </div>
         <button class="cta-submit-btn" onclick="ctaSubmit()">Réserver ma place →</button>
       </div>
       <div class="trust-row">
