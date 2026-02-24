@@ -544,10 +544,10 @@ nav.scrolled{background:rgba(6,6,8,.96);border-bottom:1px solid rgba(196,162,74,
 .partner-node circle:first-child{transition:all .4s var(--ease-out)}
 .partner-node:hover circle:first-child{filter:brightness(1.5);stroke-width:3}
 .partner-node:hover text:first-of-type{fill:var(--cr)}
-.pline{transition:stroke-dashoffset 3.5s cubic-bezier(0.25,0.46,0.45,0.94)}
-.partnership-diagram.active .pline-1{stroke-dashoffset:0;transition-delay:0s}
-.partnership-diagram.active .pline-2{stroke-dashoffset:0;transition-delay:.35s}
-.partnership-diagram.active .pline-3{stroke-dashoffset:0;transition-delay:.7s}
+@keyframes drawLine{from{stroke-dashoffset:320}to{stroke-dashoffset:0}}
+.partnership-diagram.active .pline-1{animation:drawLine 2s cubic-bezier(0.25,0.46,0.45,0.94) 0s forwards}
+.partnership-diagram.active .pline-2{animation:drawLine 2s cubic-bezier(0.25,0.46,0.45,0.94) .35s forwards}
+.partnership-diagram.active .pline-3{animation:drawLine 2s cubic-bezier(0.25,0.46,0.45,0.94) .7s forwards}
 .numbers-section{padding:130px 60px;background:var(--ink);position:relative;overflow:hidden}
 .numbers-section::before{content:'FINOX';position:absolute;font-family:'Cormorant Garamond',serif;font-size:clamp(180px,22vw,400px);font-weight:900;color:rgba(196,162,74,.017);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;white-space:nowrap;letter-spacing:.08em}
 .numbers-grid{max-width:1200px;margin:65px auto 0;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;border:1px solid rgba(196,162,74,.1);border-radius:22px;overflow:hidden}
