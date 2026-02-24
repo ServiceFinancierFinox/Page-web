@@ -705,6 +705,23 @@ function initNumberCounters() {
 }
 
 /* ──────────────────────────────────────────────────────────────
+   PARTNERSHIP DIAGRAM — scroll-triggered line animation
+────────────────────────────────────────────────────────────── */
+function initPartnershipDiagram() {
+  const diagram = document.getElementById('partnership-diagram');
+  if (!diagram) return;
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        diagram.classList.add('active');
+        observer.unobserve(diagram);
+      }
+    });
+  }, { threshold: .3 });
+  observer.observe(diagram);
+}
+
+/* ──────────────────────────────────────────────────────────────
    NAV SCROLL
 ────────────────────────────────────────────────────────────── */
 function initNav() {
@@ -995,6 +1012,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Numbers
   initNumberCounters();
+
+  // Partnership diagram
+  initPartnershipDiagram();
 
   // Comm tabs
   initCommTabs();

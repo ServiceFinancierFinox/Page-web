@@ -18,7 +18,7 @@
 
 <!-- ═══════════════════════════════════════════ NAV ════ -->
 <nav id="nav">
-  <a href="#" class="nav-logo">FINOX<span class="logo-accent">·</span>CRM</a>
+  <a href="#" class="nav-logo">FINOX<span class="logo-accent">·</span>OS</a>
   <div class="crm-nav-wrap">
     <button class="crm-nav-arrow crm-nav-arrow-left" id="crm-arrow-left" aria-label="Défiler à gauche">‹</button>
     <div class="crm-nav-track" id="crm-nav-track">
@@ -133,11 +133,10 @@
 
     <p class="hero-sub" style="animation-delay:1.28s">FINOX CRM est la première plateforme exclusive aux conseillers québécois qui automatise <strong>80% du travail administratif</strong> — de l'analyse des besoins financiers au préavis de remplacement — pour que vous passiez votre temps à <strong>bâtir des relations</strong>, pas à cliquer.</p>
 
-    <div class="hero-stats" style="animation-delay:1.46s">
-      <div class="stat-item"><div class="stat-num hero-stat-num" data-target="70" data-suffix="%">0%</div><div class="stat-label">Admin éliminé</div></div>
-      <div class="stat-item"><div class="stat-num hero-stat-num" data-target="3" data-suffix="×">0×</div><div class="stat-label">Plus de ventes</div></div>
-      <div class="stat-item"><div class="stat-num hero-stat-num" data-target="85" data-prefix="$">$0</div><div class="stat-label">Économisé/lead</div></div>
-      <div class="stat-item"><div class="stat-num hero-stat-num" data-target="8" data-suffix="h">0h</div><div class="stat-label">Récupérées/sem.</div></div>
+    <div class="hero-stats hero-stats-3" style="animation-delay:1.46s">
+      <div class="stat-item"><div class="stat-num hero-stat-num" data-target="80" data-suffix="%">0%</div><div class="stat-label">Admin éliminé</div></div>
+      <div class="stat-item"><div class="stat-num hero-stat-num" data-target="30" data-suffix="h">0h</div><div class="stat-label">Récupérées/sem. en moyenne</div></div>
+      <div class="stat-item"><div class="stat-num hero-stat-num" data-target="500" data-suffix="%">0%</div><div class="stat-label">Productivité augmentée</div></div>
     </div>
 
     <div class="hero-cta" style="animation-delay:1.65s">
@@ -635,14 +634,13 @@
   <div style="max-width:1300px;margin:0 auto;text-align:center;margin-bottom:65px">
     <div class="sec-label rx">Documents & Conformité</div>
     <h2 class="sec-title rx">Tous vos documents.<br><em>Renommés. Sécurisés. Conformes.</em></h2>
-    <p class="sec-sub rx">Le module Documents centralise tout — demandes aux clients, envoi sécurisé, renommage automatique conforme AMF, politique de confidentialité de cabinet prête à l'emploi.</p>
+    <p class="sec-sub rx">Le module Documents centralise tout — demandes aux clients, envoi sécurisé, renommage automatique conforme AMF et signatures électroniques intégrées.</p>
   </div>
   <div class="conf-layout">
     <div class="conf-list rxl">
       <div class="conf-item"><div class="conf-ic">📁</div><div class="conf-tx"><h4>Centre de documentation par client</h4><p>Tous les documents du client centralisés dans son dossier, renommés automatiquement selon les normes AMF. Plus jamais de fichiers nommés "scan_001.pdf" dans votre Drive.</p></div></div>
       <div class="conf-item"><div class="conf-ic">📨</div><div class="conf-tx"><h4>Demande de documents sécurisée</h4><p>Envoyez une demande directement au client. Il uploade ses fichiers via un portail sécurisé — sans email, sans risque de confidentialité, avec confirmation automatique.</p></div></div>
       <div class="conf-item"><div class="conf-ic">🔒</div><div class="conf-tx"><h4>Envoi sécurisé avec mot de passe</h4><p>Partagez des documents confidentiels avec un lien protégé par mot de passe. Traçabilité complète — qui a accédé, quand, depuis quel appareil.</p></div></div>
-      <div class="conf-item"><div class="conf-ic">📜</div><div class="conf-tx"><h4>Politique de confidentialité de cabinet</h4><p>Politique conforme à la Loi 25 et aux exigences de l'AMF. Envoyée automatiquement à chaque nouveau client avec confirmation de lecture électronique.</p></div></div>
       <div class="conf-item"><div class="conf-ic">✍️</div><div class="conf-tx"><h4>Signature électronique OneSpan & Adobe</h4><p>Intégration complète avec OneSpan Sign et Adobe Sign. Toutes les signatures liées directement au dossier — traçabilité parfaite pour les audits AMF. Temps moyen : 4 minutes.</p></div></div>
       <div class="conf-item"><div class="conf-ic">🗂️</div><div class="conf-tx"><h4>Renommage automatique conforme AMF</h4><p>Chaque document renommé selon la nomenclature AMF — [Client]_[Date]_[Type]. Fini le chaos dans Google Drive, tout est trouvable en 3 secondes.</p></div></div>
     </div>
@@ -691,28 +689,49 @@
           <p style="font-size:14px;line-height:1.8;color:var(--cd)">Créez des partenariats de partage d'information entre membres d'équipe en toute simplicité. Une adjointe peut accéder aux dossiers de plusieurs conseillers sans configuration complexe.</p>
         </div>
         <!-- Partnership diagram -->
-        <div class="partnership-diagram">
-          <svg viewBox="0 0 300 200" style="width:100%;max-width:320px;margin:0 auto;display:block">
+        <div class="partnership-diagram" id="partnership-diagram">
+          <svg viewBox="0 0 480 240" style="width:100%;display:block">
             <!-- Lines from Adjointe to Conseillers -->
-            <line x1="150" y1="60" x2="60" y2="160" stroke="rgba(196,162,74,.4)" stroke-width="1.5" stroke-dasharray="4 4"/>
-            <line x1="150" y1="60" x2="150" y2="160" stroke="rgba(196,162,74,.4)" stroke-width="1.5" stroke-dasharray="4 4"/>
-            <line x1="150" y1="60" x2="240" y2="160" stroke="rgba(196,162,74,.4)" stroke-width="1.5" stroke-dasharray="4 4"/>
-            <!-- Adjointe circle -->
-            <circle cx="150" cy="50" r="28" fill="rgba(196,162,74,.12)" stroke="var(--g)" stroke-width="1.5"/>
-            <text x="150" y="47" text-anchor="middle" fill="var(--g)" font-size="11" font-family="Cabinet Grotesk,sans-serif" font-weight="600">Adjointe</text>
-            <text x="150" y="60" text-anchor="middle" fill="var(--cd)" font-size="8" font-family="JetBrains Mono,monospace">Accès partagé</text>
-            <!-- Conseiller 1 -->
-            <circle cx="60" cy="160" r="24" fill="rgba(100,180,255,.10)" stroke="var(--blue)" stroke-width="1.5"/>
-            <text x="60" y="157" text-anchor="middle" fill="var(--blue)" font-size="10" font-family="Cabinet Grotesk,sans-serif" font-weight="500">Conseiller</text>
-            <text x="60" y="169" text-anchor="middle" fill="var(--cd)" font-size="8" font-family="JetBrains Mono,monospace">1</text>
-            <!-- Conseiller 2 -->
-            <circle cx="150" cy="160" r="24" fill="rgba(100,180,255,.10)" stroke="var(--blue)" stroke-width="1.5"/>
-            <text x="150" y="157" text-anchor="middle" fill="var(--blue)" font-size="10" font-family="Cabinet Grotesk,sans-serif" font-weight="500">Conseiller</text>
-            <text x="150" y="169" text-anchor="middle" fill="var(--cd)" font-size="8" font-family="JetBrains Mono,monospace">2</text>
-            <!-- Conseiller 3 -->
-            <circle cx="240" cy="160" r="24" fill="rgba(100,180,255,.10)" stroke="var(--blue)" stroke-width="1.5"/>
-            <text x="240" y="157" text-anchor="middle" fill="var(--blue)" font-size="10" font-family="Cabinet Grotesk,sans-serif" font-weight="500">Conseiller</text>
-            <text x="240" y="169" text-anchor="middle" fill="var(--cd)" font-size="8" font-family="JetBrains Mono,monospace">3</text>
+            <line class="partner-line" x1="100" y1="120" x2="340" y2="50" stroke="rgba(196,162,74,.15)" stroke-width="2" stroke-dasharray="6 4"/>
+            <line class="partner-line-fill" x1="100" y1="120" x2="340" y2="50" stroke="url(#goldGrad)" stroke-width="3" stroke-dasharray="0" stroke-linecap="round" style="opacity:0;transition:opacity .8s .2s"/>
+            <line class="partner-line" x1="100" y1="120" x2="340" y2="120" stroke="rgba(196,162,74,.15)" stroke-width="2" stroke-dasharray="6 4"/>
+            <line class="partner-line-fill" x1="100" y1="120" x2="340" y2="120" stroke="url(#goldGrad)" stroke-width="3" stroke-dasharray="0" stroke-linecap="round" style="opacity:0;transition:opacity .8s .4s"/>
+            <line class="partner-line" x1="100" y1="120" x2="340" y2="190" stroke="rgba(196,162,74,.15)" stroke-width="2" stroke-dasharray="6 4"/>
+            <line class="partner-line-fill" x1="100" y1="120" x2="340" y2="190" stroke="url(#goldGrad)" stroke-width="3" stroke-dasharray="0" stroke-linecap="round" style="opacity:0;transition:opacity .8s .6s"/>
+            <defs>
+              <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="var(--gl)"/>
+                <stop offset="100%" stop-color="var(--g)"/>
+              </linearGradient>
+            </defs>
+            <!-- Adjointe circle (left) -->
+            <g class="partner-node" style="cursor:default">
+              <circle cx="80" cy="120" r="44" fill="rgba(196,162,74,.08)" stroke="rgba(196,162,74,.3)" stroke-width="2"/>
+              <circle cx="80" cy="120" r="44" fill="none" stroke="rgba(196,162,74,.06)" stroke-width="8"/>
+              <text x="80" y="113" text-anchor="middle" fill="var(--g)" font-size="14" font-family="Cabinet Grotesk,sans-serif" font-weight="700">Adjointe</text>
+              <text x="80" y="132" text-anchor="middle" fill="var(--cd)" font-size="10" font-family="JetBrains Mono,monospace">Accès partagé</text>
+            </g>
+            <!-- Conseiller 1 (top right) -->
+            <g class="partner-node" style="cursor:default">
+              <circle cx="370" cy="50" r="36" fill="rgba(100,180,255,.06)" stroke="rgba(100,180,255,.25)" stroke-width="2"/>
+              <circle cx="370" cy="50" r="36" fill="none" stroke="rgba(100,180,255,.04)" stroke-width="6"/>
+              <text x="370" y="46" text-anchor="middle" fill="var(--blue)" font-size="13" font-family="Cabinet Grotesk,sans-serif" font-weight="600">Conseiller 1</text>
+              <text x="370" y="62" text-anchor="middle" fill="var(--cd)" font-size="9" font-family="JetBrains Mono,monospace">147 clients</text>
+            </g>
+            <!-- Conseiller 2 (middle right) -->
+            <g class="partner-node" style="cursor:default">
+              <circle cx="370" cy="120" r="36" fill="rgba(100,180,255,.06)" stroke="rgba(100,180,255,.25)" stroke-width="2"/>
+              <circle cx="370" cy="120" r="36" fill="none" stroke="rgba(100,180,255,.04)" stroke-width="6"/>
+              <text x="370" y="116" text-anchor="middle" fill="var(--blue)" font-size="13" font-family="Cabinet Grotesk,sans-serif" font-weight="600">Conseiller 2</text>
+              <text x="370" y="132" text-anchor="middle" fill="var(--cd)" font-size="9" font-family="JetBrains Mono,monospace">89 clients</text>
+            </g>
+            <!-- Conseiller 3 (bottom right) -->
+            <g class="partner-node" style="cursor:default">
+              <circle cx="370" cy="190" r="36" fill="rgba(100,180,255,.06)" stroke="rgba(100,180,255,.25)" stroke-width="2"/>
+              <circle cx="370" cy="190" r="36" fill="none" stroke="rgba(100,180,255,.04)" stroke-width="6"/>
+              <text x="370" y="186" text-anchor="middle" fill="var(--blue)" font-size="13" font-family="Cabinet Grotesk,sans-serif" font-weight="600">Conseiller 3</text>
+              <text x="370" y="202" text-anchor="middle" fill="var(--cd)" font-size="9" font-family="JetBrains Mono,monospace">64 clients</text>
+            </g>
           </svg>
         </div>
         <div class="tag-row" style="justify-content:center;margin-top:24px">
@@ -807,7 +826,7 @@
 
 <!-- ════════════════════════════════ FOOTER ═══════════ -->
 <footer>
-  <div class="footer-logo">FINOX<span>·</span>CRM</div>
+  <div class="footer-logo">FINOX<span>·</span>OS</div>
   <div class="footer-links">
     <a href="#showcase" class="footer-link">Plateforme</a>
     <a href="#abf"      class="footer-link">ABF</a>
