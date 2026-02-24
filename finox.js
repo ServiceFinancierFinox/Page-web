@@ -717,7 +717,7 @@ function initPartnershipDiagram() {
         observer.unobserve(diagram);
       }
     });
-  }, { threshold: .3 });
+  }, { threshold: .1 });
   observer.observe(diagram);
 }
 
