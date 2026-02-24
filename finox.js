@@ -710,10 +710,26 @@ function initNumberCounters() {
 function initPartnershipDiagram() {
   const diagram = document.getElementById('partnership-diagram');
   if (!diagram) return;
+  const lines = diagram.querySelectorAll('.pline');
+  lines.forEach(line => {
+    const len = line.getTotalLength();
+    line.style.strokeDasharray = len;
+    line.style.strokeDashoffset = len;
+    line.style.opacity = '1';
+  });
+  const delays = [0, 350, 700];
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
-        diagram.classList.add('active');
+        lines.forEach((line, i) => {
+          const len = line.getTotalLength();
+          setTimeout(() => {
+            line.animate(
+              [{ strokeDashoffset: len }, { strokeDashoffset: 0 }],
+              { duration: 2000, easing: 'cubic-bezier(0.25,0.46,0.45,0.94)', fill: 'forwards' }
+            );
+          }, delays[i]);
+        });
         observer.unobserve(diagram);
       }
     });
