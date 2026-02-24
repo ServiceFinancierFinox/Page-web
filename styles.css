@@ -59,20 +59,20 @@ nav.scrolled{background:rgba(6,6,8,.96);border-bottom:1px solid rgba(196,162,74,
 .crm-nav-group-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--cm);margin-bottom:6px;white-space:nowrap;padding:0 6px;transition:color .3s}
 .crm-nav-items{display:flex;align-items:center;gap:10px}
 .crm-nav-item{display:flex;flex-direction:column;align-items:center;gap:5px;text-decoration:none;padding:4px 12px;transition:all .3s;position:relative;cursor:none}
-.crm-nav-circle{width:52px;height:52px;border-radius:50%;border:2px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);display:flex;align-items:center;justify-content:center;transition:all .4s var(--ease-out);position:relative}
+.crm-nav-circle{width:52px;height:52px;border-radius:50%;border:2px solid rgba(255,255,255,.1);background:#111117;display:flex;align-items:center;justify-content:center;transition:all .4s var(--ease-out);position:relative;z-index:1}
 .crm-nav-circle span{font-size:22px;transition:all .4s var(--ease-spring);line-height:1}
 .crm-nav-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--cm);white-space:nowrap;transition:color .3s}
-.crm-nav-item:hover .crm-nav-circle{border-color:rgba(196,162,74,.4);background:rgba(196,162,74,.07);box-shadow:0 0 18px rgba(196,162,74,.12)}
+.crm-nav-item:hover .crm-nav-circle{border-color:rgba(196,162,74,.4);background:#171514;box-shadow:0 0 18px rgba(196,162,74,.12)}
 .crm-nav-item:hover .crm-nav-circle span{transform:scale(1.15)}
 .crm-nav-item:hover .crm-nav-label{color:var(--cd)}
 
 /* Active state — current section */
-.crm-nav-item.active .crm-nav-circle{border-color:var(--g);border-width:2.5px;background:rgba(196,162,74,.12);box-shadow:0 0 22px rgba(196,162,74,.25),0 0 0 5px rgba(196,162,74,.08)}
+.crm-nav-item.active .crm-nav-circle{border-color:var(--g);border-width:2.5px;background:#201c17;box-shadow:0 0 22px rgba(196,162,74,.25),0 0 0 5px rgba(196,162,74,.08)}
 .crm-nav-item.active .crm-nav-circle span{transform:scale(1.1)}
 .crm-nav-item.active .crm-nav-label{color:var(--g);font-weight:700}
 
 /* Passed state — sections already scrolled past */
-.crm-nav-item.passed .crm-nav-circle{border-color:rgba(62,200,154,.45);background:rgba(62,200,154,.1)}
+.crm-nav-item.passed .crm-nav-circle{border-color:rgba(62,200,154,.45);background:#0f1d1e}
 .crm-nav-item.passed .crm-nav-circle::after{content:'✓';position:absolute;font-size:13px;color:var(--green);font-weight:700;z-index:2}
 .crm-nav-item.passed .crm-nav-circle span{opacity:0;transform:scale(0)}
 .crm-nav-item.passed .crm-nav-label{color:rgba(62,200,154,.65)}
