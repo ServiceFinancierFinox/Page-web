@@ -711,25 +711,31 @@ function initPartnershipDiagram() {
   const diagram = document.getElementById('partnership-diagram');
   if (!diagram) return;
   const lines = diagram.querySelectorAll('.pline');
+  /* Compute each line length from coordinates and hide via dashoffset */
   lines.forEach(line => {
-    const len = line.getTotalLength();
-    line.style.strokeDasharray = len;
-    line.style.strokeDashoffset = len;
-    line.style.opacity = '1';
+    const x1 = +line.getAttribute('x1'), y1 = +line.getAttribute('y1');
+    const x2 = +line.getAttribute('x2'), y2 = +line.getAttribute('y2');
+    const len = Math.hypot(x2 - x1, y2 - y1);
+    line.setAttribute('stroke-dasharray', len);
+    line.setAttribute('stroke-dashoffset', len);
   });
+  function drawLine(line, duration) {
+    const x1 = +line.getAttribute('x1'), y1 = +line.getAttribute('y1');
+    const x2 = +line.getAttribute('x2'), y2 = +line.getAttribute('y2');
+    const len = Math.hypot(x2 - x1, y2 - y1);
+    const start = performance.now();
+    (function step(now) {
+      const t = Math.min((now - start) / duration, 1);
+      const ease = t < .5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+      line.setAttribute('stroke-dashoffset', len * (1 - ease));
+      if (t < 1) requestAnimationFrame(step);
+    })(performance.now());
+  }
   const delays = [0, 350, 700];
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
-        lines.forEach((line, i) => {
-          const len = line.getTotalLength();
-          setTimeout(() => {
-            line.animate(
-              [{ strokeDashoffset: len }, { strokeDashoffset: 0 }],
-              { duration: 2000, easing: 'cubic-bezier(0.25,0.46,0.45,0.94)', fill: 'forwards' }
-            );
-          }, delays[i]);
-        });
+        lines.forEach((l, i) => setTimeout(() => drawLine(l, 2000), delays[i]));
         observer.unobserve(diagram);
       }
     });
