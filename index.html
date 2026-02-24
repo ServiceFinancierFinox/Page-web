@@ -82,16 +82,16 @@
             <div class="crm-nav-circle"><span>📄</span></div>
             <div class="crm-nav-label">Documents</div>
           </a>
+          <a href="#cabinet" class="crm-nav-item" data-section="cabinet">
+            <div class="crm-nav-circle"><span>🏛️</span></div>
+            <div class="crm-nav-label">Cabinet</div>
+          </a>
         </div>
       </div>
       <!-- AVENIR -->
       <div class="crm-nav-group">
         <div class="crm-nav-group-label">Avenir</div>
         <div class="crm-nav-items">
-          <a href="#roadmap" class="crm-nav-item" data-section="roadmap">
-            <div class="crm-nav-circle"><span>🗺️</span></div>
-            <div class="crm-nav-label">Roadmap</div>
-          </a>
           <a href="#cta" class="crm-nav-item" data-section="cta">
             <div class="crm-nav-circle"><span>🚀</span></div>
             <div class="crm-nav-label">Accès</div>
@@ -166,7 +166,7 @@
     <div class="marquee-item"><div class="marquee-dot"></div>Pulse Vital — santé du client en temps réel</div>
     <div class="marquee-item"><div class="marquee-dot"></div>Calculateur multi-compagnies QC & Canada</div>
     <div class="marquee-item"><div class="marquee-dot"></div>RingCentral téléphonie intégrée</div>
-    <div class="marquee-item"><div class="marquee-dot"></div>Calendly intégré</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Calendrier intégré · Sync Google Calendar</div>
     <div class="marquee-item"><div class="marquee-dot"></div>Google Workspace fourni</div>
     <div class="marquee-item"><div class="marquee-dot"></div>Module REEE + subventions gouvernementales</div>
     <div class="marquee-item"><div class="marquee-dot"></div>ABF complet & conforme AMF</div>
@@ -176,7 +176,7 @@
     <div class="marquee-item"><div class="marquee-dot"></div>Pulse Vital — santé du client en temps réel</div>
     <div class="marquee-item"><div class="marquee-dot"></div>Calculateur multi-compagnies QC & Canada</div>
     <div class="marquee-item"><div class="marquee-dot"></div>RingCentral téléphonie intégrée</div>
-    <div class="marquee-item"><div class="marquee-dot"></div>Calendly intégré</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Calendrier intégré · Sync Google Calendar</div>
     <div class="marquee-item"><div class="marquee-dot"></div>Google Workspace fourni</div>
     <div class="marquee-item"><div class="marquee-dot"></div>Module REEE + subventions gouvernementales</div>
   </div>
@@ -316,7 +316,7 @@
   <div style="max-width:1300px;margin:0 auto;text-align:center">
     <div class="sec-label rx">Innovation exclusive FINOX</div>
     <h2 class="sec-title green rx">Pulse Vital — <em>La santé de chaque client,</em><br>mesurée en continu</h2>
-    <p class="sec-sub rx">Fini de catégoriser vos clients par actifs. FINOX mesure la qualité réelle de votre relation avec chacun et vous dit exactement quoi faire pour l'améliorer aujourd'hui.</p>
+    <p class="sec-sub rx">Fini de catégoriser vos clients par actifs. FINOX mesure la qualité réelle de votre relation avec chacun — personnalisé par type de contact (client, prospect, corporatif) — et vous dit exactement quoi faire pour l'améliorer aujourd'hui.</p>
   </div>
   <div class="pulse-layout">
     <div class="rxl">
@@ -359,15 +359,15 @@
     </div>
     <div class="rxr" style="padding-top:20px">
       <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(34px,4.2vw,62px);font-weight:300;line-height:1.04;margin-bottom:22px">Une gestion basée sur la <em style="font-style:italic;color:var(--green)">qualité de service</em>, pas sur les actifs</h2>
-      <p style="font-size:15px;line-height:1.9;color:var(--cd);margin-bottom:20px">Le Pulse Vital analyse en continu la qualité de votre relation avec chaque client : fréquence des contacts, produits actifs, tâches complétées, opportunités planifiées, renouvellements à venir. Il génère un score 0–100 avec des actions concrètes pour l'améliorer.</p>
-      <p style="font-size:15px;line-height:1.9;color:var(--cd);margin-bottom:22px">Ce système unique permet de personnaliser le service sans jamais catégoriser les clients par valeur monétaire — chaque client mérite une attention basée sur sa situation réelle. Plus jamais un client ne tombe entre les craques.</p>
+      <p style="font-size:15px;line-height:1.9;color:var(--cd);margin-bottom:20px">Le Pulse Vital analyse en continu la qualité de votre relation avec chaque contact : fréquence des interactions, produits actifs, tâches complétées, opportunités planifiées, renouvellements à venir. Il génère un score 0–100 avec des actions concrètes pour l'améliorer.</p>
+      <p style="font-size:15px;line-height:1.9;color:var(--cd);margin-bottom:22px">Chaque type de contact — client, prospect, corporatif — a ses propres critères qui déterminent s'il est bien traité. Un prospect n'a pas les mêmes indicateurs qu'un client actif. Le Pulse s'adapte automatiquement pour que plus jamais un contact ne tombe entre les craques.</p>
       <div class="tag-row">
         <span class="pill-tag">Score 0–100 en temps réel</span>
         <span class="pill-tag">Actions concrètes suggérées</span>
+        <span class="pill-tag gold">Personnalisé par type de contact</span>
         <span class="pill-tag">Alertes risque de churn</span>
         <span class="pill-tag">Vue directeur équipe</span>
-        <span class="pill-tag gold">Historique de progression</span>
-        <span class="pill-tag blue">Notifications proactives</span>
+        <span class="pill-tag blue">Client · Prospect · Corpo</span>
       </div>
     </div>
   </div>
@@ -385,7 +385,8 @@
     <div class="abf-card rx"><div class="card-number">01</div><div class="card-icon">🗺️</div><div class="card-name">Adresse automatique via Google Maps</div><div class="card-desc">L'adresse du client est trouvée et vérifiée automatiquement via Google Maps. Fini la saisie manuelle et les erreurs sur les contrats. L'information se propage dans tout l'ABF.</div><span class="card-tag">Google Maps intégré</span></div>
     <div class="abf-card rx"><div class="card-number">02</div><div class="card-icon">💰</div><div class="card-name">Salaire brut → mensuel net automatique</div><div class="card-desc">Entrez le salaire annuel brut une seule fois. FINOX le convertit en mensuel net pour calculer automatiquement le besoin en invalidité et en assurance vie. Zéro répétition, zéro erreur.</div><span class="card-tag">Calculs en cascade</span></div>
     <div class="abf-card rx"><div class="card-number">03</div><div class="card-icon">⚖️</div><div class="card-name">Actifs & passifs interactifs + valeur nette</div><div class="card-desc">Un calculateur visuellement beau et interactif. La valeur nette est calculée automatiquement et réutilisée pour justifier les montants d'assurance vie — données sauvegardées pour tous les modules.</div><span class="card-tag">Interactif & visuel</span></div>
-    <div class="abf-card rx"><div class="card-number">04</div><div class="card-icon">🛡️</div><div class="card-name">Besoins vie, invalidité & MG séparés</div><div class="card-desc">Calculs automatisés séparément pour le client et sa conjointe. Visuellement clairs, faciles à comprendre. Les données de l'ABF — âge, salaire, actifs, passifs — alimentent automatiquement.</div><span class="card-tag">Client + Conjoint(e)</span></div>
+    <div class="abf-card rx"><div class="card-number">04</div><div class="card-icon">🛡️</div><div class="card-name">Besoins vie, invalidité & MG séparés</div><div class="card-desc">Calculs automatisés séparément pour le client et son/sa conjoint(e). Visuellement clairs, faciles à comprendre. Les données de l'ABF — âge, salaire, actifs, passifs — alimentent automatiquement.</div><span class="card-tag">Client + Conjoint(e)</span></div>
+    <div class="abf-card rx"><div class="card-number">04b</div><div class="card-icon">👨‍👩‍👧‍👦</div><div class="card-name">Fiche familiale complète — Conjoint(e) & enfants</div><div class="card-desc">Ajoutez facilement les enfants au profil du client pour justifier les besoins avec précision. Tout reste dans la même fiche : conjoint(e), enfants et tous leurs contrats respectifs. Si un contrat est fait pour un enfant, il est attribué directement à son profil. L'analyse de besoins financiers est donc parfaitement précise pour toute la famille.</div><span class="card-tag">Fiche familiale unifiée</span></div>
     <div class="abf-card rx"><div class="card-number">05</div><div class="card-icon">🏢</div><div class="card-name">Module Corporations complet</div><div class="card-desc">Analyse des besoins de l'entreprise avec outils de calculs dédiés pour donner un visuel clair à l'entrepreneur. Opportunités reliées générées automatiquement selon le profil corporatif.</div><span class="card-tag">ABF corporatif</span></div>
     <div class="abf-card rx"><div class="card-number">06</div><div class="card-icon">📋</div><div class="card-name">Module assurances en vigueur</div><div class="card-desc">Intégration complète des polices existantes dans l'ABF. Identification automatique des lacunes et des opportunités de consolidation ou de remplacement selon les meilleures pratiques.</div><span class="card-tag">Polices existantes</span></div>
     <div class="abf-card rx"><div class="card-number">07</div><div class="card-icon">💡</div><div class="card-name">Projets d'épargne & placements</div><div class="card-desc">Calculateurs intégrés pour justifier les placements. Liquidité disponible calculée automatiquement, recommandations de budget d'investissement générées selon le profil du client.</div><span class="card-tag">Épargne & placements</span></div>
@@ -393,29 +394,20 @@
     <div class="abf-card rx"><div class="card-number">09</div><div class="card-icon">🔒</div><div class="card-name">Module conformité & recommandations AMF</div><div class="card-desc">Conformité complète selon les exigences de l'AMF. La plateforme prend automatiquement les bonnes notes au dossier sans jamais demander au conseiller d'y consacrer du temps. Toujours en règle.</div><span class="card-tag">AMF-compatible</span></div>
   </div>
 
-  <!-- MG Plans -->
-  <div class="mg-section-header">
-    <div class="sec-label rx" style="justify-content:center">Innovation — Maladie grave</div>
-    <h3 class="rx" style="font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4vw,58px);font-weight:300;line-height:1.05;margin-bottom:14px">3 plans pré-construits — <em style="font-style:italic;color:var(--g)">Le client choisit lequel, pas si</em></h3>
-    <p class="sec-sub rx">Une approche innovatrice qui transforme radicalement la vente de la maladie grave. Le client ne décide plus s'il en a besoin — il choisit simplement quel niveau de protection lui convient.</p>
-  </div>
-  <div class="mg-grid">
-    <div class="mg-plan rx"><span class="mg-badge blue">Plan 1 — Répit temporaire</span><h3>Protection essentielle</h3><div class="mg-duration">6</div><div class="mg-duration-sub">mois de revenus + frais immédiats</div><div class="mg-features"><div class="mg-feature">6 mois de revenus nets remplacés</div><div class="mg-feature">Frais immédiats couverts (médical, transport)</div><div class="mg-feature">Protection minimale pour traverser la période aiguë</div><div class="mg-feature">Prime la plus abordable du marché</div><div class="mg-feature">Seuil d'entrée pour tous les clients</div></div></div>
-    <div class="mg-plan featured rx"><span class="mg-badge gold">Plan 2 — Recommandé ⭐</span><h3>Tranquillité d'esprit</h3><div class="mg-duration">12</div><div class="mg-duration-sub">mois de revenus + soins + médicaments</div><div class="mg-features"><div class="mg-feature">12 mois de revenus nets remplacés</div><div class="mg-feature">Frais immédiats + soins spécialisés</div><div class="mg-feature">Médicaments non couverts par la RAMQ inclus</div><div class="mg-feature">Soins souvent négligés dans les calculs standards</div><div class="mg-feature">Équilibre optimal protection / prime</div><div class="mg-feature">Recommandé pour la majorité des clients</div></div></div>
-    <div class="mg-plan rx"><span class="mg-badge purple">Plan 3 — Confort complet</span><h3>Protection totale</h3><div class="mg-duration">24</div><div class="mg-duration-sub">mois de revenus + couverture totale imprévus</div><div class="mg-features"><div class="mg-feature">24 mois de revenus nets remplacés</div><div class="mg-feature">Couverture complète de tous les imprévus</div><div class="mg-feature">Soins, médicaments, convalescence longue durée</div><div class="mg-feature">Zéro compromis sur la protection</div><div class="mg-feature">Idéal pour les travailleurs autonomes & entrepreneurs</div></div></div>
-  </div>
-
-  <!-- Preavis -->
-  <div class="preavis-layout">
+  <!-- Preavis de remplacement — Section principale -->
+  <div class="preavis-layout" style="margin-top:80px">
     <div class="rxl">
       <div class="sec-label" style="justify-content:flex-start">Conformité AMF automatisée</div>
-      <h3 style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.5vw,52px);font-weight:300;line-height:1.08;margin-bottom:22px">Préavis de remplacement & <em style="font-style:italic;color:var(--g)">lettre explicative</em> — générés et signés en 30 secondes</h3>
-      <p style="font-size:15px;line-height:1.9;color:var(--cd);margin-bottom:18px">Le préavis de remplacement est automatiquement rempli avec les données du dossier client. La transcription de la rencontre y est intégrée, et le document est envoyé pour signature électronique en quelques secondes.</p>
-      <p style="font-size:15px;line-height:1.9;color:var(--cd);margin-bottom:26px">La lettre explicative — document <strong style="color:var(--cr)">fréquemment oublié par les conseillers</strong> mais extrêmement important pour le client et l'AMF — est automatisée et envoyée pour signature en même temps que l'ABF. Plus jamais de dossier non conforme.</p>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4vw,58px);font-weight:300;line-height:1.05;margin-bottom:22px">Préavis de remplacement <em style="font-style:italic;color:var(--g)">rempli et signé</em> — en 30 secondes</h3>
+      <p style="font-size:15px;line-height:1.9;color:var(--cd);margin-bottom:18px">Le préavis de remplacement est <strong>automatiquement rempli</strong> avec les données du dossier client — noms, polices, montants, raisons du remplacement. La transcription de la rencontre y est intégrée, et le document est envoyé pour <strong>signature électronique</strong> en quelques secondes. Plus besoin de remplir manuellement, plus de risque d'oubli.</p>
+      <p style="font-size:15px;line-height:1.9;color:var(--cd);margin-bottom:18px">La lettre explicative — document <strong style="color:var(--cr)">fréquemment oublié par les conseillers</strong> mais extrêmement important pour le client et l'AMF — est automatisée et envoyée pour signature en même temps que l'ABF. Plus jamais de dossier non conforme.</p>
+      <p style="font-size:15px;line-height:1.9;color:var(--cd);margin-bottom:26px">Ce qui prenait <strong>45 minutes par dossier</strong> se fait maintenant en quelques clics. Le conseiller se concentre sur la relation client, pas sur la paperasse.</p>
       <div class="tag-row">
+        <span class="pill-tag gold">Préavis auto-rempli</span>
+        <span class="pill-tag gold">Signature en 30 sec</span>
         <span class="pill-tag">AMF 100% conforme</span>
-        <span class="pill-tag gold">Rempli automatiquement</span>
         <span class="pill-tag gold">Transcript intégré</span>
+        <span class="pill-tag">Lettre explicative auto</span>
       </div>
     </div>
     <div class="rxr">
@@ -561,14 +553,14 @@
   <div style="max-width:1300px;margin:0 auto;text-align:center">
     <div class="sec-label rx">Hub de communication</div>
     <h2 class="sec-title blue rx">Tous vos canaux. <em>Un seul endroit.</em><br>L'IA répond à votre place.</h2>
-    <p class="sec-sub rx">SMS, email et appels téléphoniques intégrés à 100% dans le dossier client. RingCentral pour la téléphonie et les SMS. Google Workspace pour les emails. Calendly pour les rendez-vous.</p>
+    <p class="sec-sub rx">SMS, email et appels téléphoniques intégrés à 100% dans le dossier client. RingCentral pour la téléphonie et les SMS. Google Workspace pour les emails. Calendrier intégré synchronisé avec Google Calendar.</p>
   </div>
   <div class="comm-layout">
     <div class="comm-features rxl">
       <div class="comm-feat"><div class="comm-feat-icon">📞</div><div class="comm-feat-text"><h4>Téléphonie RingCentral intégrée</h4><p>Appelez depuis la fiche client en un clic. Enregistrements automatiques, transcriptions IA et notes liées instantanément au dossier. Historique complet de tous les appels avec durée et résumé.</p></div></div>
       <div class="comm-feat"><div class="comm-feat-icon">💬</div><div class="comm-feat-text"><h4>SMS bidirectionnel depuis le dossier</h4><p>Envoyez et recevez des SMS directement depuis la fiche client via RingCentral. Séquences SMS automatisées pour les suivis J+1, J+3, J+7. Toutes les conversations centralisées.</p></div></div>
       <div class="comm-feat"><div class="comm-feat-icon">✉️</div><div class="comm-feat-text"><h4>Google Workspace · Gmail intégré</h4><p>Suite Google Workspace fournie avec le CRM. Gmail synchronisé avec le dossier client — chaque email est automatiquement lié au bon contact. L'IA traite les emails entrants et met à jour les dossiers.</p></div></div>
-      <div class="comm-feat"><div class="comm-feat-icon">📅</div><div class="comm-feat-text"><h4>Calendly intégré — Planification simplifiée</h4><p>Système de prise de rendez-vous personnalisable selon le type de rencontre. Connecté au calendrier Google intégré. Le client choisit son créneau, tout se synchronise automatiquement.</p></div></div>
+      <div class="comm-feat"><div class="comm-feat-icon">📅</div><div class="comm-feat-text"><h4>Calendrier intégré — Sync Google Calendar</h4><p>Calendrier maison personnalisable selon le type de rencontre, synchronisé en temps réel avec Google Calendar. Le client choisit son créneau, tout se synchronise automatiquement dans votre agenda.</p></div></div>
       <div class="comm-feat"><div class="comm-feat-icon">🔔</div><div class="comm-feat-text"><h4>Workflows personnalisés sans code</h4><p>Créez des séquences automatisées pour tout — rappels avant rencontre, emails d'anniversaire, suivis de renouvellement, relances de prospects, séquences post-vente. En quelques clics.</p></div></div>
     </div>
     <div class="rxr">
@@ -677,6 +669,62 @@
   </div>
 </section>
 
+<!-- ═══════════════════════════ GESTION CABINET ══════ -->
+<section class="cabinet-section" id="cabinet">
+  <div style="max-width:1300px;margin:0 auto;text-align:center;margin-bottom:65px">
+    <div class="sec-label rx">Gestion de cabinet</div>
+    <h2 class="sec-title rx">Votre cabinet au complet.<br><em>Conformité, équipe, partenariats.</em></h2>
+    <p class="sec-sub rx">FINOX centralise toute la gestion de votre cabinet — conformité réglementaire, gestion d'équipe, statistiques de performance et partenariats de partage d'information — pour éviter de vous éparpiller entre 10 outils différents.</p>
+  </div>
+  <div class="cabinet-layout">
+    <div class="conf-list rxl">
+      <div class="conf-item"><div class="conf-ic">📜</div><div class="conf-tx"><h4>Avis de divulgation & politique de confidentialité</h4><p>Rédigez et gérez votre avis de divulgation et votre politique de confidentialité directement dans le CRM. Envoi automatique à chaque nouveau client avec confirmation de lecture électronique.</p></div></div>
+      <div class="conf-item"><div class="conf-ic">📋</div><div class="conf-tx"><h4>Politique et Registre des Plaintes</h4><p>Gérez votre politique de traitement des plaintes et tenez votre registre à jour — conforme aux exigences de l'AMF. Tout est centralisé, traçable et prêt pour les audits.</p></div></div>
+      <div class="conf-item"><div class="conf-ic">🔐</div><div class="conf-tx"><h4>Registre des Incidents de Sécurité & DPO</h4><p>Tenez votre registre des incidents de sécurité et identifiez votre Responsable de la Protection des Données (DPO) directement dans le CRM. Conforme à la Loi 25 sans outil externe.</p></div></div>
+      <div class="conf-item"><div class="conf-ic">📊</div><div class="conf-tx"><h4>Statistiques d'équipe en temps réel</h4><p>Vue directeur avec statistiques de performance par conseiller — primes émises, taux de conversion, Pulse Vital moyen, ABF complétés. Identifiez vos forces et accompagnez votre équipe.</p></div></div>
+      <div class="conf-item"><div class="conf-ic">👥</div><div class="conf-tx"><h4>Gestion d'équipe simplifiée</h4><p>Gérez facilement vos membres d'équipe — ajout, retrait, permissions par module. Chaque conseiller a son espace, ses clients et ses rapports avec un contrôle granulaire du directeur.</p></div></div>
+    </div>
+    <div class="rxr">
+      <div class="cabinet-partnership-visual">
+        <div style="text-align:center;margin-bottom:30px">
+          <h3 style="font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3vw,42px);font-weight:300;line-height:1.08;margin-bottom:14px">Partenariats de partage —<br><em style="font-style:italic;color:var(--g)">en un clic</em></h3>
+          <p style="font-size:14px;line-height:1.8;color:var(--cd)">Créez des partenariats de partage d'information entre membres d'équipe en toute simplicité. Une adjointe peut accéder aux dossiers de plusieurs conseillers sans configuration complexe.</p>
+        </div>
+        <!-- Partnership diagram -->
+        <div class="partnership-diagram">
+          <svg viewBox="0 0 300 200" style="width:100%;max-width:320px;margin:0 auto;display:block">
+            <!-- Lines from Adjointe to Conseillers -->
+            <line x1="150" y1="60" x2="60" y2="160" stroke="rgba(196,162,74,.4)" stroke-width="1.5" stroke-dasharray="4 4"/>
+            <line x1="150" y1="60" x2="150" y2="160" stroke="rgba(196,162,74,.4)" stroke-width="1.5" stroke-dasharray="4 4"/>
+            <line x1="150" y1="60" x2="240" y2="160" stroke="rgba(196,162,74,.4)" stroke-width="1.5" stroke-dasharray="4 4"/>
+            <!-- Adjointe circle -->
+            <circle cx="150" cy="50" r="28" fill="rgba(196,162,74,.12)" stroke="var(--g)" stroke-width="1.5"/>
+            <text x="150" y="47" text-anchor="middle" fill="var(--g)" font-size="11" font-family="Cabinet Grotesk,sans-serif" font-weight="600">Adjointe</text>
+            <text x="150" y="60" text-anchor="middle" fill="var(--cd)" font-size="8" font-family="JetBrains Mono,monospace">Accès partagé</text>
+            <!-- Conseiller 1 -->
+            <circle cx="60" cy="160" r="24" fill="rgba(100,180,255,.10)" stroke="var(--blue)" stroke-width="1.5"/>
+            <text x="60" y="157" text-anchor="middle" fill="var(--blue)" font-size="10" font-family="Cabinet Grotesk,sans-serif" font-weight="500">Conseiller</text>
+            <text x="60" y="169" text-anchor="middle" fill="var(--cd)" font-size="8" font-family="JetBrains Mono,monospace">1</text>
+            <!-- Conseiller 2 -->
+            <circle cx="150" cy="160" r="24" fill="rgba(100,180,255,.10)" stroke="var(--blue)" stroke-width="1.5"/>
+            <text x="150" y="157" text-anchor="middle" fill="var(--blue)" font-size="10" font-family="Cabinet Grotesk,sans-serif" font-weight="500">Conseiller</text>
+            <text x="150" y="169" text-anchor="middle" fill="var(--cd)" font-size="8" font-family="JetBrains Mono,monospace">2</text>
+            <!-- Conseiller 3 -->
+            <circle cx="240" cy="160" r="24" fill="rgba(100,180,255,.10)" stroke="var(--blue)" stroke-width="1.5"/>
+            <text x="240" y="157" text-anchor="middle" fill="var(--blue)" font-size="10" font-family="Cabinet Grotesk,sans-serif" font-weight="500">Conseiller</text>
+            <text x="240" y="169" text-anchor="middle" fill="var(--cd)" font-size="8" font-family="JetBrains Mono,monospace">3</text>
+          </svg>
+        </div>
+        <div class="tag-row" style="justify-content:center;margin-top:24px">
+          <span class="pill-tag gold">Partage en un clic</span>
+          <span class="pill-tag">Permissions granulaires</span>
+          <span class="pill-tag blue">Multi-conseiller</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ════════════════════════════════ NUMBERS ══════════ -->
 <section class="numbers-section">
   <div style="text-align:center;max-width:1300px;margin:0 auto">
@@ -688,53 +736,6 @@
     <div class="num-cell"><div class="big-num" data-val="147" data-suf="">147</div><div class="num-label">Clients gérés par conseiller en moyenne</div><div class="num-source">Sans adjoint supplémentaire</div></div>
     <div class="num-cell"><div class="big-num" data-val="8" data-suf="h">8<span class="num-suffix">h</span></div><div class="num-label">Récupérées chaque semaine</div><div class="num-source">Consacrées aux ventes & relations</div></div>
     <div class="num-cell"><div class="big-num" data-val="3" data-suf="×">3<span class="num-suffix">×</span></div><div class="num-label">Plus de propositions émises</div><div class="num-source">Grâce à l'automatisation des ABF</div></div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════ ROADMAP ══════════ -->
-<section class="roadmap-section" id="roadmap">
-  <div class="roadmap-inner">
-    <div class="sec-label rx">Feuille de route</div>
-    <h2 class="sec-title rx" style="margin-bottom:0">Ce qui est fait,<br><em>ce qui arrive.</em></h2>
-    <div class="roadmap-tl">
-      <div class="rm-line"></div>
-      <div class="rm-item rx">
-        <div class="rm-node done">✅</div>
-        <div class="rm-content">
-          <div class="rm-phase">Phase 1 — Lancé</div>
-          <div class="rm-title">Fondations & ABF intelligent</div>
-          <div class="rm-desc">ABF complet conforme AMF, calculateurs multi-compagnies, module corporations, pipeline kanban, gestion documents, import clientèle, Google Workspace intégré, profil investisseur, REEE, budget personnel.</div>
-          <div class="rm-chips"><span class="rm-chip gold">ABF AMF</span><span class="rm-chip gold">Pipeline</span><span class="rm-chip gold">Documents</span><span class="rm-chip gold">Import clients</span><span class="rm-chip gold">Google Workspace</span><span class="rm-chip gold">REEE</span></div>
-        </div>
-      </div>
-      <div class="rm-item rx">
-        <div class="rm-node active">⚡</div>
-        <div class="rm-content">
-          <div class="rm-phase">Phase 2 — En cours</div>
-          <div class="rm-title">IA & Automatisations avancées</div>
-          <div class="rm-desc">IA connectée à Gmail et Agenz pour la mise à jour automatique des dossiers, création de tâches intelligente, réponses contextuelles, signatures OneSpan & Adobe Sign, Pulse Vital en temps réel.</div>
-          <div class="rm-chips"><span class="rm-chip gold">IA Gmail</span><span class="rm-chip gold">IA Agenz</span><span class="rm-chip gold">Pulse Vital</span><span class="rm-chip">OneSpan</span><span class="rm-chip">Adobe Sign</span></div>
-        </div>
-      </div>
-      <div class="rm-item rx">
-        <div class="rm-node">📞</div>
-        <div class="rm-content">
-          <div class="rm-phase">Phase 3 — Q2 2025</div>
-          <div class="rm-title">Communication Hub complet</div>
-          <div class="rm-desc">Téléphonie RingCentral avec transcriptions IA, SMS bidirectionnel depuis les dossiers, Calendly intégré, workflows visuels sans code, séquences de nurturing automatisées pour chaque étape du pipeline.</div>
-          <div class="rm-chips"><span class="rm-chip">RingCentral</span><span class="rm-chip">SMS</span><span class="rm-chip">Calendly</span><span class="rm-chip">Workflows</span><span class="rm-chip">Nurturing</span></div>
-        </div>
-      </div>
-      <div class="rm-item rx">
-        <div class="rm-node">🚀</div>
-        <div class="rm-content">
-          <div class="rm-phase">Phase 4 — Q3 2025</div>
-          <div class="rm-title">Multi-conseiller & Rapports intelligence</div>
-          <div class="rm-desc">Vue directeur avec rapports de performance par conseiller, tableau de bord équipe, gestion des permissions, module de formation intégré, API publique pour intégrations tierces.</div>
-          <div class="rm-chips"><span class="rm-chip">Multi-conseiller</span><span class="rm-chip">Rapports BI</span><span class="rm-chip">Permissions</span><span class="rm-chip">Formation</span><span class="rm-chip">API publique</span></div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -812,7 +813,7 @@
     <a href="#abf"      class="footer-link">ABF</a>
     <a href="#tools"    class="footer-link">Outils</a>
     <a href="#ai"       class="footer-link">IA</a>
-    <a href="#roadmap"  class="footer-link">Roadmap</a>
+    <a href="#cabinet"  class="footer-link">Cabinet</a>
     <a href="#cta"      class="footer-link">Accès anticipé</a>
   </div>
   <div class="footer-copy">© 2025 Services Financiers Finox inc. · Québec · AMF-compatible</div>

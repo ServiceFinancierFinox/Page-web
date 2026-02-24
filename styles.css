@@ -512,6 +512,10 @@ nav.scrolled{background:rgba(6,6,8,.96);border-bottom:1px solid rgba(196,162,74,
 .conf-tx p{font-size:13px;line-height:1.7;color:var(--cd)}
 
 /* ─── NUMBERS ─── */
+.cabinet-section{padding:150px 60px;background:var(--s1);overflow:hidden}
+.cabinet-layout{max-width:1300px;margin:65px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
+.cabinet-partnership-visual{padding:40px 30px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.055);border-radius:20px}
+.partnership-diagram{margin-top:24px;padding:20px}
 .numbers-section{padding:130px 60px;background:var(--ink);position:relative;overflow:hidden}
 .numbers-section::before{content:'FINOX';position:absolute;font-family:'Cormorant Garamond',serif;font-size:clamp(180px,22vw,400px);font-weight:900;color:rgba(196,162,74,.017);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;white-space:nowrap;letter-spacing:.08em}
 .numbers-grid{max-width:1200px;margin:65px auto 0;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;border:1px solid rgba(196,162,74,.1);border-radius:22px;overflow:hidden}
@@ -615,7 +619,7 @@ footer{padding:48px 60px;border-top:1px solid rgba(255,255,255,.05);display:flex
   .dashboard-grid{grid-template-columns:1fr 1fr}
   .chart-card,.activity-card{grid-column:1/2}
   .pipeline-card,.clients-card{grid-column:2/3}
-  .pulse-layout,.ai-layout,.comm-layout,.conf-layout,.preavis-layout{grid-template-columns:1fr;gap:52px}
+  .pulse-layout,.ai-layout,.comm-layout,.conf-layout,.cabinet-layout,.preavis-layout{grid-template-columns:1fr;gap:52px}
   .pulse-card{max-width:100%}
   .abf-grid,.mg-grid,.opps-grid,.proof-grid{grid-template-columns:1fr}
   .bento-grid{grid-template-columns:1fr 1fr;gap:10px}
@@ -627,7 +631,7 @@ footer{padding:48px 60px;border-top:1px solid rgba(255,255,255,.05);display:flex
   footer{flex-direction:column;gap:22px;text-align:center}
   .footer-links{flex-wrap:wrap;justify-content:center}
   .corner{display:none}
-  .showcase,.pulse-section,.abf-section,.tools-section,.ai-section,.comm-section,.timeline-section,.opps-section,.conf-section,.numbers-section,.roadmap-section,.proof-section,.final-section{padding:130px 24px}
+  .showcase,.pulse-section,.abf-section,.tools-section,.ai-section,.comm-section,.timeline-section,.opps-section,.conf-section,.cabinet-section,.numbers-section,.proof-section,.final-section{padding:130px 24px}
 }
 @media(max-width:640px){
   nav{height:88px}
