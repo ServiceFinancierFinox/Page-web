@@ -111,6 +111,7 @@ const DATA = {
     { n:'02', icon:'💰', name:'Salaire brut → mensuel net automatique',       desc:'Entrez le salaire annuel brut une seule fois. FINOX le convertit en mensuel net et calcule automatiquement le besoin en invalidité et en assurance vie. Zéro répétition, zéro erreur.',                                                  tag:'Calculs en cascade'          },
     { n:'03', icon:'⚖️', name:'Actifs & passifs interactifs + valeur nette',  desc:'Un calculateur visuellement beau et interactif pour le client. La valeur nette est calculée automatiquement et réutilisée pour justifier les montants d\'assurance vie nécessaires — données sauvegardées pour tous les modules.',   tag:'Interactif & visuel'         },
     { n:'04', icon:'🛡️', name:'Besoins vie, invalidité & MG — séparés',       desc:'Calculs automatisés séparément pour le client et sa conjointe. Visuellement clairs, détaillés, faciles à comprendre. Les données de l\'ABF alimentent automatiquement sans jamais ressaisir.',                                        tag:'Client + Conjoint(e)'        },
+    { n:'04b',icon:'👨‍👩‍👧‍👦', name:'Fiche familiale complète — Conjoint(e) & enfants', desc:'Ajoutez les enfants au profil du client pour justifier les besoins avec précision. Conjoint(e), enfants et contrats respectifs restent dans la même fiche. L\'ABF est parfaitement précise pour toute la famille.',             tag:'Fiche familiale unifiée'     },
     { n:'05', icon:'🏢', name:'Module Corporations complet',                  desc:'Gestion des corporations avec analyse des besoins financiers de l\'entreprise, outils de calculs dédiés pour donner un visuel clair à l\'entrepreneur. Opportunités reliées générées automatiquement.',                               tag:'ABF corporatif'              },
     { n:'06', icon:'📋', name:'Module assurances en vigueur',                 desc:'Intégration complète des polices existantes dans l\'ABF. Le système identifie automatiquement les lacunes dans la couverture actuelle et les opportunités de consolidation ou de remplacement.',                                         tag:'Polices existantes'          },
     { n:'07', icon:'💡', name:'Projets d\'épargne & placements',              desc:'Calculateurs intégrés pour justifier les placements avec des projets d\'épargne simplifiés. Liquidité disponible calculée automatiquement, recommandations de budget d\'investissement selon le profil.',                             tag:'Épargne & placements'        },
@@ -744,6 +745,170 @@ function initPartnershipDiagram() {
 }
 
 /* ──────────────────────────────────────────────────────────────
+   ABF CAROUSEL
+────────────────────────────────────────────────────────────── */
+function abfMockup(n) {
+  switch (n) {
+    case '01': return `
+      <div class="sv-search"><span>📍</span> 1455 Rue Peel, Montréal, QC H3A</div>
+      <div class="sv-suggest on"><strong>1455 Rue Peel</strong>, Montréal, QC H3A 1T5</div>
+      <div class="sv-suggest">1455 Rue Peel, Suite 200, Montréal, QC</div>
+      <div class="sv-suggest">1455 Peel Street, Montréal, Québec</div>
+      <div class="sv-flow">&#8594; Propagé dans ABF · Contrats · Polices</div>`;
+    case '02': return `
+      <div class="sv-calc"><div class="sv-big">$85 000</div><div class="sv-lbl">Salaire brut annuel</div></div>
+      <div class="sv-calc"><div class="sv-arr">&#8595;</div></div>
+      <div class="sv-calc"><div class="sv-big gd">$4 892</div><div class="sv-lbl">Mensuel net</div></div>
+      <div class="sv-divider"></div>
+      <div class="sv-flow">&#8594; Invalidité · Assurance vie · Budget</div>`;
+    case '03': return `
+      <div class="sv-row"><span>Actifs totaux</span><span class="sv-val gd">$487 200</span></div>
+      <div class="sv-row"><span>Passifs totaux</span><span class="sv-val">$312 800</span></div>
+      <div class="sv-divider"></div>
+      <div class="sv-row hl"><span>Valeur nette</span><span class="sv-val gd">$174 400</span></div>
+      <div class="sv-flow">&#8594; Montant assurance vie justifié auto</div>`;
+    case '04': return `
+      <div class="sv-cols"><div class="sv-col">
+        <div class="sv-col-h">Client</div>
+        <div class="sv-mini"><span>Vie</span><strong>$750 000</strong></div>
+        <div class="sv-mini"><span>Invalidité</span><strong>$4 200/m</strong></div>
+        <div class="sv-mini"><span>Mal. graves</span><strong>$100 000</strong></div>
+      </div><div class="sv-col">
+        <div class="sv-col-h">Conjoint(e)</div>
+        <div class="sv-mini"><span>Vie</span><strong>$500 000</strong></div>
+        <div class="sv-mini"><span>Invalidité</span><strong>$3 100/m</strong></div>
+        <div class="sv-mini"><span>Mal. graves</span><strong>$75 000</strong></div>
+      </div></div>`;
+    case '04b': return `
+      <div class="sv-member"><em>👤</em> Jacques Bergeron, 45 ans</div>
+      <div class="sv-member"><em>👤</em> Marie Tremblay, 42 ans</div>
+      <div class="sv-member child"><em>👦</em> Thomas, 12 ans — 1 contrat</div>
+      <div class="sv-member child"><em>👧</em> Sophie, 8 ans — 0 contrat</div>
+      <div class="sv-flow">Contrats attribués par profil familial</div>`;
+    case '05': return `
+      <div class="sv-row"><span>Corporation</span><span class="sv-val">ABC Inc.</span></div>
+      <div class="sv-row"><span>Actionnaires</span><span class="sv-val">2</span></div>
+      <div class="sv-divider"></div>
+      <div class="sv-row"><span>Convention entre actionnaires</span><span class="sv-pill">Opportunité</span></div>
+      <div class="sv-row"><span>Personne clé</span><span class="sv-pill">Opportunité</span></div>
+      <div class="sv-row"><span>Rachat d'actions</span><span class="sv-pill">Opportunité</span></div>`;
+    case '06': return `
+      <div class="sv-policy"><span class="sv-dot green"></span> T-20 · $500K · SSQ <span class="sv-val">$62/m</span></div>
+      <div class="sv-policy"><span class="sv-dot gold"></span> MG · $250K · Manuvie <span class="sv-val">$89/m</span></div>
+      <div class="sv-policy"><span class="sv-dot red"></span> Invalidité · Industrielle <span class="sv-val">$45/m</span></div>
+      <div class="sv-divider"></div>
+      <div class="sv-row hl"><span>Lacunes identifiées</span><span class="sv-val gd">2</span></div>`;
+    case '07': return `
+      <div class="sv-row"><span>Liquidité disponible</span><span class="sv-val gd">$1 240/m</span></div>
+      <div class="sv-row"><span>Budget recommandé</span><span class="sv-val">$800/m</span></div>
+      <div class="sv-bars">
+        <div class="sv-bar-item" style="height:30%"></div>
+        <div class="sv-bar-item" style="height:45%"></div>
+        <div class="sv-bar-item" style="height:58%"></div>
+        <div class="sv-bar-item" style="height:74%"></div>
+        <div class="sv-bar-item" style="height:100%"></div>
+      </div>
+      <div class="sv-flow">Projection 5 ans · rendement estimé 6.2%</div>`;
+    case '08': return `
+      <div class="sv-row"><span>REER au décès</span><span class="sv-val">$185 000</span></div>
+      <div class="sv-row"><span>Gain en capital</span><span class="sv-val">$92 000</span></div>
+      <div class="sv-row"><span>Taux marginal QC+CA</span><span class="sv-val">53.31%</span></div>
+      <div class="sv-divider"></div>
+      <div class="sv-row hl"><span>Impôt estimé au décès</span><span class="sv-val gd">$147 650</span></div>`;
+    case '09': return `
+      <div class="sv-check"><span class="sv-tick">&#10003;</span> Profil investisseur complété</div>
+      <div class="sv-check"><span class="sv-tick">&#10003;</span> Notes au dossier automatiques</div>
+      <div class="sv-check"><span class="sv-tick">&#10003;</span> Convenance vérifiée</div>
+      <div class="sv-check"><span class="sv-tick">&#10003;</span> Préavis de remplacement</div>
+      <div class="sv-check"><span class="sv-tick">&#10003;</span> Lettre explicative signée</div>`;
+    default: return '';
+  }
+}
+
+function initAbfCarousel() {
+  const el = document.getElementById('abf-carousel');
+  if (!el) return;
+  const cards = DATA.abfCards;
+  const total = cards.length;
+  let cur = 0, timer;
+
+  /* ── Build HTML ── */
+  let h = '<div class="carousel-track">';
+  cards.forEach((c, i) => {
+    h += `<div class="carousel-slide${i === 0 ? ' active' : ''}" data-i="${i}">
+      <div class="slide-info">
+        <div class="slide-counter">${String(i + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}</div>
+        <div class="card-icon">${c.icon}</div>
+        <h3 class="slide-title">${c.name}</h3>
+        <p class="slide-desc">${c.desc}</p>
+        <span class="slide-tag">${c.tag}</span>
+      </div>
+      <div class="slide-visual"><div class="sv-window">
+        <div class="sv-dots"><i></i><i></i><i></i></div>
+        <div class="sv-body">${abfMockup(c.n)}</div>
+      </div></div>
+    </div>`;
+  });
+  h += '</div>';
+
+  /* Controls */
+  h += '<div class="carousel-controls">';
+  h += '<button class="carousel-arrow carousel-prev" aria-label="Précédent"><svg width="20" height="20" viewBox="0 0 20 20"><path d="M13 4l-6 6 6 6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>';
+  h += '<div class="carousel-dots">';
+  cards.forEach((_, i) => { h += `<button class="cdot${i === 0 ? ' active' : ''}" data-i="${i}"></button>`; });
+  h += '</div>';
+  h += '<button class="carousel-arrow carousel-next" aria-label="Suivant"><svg width="20" height="20" viewBox="0 0 20 20"><path d="M7 4l6 6-6 6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>';
+  h += '</div>';
+  h += '<div class="carousel-progress"><div class="carousel-progress-fill"></div></div>';
+
+  el.innerHTML = h;
+
+  /* ── References ── */
+  const slides = el.querySelectorAll('.carousel-slide');
+  const dots   = el.querySelectorAll('.cdot');
+  const fill   = el.querySelector('.carousel-progress-fill');
+
+  function goTo(idx) {
+    slides[cur].classList.remove('active');
+    dots[cur].classList.remove('active');
+    cur = ((idx % total) + total) % total;
+    slides[cur].classList.add('active');
+    dots[cur].classList.add('active');
+    fill.style.width = ((cur + 1) / total * 100) + '%';
+  }
+
+  /* Navigation */
+  el.querySelector('.carousel-prev').addEventListener('click', () => goTo(cur - 1));
+  el.querySelector('.carousel-next').addEventListener('click', () => goTo(cur + 1));
+  dots.forEach(d => d.addEventListener('click', () => goTo(+d.dataset.i)));
+
+  /* Keyboard */
+  el.setAttribute('tabindex', '0');
+  el.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft')  goTo(cur - 1);
+    if (e.key === 'ArrowRight') goTo(cur + 1);
+  });
+
+  /* Autoplay */
+  function startAuto() { timer = setInterval(() => goTo(cur + 1), 5500); }
+  function stopAuto()  { clearInterval(timer); }
+  el.addEventListener('mouseenter', stopAuto);
+  el.addEventListener('mouseleave', startAuto);
+  startAuto();
+
+  /* Touch swipe */
+  let tx = 0;
+  el.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
+  el.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - tx;
+    if (Math.abs(dx) > 50) { goTo(cur + (dx < 0 ? 1 : -1)); stopAuto(); startAuto(); }
+  }, { passive: true });
+
+  /* Initial progress */
+  fill.style.width = (1 / total * 100) + '%';
+}
+
+/* ──────────────────────────────────────────────────────────────
    NAV SCROLL
 ────────────────────────────────────────────────────────────── */
 function initNav() {
@@ -1061,6 +1226,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Partnership diagram
   initPartnershipDiagram();
 
+  // ABF Carousel
+  initAbfCarousel();
+
   // Comm tabs
   initCommTabs();
 
@@ -1069,7 +1237,6 @@ document.addEventListener('DOMContentLoaded', () => {
   setInterval(updateTimestamp, 1000);
 
   // Stagger delay hints for repeated grid children
-  document.querySelectorAll('.abf-grid .abf-card').forEach((el, i) => el.dataset.delay = i * 60);
   document.querySelectorAll('.mg-grid .mg-plan').forEach((el, i)    => el.dataset.delay = i * 80);
   document.querySelectorAll('.opps-grid .opp-card').forEach((el, i)  => el.dataset.delay = i * 55);
   document.querySelectorAll('.proof-grid .proof-card').forEach((el, i) => el.dataset.delay = i * 90);
