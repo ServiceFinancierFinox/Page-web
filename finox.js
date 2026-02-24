@@ -33,7 +33,7 @@ const DATA = {
     'Pulse Vital — santé du client en temps réel',
     'Calculateur multi-compagnies QC & Canada',
     'RingCentral téléphonie intégrée',
-    'Calendly intégré',
+    'Calendrier intégré · Sync Google Calendar',
     'Google Workspace fourni',
     'Module REEE + subventions gouvernementales',
     'Pipeline assurances kanban',
@@ -256,33 +256,6 @@ const DATA = {
     { num: '147', suffix: '',  label: 'Clients gérés par conseiller en moyenne', sub: 'Sans adjoint supplémentaire' },
     { num: '8',   suffix: 'h',  label: 'Récupérées chaque semaine', sub: 'Consacrées aux ventes & relations' },
     { num: '3',   suffix: '×',  label: 'Plus de propositions émises', sub: 'Grâce à l\'automatisation des ABF' },
-  ],
-
-  roadmap: [
-    {
-      phase: 'Phase 1 — Lancé', icon: '✅', status: 'done',
-      title: 'Fondations & ABF intelligent',
-      desc: 'ABF complet conforme AMF, calculateurs multi-compagnies, module corporations, pipeline kanban, gestion documents, import clientèle, Google Workspace intégré.',
-      chips: ['ABF AMF', 'Pipeline', 'Documents', 'Import clients', 'Google Workspace'],
-    },
-    {
-      phase: 'Phase 2 — En cours', icon: '⚡', status: 'active',
-      title: 'IA & Automatisations avancées',
-      desc: 'IA connectée à Gmail et Agenz pour la mise à jour automatique des dossiers, création de tâches intelligente, réponses contextuelles, signatures OneSpan & Adobe Sign, Pulse Vital en temps réel.',
-      chips: ['IA Gmail', 'IA Agenz', 'Pulse Vital', 'OneSpan', 'Adobe Sign'],
-    },
-    {
-      phase: 'Phase 3 — Q2 2025', icon: '📞', status: 'planned',
-      title: 'Communication Hub complet',
-      desc: 'Téléphonie RingCentral avec transcriptions IA, SMS bidirectionnel depuis les dossiers, Calendly intégré, workflows visuels sans code, séquences de nurturing automatisées.',
-      chips: ['RingCentral', 'SMS', 'Calendly', 'Workflows', 'Nurturing'],
-    },
-    {
-      phase: 'Phase 4 — Q3 2025', icon: '🚀', status: 'planned',
-      title: 'Multi-conseiller & Rapports intelligence',
-      desc: 'Vue directeur avec rapports de performance par conseiller, tableau de bord équipe, gestion des permissions, module de formation intégré, API publique pour intégrations tierces.',
-      chips: ['Multi-conseiller', 'Rapports BI', 'Permissions', 'Formation', 'API publique'],
-    },
   ],
 
   testimonials: [
