@@ -1212,16 +1212,14 @@ function closeWaitlistModal(e) {
     document.body.style.overflow = '';
   }
 }
-/* Google Sheets endpoint — replace with your deployed Apps Script URL */
-const SHEETS_URL = '';
+/* Zoho Forms endpoint — replace with your Zoho Form submission URL */
+const ZOHO_FORM_URL = '';
 
-function sendToSheets(data) {
-  if (!SHEETS_URL) return;
-  fetch(SHEETS_URL, {
-    method: 'POST', mode: 'no-cors',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data),
-  }).catch(() => {});
+function sendToZoho(data) {
+  if (!ZOHO_FORM_URL) return;
+  const form = new FormData();
+  Object.entries(data).forEach(([k, v]) => { if (v) form.append(k, v); });
+  fetch(ZOHO_FORM_URL, { method: 'POST', mode: 'no-cors', body: form }).catch(() => {});
 }
 
 function validateRequired(fields) {
@@ -1246,7 +1244,7 @@ function submitWaitlist() {
   const form  = document.getElementById('wl-form');
   const suc   = document.getElementById('wl-success');
   if (!validateRequired([name, email, phone])) return;
-  sendToSheets({
+  sendToZoho({
     source: 'modal',
     name: name.value.trim(),
     email: email.value.trim(),
@@ -1270,7 +1268,7 @@ function ctaSubmit() {
   const suc    = document.getElementById('cta-success');
   const spotFill = document.getElementById('spots-fill');
   if (!validateRequired([name, email])) return;
-  sendToSheets({
+  sendToZoho({
     source: 'cta',
     name: name.value.trim(),
     email: email.value.trim(),
