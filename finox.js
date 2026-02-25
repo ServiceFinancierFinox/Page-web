@@ -1256,27 +1256,6 @@ function initPhoneMask() {
   });
 }
 
-function ctaSubmit() {
-  const name   = document.getElementById('cta-name');
-  const email  = document.getElementById('cta-email');
-  const form   = document.getElementById('cta-form-inner');
-  const suc    = document.getElementById('cta-success');
-  const spotFill = document.getElementById('spots-fill');
-  if (!name || !email || !name.value.trim() || !email.value.trim() || !email.value.includes('@')) return;
-  openWaitlistModal();
-  if (form)  form.style.display  = 'none';
-  if (suc)   suc.classList.add('show');
-  if (spotFill) {
-    let w = 68;
-    const t = setInterval(() => {
-      w = Math.min(w + 1, 74);
-      spotFill.style.width = w + '%';
-      const counter = document.querySelector('.spots-text');
-      if (counter) counter.textContent = '35 / 50 places prises';
-      if (w >= 74) clearInterval(t);
-    }, 50);
-  }
-}
 
 /* ──────────────────────────────────────────────────────────────
    COMM TABS
@@ -1296,7 +1275,6 @@ function initCommTabs() {
 window.openWaitlistModal    = openWaitlistModal;
 window.closeWaitlistModal   = closeWaitlistModal;
 window.handleWaitlistSubmit = handleWaitlistSubmit;
-window.ctaSubmit            = ctaSubmit;
 
 /* ──────────────────────────────────────────────────────────────
    BOOT
