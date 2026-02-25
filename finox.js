@@ -898,18 +898,22 @@ function abfMockup(n) {
       <div class="sv-divider"></div>
       <div class="sv-flow">1 saisie &#8594; propagée dans tous les modules</div>`;
     case 'mg': return `
-      <div class="sv-cols"><div class="sv-col">
+      <div class="sv-cols sv-cols-3"><div class="sv-col">
         <div class="sv-col-h" style="color:var(--blue)">Essentiel</div>
         <div class="sv-mini"><span>Durée</span><strong>6 mois</strong></div>
         <div class="sv-mini"><span>Revenus</span><strong>&#10003;</strong></div>
         <div class="sv-mini"><span>Soins</span><strong>&#8212;</strong></div>
       </div><div class="sv-col" style="border-color:rgba(196,162,74,.25)">
-        <div class="sv-col-h">Recommandé</div>
+        <div class="sv-col-h">Recommandé ⭐</div>
         <div class="sv-mini"><span>Durée</span><strong>12 mois</strong></div>
         <div class="sv-mini"><span>Revenus</span><strong>&#10003;</strong></div>
         <div class="sv-mini"><span>Soins</span><strong>&#10003;</strong></div>
-      </div></div>
-      <div class="sv-row" style="margin-top:8px"><span>Plan 3 — Complet</span><span class="sv-val">24 mois · Tout inclus</span></div>`;
+      </div><div class="sv-col" style="border-color:rgba(138,106,228,.25)">
+        <div class="sv-col-h" style="color:var(--purple)">Complet</div>
+        <div class="sv-mini"><span>Durée</span><strong>24 mois</strong></div>
+        <div class="sv-mini"><span>Revenus</span><strong>&#10003;</strong></div>
+        <div class="sv-mini"><span>Soins</span><strong>&#10003;</strong></div>
+      </div></div>`;
     case 'opps': return `
       <div class="sv-policy"><span class="sv-dot green"></span> Renouvellement hypothèque <span class="sv-val">Mars 2026</span></div>
       <div class="sv-policy"><span class="sv-dot gold"></span> Révision portefeuille annuelle <span class="sv-val">Juin 2026</span></div>
