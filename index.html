@@ -164,14 +164,14 @@
     <div id="wl-form">
       <form id="webform43836000007128795" action="https://crm.zohocloud.ca/crm/WebToContactForm"
             name="WebToContacts43836000007128795" method="POST" target="zoho-crm-iframe"
-            accept-charset="UTF-8" onsubmit="return handleWaitlistSubmit(event)">
-        <!-- Zoho CRM hidden auth fields — ne pas modifier -->
-        <input type="hidden" name="xnQsjsdp" value="07b79c088889c9c5879b69da765a408ac9f5925c2ccaa56c828400c843374273">
+            accept-charset="UTF-8" onsubmit="javascript:document.charset='UTF-8'; return handleWaitlistSubmit(event)">
+        <!-- Zoho CRM hidden auth fields — ne pas modifier les type/style -->
+        <input type="text" style="display:none;" name="xnQsjsdp" value="07b79c088889c9c5879b69da765a408ac9f5925c2ccaa56c828400c843374273">
         <input type="hidden" name="zc_gad" id="zc_gad" value="">
-        <input type="hidden" name="xmIwtLD" value="e37808faf6677df188873fcf3e6d622aa8129549b28207a7c302778adae07591f8901a02488f83247455212a99bcd06b">
-        <input type="hidden" name="actionType" value="Q29udGFjdHM=">
-        <input type="hidden" name="returnURL" value="https://page-web-8rg.pages.dev">
-        <input type="hidden" name="aG9uZXlwb3Q" value="">
+        <input type="text" style="display:none;" name="xmIwtLD" value="e37808faf6677df188873fcf3e6d622aa8129549b28207a7c302778adae07591f8901a02488f83247455212a99bcd06b">
+        <input type="text" style="display:none;" name="actionType" value="Q29udGFjdHM=">
+        <input type="text" style="display:none;" name="returnURL" value="https://page-web-8rg.pages.dev">
+        <input type="text" style="display:none;" name="aG9uZXlwb3Q" value="">
         <div class="wl-fields">
           <div class="wl-field-row">
             <div class="wl-field">
@@ -198,6 +198,8 @@
           <span>✓ Aucune carte</span>
           <span>✓ AMF-compatible</span>
         </div>
+        <!-- Zoho Analytics Tracking — ne pas supprimer -->
+        <script id="wf_anal" src="https://crm.zohopublic.ca/crm/WebFormAnalyticsServeServlet?rid=6b1d3171223b963d70b0d83ccd3e95a5e0c4c889eb4dd560468e1a9b1aae0f42a6ab946ebdff0b135963c121c837d990gid03dcd2e6c98a954d10b66e473aef3fe4cc8842cfa490ce338dda43683d7d02a6gid662fa347d462573d44d4036495c91592dfaf063c427817eaf0a6ba010503cd98gidcc48d639ba18ac9be7b21a374edae9e844be0625c49ef96ab35a21fc2f26c2e8&tw=a82e8fb21fec3c7ae34bfa8b63cf783ea738469e1fcb514510e6bc99e9da8a78"></script>
       </form>
     </div>
     <div class="wl-success" id="wl-success">
