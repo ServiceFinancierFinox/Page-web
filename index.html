@@ -730,38 +730,152 @@
   </div>
 </section>
 
-<!-- ═══════════════════ AUTRES CALCULATEURS INDIVIDUELS ═ -->
+<!-- ═══════════════════ CALCULATEURS INDIVIDUELS ═════════ -->
+
 <!-- 02 — Assurance hypothécaire -->
 <section class="tool-individual-section" id="tool-hypo">
-  <div class="tool-individual-layout">
-    <div class="rxl">
-      <div class="tool-ind-num">02</div>
-      <div class="sec-label" style="justify-content:flex-start">Calculateur intégré</div>
-      <h3 style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.8vw,52px);font-weight:300;line-height:1.05;margin-bottom:22px">Assurance hypothécaire —<br><em style="font-style:italic;color:var(--g)">Vrai coût Desjardins vs marché</em></h3>
-      <p style="font-size:15px;line-height:1.9;color:var(--cd);margin-bottom:18px">Montre au client le <strong style="color:var(--cr)">vrai coût de l'assurance hypothécaire bancaire</strong> vs l'assurance privée individuelle. Facilite radicalement la vente avec des graphiques clairs sur 25 ans.</p>
-      <p style="font-size:15px;line-height:1.9;color:var(--cd);margin-bottom:26px">Capital fixe vs décroissant, cessibilité, conversion — le client comprend instantanément pourquoi l'assurance privée lui coûte moins cher et lui offre une meilleure protection.</p>
-      <div class="tag-row">
-        <span class="pill-tag gold">Graphiques 25 ans</span>
-        <span class="pill-tag">Capital fixe vs décroissant</span>
-        <span class="pill-tag gold">Vente simplifiée</span>
-      </div>
+  <div style="text-align:center;max-width:1300px;margin:0 auto 60px">
+    <div class="sec-label rx">Calculateur intégré</div>
+    <h2 class="sec-title rx">Assurance hypothécaire —<br><em>Vrai coût bancaire vs marché</em></h2>
+    <p class="sec-sub rx">Montre au client le vrai coût de l'assurance hypothécaire bancaire vs l'assurance privée. Facilite radicalement la vente avec des données chiffrées sur toute la durée du prêt.</p>
+  </div>
+  <div class="calc-frame rx">
+    <div class="comp-chrome">
+      <div class="chrome-dots"><div class="chrome-dot" style="background:#FF5F57"></div><div class="chrome-dot" style="background:#FEBC2E"></div><div class="chrome-dot" style="background:#28C840"></div></div>
+      <div class="chrome-url">app.finox.ca/outils/hypothecaire</div>
     </div>
-    <div class="rxr">
-      <div class="tool-ind-visual">
-        <div class="tool-ind-visual-header">
-          <span>🏠</span> Comparatif hypothécaire — Desjardins vs Privée
+    <div class="calc-app">
+      <div class="calc-topbar">
+        <div class="calc-topbar-title"><span>🏠</span> Calculateur assurance hypothécaire — Vrai coût bancaire</div>
+      </div>
+      <div class="calc-body-grid">
+        <!-- Left column -->
+        <div class="calc-left">
+          <!-- Params du prêt -->
+          <div class="calc-card">
+            <div class="calc-card-title">Paramètres du prêt</div>
+            <div class="calc-param-grid">
+              <div class="calc-param">
+                <div class="calc-param-label">Montant du prêt hypothécaire</div>
+                <div class="calc-param-value">360 000 $</div>
+              </div>
+              <div class="calc-param">
+                <div class="calc-param-label">Terme du prêt</div>
+                <div class="calc-param-value">5 ans</div>
+              </div>
+              <div class="calc-param">
+                <div class="calc-param-label">Amortissement</div>
+                <div class="calc-param-value">25 ans</div>
+              </div>
+              <div class="calc-param">
+                <div class="calc-param-label">Taux SANS assurance</div>
+                <div class="calc-param-value">4,00 %</div>
+              </div>
+              <div class="calc-param">
+                <div class="calc-param-label">Prime assurance</div>
+                <div class="calc-param-value calc-param-accent">5,00 %</div>
+              </div>
+              <div class="calc-param">
+                <div class="calc-param-label">Taux AVEC assurance</div>
+                <div class="calc-param-value calc-param-red">4,50 %</div>
+              </div>
+            </div>
+          </div>
+          <!-- Comparison cards -->
+          <div class="hypo-compare-row">
+            <div class="hypo-compare-card hypo-green">
+              <div class="hypo-compare-badge">SANS assurance bancaire</div>
+              <div class="hypo-compare-big">1 893,67 <span>$/mois</span></div>
+              <div class="hypo-compare-detail">
+                <div class="hypo-detail-row"><span>Taux</span><strong>4,00 %</strong></div>
+                <div class="hypo-detail-row"><span>Solde après 5 ans</span><strong>313 384 $</strong></div>
+              </div>
+            </div>
+            <div class="hypo-compare-card hypo-red">
+              <div class="hypo-compare-badge">AVEC assurance bancaire</div>
+              <div class="hypo-compare-big">1 992,50 <span>$/mois</span></div>
+              <div class="hypo-compare-detail">
+                <div class="hypo-detail-row"><span>Taux</span><strong>4,50 %</strong></div>
+                <div class="hypo-detail-row"><span>Solde après 5 ans</span><strong>318 067 $</strong></div>
+              </div>
+            </div>
+          </div>
+          <!-- Ce que le client pense -->
+          <div class="calc-card">
+            <div class="calc-card-title">Ce que le client pense VS la réalité</div>
+            <div class="hypo-myth-row">
+              <div class="hypo-myth">
+                <div class="hypo-myth-label">Surplus mensuel réalité</div>
+                <div class="hypo-myth-val hypo-val-red">98,83 $/mois</div>
+              </div>
+              <div class="hypo-myth">
+                <div class="hypo-myth-label">Ce que le client pense payer</div>
+                <div class="hypo-myth-val">~44 $/mois</div>
+              </div>
+              <div class="hypo-myth">
+                <div class="hypo-myth-label">Coût réel vs perception</div>
+                <div class="hypo-myth-val hypo-val-red">+124 % de plus</div>
+              </div>
+            </div>
+          </div>
+          <!-- Décomposition -->
+          <div class="calc-card">
+            <div class="calc-card-title">Décomposition du coût RÉEL</div>
+            <div class="hypo-decomp">
+              <div class="hypo-decomp-row"><span>Surplus de paiement mensuel</span><strong>98,83 $</strong></div>
+              <div class="hypo-decomp-row"><span>Intérêts supplémentaires payés sur 5 ans</span><strong>2 673,00 $</strong></div>
+              <div class="hypo-decomp-row"><span>Solde plus élevé au renouvellement</span><strong>4 683,00 $</strong></div>
+              <div class="hypo-decomp-row hypo-decomp-total"><span>Coût RÉEL total de l'assurance bancaire</span><strong>143,38 $/mois</strong></div>
+            </div>
+          </div>
         </div>
-        <table class="bento-table">
-          <thead><tr><th></th><th class="val">Desjardins</th><th class="val">Privée</th></tr></thead>
-          <tbody>
-            <tr><td>Capital</td><td class="val" style="color:var(--red)">Décroissant</td><td class="val green">Fixe</td></tr>
-            <tr><td>Coût total 25 ans</td><td class="val" style="color:var(--red)">147 000$</td><td class="val green">68 000$</td></tr>
-            <tr><td>Cessible</td><td class="val" style="color:var(--red)">Non</td><td class="val green">Oui</td></tr>
-            <tr><td>Conversion</td><td class="val" style="color:var(--red)">Non</td><td class="val green">Oui</td></tr>
-            <tr><td>Bénéficiaire</td><td class="val" style="color:var(--red)">La banque</td><td class="val green">Votre choix</td></tr>
-            <tr class="hl"><td>Économie 25 ans</td><td class="val">—</td><td class="val gold">79 000$</td></tr>
-          </tbody>
-        </table>
+        <!-- Right column -->
+        <div class="calc-right">
+          <div class="calc-card calc-card-highlight">
+            <div class="calc-card-title" style="color:var(--g)">Coût RÉEL mensuel</div>
+            <div class="calc-big-number">143,38 $<span>/mois</span></div>
+            <div class="calc-big-sub">vs ce que le client pense payer : ~44 $/mois</div>
+          </div>
+          <div class="calc-card">
+            <div class="calc-card-title">Comparaison — Assurance individuelle</div>
+            <div class="hypo-vs-grid">
+              <div class="hypo-vs-item">
+                <div class="hypo-vs-label">Capital bancaire</div>
+                <div class="hypo-vs-val hypo-val-red">Décroissant</div>
+              </div>
+              <div class="hypo-vs-item">
+                <div class="hypo-vs-label">Capital individuelle</div>
+                <div class="hypo-vs-val hypo-val-green">Fixe</div>
+              </div>
+              <div class="hypo-vs-item">
+                <div class="hypo-vs-label">Cessible</div>
+                <div class="hypo-vs-val hypo-val-red">Non</div>
+              </div>
+              <div class="hypo-vs-item">
+                <div class="hypo-vs-label">Cessible (individuelle)</div>
+                <div class="hypo-vs-val hypo-val-green">Oui</div>
+              </div>
+              <div class="hypo-vs-item">
+                <div class="hypo-vs-label">Bénéficiaire</div>
+                <div class="hypo-vs-val hypo-val-red">La banque</div>
+              </div>
+              <div class="hypo-vs-item">
+                <div class="hypo-vs-label">Bénéficiaire (individuelle)</div>
+                <div class="hypo-vs-val hypo-val-green">Votre choix</div>
+              </div>
+            </div>
+          </div>
+          <div class="calc-card">
+            <div class="calc-card-title">Pourquoi l'assurance privée gagne</div>
+            <div class="hypo-reasons">
+              <div class="hypo-reason"><span class="hypo-reason-icon">✓</span>Capital fixe — ne diminue jamais</div>
+              <div class="hypo-reason"><span class="hypo-reason-icon">✓</span>Cessible à un autre prêteur</div>
+              <div class="hypo-reason"><span class="hypo-reason-icon">✓</span>Convertible en permanente</div>
+              <div class="hypo-reason"><span class="hypo-reason-icon">✓</span>Le bénéficiaire est votre choix</div>
+              <div class="hypo-reason"><span class="hypo-reason-icon">✓</span>Coût réel 3× moins cher</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -769,36 +883,124 @@
 
 <!-- 03 — Budget personnel -->
 <section class="tool-individual-section tool-alt" id="tool-budget">
-  <div class="tool-individual-layout reverse">
-    <div class="rxl">
-      <div class="tool-ind-visual">
-        <div class="tool-ind-visual-header">
-          <span>💼</span> Budget personnel — Liquidité disponible
-        </div>
-        <table class="bento-table">
-          <thead><tr><th>Catégorie</th><th class="val">Montant/mois</th></tr></thead>
-          <tbody>
-            <tr><td>Revenus nets</td><td class="val green">6 200$</td></tr>
-            <tr><td>Hypothèque / loyer</td><td class="val">-1 800$</td></tr>
-            <tr><td>Auto + transport</td><td class="val">-650$</td></tr>
-            <tr><td>Assurances</td><td class="val">-380$</td></tr>
-            <tr><td>Épicerie + resto</td><td class="val">-800$</td></tr>
-            <tr><td>Autres dépenses</td><td class="val">-920$</td></tr>
-            <tr class="hl"><td>Liquidité disponible</td><td class="val gold">1 650$/mois</td></tr>
-          </tbody>
-        </table>
-      </div>
+  <div style="text-align:center;max-width:1300px;margin:0 auto 60px">
+    <div class="sec-label rx">Calculateur intégré</div>
+    <h2 class="sec-title rx">Budget personnel +<br><em>recommandations automatiques</em></h2>
+    <p class="sec-sub rx">Budget détaillé avec recommandations IA pour calculer la liquidité disponible du client et suggérer un budget d'investissement personnalisé.</p>
+  </div>
+  <div class="calc-frame rx">
+    <div class="comp-chrome">
+      <div class="chrome-dots"><div class="chrome-dot" style="background:#FF5F57"></div><div class="chrome-dot" style="background:#FEBC2E"></div><div class="chrome-dot" style="background:#28C840"></div></div>
+      <div class="chrome-url">app.finox.ca/outils/budget</div>
     </div>
-    <div class="rxr">
-      <div class="tool-ind-num">03</div>
-      <div class="sec-label" style="justify-content:flex-start">Calculateur intégré</div>
-      <h3 style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.8vw,52px);font-weight:300;line-height:1.05;margin-bottom:22px">Budget personnel +<br><em style="font-style:italic;color:var(--g)">recommandations automatiques</em></h3>
-      <p style="font-size:15px;line-height:1.9;color:var(--cd);margin-bottom:18px">Budget personnel détaillé pour calculer la <strong style="color:var(--cr)">liquidité disponible du client</strong>. Visuellement beau avec des recommandations automatiques sur les habitudes de dépenses.</p>
-      <p style="font-size:15px;line-height:1.9;color:var(--cd);margin-bottom:26px">Suggestion de budget d'investissement personnalisée selon le profil — le conseiller gagne en crédibilité et le client comprend exactement ce qu'il peut se permettre.</p>
-      <div class="tag-row">
-        <span class="pill-tag gold">Liquidité disponible</span>
-        <span class="pill-tag">Recommandations IA</span>
-        <span class="pill-tag gold">Budget investissement</span>
+    <div class="calc-app">
+      <div class="calc-topbar">
+        <div class="calc-topbar-title"><span>💼</span> Budget Personnel</div>
+        <div class="calc-topbar-sub">Analyse complète des revenus et dépenses</div>
+      </div>
+      <!-- Summary KPIs -->
+      <div class="budget-kpi-row">
+        <div class="budget-kpi">
+          <div class="budget-kpi-label">Dépenses</div>
+          <div class="budget-kpi-val" style="color:var(--red)">2 850 $</div>
+        </div>
+        <div class="budget-kpi">
+          <div class="budget-kpi-label">Revenus</div>
+          <div class="budget-kpi-val" style="color:var(--green)">11 327 $</div>
+        </div>
+        <div class="budget-kpi">
+          <div class="budget-kpi-label">Surplus</div>
+          <div class="budget-kpi-val" style="color:var(--g)">8 477 $</div>
+        </div>
+        <div class="budget-kpi">
+          <div class="budget-kpi-label">Capacité épargne</div>
+          <div class="budget-kpi-val" style="color:var(--green)">74,8 %</div>
+        </div>
+      </div>
+      <div class="calc-body-grid">
+        <!-- Left — categories -->
+        <div class="calc-left">
+          <div class="calc-card">
+            <div class="calc-card-title">Détail des revenus et dépenses</div>
+            <div class="budget-cat-list">
+              <div class="budget-cat budget-cat-income">
+                <div class="budget-cat-icon" style="background:rgba(62,200,154,.12);color:var(--green)">💰</div>
+                <div class="budget-cat-info"><div class="budget-cat-name">Revenus</div></div>
+                <div class="budget-cat-amount" style="color:var(--green)">11 327 $</div>
+              </div>
+              <div class="budget-cat">
+                <div class="budget-cat-icon" style="background:rgba(74,142,212,.12);color:var(--blue)">🏠</div>
+                <div class="budget-cat-info"><div class="budget-cat-name">Habitation</div><div class="budget-cat-bar"><div class="budget-cat-fill" style="width:53%;background:var(--blue)"></div></div></div>
+                <div class="budget-cat-amount">1 500 $</div>
+              </div>
+              <div class="budget-cat">
+                <div class="budget-cat-icon" style="background:rgba(138,106,228,.12);color:var(--purple)">🚗</div>
+                <div class="budget-cat-info"><div class="budget-cat-name">Transport</div><div class="budget-cat-bar"><div class="budget-cat-fill" style="width:9%;background:var(--purple)"></div></div></div>
+                <div class="budget-cat-amount">250 $</div>
+              </div>
+              <div class="budget-cat">
+                <div class="budget-cat-icon" style="background:rgba(212,130,74,.12);color:var(--orange)">🍔</div>
+                <div class="budget-cat-info"><div class="budget-cat-name">Alimentation</div><div class="budget-cat-bar"><div class="budget-cat-fill" style="width:11%;background:var(--orange)"></div></div></div>
+                <div class="budget-cat-amount">300 $</div>
+              </div>
+              <div class="budget-cat">
+                <div class="budget-cat-icon" style="background:rgba(196,162,74,.12);color:var(--g)">🛡️</div>
+                <div class="budget-cat-info"><div class="budget-cat-name">Assurances personnelles</div><div class="budget-cat-bar"><div class="budget-cat-fill" style="width:5%;background:var(--g)"></div></div></div>
+                <div class="budget-cat-amount">150 $</div>
+              </div>
+              <div class="budget-cat">
+                <div class="budget-cat-icon" style="background:rgba(196,74,74,.12);color:var(--red)">🎮</div>
+                <div class="budget-cat-info"><div class="budget-cat-name">Loisirs & Personnel</div><div class="budget-cat-bar"><div class="budget-cat-fill" style="width:18%;background:var(--red)"></div></div></div>
+                <div class="budget-cat-amount">500 $</div>
+              </div>
+              <div class="budget-cat">
+                <div class="budget-cat-icon" style="background:rgba(138,106,228,.12);color:var(--purple)">💳</div>
+                <div class="budget-cat-info"><div class="budget-cat-name">Remboursement de dettes</div><div class="budget-cat-bar"><div class="budget-cat-fill" style="width:5%;background:var(--purple)"></div></div></div>
+                <div class="budget-cat-amount">150 $</div>
+              </div>
+              <div class="budget-cat">
+                <div class="budget-cat-icon" style="background:rgba(62,200,154,.12);color:var(--green)">📈</div>
+                <div class="budget-cat-info"><div class="budget-cat-name">Épargne & Investissements</div><div class="budget-cat-bar"><div class="budget-cat-fill" style="width:0%;background:var(--green)"></div></div></div>
+                <div class="budget-cat-amount" style="color:var(--cm)">0 $</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Right — ratios + recommandations -->
+        <div class="calc-right">
+          <div class="calc-card">
+            <div class="calc-card-title">Ratios financiers</div>
+            <div class="budget-ratio-grid">
+              <div class="budget-ratio">
+                <div class="budget-ratio-label">Ratio logement</div>
+                <div class="budget-ratio-val" style="color:var(--green)">13 %</div>
+                <div class="budget-ratio-bar"><div class="budget-ratio-fill" style="width:13%;background:var(--green)"></div></div>
+                <div class="budget-ratio-note">Excellent — sous le seuil de 32 %</div>
+              </div>
+              <div class="budget-ratio">
+                <div class="budget-ratio-label">Ratio endettement</div>
+                <div class="budget-ratio-val" style="color:var(--green)">15 %</div>
+                <div class="budget-ratio-bar"><div class="budget-ratio-fill" style="width:15%;background:var(--green)"></div></div>
+                <div class="budget-ratio-note">Excellent — sous le seuil de 40 %</div>
+              </div>
+              <div class="budget-ratio">
+                <div class="budget-ratio-label">Épargne budgétée</div>
+                <div class="budget-ratio-val" style="color:var(--red)">0 %</div>
+                <div class="budget-ratio-bar"><div class="budget-ratio-fill" style="width:0%;background:var(--red)"></div></div>
+                <div class="budget-ratio-note">Aucune épargne budgétée — à corriger</div>
+              </div>
+            </div>
+          </div>
+          <div class="calc-card calc-card-highlight">
+            <div class="calc-card-title" style="color:var(--g)">Recommandations</div>
+            <div class="budget-reco-list">
+              <div class="budget-reco"><span class="budget-reco-icon" style="color:var(--green)">✓</span><div><strong>Excellente gestion !</strong><br>Vos dépenses sont bien contrôlées avec un surplus important.</div></div>
+              <div class="budget-reco"><span class="budget-reco-icon" style="color:var(--g)">💡</span><div><strong>Allouez votre surplus</strong><br>8 477 $/mois de surplus disponible — allouez-le à l'épargne et aux investissements.</div></div>
+              <div class="budget-reco"><span class="budget-reco-icon" style="color:var(--blue)">🛡️</span><div><strong>Fonds d'urgence</strong><br>Visez 3 à 6 mois de dépenses en fonds d'urgence (8 550 $ – 17 100 $).</div></div>
+              <div class="budget-reco"><span class="budget-reco-icon" style="color:var(--purple)">📈</span><div><strong>Planification retraite</strong><br>Avec votre capacité d'épargne, maximisez vos REER et CELI.</div></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -806,141 +1008,185 @@
 
 <!-- 04 — REEE -->
 <section class="tool-individual-section" id="tool-reee">
-  <div class="tool-individual-layout">
-    <div class="rxl">
-      <div class="tool-ind-num">04</div>
-      <div class="sec-label" style="justify-content:flex-start">Calculateur intégré</div>
-      <h3 style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.8vw,52px);font-weight:300;line-height:1.05;margin-bottom:22px">Calculateur REEE complet +<br><em style="font-style:italic;color:var(--g)">subventions gouvernementales</em></h3>
-      <p style="font-size:15px;line-height:1.9;color:var(--cd);margin-bottom:18px">Rendements potentiels incluant <strong style="color:var(--cr)">toutes les subventions gouvernementales</strong> détaillées par source (SCEE, IQEE, BEC) en tenant compte du revenu familial net.</p>
-      <p style="font-size:15px;line-height:1.9;color:var(--cd);margin-bottom:26px">Calcule précisément les subventions auxquelles le client a droit — fédérales et provinciales — pour présenter un portrait complet de l'investissement en éducation de ses enfants.</p>
-      <div class="tag-row">
-        <span class="pill-tag gold">SCEE fédérale</span>
-        <span class="pill-tag">IQEE provinciale QC</span>
-        <span class="pill-tag gold">BEC par revenu familial</span>
-      </div>
+  <div style="text-align:center;max-width:1300px;margin:0 auto 60px">
+    <div class="sec-label rx">Calculateur intégré</div>
+    <h2 class="sec-title rx">Calculateur REEE complet +<br><em>subventions gouvernementales</em></h2>
+    <p class="sec-sub rx">Calcule les subventions fédérales et provinciales auxquelles le client a droit, avec projection complète incluant rendements estimés.</p>
+  </div>
+  <div class="calc-frame rx">
+    <div class="comp-chrome">
+      <div class="chrome-dots"><div class="chrome-dot" style="background:#FF5F57"></div><div class="chrome-dot" style="background:#FEBC2E"></div><div class="chrome-dot" style="background:#28C840"></div></div>
+      <div class="chrome-url">app.finox.ca/outils/reee</div>
     </div>
-    <div class="rxr">
-      <div class="tool-ind-visual">
-        <div class="tool-ind-visual-header">
-          <span>🎓</span> REEE · Enfant 3 ans · 200$/mois
+    <div class="calc-app">
+      <div class="calc-topbar">
+        <div class="calc-topbar-title"><span>🎓</span> Calculateur REEE</div>
+        <div class="calc-topbar-sub">Projections avec subventions SCEE, IQEE et BEC</div>
+      </div>
+      <div class="calc-body-grid">
+        <!-- Left — sliders/params -->
+        <div class="calc-left">
+          <div class="calc-card">
+            <div class="calc-card-title">Paramètres</div>
+            <div class="reee-sliders">
+              <div class="reee-slider-group">
+                <div class="reee-slider-row"><span class="reee-slider-label">Âge de l'enfant</span><span class="reee-slider-val">2 ans</span></div>
+                <div class="reee-track"><div class="reee-fill" style="width:11%"></div><div class="reee-thumb" style="left:11%"></div></div>
+              </div>
+              <div class="reee-slider-group">
+                <div class="reee-slider-row"><span class="reee-slider-label">Contribution mensuelle</span><span class="reee-slider-val" style="color:var(--g)">200 $</span></div>
+                <div class="reee-track"><div class="reee-fill" style="width:48%"></div><div class="reee-thumb" style="left:48%"></div></div>
+              </div>
+              <div class="reee-slider-group">
+                <div class="reee-slider-row"><span class="reee-slider-label">Revenu familial net</span><span class="reee-slider-val">50 000 $ – 100 000 $</span></div>
+                <div class="reee-track"><div class="reee-fill" style="width:55%"></div><div class="reee-thumb" style="left:55%"></div></div>
+              </div>
+              <div class="reee-slider-group">
+                <div class="reee-slider-row"><span class="reee-slider-label">Taux de rendement annuel</span><span class="reee-slider-val">5,5 %</span></div>
+                <div class="reee-track"><div class="reee-fill" style="width:55%"></div><div class="reee-thumb" style="left:55%"></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="calc-card">
+            <div class="calc-card-title">Détail des subventions</div>
+            <div class="reee-subs-list">
+              <div class="reee-sub-row">
+                <div class="reee-sub-info"><span class="reee-sub-dot" style="background:var(--blue)"></span>SCEE (fédéral)</div>
+                <div class="reee-sub-val" style="color:var(--blue)">6 550 $</div>
+              </div>
+              <div class="reee-sub-row">
+                <div class="reee-sub-info"><span class="reee-sub-dot" style="background:var(--blue)"></span>SCEE supplémentaire</div>
+                <div class="reee-sub-val" style="color:var(--blue)">750 $</div>
+              </div>
+              <div class="reee-sub-row">
+                <div class="reee-sub-info"><span class="reee-sub-dot" style="background:var(--purple)"></span>IQEE (Québec)</div>
+                <div class="reee-sub-val" style="color:var(--purple)">3 275 $</div>
+              </div>
+              <div class="reee-sub-row">
+                <div class="reee-sub-info"><span class="reee-sub-dot" style="background:var(--purple)"></span>IQEE supplémentaire</div>
+                <div class="reee-sub-val" style="color:var(--purple)">375 $</div>
+              </div>
+              <div class="reee-sub-row reee-sub-total">
+                <div class="reee-sub-info">Total subventions</div>
+                <div class="reee-sub-val" style="color:var(--g)">10 950 $</div>
+              </div>
+            </div>
+          </div>
         </div>
-        <table class="bento-table">
-          <thead><tr><th>Source</th><th class="val">Montant</th></tr></thead>
-          <tbody>
-            <tr><td>Cotisations (15 ans)</td><td class="val gold">36 000$</td></tr>
-            <tr><td>SCEE fédérale 20%</td><td class="val" style="color:var(--blue)">7 200$</td></tr>
-            <tr><td>IQEE provinciale QC</td><td class="val" style="color:var(--purple)">3 600$</td></tr>
-            <tr><td>Rendements estimés 5%</td><td class="val green">22 100$</td></tr>
-            <tr class="hl"><td>Total à 18 ans</td><td class="val gold">68 900$</td></tr>
-          </tbody>
-        </table>
+        <!-- Right — total + breakdown -->
+        <div class="calc-right">
+          <div class="calc-card calc-card-highlight" style="text-align:center">
+            <div class="calc-card-title" style="color:var(--g)">Valeur totale estimée à 18 ans</div>
+            <div class="calc-big-number">74 411 $</div>
+            <!-- Donut SVG -->
+            <svg viewBox="0 0 140 140" width="160" height="160" style="margin:20px auto;display:block">
+              <circle cx="70" cy="70" r="54" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="16"/>
+              <circle cx="70" cy="70" r="54" fill="none" stroke="var(--g)" stroke-width="16" stroke-dasharray="339.3" stroke-dashoffset="175.3" transform="rotate(-90 70 70)" stroke-linecap="round"/>
+              <circle cx="70" cy="70" r="54" fill="none" stroke="var(--green)" stroke-width="16" stroke-dasharray="339.3" stroke-dashoffset="214.8" transform="rotate(77 70 70)" stroke-linecap="round"/>
+              <circle cx="70" cy="70" r="54" fill="none" stroke="var(--blue)" stroke-width="16" stroke-dasharray="339.3" stroke-dashoffset="289.4" transform="rotate(197 70 70)" stroke-linecap="round"/>
+            </svg>
+            <div class="reee-breakdown">
+              <div class="reee-break-item"><span class="reee-break-dot" style="background:var(--g)"></span><span>Vos contributions</span><strong style="color:var(--g)">36 000 $</strong></div>
+              <div class="reee-break-item"><span class="reee-break-dot" style="background:var(--blue)"></span><span>Subventions gouv.</span><strong style="color:var(--blue)">10 950 $</strong></div>
+              <div class="reee-break-item"><span class="reee-break-dot" style="background:var(--green)"></span><span>Rendement</span><strong style="color:var(--green)">27 461 $</strong></div>
+            </div>
+          </div>
+          <div class="calc-card" style="text-align:center">
+            <button class="calc-save-btn">Enregistrer le scénario</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 05 — Profil investisseur -->
-<section class="tool-individual-section tool-alt" id="tool-profil">
-  <div class="tool-individual-layout reverse">
-    <div class="rxl">
-      <div class="tool-ind-visual">
-        <div class="tool-ind-visual-header">
-          <span>📊</span> Profil investisseur — Conforme AMF
-        </div>
-        <table class="bento-table">
-          <thead><tr><th>Critère</th><th class="val">Résultat</th></tr></thead>
-          <tbody>
-            <tr><td>Horizon de placement</td><td class="val">Long terme (15+ ans)</td></tr>
-            <tr><td>Tolérance au risque</td><td class="val gold">Modéré-audacieux</td></tr>
-            <tr><td>Connaissances financières</td><td class="val">Intermédiaire</td></tr>
-            <tr><td>Objectif principal</td><td class="val">Croissance</td></tr>
-            <tr><td>Répartition suggérée</td><td class="val">70% actions / 30% oblig.</td></tr>
-            <tr class="hl"><td>Profil AMF</td><td class="val gold">Croissance</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div class="rxr">
-      <div class="tool-ind-num">05</div>
-      <div class="sec-label" style="justify-content:flex-start">Calculateur intégré</div>
-      <h3 style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.8vw,52px);font-weight:300;line-height:1.05;margin-bottom:22px">Profil investisseur<br><em style="font-style:italic;color:var(--g)">conforme AMF</em></h3>
-      <p style="font-size:15px;line-height:1.9;color:var(--cd);margin-bottom:18px">Profil investisseur visuellement attractif pour assurer la <strong style="color:var(--cr)">conformité de toutes les transactions de placements</strong>. Intégré directement dans le dossier client.</p>
-      <p style="font-size:15px;line-height:1.9;color:var(--cd);margin-bottom:26px">Traçabilité complète pour les audits AMF. Le profil est mis à jour automatiquement lors de chaque rencontre de révision — plus jamais de profil obsolète dans un dossier.</p>
-      <div class="tag-row">
-        <span class="pill-tag gold">Conformité placements</span>
-        <span class="pill-tag">Traçabilité AMF</span>
-        <span class="pill-tag gold">Mise à jour auto</span>
-      </div>
-    </div>
+<!-- 05 — Propriété partagée -->
+<section class="tool-individual-section tool-alt" id="tool-ibl">
+  <div style="text-align:center;max-width:1300px;margin:0 auto 60px">
+    <div class="sec-label rx">Calculateur intégré</div>
+    <h2 class="sec-title rx">Propriété partagée —<br><em>IBL pour entreprises</em></h2>
+    <p class="sec-sub rx">Démontre visuellement l'avantage fiscal de la propriété partagée pour les entrepreneurs. Simplifie radicalement la vente de produits permanents.</p>
   </div>
-</section>
-
-<!-- 06 — Propriété partagée -->
-<section class="tool-individual-section" id="tool-ibl">
-  <div class="tool-individual-layout">
-    <div class="rxl">
-      <div class="tool-ind-num">06</div>
-      <div class="sec-label" style="justify-content:flex-start">Calculateur intégré</div>
-      <h3 style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.8vw,52px);font-weight:300;line-height:1.05;margin-bottom:22px">Propriété partagée —<br><em style="font-style:italic;color:var(--g)">IBL pour entreprises</em></h3>
-      <p style="font-size:15px;line-height:1.9;color:var(--cd);margin-bottom:18px">Outil exclusif qui justifie visuellement le <strong style="color:var(--cr)">remboursement de primes dans le cadre d'une stratégie de propriété partagée</strong> (Insurance-Backed Loan). Démontre clairement l'avantage fiscal.</p>
-      <p style="font-size:15px;line-height:1.9;color:var(--cd);margin-bottom:26px">Simplifie radicalement la vente de produits permanents aux entrepreneurs québécois — avec graphiques comparatifs et données chiffrées que le comptable peut valider.</p>
-      <div class="tag-row">
-        <span class="pill-tag gold">Propriété partagée</span>
-        <span class="pill-tag">IBL · Entrepreneurs</span>
-        <span class="pill-tag gold">Graphiques comparatifs</span>
-      </div>
+  <div class="calc-frame rx">
+    <div class="comp-chrome">
+      <div class="chrome-dots"><div class="chrome-dot" style="background:#FF5F57"></div><div class="chrome-dot" style="background:#FEBC2E"></div><div class="chrome-dot" style="background:#28C840"></div></div>
+      <div class="chrome-url">app.finox.ca/outils/propriete-partagee</div>
     </div>
-    <div class="rxr">
-      <div class="tool-ind-visual">
-        <div class="tool-ind-visual-header">
-          <span>🏗️</span> Propriété partagée — Corporation vs Placement
+    <div class="calc-app">
+      <div class="calc-topbar">
+        <div class="calc-topbar-title"><span>🏗️</span> Calculateur MG — Propriété partagée</div>
+        <div class="calc-topbar-sub">Analyse concept AMG pour entrepreneurs</div>
+      </div>
+      <!-- KPI cards -->
+      <div class="ibl-kpi-row">
+        <div class="ibl-kpi">
+          <div class="ibl-kpi-label">Protection MG</div>
+          <div class="ibl-kpi-val">800 000 $</div>
         </div>
-        <table class="bento-table">
-          <thead><tr><th></th><th class="val">Placement corp.</th><th class="val">Propriété partagée</th></tr></thead>
-          <tbody>
-            <tr><td>Source des fonds</td><td class="val">Corporation</td><td class="val">Corporation</td></tr>
-            <tr><td>Traitement fiscal</td><td class="val" style="color:var(--red)">Imposable</td><td class="val green">Exempt</td></tr>
-            <tr><td>Valeur rachat (20 ans)</td><td class="val">180 000$</td><td class="val green">320 000$</td></tr>
-            <tr><td>Coût net après impôt</td><td class="val" style="color:var(--red)">245 000$</td><td class="val green">160 000$</td></tr>
-            <tr class="hl"><td>Avantage successoral</td><td class="val">Limité</td><td class="val gold">Optimisé</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 07 — Pipeline -->
-<section class="tool-individual-section tool-alt" id="tool-pipeline">
-  <div class="tool-individual-layout reverse">
-    <div class="rxl">
-      <div class="tool-ind-visual">
-        <div class="tool-ind-visual-header">
-          <span>🎯</span> Pipeline assurances — Vue Kanban
+        <div class="ibl-kpi">
+          <div class="ibl-kpi-label">Prime totale/an</div>
+          <div class="ibl-kpi-val">10 309 $</div>
         </div>
-        <table class="bento-table">
-          <thead><tr><th>Étape</th><th class="val">Contrats</th><th class="val">Primes</th></tr></thead>
-          <tbody>
-            <tr><td>Prospect</td><td class="val">47</td><td class="val">—</td></tr>
-            <tr><td>Analyse ABF</td><td class="val">31</td><td class="val gold">124k$</td></tr>
-            <tr><td>Tarification</td><td class="val">24</td><td class="val">89k$</td></tr>
-            <tr><td>Signature</td><td class="val">15</td><td class="val">62k$</td></tr>
-            <tr><td>En vigueur</td><td class="val green">11</td><td class="val green">41k$</td></tr>
-            <tr class="hl"><td>Total pipeline</td><td class="val gold">128</td><td class="val gold">316k$</td></tr>
-          </tbody>
-        </table>
+        <div class="ibl-kpi">
+          <div class="ibl-kpi-label">Retour net après 15 ans</div>
+          <div class="ibl-kpi-val" style="color:var(--green)">129 166 $</div>
+        </div>
+        <div class="ibl-kpi">
+          <div class="ibl-kpi-label">Impôt économisé</div>
+          <div class="ibl-kpi-val" style="color:var(--g)">92 992 $</div>
+        </div>
       </div>
-    </div>
-    <div class="rxr">
-      <div class="tool-ind-num">07</div>
-      <div class="sec-label" style="justify-content:flex-start">Calculateur intégré</div>
-      <h3 style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.8vw,52px);font-weight:300;line-height:1.05;margin-bottom:22px">Pipeline des assurances —<br><em style="font-style:italic;color:var(--g)">Réinventé</em></h3>
-      <p style="font-size:15px;line-height:1.9;color:var(--cd);margin-bottom:18px">Gestion complète des contrats en cours, en vigueur, annulés ou fermés — <strong style="color:var(--cr)">réinventée pour être simple, visuelle et efficace</strong>.</p>
-      <p style="font-size:15px;line-height:1.9;color:var(--cd);margin-bottom:26px">Vue kanban drag-and-drop, filtres par conseiller, compagnie, type de produit. Chaque contrat lié directement au dossier client avec toute l'historique accessible en 1 clic.</p>
-      <div class="tag-row">
-        <span class="pill-tag gold">Kanban drag-and-drop</span>
-        <span class="pill-tag">Filtres avancés</span>
-        <span class="pill-tag gold">Historique complet</span>
+      <div class="calc-body-grid">
+        <!-- Left — hypothèses -->
+        <div class="calc-left">
+          <div class="calc-card">
+            <div class="calc-card-title">Hypothèses</div>
+            <div class="ibl-hypo-list">
+              <div class="ibl-hypo-section">Taux d'imposition</div>
+              <div class="ibl-hypo-row"><span>Taux marginal corporatif</span><strong>26,50 %</strong></div>
+              <div class="ibl-hypo-row"><span>Taux marginal personnel</span><strong>53,31 %</strong></div>
+              <div class="ibl-hypo-section">Taux d'intérêt</div>
+              <div class="ibl-hypo-row"><span>Taux de rendement placement</span><strong>5,00 %</strong></div>
+              <div class="ibl-hypo-row"><span>Taux du prêt collatéral</span><strong>4,50 %</strong></div>
+              <div class="ibl-hypo-section">Paramètres MG</div>
+              <div class="ibl-hypo-row"><span>Capital assuré</span><strong>800 000 $</strong></div>
+              <div class="ibl-hypo-row"><span>Prime annuelle totale</span><strong>10 309 $</strong></div>
+              <div class="ibl-hypo-row"><span>Durée de l'analyse</span><strong>15 ans</strong></div>
+              <div class="ibl-hypo-row"><span>Part corporative de la prime</span><strong>65 %</strong></div>
+            </div>
+          </div>
+        </div>
+        <!-- Right — résultats -->
+        <div class="calc-right">
+          <div class="calc-card">
+            <div class="calc-card-title">Résultats du concept</div>
+            <div class="ibl-results-list">
+              <div class="ibl-hypo-section">Répartition des primes</div>
+              <div class="ibl-hypo-row"><span>Prime corporative (65 %)</span><strong>6 701 $</strong></div>
+              <div class="ibl-hypo-row"><span>Prime personnelle (35 %)</span><strong>3 608 $</strong></div>
+              <div class="ibl-hypo-section">Illustration du retour — 15 ans</div>
+              <div class="ibl-hypo-row"><span>Valeur de rachat à 15 ans</span><strong>189 450 $</strong></div>
+              <div class="ibl-hypo-row"><span>Remboursement prêt collatéral</span><strong>-60 284 $</strong></div>
+              <div class="ibl-hypo-row ibl-hypo-highlight"><span>Retour net à l'assuré</span><strong style="color:var(--green)">129 166 $</strong></div>
+            </div>
+          </div>
+          <!-- Comparison -->
+          <div class="ibl-compare-row">
+            <div class="ibl-compare-card ibl-green">
+              <div class="ibl-compare-label">Concept AMG Partagée</div>
+              <div class="ibl-compare-big">129 166 $</div>
+            </div>
+            <div class="ibl-compare-vs">VS</div>
+            <div class="ibl-compare-card ibl-dim">
+              <div class="ibl-compare-label">Placement corporatif</div>
+              <div class="ibl-compare-big">103 751 $</div>
+            </div>
+          </div>
+          <div class="calc-card calc-card-highlight" style="text-align:center">
+            <div class="calc-card-title" style="color:var(--g)">Impôt économisé grâce au concept AMG</div>
+            <div class="calc-big-number">92 992 $</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
