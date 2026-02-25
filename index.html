@@ -392,6 +392,54 @@
 
   <div class="abf-carousel rx" id="abf-carousel"></div>
 
+  <!-- 3 Plans de maladies graves -->
+  <div class="mg-section-header rx">
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.5vw,48px);font-weight:300;line-height:1.1">3 plans de maladies graves — <em style="font-style:italic;color:var(--g)">Visuels pour le client</em></h3>
+    <p style="font-size:14px;color:var(--cd);margin-top:14px;max-width:700px;margin-left:auto;margin-right:auto;line-height:1.7">Présentez 3 niveaux de couverture clairs et visuels. Le client comprend instantanément la différence entre chaque plan.</p>
+  </div>
+  <div class="mg-grid">
+    <div class="mg-plan rx">
+      <span class="mg-badge blue">Plan 1 — Répit temporaire</span>
+      <h3>Protection essentielle</h3>
+      <div class="mg-duration">6</div>
+      <div class="mg-duration-sub">mois de revenus + frais immédiats</div>
+      <div class="mg-features">
+        <div class="mg-feature">6 mois de revenus nets remplacés</div>
+        <div class="mg-feature">Frais immédiats couverts (médical, transport)</div>
+        <div class="mg-feature">Protection minimale pour la période aiguë</div>
+        <div class="mg-feature">Prime la plus abordable — budgets serrés</div>
+        <div class="mg-feature">Seuil d'entrée pour tous les clients</div>
+      </div>
+    </div>
+    <div class="mg-plan featured rx">
+      <span class="mg-badge gold">Plan 2 — Recommandé</span>
+      <h3>Tranquillité d'esprit</h3>
+      <div class="mg-duration">12</div>
+      <div class="mg-duration-sub">mois de revenus + soins + médicaments</div>
+      <div class="mg-features">
+        <div class="mg-feature">12 mois de revenus nets remplacés</div>
+        <div class="mg-feature">Frais immédiats + soins spécialisés</div>
+        <div class="mg-feature">Médicaments non couverts par la RAMQ inclus</div>
+        <div class="mg-feature">Soins souvent négligés dans les calculs standards</div>
+        <div class="mg-feature">Équilibre optimal protection / prime</div>
+        <div class="mg-feature">Recommandé pour la majorité des clients</div>
+      </div>
+    </div>
+    <div class="mg-plan rx">
+      <span class="mg-badge purple">Plan 3 — Confort complet</span>
+      <h3>Protection totale</h3>
+      <div class="mg-duration">24</div>
+      <div class="mg-duration-sub">mois de revenus + couverture complète imprévus</div>
+      <div class="mg-features">
+        <div class="mg-feature">24 mois de revenus nets remplacés</div>
+        <div class="mg-feature">Couverture complète de tous les imprévus</div>
+        <div class="mg-feature">Soins, médicaments, convalescence longue durée</div>
+        <div class="mg-feature">Zéro compromis sur la protection</div>
+        <div class="mg-feature">Idéal pour travailleurs autonomes & entrepreneurs</div>
+      </div>
+    </div>
+  </div>
+
   <!-- Preavis de remplacement — Section principale -->
   <div class="preavis-layout" style="margin-top:80px">
     <div class="rxl">
@@ -445,11 +493,15 @@
       <div class="bento-num">01</div><div class="bento-icon">💡</div>
       <div class="bento-name">Calculateur d'assurance multi-compagnies QC & Canada</div>
       <div class="bento-desc">Connecté à toutes les compagnies au Québec et au Canada. Plus besoin de Compulife, LifeGuide ou WinQuote. Visuellement beaucoup plus attractif. Le temporaire décroissant est sélectionnable, le conjoint premier et dernier décès aussi. Les données de l'ABF — âge le plus proche calculé auto, sexe, statut fumeur — sont importées automatiquement.</div>
-      <div style="margin-top:18px;display:flex;flex-direction:column;gap:5px">
-        <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:rgba(196,162,74,.09);border:1px solid rgba(196,162,74,.22);border-radius:9px;font-size:11px;color:var(--g)">🏆 Recommandé — Vie entière 500k · IA<span style="font-family:'JetBrains Mono',monospace;font-weight:700">$127/mois</span></div>
-        <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);border-radius:9px;font-size:11px;color:var(--cd)">Temporaire 20 ans 500k · Canada Vie<span style="font-family:'JetBrains Mono',monospace;font-size:10px">$48/mois</span></div>
-        <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);border-radius:9px;font-size:11px;color:var(--cd)">T10 décroissant · Hypothèque · Sun Life<span style="font-family:'JetBrains Mono',monospace;font-size:10px">$31/mois</span></div>
-      </div>
+      <table class="bento-table">
+        <thead><tr><th>Compagnie</th><th>Produit</th><th>Montant</th><th class="val">Prime/mois</th></tr></thead>
+        <tbody>
+          <tr class="rec"><td>iA Groupe financier</td><td>Vie entière</td><td>500 000$</td><td class="val gold">127$</td></tr>
+          <tr><td>Canada Vie</td><td>Temporaire 20 ans</td><td>500 000$</td><td class="val">48$</td></tr>
+          <tr><td>Sun Life</td><td>T10 décroissant</td><td>350 000$</td><td class="val">31$</td></tr>
+          <tr><td>Manuvie</td><td>Vie universelle</td><td>500 000$</td><td class="val">142$</td></tr>
+        </tbody>
+      </table>
       <span class="bento-tag"><div class="bento-tag-dot"></div>Remplace Compulife · WinQuote · LifeGuide</span>
     </div>
     <!-- 02 Hypothécaire -->
@@ -457,11 +509,17 @@
       <div class="bento-num">02</div><div class="bento-icon">🏠</div>
       <div class="bento-name">Calculateur assurance hypothécaire — Vrai coût Desjardins vs marché</div>
       <div class="bento-desc">Montre au client le vrai coût de l'assurance hypothécaire bancaire contrairement à l'avoir au personnel avec l'assurance privée individuelle. Facilite radicalement la vente avec des graphiques clairs sur 25 ans. Capital fixe vs décroissant, cessibilité, conversion — le client comprend instantanément pourquoi l'assurance privée lui coûte moins cher et lui offre une meilleure protection.</div>
-      <div style="margin-top:18px;display:flex;flex-direction:column;gap:6px">
-        <div style="display:flex;align-items:center;gap:9px"><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--cm);width:90px;flex-shrink:0">Desjardins (banque)</span><div style="flex:1;height:6px;background:rgba(255,255,255,.06);border-radius:100px;overflow:hidden"><div style="height:100%;width:88%;background:var(--red);border-radius:100px"></div></div><span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--red);width:40px;text-align:right">$147k</span></div>
-        <div style="display:flex;align-items:center;gap:9px"><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--cm);width:90px;flex-shrink:0">Assurance privée</span><div style="flex:1;height:6px;background:rgba(255,255,255,.06);border-radius:100px;overflow:hidden"><div style="height:100%;width:43%;background:var(--green);border-radius:100px"></div></div><span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--green);width:40px;text-align:right">$68k</span></div>
-        <div style="display:flex;align-items:center;gap:9px"><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--cm);width:90px;flex-shrink:0">Économies 25 ans</span><div style="flex:1;height:6px;background:rgba(255,255,255,.06);border-radius:100px;overflow:hidden"><div style="height:100%;width:60%;background:var(--g);border-radius:100px"></div></div><span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--g);width:40px;text-align:right">$79k</span></div>
-      </div>
+      <table class="bento-table">
+        <thead><tr><th></th><th class="val">Desjardins</th><th class="val">Privée</th></tr></thead>
+        <tbody>
+          <tr><td>Capital</td><td class="val" style="color:var(--red)">Décroissant</td><td class="val green">Fixe</td></tr>
+          <tr><td>Coût total 25 ans</td><td class="val" style="color:var(--red)">147 000$</td><td class="val green">68 000$</td></tr>
+          <tr><td>Cessible</td><td class="val" style="color:var(--red)">Non</td><td class="val green">Oui</td></tr>
+          <tr><td>Conversion</td><td class="val" style="color:var(--red)">Non</td><td class="val green">Oui</td></tr>
+          <tr><td>Bénéficiaire</td><td class="val" style="color:var(--red)">La banque</td><td class="val green">Votre choix</td></tr>
+          <tr class="hl"><td>Économie 25 ans</td><td class="val">—</td><td class="val gold">79 000$</td></tr>
+        </tbody>
+      </table>
       <span class="bento-tag"><div class="bento-tag-dot"></div>Graphiques comparatifs · Vente simplifiée</span>
     </div>
     <!-- 03 Budget -->
@@ -469,6 +527,18 @@
       <div class="bento-num">03</div><div class="bento-icon">💼</div>
       <div class="bento-name">Budget personnel + recommandations auto</div>
       <div class="bento-desc">Budget personnel détaillé pour calculer la liquidité disponible du client. Visuellement beau avec des recommandations automatiques sur les habitudes de dépenses et une suggestion de budget d'investissement personnalisée selon son profil.</div>
+      <table class="bento-table">
+        <thead><tr><th>Catégorie</th><th class="val">Montant/mois</th></tr></thead>
+        <tbody>
+          <tr><td>Revenus nets</td><td class="val green">6 200$</td></tr>
+          <tr><td>Hypothèque / loyer</td><td class="val">-1 800$</td></tr>
+          <tr><td>Auto + transport</td><td class="val">-650$</td></tr>
+          <tr><td>Assurances</td><td class="val">-380$</td></tr>
+          <tr><td>Épicerie + resto</td><td class="val">-800$</td></tr>
+          <tr><td>Autres dépenses</td><td class="val">-920$</td></tr>
+          <tr class="hl"><td>Liquidité disponible</td><td class="val gold">1 650$/mois</td></tr>
+        </tbody>
+      </table>
       <span class="bento-tag"><div class="bento-tag-dot"></div>Liquidité disponible · Recommandations IA</span>
     </div>
     <!-- 04 REEE -->
@@ -476,14 +546,16 @@
       <div class="bento-num">04</div><div class="bento-icon">🎓</div>
       <div class="bento-name">Calculateur REEE + subventions</div>
       <div class="bento-desc">Rendements potentiels incluant toutes les subventions gouvernementales (SCEE, IQEE, BEC) en tenant compte du revenu familial net pour calculer précisément les subventions auxquelles le client a droit.</div>
-      <div style="margin-top:16px;padding:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.05);border-radius:12px">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--cm);margin-bottom:9px">REEE · Enfant 3 ans · $200/mois</div>
-        <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:11px;color:var(--cd)">Cotisations (15 ans)<span style="font-family:'JetBrains Mono',monospace;color:var(--g);font-weight:700">$36 000</span></div>
-        <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:11px;color:var(--cd)">SCEE fédérale 20%<span style="font-family:'JetBrains Mono',monospace;color:var(--blue);font-weight:700">$7 200</span></div>
-        <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:11px;color:var(--cd)">IQEE provinciale QC<span style="font-family:'JetBrains Mono',monospace;color:var(--purple);font-weight:700">$3 600</span></div>
-        <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:11px;color:var(--cd)">Rendements estimés 5%<span style="font-family:'JetBrains Mono',monospace;color:var(--green);font-weight:700">$22 100</span></div>
-        <div style="display:flex;justify-content:space-between;padding:6px 0;font-size:12px;font-weight:700;color:var(--cr)">Total à 18 ans<span style="font-family:'JetBrains Mono',monospace;color:var(--g);font-size:14px">$68 900</span></div>
-      </div>
+      <table class="bento-table">
+        <thead><tr><th colspan="2" style="font-size:8px">REEE · Enfant 3 ans · 200$/mois</th></tr></thead>
+        <tbody>
+          <tr><td>Cotisations (15 ans)</td><td class="val gold">36 000$</td></tr>
+          <tr><td>SCEE fédérale 20%</td><td class="val" style="color:var(--blue)">7 200$</td></tr>
+          <tr><td>IQEE provinciale QC</td><td class="val" style="color:var(--purple)">3 600$</td></tr>
+          <tr><td>Rendements estimés 5%</td><td class="val green">22 100$</td></tr>
+          <tr class="hl"><td>Total à 18 ans</td><td class="val gold">68 900$</td></tr>
+        </tbody>
+      </table>
       <span class="bento-tag"><div class="bento-tag-dot"></div>SCEE · IQEE · BEC par revenu familial</span>
     </div>
     <!-- 05 Profil investisseur -->
@@ -491,6 +563,17 @@
       <div class="bento-num">05</div><div class="bento-icon">📊</div>
       <div class="bento-name">Profil investisseur conforme AMF</div>
       <div class="bento-desc">Profil investisseur visuellement attractif pour assurer la conformité de toutes les transactions de placements. Intégré au dossier client pour une traçabilité complète.</div>
+      <table class="bento-table">
+        <thead><tr><th>Critère</th><th class="val">Résultat</th></tr></thead>
+        <tbody>
+          <tr><td>Horizon de placement</td><td class="val">Long terme (15+ ans)</td></tr>
+          <tr><td>Tolérance au risque</td><td class="val gold">Modéré-audacieux</td></tr>
+          <tr><td>Connaissances financières</td><td class="val">Intermédiaire</td></tr>
+          <tr><td>Objectif principal</td><td class="val">Croissance</td></tr>
+          <tr><td>Répartition suggérée</td><td class="val">70% actions / 30% oblig.</td></tr>
+          <tr class="hl"><td>Profil AMF</td><td class="val gold">Croissance</td></tr>
+        </tbody>
+      </table>
       <span class="bento-tag"><div class="bento-tag-dot"></div>Conformité placements · AMF</span>
     </div>
     <!-- 06 MG propriété partagée -->
@@ -498,6 +581,16 @@
       <div class="bento-num">06</div><div class="bento-icon">🏗️</div>
       <div class="bento-name">Calculateur MG — Propriété partagée pour entreprises</div>
       <div class="bento-desc">Outil exclusif qui justifie visuellement le remboursement de primes dans le cadre d'une stratégie de propriété partagée (Insurance-Backed Loan / IBL). Démontre clairement qu'il est plus avantageux pour l'entrepreneur de financer sa prime via la corporation plutôt que via un placement à l'intérieur de la corp — avec graphiques comparatifs et données chiffrées. Simplifie radicalement la vente de produits permanents aux entrepreneurs québécois.</div>
+      <table class="bento-table">
+        <thead><tr><th></th><th class="val">Placement corp.</th><th class="val">Propriété partagée</th></tr></thead>
+        <tbody>
+          <tr><td>Source des fonds</td><td class="val">Corporation</td><td class="val">Corporation</td></tr>
+          <tr><td>Traitement fiscal</td><td class="val" style="color:var(--red)">Imposable</td><td class="val green">Exempt</td></tr>
+          <tr><td>Valeur rachat (20 ans)</td><td class="val">180 000$</td><td class="val green">320 000$</td></tr>
+          <tr><td>Coût net après impôt</td><td class="val" style="color:var(--red)">245 000$</td><td class="val green">160 000$</td></tr>
+          <tr class="hl"><td>Avantage successoral</td><td class="val">Limité</td><td class="val gold">Optimisé</td></tr>
+        </tbody>
+      </table>
       <span class="bento-tag"><div class="bento-tag-dot"></div>Propriété partagée · IBL · Entrepreneurs</span>
     </div>
     <!-- 07 Pipeline -->
@@ -505,6 +598,17 @@
       <div class="bento-num">07</div><div class="bento-icon">🎯</div>
       <div class="bento-name">Pipeline des assurances — Réinventé</div>
       <div class="bento-desc">Gestion complète des contrats en cours, en vigueur, annulés ou fermés — réinventée pour être simple, visuelle et efficace. Vue kanban drag-and-drop, filtres par conseiller, compagnie, type de produit. Chaque contrat lié directement au dossier client avec toute l'historique accessible en 1 clic.</div>
+      <table class="bento-table">
+        <thead><tr><th>Étape</th><th class="val">Contrats</th><th class="val">Primes</th></tr></thead>
+        <tbody>
+          <tr><td>Prospect</td><td class="val">47</td><td class="val">—</td></tr>
+          <tr><td>Analyse ABF</td><td class="val">31</td><td class="val gold">124k$</td></tr>
+          <tr><td>Tarification</td><td class="val">24</td><td class="val">89k$</td></tr>
+          <tr><td>Signature</td><td class="val">15</td><td class="val">62k$</td></tr>
+          <tr><td>En vigueur</td><td class="val green">11</td><td class="val green">41k$</td></tr>
+          <tr class="hl"><td>Total pipeline</td><td class="val gold">128</td><td class="val gold">316k$</td></tr>
+        </tbody>
+      </table>
       <span class="bento-tag"><div class="bento-tag-dot"></div>Kanban · En vigueur · Annulés · Fermés</span>
     </div>
   </div>
