@@ -641,6 +641,8 @@ select.wl-input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg 
 
 /* ─── PROOF / TESTIMONIALS ─── */
 .proof-section{padding:160px 60px;background:var(--ink);position:relative;overflow:hidden}
+.proof-skip-btn{display:inline-block;margin-top:28px;padding:12px 28px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--cm);border:1px solid rgba(255,255,255,.1);border-radius:100px;text-decoration:none;transition:all .3s;cursor:none}
+.proof-skip-btn:hover{color:var(--g);border-color:rgba(196,162,74,.35);background:rgba(196,162,74,.06)}
 .proof-bg-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:1200px;height:800px;background:radial-gradient(ellipse,rgba(196,162,74,.045),transparent 60%);pointer-events:none;animation:glowPulse 7s ease-in-out infinite}
 .proof-grid{max-width:1300px;margin:70px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;position:relative;z-index:1}
 .proof-card{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-radius:24px;padding:40px 36px;position:relative;overflow:hidden;transition:all .5s var(--ease-out);cursor:default}
