@@ -1213,21 +1213,19 @@ function closeWaitlistModal(e) {
   }
 }
 /*
-  Zoho Forms — soumission via fetch no-cors + lien partagé JS
-  Le lien partagé accepte les soumissions cross-origin.
+  Zoho Forms — soumission via Cloudflare Pages Function (proxy serveur)
+  Le frontend POST vers /api/waitlist, qui relaie à Zoho côté serveur.
 */
-const ZOHO_SUBMIT_URL = 'https://forms.zohopublic.ca/Finox/form/WaitlistFinoxOSConseillers/formperma/HHK7J7cucQPW3b1Y0D95g2yUxw7Vm2antELMCEUhpII/htmlRecords/submit';
-
 function sendToZoho(data) {
   const body = new URLSearchParams();
-  body.append('zf_referrer_name', '');
+  body.append('zf_referrer_name', window.location.href);
   body.append('zf_redirect_url', '');
   body.append('zc_gad', '');
   Object.entries(data).forEach(([k, v]) => body.append(k, v));
-  fetch(ZOHO_SUBMIT_URL, {
+  fetch('/api/waitlist', {
     method: 'POST',
-    mode: 'no-cors',
-    body: body,
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: body.toString(),
   }).catch(() => {});
 }
 
