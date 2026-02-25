@@ -1212,98 +1212,17 @@ function closeWaitlistModal(e) {
     document.body.style.overflow = '';
   }
 }
-/*
-  Zoho Forms — soumission via hidden iframe POST
-  Field link names (vérifier dans Zoho Forms > champ > Field Link Name) :
-    Name_First, Name_Last, Email, PhoneNumber_countrycode, PhoneNumber, Dropdown
-*/
-const ZOHO_FORM_URL = 'https://forms.zohopublic.ca/Finox/form/WaitlistFinoxOSConseillers/formperma/HHK7J7cucQPW3b1Y0D95g2yUxw7Vm2antELMCEUhpII/htmlRecords/submit';
-
-function sendToZoho(data) {
-  if (!ZOHO_FORM_URL) return;
-  let iframe = document.getElementById('zoho-hidden');
-  if (!iframe) {
-    iframe = document.createElement('iframe');
-    iframe.id = 'zoho-hidden';
-    iframe.name = 'zoho-hidden';
-    iframe.style.display = 'none';
-    document.body.appendChild(iframe);
-  }
-  const form = document.createElement('form');
-  form.method = 'POST';
-  form.action = ZOHO_FORM_URL;
-  form.target = 'zoho-hidden';
-  form.enctype = 'multipart/form-data';
-  form.acceptCharset = 'UTF-8';
-  form.style.display = 'none';
-  /* Champs cachés requis par Zoho Forms */
-  ['zf_referrer_name', 'zf_redirect_url', 'zc_gad'].forEach(n => {
-    const h = document.createElement('input');
-    h.type = 'hidden'; h.name = n; h.value = '';
-    form.appendChild(h);
-  });
-  Object.entries(data).forEach(([k, v]) => {
-    if (!v) return;
-    const inp = document.createElement('input');
-    inp.type = 'hidden'; inp.name = k; inp.value = v;
-    form.appendChild(inp);
-  });
-  document.body.appendChild(form);
-  form.submit();
-  setTimeout(() => form.remove(), 500);
-}
-
-function validateRequired(fields) {
-  let valid = true;
-  fields.forEach(el => {
-    if (!el) return;
-    el.classList.remove('error');
-    if (!el.value.trim() || (el.type === 'email' && !el.value.includes('@'))) {
-      el.classList.add('error');
-      el.style.outline = '1px solid var(--red)';
-      setTimeout(() => { el.classList.remove('error'); el.style.outline = ''; }, 2500);
-      valid = false;
-    }
-  });
-  return valid;
-}
-
-function submitWaitlist() {
-  const fname = document.getElementById('wl-fname');
-  const lname = document.getElementById('wl-lname');
-  const email = document.getElementById('wl-email');
-  const phone = document.getElementById('wl-phone');
-  const agent = document.getElementById('wl-agent');
-  const form  = document.getElementById('wl-form');
-  const suc   = document.getElementById('wl-success');
-  if (!validateRequired([fname, lname, email, phone, agent])) return;
-  /* Zoho field names — confirmés via inspect du formulaire Zoho */
-  sendToZoho({
-    'Name_First': fname.value.trim(),
-    'Name_Last': lname.value.trim(),
-    'Email': email.value.trim(),
-    'PhoneNumber': phone.value.trim(),
-    'Dropdown': agent.value,
-  });
-  if (form) form.style.display = 'none';
-  if (suc) suc.classList.add('show');
-}
+/* Zoho Forms — intégré via iframe directement dans le modal */
 
 function ctaSubmit() {
   const name   = document.getElementById('cta-name');
   const email  = document.getElementById('cta-email');
-  const phone  = document.getElementById('cta-phone');
   const form   = document.getElementById('cta-form-inner');
   const suc    = document.getElementById('cta-success');
   const spotFill = document.getElementById('spots-fill');
-  if (!validateRequired([name, email])) return;
-  sendToZoho({
-    source: 'cta',
-    name: name.value.trim(),
-    email: email.value.trim(),
-    phone: (phone || {}).value || '',
-    date: new Date().toISOString(),
-  });
+  if (!name || !email || !name.value.trim() || !email.value.trim() || !email.value.includes('@')) return;
+  /* Ouvre le modal waitlist Zoho pour compléter l'inscription */
+  openWaitlistModal();
   if (form)  form.style.display  = 'none';
   if (suc)   suc.classList.add('show');
   if (spotFill) {
@@ -1335,7 +1254,6 @@ function initCommTabs() {
 ────────────────────────────────────────────────────────────── */
 window.openWaitlistModal  = openWaitlistModal;
 window.closeWaitlistModal = closeWaitlistModal;
-window.submitWaitlist     = submitWaitlist;
 window.ctaSubmit          = ctaSubmit;
 
 /* ──────────────────────────────────────────────────────────────
