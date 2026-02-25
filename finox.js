@@ -1269,15 +1269,13 @@ function submitWaitlist() {
   const form  = document.getElementById('wl-form');
   const suc   = document.getElementById('wl-success');
   if (!validateRequired([fname, lname, email, phone, agent])) return;
-  /* Zoho field link names — ajuster si différents dans ton admin Zoho Forms */
+  /* Zoho field names — confirmés via inspect du formulaire Zoho */
   sendToZoho({
-    Name_First: fname.value.trim(),
-    Name_Last: lname.value.trim(),
-    Email: email.value.trim(),
-    PhoneNumber_countrycode: '+1',
-    PhoneNumber: phone.value.trim(),
-    Dropdown: agent.value,
-    zf_referrer_name: location.href,
+    'Name_First': fname.value.trim(),
+    'Name_Last': lname.value.trim(),
+    'Email': email.value.trim(),
+    'PhoneNumber': phone.value.trim(),
+    'Dropdown': agent.value,
   });
   if (form) form.style.display = 'none';
   if (suc) suc.classList.add('show');
