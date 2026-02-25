@@ -162,44 +162,53 @@
     </div>
     <div id="wl-form">
       <div class="wl-fields">
-        <div class="wl-field">
-          <label class="wl-label" for="wl-name">Nom complet <span class="wl-req">*</span></label>
-          <input type="text" class="wl-input" id="wl-name" placeholder="Jean Tremblay" required>
+        <div class="wl-field-row">
+          <div class="wl-field">
+            <label class="wl-label" for="wl-fname">Prénom <span class="wl-req">*</span></label>
+            <input type="text" class="wl-input" id="wl-fname" placeholder="Jean" required>
+          </div>
+          <div class="wl-field">
+            <label class="wl-label" for="wl-lname">Nom de famille <span class="wl-req">*</span></label>
+            <input type="text" class="wl-input" id="wl-lname" placeholder="Tremblay" required>
+          </div>
         </div>
         <div class="wl-field">
-          <label class="wl-label" for="wl-email">Courriel <span class="wl-req">*</span></label>
+          <label class="wl-label" for="wl-email">E-mail <span class="wl-req">*</span></label>
           <input type="email" class="wl-input" id="wl-email" placeholder="votre@courriel.com" required>
         </div>
         <div class="wl-field">
           <label class="wl-label" for="wl-phone">Téléphone <span class="wl-req">*</span></label>
           <input type="tel" class="wl-input" id="wl-phone" placeholder="514-xxx-xxxx" required>
         </div>
-      </div>
-      <div class="wl-optional-toggle" onclick="document.getElementById('wl-optional').classList.toggle('show')">
-        <span>Informations supplémentaires</span><span class="wl-toggle-arrow">▾</span>
-      </div>
-      <div class="wl-optional" id="wl-optional">
-        <div class="wl-fields">
-          <div class="wl-field">
-            <label class="wl-label" for="wl-cabinet">Nom du cabinet <span class="wl-opt">(optionnel)</span></label>
-            <input type="text" class="wl-input" id="wl-cabinet" placeholder="Cabinet XYZ">
-          </div>
-          <div class="wl-field">
-            <label class="wl-label" for="wl-clients">Nombre de clients <span class="wl-opt">(optionnel)</span></label>
-            <select class="wl-input" id="wl-clients"><option value="">Sélectionner</option><option>1–50</option><option>50–150</option><option>150–300</option><option>300+</option></select>
-          </div>
-          <div class="wl-field">
-            <label class="wl-label" for="wl-tool">Outil actuel <span class="wl-opt">(optionnel)</span></label>
-            <select class="wl-input" id="wl-tool"><option value="">Sélectionner</option><option>Kronos</option><option>Equisoft</option><option>Excel</option><option>Aucun</option><option>Autre</option></select>
-          </div>
-          <div class="wl-field">
-            <label class="wl-label" for="wl-clientele">Type de clientèle <span class="wl-opt">(optionnel)</span></label>
-            <select class="wl-input" id="wl-clientele"><option value="">Sélectionner</option><option>100% Marché familial</option><option>50/50 Corpo & familial</option><option>100% Corpo</option></select>
-          </div>
-          <div class="wl-field">
-            <label class="wl-label" for="wl-source">Comment avez-vous entendu parler de FINOX? <span class="wl-opt">(optionnel)</span></label>
-            <select class="wl-input" id="wl-source"><option value="">Sélectionner</option><option>Référence d'un collègue</option><option>Réseaux sociaux</option><option>Recherche Google</option><option>Événement / conférence</option><option>Autre</option></select>
-          </div>
+        <div class="wl-field">
+          <label class="wl-label" for="wl-agent">Agent Général <span class="wl-req">*</span></label>
+          <select class="wl-input" id="wl-agent" required>
+            <option value="">Sélectionner votre agent général</option>
+            <option value="GFS">GFS</option>
+            <option value="BridgeForce Financial Group">BridgeForce Financial Group</option>
+            <option value="Carte Financial Group">Carte Financial Group</option>
+            <option value="Centre de Services Financiers Union 2005">Centre de Services Financiers Union 2005</option>
+            <option value="Desjardins Réseau Indépendant Assurances">Desjardins Réseau Indépendant Assurances</option>
+            <option value="Financière Horizons">Financière Horizons</option>
+            <option value="Groupe AgenZ">Groupe AgenZ</option>
+            <option value="Groupe Cloutier">Groupe Cloutier</option>
+            <option value="Groupe Financier Botica">Groupe Financier Botica</option>
+            <option value="Groupe Financier Boulos">Groupe Financier Boulos</option>
+            <option value="Groupe Financier Experior">Groupe Financier Experior</option>
+            <option value="Groupe Robillard CGL">Groupe Robillard CGL</option>
+            <option value="Groupe SFGT">Groupe SFGT</option>
+            <option value="HUB Financial">HUB Financial</option>
+            <option value="Life 100 Insurance &amp; Investments">Life 100 Insurance &amp; Investments</option>
+            <option value="Mega Financial Group">Mega Financial Group</option>
+            <option value="MICA Services Financiers">MICA Services Financiers</option>
+            <option value="OM Financial">OM Financial</option>
+            <option value="PPI">PPI</option>
+            <option value="Punjab Insurance">Punjab Insurance</option>
+            <option value="Qualified Financial Services">Qualified Financial Services</option>
+            <option value="IDC">IDC</option>
+            <option value="TruStone Financial">TruStone Financial</option>
+            <option value="VFG Financial Group">VFG Financial Group</option>
+          </select>
         </div>
       </div>
       <button class="wl-submit" onclick="submitWaitlist()">Réserver ma place →</button>

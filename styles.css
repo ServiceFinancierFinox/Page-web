@@ -150,6 +150,7 @@ nav.scrolled{background:rgba(6,6,8,.96);border-bottom:1px solid rgba(196,162,74,
 .wl-title{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:600;margin-bottom:10px}
 .wl-sub{font-size:14px;color:var(--cd);line-height:1.7;max-width:360px;margin:0 auto}
 .wl-fields{display:flex;flex-direction:column;gap:16px;margin-bottom:20px}
+.wl-field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .wl-field{display:flex;flex-direction:column;gap:6px}
 .wl-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--cm)}
 .wl-req{color:var(--g)}
@@ -158,13 +159,6 @@ nav.scrolled{background:rgba(6,6,8,.96);border-bottom:1px solid rgba(196,162,74,
 .wl-input:focus{border-color:rgba(196,162,74,.5);box-shadow:0 0 0 3px rgba(196,162,74,.08)}
 .wl-input::placeholder{color:var(--cm);opacity:.5}
 .wl-input.error{border-color:var(--red);box-shadow:0 0 0 3px rgba(196,74,74,.1)}
-.wl-optional-toggle{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;margin-bottom:14px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.06em;color:var(--cm);cursor:pointer;border-radius:8px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.05);transition:all .3s}
-.wl-optional-toggle:hover{border-color:rgba(196,162,74,.2);color:var(--cd)}
-.wl-toggle-arrow{transition:transform .3s}
-.wl-optional{max-height:0;overflow:hidden;transition:max-height .4s ease}
-.wl-optional.show{max-height:600px}
-.wl-optional.show+.wl-optional-toggle .wl-toggle-arrow,.wl-optional.show~.wl-optional-toggle .wl-toggle-arrow{transform:rotate(180deg)}
-.wl-input select,.wl-input option{background:var(--s2);color:var(--cr)}
 select.wl-input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M3 5l3 3 3-3' stroke='%23A09278' fill='none' stroke-width='1.5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
 .wl-submit{width:100%;background:linear-gradient(140deg,var(--gl),var(--g));border:none;border-radius:14px;padding:16px;font-family:'Cabinet Grotesk',sans-serif;font-size:15px;font-weight:800;color:var(--ink);cursor:none;transition:transform .35s var(--ease-spring),box-shadow .35s;box-shadow:0 4px 32px rgba(196,162,74,.25)}
 .wl-submit:hover{transform:scale(1.02);box-shadow:0 8px 50px rgba(196,162,74,.4)}

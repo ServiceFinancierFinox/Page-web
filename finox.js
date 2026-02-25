@@ -1212,16 +1212,37 @@ function closeWaitlistModal(e) {
     document.body.style.overflow = '';
   }
 }
-/* Google Sheets endpoint — replace with your deployed Apps Script URL */
-const SHEETS_URL = '';
+/*
+  Zoho Forms — soumission via hidden iframe POST
+  Field link names (vérifier dans Zoho Forms > champ > Field Link Name) :
+    Name_First, Name_Last, Email, PhoneNumber_countrycode, PhoneNumber, Dropdown
+*/
+const ZOHO_FORM_URL = 'https://forms.zohopublic.ca/Finox/form/WaitlistFinoxOSConseillers/formperma/HHK7J7cucQPW3b1Y0D95g2yUxw7Vm2antELMCEUhpII/htmlRecords/submit';
 
-function sendToSheets(data) {
-  if (!SHEETS_URL) return;
-  fetch(SHEETS_URL, {
-    method: 'POST', mode: 'no-cors',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data),
-  }).catch(() => {});
+function sendToZoho(data) {
+  if (!ZOHO_FORM_URL) return;
+  let iframe = document.getElementById('zoho-hidden');
+  if (!iframe) {
+    iframe = document.createElement('iframe');
+    iframe.id = 'zoho-hidden';
+    iframe.name = 'zoho-hidden';
+    iframe.style.display = 'none';
+    document.body.appendChild(iframe);
+  }
+  const form = document.createElement('form');
+  form.method = 'POST';
+  form.action = ZOHO_FORM_URL;
+  form.target = 'zoho-hidden';
+  form.style.display = 'none';
+  Object.entries(data).forEach(([k, v]) => {
+    if (!v) return;
+    const inp = document.createElement('input');
+    inp.type = 'hidden'; inp.name = k; inp.value = v;
+    form.appendChild(inp);
+  });
+  document.body.appendChild(form);
+  form.submit();
+  setTimeout(() => form.remove(), 500);
 }
 
 function validateRequired(fields) {
@@ -1240,23 +1261,21 @@ function validateRequired(fields) {
 }
 
 function submitWaitlist() {
-  const name  = document.getElementById('wl-name');
+  const fname = document.getElementById('wl-fname');
+  const lname = document.getElementById('wl-lname');
   const email = document.getElementById('wl-email');
   const phone = document.getElementById('wl-phone');
+  const agent = document.getElementById('wl-agent');
   const form  = document.getElementById('wl-form');
   const suc   = document.getElementById('wl-success');
-  if (!validateRequired([name, email, phone])) return;
-  sendToSheets({
-    source: 'modal',
-    name: name.value.trim(),
-    email: email.value.trim(),
-    phone: phone.value.trim(),
-    cabinet: (document.getElementById('wl-cabinet') || {}).value || '',
-    clients: (document.getElementById('wl-clients') || {}).value || '',
-    tool: (document.getElementById('wl-tool') || {}).value || '',
-    clientele: (document.getElementById('wl-clientele') || {}).value || '',
-    referral: (document.getElementById('wl-source') || {}).value || '',
-    date: new Date().toISOString(),
+  if (!validateRequired([fname, lname, email, phone, agent])) return;
+  /* Zoho field names — confirmés via inspect du formulaire Zoho */
+  sendToZoho({
+    'Name_First': fname.value.trim(),
+    'Name_Last': lname.value.trim(),
+    'Email': email.value.trim(),
+    'PhoneNumber': phone.value.trim(),
+    'Dropdown': agent.value,
   });
   if (form) form.style.display = 'none';
   if (suc) suc.classList.add('show');
@@ -1270,7 +1289,7 @@ function ctaSubmit() {
   const suc    = document.getElementById('cta-success');
   const spotFill = document.getElementById('spots-fill');
   if (!validateRequired([name, email])) return;
-  sendToSheets({
+  sendToZoho({
     source: 'cta',
     name: name.value.trim(),
     email: email.value.trim(),
