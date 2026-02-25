@@ -162,44 +162,46 @@
     </div>
     <div id="wl-form">
       <div class="wl-fields">
-        <div class="wl-field">
-          <label class="wl-label" for="wl-name">Nom complet <span class="wl-req">*</span></label>
-          <input type="text" class="wl-input" id="wl-name" placeholder="Jean Tremblay" required>
+        <div class="wl-field-row">
+          <div class="wl-field">
+            <label class="wl-label" for="wl-fname">Prénom <span class="wl-req">*</span></label>
+            <input type="text" class="wl-input" id="wl-fname" placeholder="Jean" required>
+          </div>
+          <div class="wl-field">
+            <label class="wl-label" for="wl-lname">Nom de famille <span class="wl-req">*</span></label>
+            <input type="text" class="wl-input" id="wl-lname" placeholder="Tremblay" required>
+          </div>
         </div>
         <div class="wl-field">
-          <label class="wl-label" for="wl-email">Courriel <span class="wl-req">*</span></label>
+          <label class="wl-label" for="wl-email">E-mail <span class="wl-req">*</span></label>
           <input type="email" class="wl-input" id="wl-email" placeholder="votre@courriel.com" required>
         </div>
         <div class="wl-field">
           <label class="wl-label" for="wl-phone">Téléphone <span class="wl-req">*</span></label>
           <input type="tel" class="wl-input" id="wl-phone" placeholder="514-xxx-xxxx" required>
         </div>
-      </div>
-      <div class="wl-optional-toggle" onclick="document.getElementById('wl-optional').classList.toggle('show')">
-        <span>Informations supplémentaires</span><span class="wl-toggle-arrow">▾</span>
-      </div>
-      <div class="wl-optional" id="wl-optional">
-        <div class="wl-fields">
-          <div class="wl-field">
-            <label class="wl-label" for="wl-cabinet">Nom du cabinet <span class="wl-opt">(optionnel)</span></label>
-            <input type="text" class="wl-input" id="wl-cabinet" placeholder="Cabinet XYZ">
-          </div>
-          <div class="wl-field">
-            <label class="wl-label" for="wl-clients">Nombre de clients <span class="wl-opt">(optionnel)</span></label>
-            <select class="wl-input" id="wl-clients"><option value="">Sélectionner</option><option>1–50</option><option>50–150</option><option>150–300</option><option>300+</option></select>
-          </div>
-          <div class="wl-field">
-            <label class="wl-label" for="wl-tool">Outil actuel <span class="wl-opt">(optionnel)</span></label>
-            <select class="wl-input" id="wl-tool"><option value="">Sélectionner</option><option>Kronos</option><option>Equisoft</option><option>Excel</option><option>Aucun</option><option>Autre</option></select>
-          </div>
-          <div class="wl-field">
-            <label class="wl-label" for="wl-clientele">Type de clientèle <span class="wl-opt">(optionnel)</span></label>
-            <select class="wl-input" id="wl-clientele"><option value="">Sélectionner</option><option>100% Marché familial</option><option>50/50 Corpo & familial</option><option>100% Corpo</option></select>
-          </div>
-          <div class="wl-field">
-            <label class="wl-label" for="wl-source">Comment avez-vous entendu parler de FINOX? <span class="wl-opt">(optionnel)</span></label>
-            <select class="wl-input" id="wl-source"><option value="">Sélectionner</option><option>Référence d'un collègue</option><option>Réseaux sociaux</option><option>Recherche Google</option><option>Événement / conférence</option><option>Autre</option></select>
-          </div>
+        <div class="wl-field">
+          <label class="wl-label" for="wl-agent">Agent Général <span class="wl-req">*</span></label>
+          <select class="wl-input" id="wl-agent" required>
+            <option value="">Sélectionner votre agent général</option>
+            <option>AFL Groupe Financier</option>
+            <option>Aurrea Signature</option>
+            <option>Cavalluzzo & Associates</option>
+            <option>Centre financier Signature</option>
+            <option>Conseils PPI</option>
+            <option>Financière des professionnels</option>
+            <option>Financière S_entiel</option>
+            <option>Groupe Cloutier</option>
+            <option>Groupe Financier Multi Courtage</option>
+            <option>Groupe Financier Horizons</option>
+            <option>Hub Financial</option>
+            <option>IDC Worldsource</option>
+            <option>MICA Capital</option>
+            <option>Mérici Services Financiers</option>
+            <option>Réseau d'assurance IDC</option>
+            <option>SFL Gestion de patrimoine</option>
+            <option>Autre</option>
+          </select>
         </div>
       </div>
       <button class="wl-submit" onclick="submitWaitlist()">Réserver ma place →</button>

@@ -1238,22 +1238,20 @@ function validateRequired(fields) {
 }
 
 function submitWaitlist() {
-  const name  = document.getElementById('wl-name');
+  const fname = document.getElementById('wl-fname');
+  const lname = document.getElementById('wl-lname');
   const email = document.getElementById('wl-email');
   const phone = document.getElementById('wl-phone');
+  const agent = document.getElementById('wl-agent');
   const form  = document.getElementById('wl-form');
   const suc   = document.getElementById('wl-success');
-  if (!validateRequired([name, email, phone])) return;
+  if (!validateRequired([fname, lname, email, phone, agent])) return;
   sendToZoho({
-    source: 'modal',
-    name: name.value.trim(),
+    prenom: fname.value.trim(),
+    nom: lname.value.trim(),
     email: email.value.trim(),
-    phone: phone.value.trim(),
-    cabinet: (document.getElementById('wl-cabinet') || {}).value || '',
-    clients: (document.getElementById('wl-clients') || {}).value || '',
-    tool: (document.getElementById('wl-tool') || {}).value || '',
-    clientele: (document.getElementById('wl-clientele') || {}).value || '',
-    referral: (document.getElementById('wl-source') || {}).value || '',
+    telephone: phone.value.trim(),
+    agent_general: agent.value,
     date: new Date().toISOString(),
   });
   if (form) form.style.display = 'none';
