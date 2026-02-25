@@ -1213,23 +1213,16 @@ function closeWaitlistModal(e) {
   }
 }
 /*
-  Zoho Forms — soumission via Cloudflare Pages Function (proxy serveur)
-  Le frontend POST vers /api/waitlist, qui relaie à Zoho côté serveur.
+  Zoho CRM — Web-to-Contact form
+  Le <form> POST directement vers Zoho CRM via un iframe caché.
+  Les tokens d'auth sont intégrés en champs hidden dans le HTML.
 */
-function sendToZoho(data) {
-  const body = new URLSearchParams();
-  body.append('zf_referrer_name', window.location.href);
-  body.append('zf_redirect_url', '');
-  body.append('zc_gad', '');
-  Object.entries(data).forEach(([k, v]) => body.append(k, v));
-  fetch('/api/waitlist', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: body.toString(),
-  }).catch(() => {});
-}
-
-function validateRequired(fields) {
+function handleWaitlistSubmit(e) {
+  const fname = document.getElementById('wl-fname');
+  const lname = document.getElementById('wl-lname');
+  const email = document.getElementById('wl-email');
+  const phone = document.getElementById('wl-phone');
+  const fields = [fname, lname, email, phone];
   let valid = true;
   fields.forEach(el => {
     if (!el) return;
@@ -1240,28 +1233,15 @@ function validateRequired(fields) {
       valid = false;
     }
   });
-  return valid;
-}
-
-function submitWaitlist() {
-  const fname = document.getElementById('wl-fname');
-  const lname = document.getElementById('wl-lname');
-  const email = document.getElementById('wl-email');
-  const phone = document.getElementById('wl-phone');
-  const agent = document.getElementById('wl-agent');
-  const form  = document.getElementById('wl-form');
-  const suc   = document.getElementById('wl-success');
-  if (!validateRequired([fname, lname, email, phone, agent])) return;
-  sendToZoho({
-    'Name_First': fname.value.trim(),
-    'Name_Last':  lname.value.trim(),
-    'Email':      email.value.trim(),
-    'PhoneNumber_countrycode': '',
-    'PhoneNumber': phone.value.trim(),
-    'Dropdown':   agent.value,
-  });
-  if (form) form.style.display = 'none';
-  if (suc) suc.classList.add('show');
+  if (!valid) { e.preventDefault(); return false; }
+  /* Le form POST part vers l'iframe caché — afficher le succès */
+  setTimeout(() => {
+    const formDiv = document.getElementById('wl-form');
+    const suc = document.getElementById('wl-success');
+    if (formDiv) formDiv.style.display = 'none';
+    if (suc) suc.classList.add('show');
+  }, 400);
+  return true;
 }
 
 function ctaSubmit() {
@@ -1301,10 +1281,10 @@ function initCommTabs() {
 /* ──────────────────────────────────────────────────────────────
    EXPOSE TO HTML (onclick)
 ────────────────────────────────────────────────────────────── */
-window.openWaitlistModal  = openWaitlistModal;
-window.closeWaitlistModal = closeWaitlistModal;
-window.submitWaitlist     = submitWaitlist;
-window.ctaSubmit          = ctaSubmit;
+window.openWaitlistModal    = openWaitlistModal;
+window.closeWaitlistModal   = closeWaitlistModal;
+window.handleWaitlistSubmit = handleWaitlistSubmit;
+window.ctaSubmit            = ctaSubmit;
 
 /* ──────────────────────────────────────────────────────────────
    BOOT

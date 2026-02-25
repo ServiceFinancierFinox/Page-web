@@ -152,6 +152,7 @@
 </section>
 
 <!-- ═══════════════════════ WAITLIST MODAL ══════════════ -->
+<iframe name="zoho-crm-iframe" id="zoho-crm-iframe" style="display:none"></iframe>
 <div class="wl-overlay" id="wl-overlay" onclick="closeWaitlistModal(event)">
   <div class="wl-modal" onclick="event.stopPropagation()">
     <button class="wl-close" onclick="closeWaitlistModal()">&times;</button>
@@ -161,62 +162,43 @@
       <p class="wl-sub">Rejoignez les 50 premiers conseillers bêta et bénéficiez d'un accès gratuit complet avec formation personnalisée.</p>
     </div>
     <div id="wl-form">
-      <div class="wl-fields">
-        <div class="wl-field-row">
-          <div class="wl-field">
-            <label class="wl-label" for="wl-fname">Prénom <span class="wl-req">*</span></label>
-            <input type="text" class="wl-input" id="wl-fname" placeholder="Jean" required>
+      <form id="webform43836000007128795" action="https://crm.zohocloud.ca/crm/WebToContactForm"
+            name="WebToContacts43836000007128795" method="POST" target="zoho-crm-iframe"
+            accept-charset="UTF-8" onsubmit="return handleWaitlistSubmit(event)">
+        <!-- Zoho CRM hidden auth fields — ne pas modifier -->
+        <input type="hidden" name="xnQsjsdp" value="07b79c088889c9c5879b69da765a408ac9f5925c2ccaa56c828400c843374273">
+        <input type="hidden" name="zc_gad" id="zc_gad" value="">
+        <input type="hidden" name="xmIwtLD" value="e37808faf6677df188873fcf3e6d622aa8129549b28207a7c302778adae07591f8901a02488f83247455212a99bcd06b">
+        <input type="hidden" name="actionType" value="Q29udGFjdHM=">
+        <input type="hidden" name="returnURL" value="https://page-web-8rg.pages.dev">
+        <input type="hidden" name="aG9uZXlwb3Q" value="">
+        <div class="wl-fields">
+          <div class="wl-field-row">
+            <div class="wl-field">
+              <label class="wl-label" for="wl-fname">Prénom <span class="wl-req">*</span></label>
+              <input type="text" class="wl-input" id="wl-fname" name="First Name" placeholder="Jean" required maxlength="40">
+            </div>
+            <div class="wl-field">
+              <label class="wl-label" for="wl-lname">Nom de famille <span class="wl-req">*</span></label>
+              <input type="text" class="wl-input" id="wl-lname" name="Last Name" placeholder="Tremblay" required maxlength="80">
+            </div>
           </div>
           <div class="wl-field">
-            <label class="wl-label" for="wl-lname">Nom de famille <span class="wl-req">*</span></label>
-            <input type="text" class="wl-input" id="wl-lname" placeholder="Tremblay" required>
+            <label class="wl-label" for="wl-email">E-mail <span class="wl-req">*</span></label>
+            <input type="email" class="wl-input" id="wl-email" name="Email" placeholder="votre@courriel.com" required maxlength="100">
+          </div>
+          <div class="wl-field">
+            <label class="wl-label" for="wl-phone">Téléphone <span class="wl-req">*</span></label>
+            <input type="tel" class="wl-input" id="wl-phone" name="Phone" placeholder="514-xxx-xxxx" required maxlength="50">
           </div>
         </div>
-        <div class="wl-field">
-          <label class="wl-label" for="wl-email">E-mail <span class="wl-req">*</span></label>
-          <input type="email" class="wl-input" id="wl-email" placeholder="votre@courriel.com" required>
+        <button type="submit" class="wl-submit">Réserver ma place →</button>
+        <div class="wl-trust">
+          <span>✓ Gratuit</span>
+          <span>✓ Aucune carte</span>
+          <span>✓ AMF-compatible</span>
         </div>
-        <div class="wl-field">
-          <label class="wl-label" for="wl-phone">Téléphone <span class="wl-req">*</span></label>
-          <input type="tel" class="wl-input" id="wl-phone" placeholder="514-xxx-xxxx" required>
-        </div>
-        <div class="wl-field">
-          <label class="wl-label" for="wl-agent">Agent Général <span class="wl-req">*</span></label>
-          <select class="wl-input" id="wl-agent" required>
-            <option value="">Sélectionner votre agent général</option>
-            <option value="GFS">GFS</option>
-            <option value="BridgeForce Financial Group">BridgeForce Financial Group</option>
-            <option value="Carte Financial Group">Carte Financial Group</option>
-            <option value="Centre de Services Financiers Union 2005">Centre de Services Financiers Union 2005</option>
-            <option value="Desjardins Réseau Indépendant Assurances">Desjardins Réseau Indépendant Assurances</option>
-            <option value="Financière Horizons">Financière Horizons</option>
-            <option value="Groupe AgenZ">Groupe AgenZ</option>
-            <option value="Groupe Cloutier">Groupe Cloutier</option>
-            <option value="Groupe Financier Botica">Groupe Financier Botica</option>
-            <option value="Groupe Financier Boulos">Groupe Financier Boulos</option>
-            <option value="Groupe Financier Experior">Groupe Financier Experior</option>
-            <option value="Groupe Robillard CGL">Groupe Robillard CGL</option>
-            <option value="Groupe SFGT">Groupe SFGT</option>
-            <option value="HUB Financial">HUB Financial</option>
-            <option value="Life 100 Insurance &amp; Investments">Life 100 Insurance &amp; Investments</option>
-            <option value="Mega Financial Group">Mega Financial Group</option>
-            <option value="MICA Services Financiers">MICA Services Financiers</option>
-            <option value="OM Financial">OM Financial</option>
-            <option value="PPI">PPI</option>
-            <option value="Punjab Insurance">Punjab Insurance</option>
-            <option value="Qualified Financial Services">Qualified Financial Services</option>
-            <option value="IDC">IDC</option>
-            <option value="TruStone Financial">TruStone Financial</option>
-            <option value="VFG Financial Group">VFG Financial Group</option>
-          </select>
-        </div>
-      </div>
-      <button class="wl-submit" onclick="submitWaitlist()">Réserver ma place →</button>
-      <div class="wl-trust">
-        <span>✓ Gratuit</span>
-        <span>✓ Aucune carte</span>
-        <span>✓ AMF-compatible</span>
-      </div>
+      </form>
     </div>
     <div class="wl-success" id="wl-success">
       <div class="wl-success-icon">✓</div>
