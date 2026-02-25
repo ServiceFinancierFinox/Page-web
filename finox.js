@@ -1212,38 +1212,6 @@ function closeWaitlistModal(e) {
     document.body.style.overflow = '';
   }
 }
-/*
-  Zoho CRM — Web-to-Contact form
-  Le <form> POST directement vers Zoho CRM via un iframe caché.
-  Les tokens d'auth sont intégrés en champs hidden dans le HTML.
-*/
-function handleWaitlistSubmit(e) {
-  const fname = document.getElementById('wl-fname');
-  const lname = document.getElementById('wl-lname');
-  const email = document.getElementById('wl-email');
-  const phone = document.getElementById('wl-phone');
-  const fields = [fname, lname, email, phone];
-  let valid = true;
-  fields.forEach(el => {
-    if (!el) return;
-    el.classList.remove('error');
-    if (!el.value.trim() || (el.type === 'email' && !el.value.includes('@'))) {
-      el.classList.add('error');
-      setTimeout(() => el.classList.remove('error'), 2500);
-      valid = false;
-    }
-  });
-  if (!valid) { e.preventDefault(); return false; }
-  /* Le form POST part vers l'iframe caché — afficher le succès */
-  setTimeout(() => {
-    const formDiv = document.getElementById('wl-form');
-    const suc = document.getElementById('wl-success');
-    if (formDiv) formDiv.style.display = 'none';
-    if (suc) suc.classList.add('show');
-  }, 400);
-  return true;
-}
-
 function ctaSubmit() {
   const name   = document.getElementById('cta-name');
   const email  = document.getElementById('cta-email');
@@ -1281,10 +1249,9 @@ function initCommTabs() {
 /* ──────────────────────────────────────────────────────────────
    EXPOSE TO HTML (onclick)
 ────────────────────────────────────────────────────────────── */
-window.openWaitlistModal    = openWaitlistModal;
-window.closeWaitlistModal   = closeWaitlistModal;
-window.handleWaitlistSubmit = handleWaitlistSubmit;
-window.ctaSubmit            = ctaSubmit;
+window.openWaitlistModal  = openWaitlistModal;
+window.closeWaitlistModal = closeWaitlistModal;
+window.ctaSubmit          = ctaSubmit;
 
 /* ──────────────────────────────────────────────────────────────
    BOOT
