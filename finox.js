@@ -303,81 +303,168 @@ const DATA = {
   ],
 
   testimonials: [
-    { ini:'MP', name:'Mathieu Perreault', role:'Conseiller senior · 200+ clients · Montréal', text:'FINOX a transformé ma pratique. Je fais maintenant <strong>3 ABF complets par jour</strong> au lieu d\'un seul. Le Pulse Vital m\'a permis de récupérer 8 clients que j\'aurais perdus sans le savoir.', hl:'3× plus d\'ABF par jour' },
-    { ini:'CB', name:'Caroline Beauchamp', role:'Directrice de cabinet · 12 conseillers · Laval', text:'Enfin un OS fait par quelqu\'un qui comprend l\'assurance québécoise. Le préavis de remplacement automatique seul vaut le prix — ça me sauvait <strong>45 minutes par dossier</strong>.', hl:'45 min économisées/dossier' },
-    { ini:'FL', name:'François Lamontagne', role:'Entrepreneur · Agence indépendante · Québec', text:'J\'ai abandonné Salesforce après 3 ans. FINOX fait <strong>en 1 clic</strong> ce qui me prenait 10 clics. Le calculateur hypothécaire Desjardins vs marché est un outil de vente incroyable.', hl:'Ex-Salesforce converti' },
-    { ini:'SG', name:'Sophie Gagnon', role:'Planificatrice financière · 180 clients · Sherbrooke', text:'Le module ABF de FINOX m\'a fait gagner <strong>2 heures par jour</strong>. Je peux enfin me concentrer sur le conseil plutôt que la paperasse.', hl:'2h récupérées/jour' },
-    { ini:'JT', name:'Jean-Philippe Tremblay', role:'Conseiller junior · 75 clients · Trois-Rivières', text:'En 6 mois avec FINOX, j\'ai <strong>doublé mon book</strong>. L\'IA me suggère les bonnes opportunités au bon moment.', hl:'Book doublé en 6 mois' },
-    { ini:'ML', name:'Marie-Ève Lavoie', role:'Conseillère senior · 250 clients · Gatineau', text:'Le Pulse Vital est un game-changer. J\'ai identifié <strong>12 clients à risque</strong> de départ que j\'ai pu retenir grâce aux alertes automatiques.', hl:'+40% de rétention' },
-    { ini:'PB', name:'Patrick Bouchard', role:'Directeur de cabinet · 8 conseillers · Longueuil', text:'Mon équipe produit <strong>60% plus de soumissions</strong> depuis qu\'on est sur FINOX. Les ABF automatisés changent tout.', hl:'60% plus de soumissions' },
-    { ini:'IG', name:'Isabelle Girard', role:'Représentante en assurance · 130 clients · Lévis', text:'Le préavis de remplacement se génère <strong>en 30 secondes</strong>. Avant, c\'était 20 minutes minimum à chercher les bons formulaires.', hl:'30 sec vs 20 min' },
-    { ini:'RC', name:'Robert Côté', role:'Conseiller senior · 300+ clients · Saguenay', text:'À 58 ans, je pensais que la techno c\'était pas pour moi. FINOX est tellement <strong>intuitif</strong> que j\'ai tout appris en une journée.', hl:'Adopté en 1 journée' },
-    { ini:'NF', name:'Nathalie Fortin', role:'Adjointe administrative · Cabinet de 15 conseillers · Québec', text:'La communication centralisée me permet de gérer <strong>3 fois plus de suivis</strong> sans rien oublier. Les rappels IA sont incroyables.', hl:'3× plus de suivis' },
-    { ini:'AB', name:'Alexandre Bergeron', role:'Planificateur financier · 200 clients · Montréal', text:'Le calculateur hypothécaire compare <strong>Desjardins, National et TD</strong> en temps réel. Mes clients sont impressionnés à chaque rencontre.', hl:'Comparatif temps réel' },
-    { ini:'VR', name:'Valérie Roy', role:'Conseillère junior · 60 clients · Drummondville', text:'J\'ai commencé avec FINOX dès le jour 1 de ma carrière. Mes collègues seniors me demandent comment je fais <strong>autant de ventes</strong>.', hl:'Top vendeuse dès l\'an 1' },
-    { ini:'DM', name:'Daniel Morin', role:'Conseiller senior · 350 clients · Rimouski', text:'La timeline client me donne une vue <strong>360° instantanée</strong>. Plus besoin de fouiller dans 4 logiciels différents.', hl:'Vue 360° en 1 clic' },
-    { ini:'LP', name:'Lucie Pelletier', role:'Directrice de cabinet · 6 conseillers · Joliette', text:'Depuis FINOX, notre cabinet a <strong>réduit les erreurs de conformité de 90%</strong>. L\'AMF nous a même félicités lors du dernier audit.', hl:'90% moins d\'erreurs AMF' },
-    { ini:'MG', name:'Marc-André Gagné', role:'Entrepreneur · Agence indépendante · Terrebonne', text:'J\'ai remplacé 4 logiciels par FINOX. <strong>Un seul outil</strong> pour tout gérer : ABF, signatures, conformité, communication.', hl:'4 logiciels → 1 seul' },
-    { ini:'SL', name:'Stéphanie Lévesque', role:'Conseillère senior · 175 clients · Granby', text:'Les opportunités automatiques m\'ont généré <strong>18 nouvelles ventes</strong> en 3 mois. Des opportunités que j\'aurais manquées sans l\'IA.', hl:'18 ventes en 3 mois' },
-    { ini:'EO', name:'Éric Ouellet', role:'Représentant en assurance · 90 clients · Sept-Îles', text:'Même en région éloignée, FINOX fonctionne <strong>parfaitement</strong>. Le mode hors-ligne me permet de faire mes ABF chez le client.', hl:'Fonctionne partout' },
-    { ini:'JB', name:'Julie Bélanger', role:'Planificatrice financière · 220 clients · Saint-Jean', text:'La signature OneSpan intégrée a <strong>éliminé les déplacements</strong>. Mes clients signent depuis leur téléphone en 2 minutes.', hl:'Signature en 2 min' },
-    { ini:'AL', name:'André Leblanc', role:'Conseiller senior · 400+ clients · Montréal', text:'Avec 400 clients, je ne pouvais plus tout suivre manuellement. FINOX me donne <strong>une priorité claire chaque matin</strong>.', hl:'400 clients sans stress' },
-    { ini:'CP', name:'Catherine Paquette', role:'Directrice de cabinet · 20 conseillers · Laval', text:'Le déploiement pour mes 20 conseillers a pris <strong>moins de 2 semaines</strong>. Le support est exceptionnel.', hl:'Déployé en 2 semaines' },
-    { ini:'GL', name:'Guillaume Landry', role:'Conseiller junior · 45 clients · Shawinigan', text:'L\'IA m\'a aidé à préparer mes premières rencontres clients avec <strong>des questions pertinentes</strong>. Je suis plus confiant.', hl:'Confiance dès le début' },
-    { ini:'MH', name:'Mélanie Hébert', role:'Conseillère senior · 190 clients · Victoriaville', text:'Le Pulse Vital a détecté <strong>15 polices sous-assurées</strong> dans mon book. Chaque correction = une commission additionnelle.', hl:'15 ventes additionnelles' },
-    { ini:'ST', name:'Simon Thériault', role:'Représentant en assurance · 110 clients · Alma', text:'Les 3 plans de maladies graves visuels ont <strong>triplé mon taux de fermeture</strong> en MG. Les clients comprennent enfin la valeur.', hl:'3× plus de ventes MG' },
-    { ini:'AD', name:'Annie Dion', role:'Adjointe administrative · Cabinet de 10 conseillers · Gatineau', text:'Google Workspace intégré à FINOX = <strong>zéro doublon</strong>. Calendrier, emails, contacts — tout est synchronisé.', hl:'Zéro doublon' },
-    { ini:'FG', name:'Frédéric Gauthier', role:'Planificateur financier · 280 clients · Longueuil', text:'Le rapport de conformité AMF se génère <strong>automatiquement</strong>. Ce qui me prenait une journée complète se fait en 5 minutes.', hl:'Rapport AMF en 5 min' },
-    { ini:'LC', name:'Louise Cloutier', role:'Conseillère senior · 160 clients · Sherbrooke', text:'À chaque renouvellement hypothécaire, FINOX me <strong>notifie 90 jours d\'avance</strong>. Je n\'ai plus jamais raté une opportunité.', hl:'0 opportunité manquée' },
-    { ini:'RD', name:'René Dubé', role:'Directeur de cabinet · 5 conseillers · Baie-Comeau', text:'Notre petit cabinet en région performe maintenant comme <strong>les gros bureaux de Montréal</strong>. FINOX égalise le terrain de jeu.', hl:'Performance niveau MTL' },
-    { ini:'VP', name:'Véronique Poirier', role:'Conseillère junior · 55 clients · Repentigny', text:'Le dashboard est tellement clair que mes clients me disent que je suis <strong>la plus organisée</strong> de tous leurs professionnels.', hl:'Clients impressionnés' },
-    { ini:'JR', name:'Jacques Richard', role:'Conseiller senior · 320 clients · Québec', text:'35 ans de carrière et FINOX est <strong>le meilleur outil</strong> que j\'ai utilisé. Simple, complet, fait pour nous.', hl:'35 ans d\'expérience' },
-    { ini:'SA', name:'Sylvie Audet', role:'Représentante en assurance · 85 clients · Rouyn-Noranda', text:'En Abitibi, les déplacements sont longs. Avec FINOX je fais <strong>tout à distance</strong> — ABF, signatures, suivi. Extraordinaire.', hl:'100% à distance' },
-    { ini:'MB', name:'Martin Beaulieu', role:'Planificateur financier · 240 clients · Montréal', text:'L\'intégration avec Adobe Sign et OneSpan m\'a fait économiser <strong>12 000$ par an</strong> en frais de déplacement et de papier.', hl:'12 000$/an économisés' },
-    { ini:'KC', name:'Karine Caron', role:'Directrice de cabinet · 9 conseillers · Lévis', text:'Mes conseillers passent <strong>70% moins de temps</strong> sur l\'admin depuis FINOX. Plus de temps pour vendre = plus de revenus.', hl:'70% moins d\'admin' },
-    { ini:'PL', name:'Pierre-Luc Lachance', role:'Conseiller junior · 40 clients · Saint-Hyacinthe', text:'Le module de communication m\'envoie des <strong>réponses pré-rédigées par l\'IA</strong> que je n\'ai qu\'à approuver. Gain de temps fou.', hl:'Réponses IA en 1 clic' },
-    { ini:'ES', name:'Émilie Simard', role:'Conseillère senior · 200 clients · Saguenay', text:'FINOX comprend la <strong>réalité québécoise</strong> : RAMQ, impôt au décès, REEE, REER. Pas besoin d\'adapter un outil américain.', hl:'Fait pour le Québec' },
-    { ini:'YB', name:'Yves Boucher', role:'Représentant en assurance · 150 clients · Sorel', text:'Les documents se génèrent <strong>pré-remplis et conformes</strong>. Je n\'ai plus qu\'à valider avec le client et signer.', hl:'Documents pré-remplis' },
-    { ini:'CT', name:'Chantal Tremblay', role:'Adjointe · Cabinet de 7 conseillers · Trois-Rivières', text:'La gestion des rendez-vous avec Google Calendar intégré a <strong>éliminé les doubles-bookings</strong>. Enfin la paix.', hl:'0 conflit d\'horaire' },
-    { ini:'NG', name:'Nicolas Gagnon', role:'Conseiller senior · 270 clients · Montréal', text:'Le score Pulse Vital me montre <strong>exactement qui contacter</strong> en priorité chaque semaine. Ma rétention est passée à 97%.', hl:'97% de rétention' },
-    { ini:'MR', name:'Marie-Claude Roy', role:'Planificatrice financière · 165 clients · Gatineau', text:'Les plans de maladies graves sont tellement <strong>visuels et clairs</strong> que mes clients choisissent plus souvent le plan 2 ou 3.', hl:'Ventes MG en hausse' },
-    { ini:'JM', name:'Jean-Marc Morin', role:'Directeur de cabinet · 14 conseillers · Québec', text:'Le tableau de bord cabinet me donne une <strong>vue en temps réel</strong> de la performance de chaque conseiller. Indispensable.', hl:'Gestion en temps réel' },
-    { ini:'LB', name:'Lise Bergeron', role:'Conseillère senior · 230 clients · Laval', text:'J\'ai récupéré <strong>6 clients</strong> qui étaient sur le point de partir grâce aux alertes Pulse Vital. Ça a payé l\'outil en 1 semaine.', hl:'ROI en 1 semaine' },
-    { ini:'TF', name:'Thomas Fortin', role:'Conseiller junior · 30 clients · Val-d\'Or', text:'Même en commençant, FINOX me donne <strong>l\'air d\'un pro</strong> avec des présentations clients dignes d\'un cabinet de 50 personnes.', hl:'Image professionnelle' },
-    { ini:'RP', name:'Roxanne Pelletier', role:'Représentante en assurance · 95 clients · Rimouski', text:'Le calculateur d\'impôt au décès <strong>impressionne à chaque rencontre</strong>. Les clients réalisent enfin pourquoi l\'assurance est essentielle.', hl:'Outil de vente puissant' },
-    { ini:'DL', name:'Denis Lavoie', role:'Conseiller senior · 380 clients · Montréal', text:'380 clients et <strong>zéro adjoint</strong>. FINOX automatise tellement que je gère tout seul ce qui prenait une équipe de 3 avant.', hl:'380 clients solo' },
-    { ini:'HG', name:'Hélène Girard', role:'Directrice de cabinet · 11 conseillers · Sherbrooke', text:'Notre taux de conformité AMF est passé à <strong>100%</strong> depuis FINOX. Les audits sont devenus une formalité.', hl:'100% conforme AMF' },
-    { ini:'BL', name:'Benoit Leblanc', role:'Planificateur financier · 195 clients · Lévis', text:'L\'IA analyse les besoins du client et me suggère des <strong>produits que je n\'aurais pas pensé proposer</strong>. Résultat : +35% de prime par client.', hl:'+35% de prime/client' },
-    { ini:'JC', name:'Josée Cloutier', role:'Conseillère senior · 140 clients · Drummondville', text:'Le module de renouvellement hypothécaire m\'a généré <strong>22 rendez-vous</strong> en un mois. Des clients que j\'avais oubliés.', hl:'22 rendez-vous/mois' },
-    { ini:'MF', name:'Michel Fortier', role:'Représentant en assurance · 105 clients · Joliette', text:'Les notifications push sur mon cell quand un client ouvre mon courriel — je rappelle <strong>dans les 5 minutes</strong>. Taux de fermeture explosé.', hl:'Rappel en 5 min' },
-    { ini:'SB', name:'Sandra Bouchard', role:'Adjointe · Cabinet de 18 conseillers · Montréal', text:'Le classement automatique des documents a <strong>éliminé 4 heures de travail</strong> par semaine pour notre équipe admin.', hl:'4h/sem économisées' },
-    { ini:'PG', name:'Philippe Gauthier', role:'Conseiller senior · 260 clients · Longueuil', text:'Le calcul de la prestation RRQ intégré à l\'ABF montre au client <strong>son vrai gap d\'assurance</strong>. Impossible de dire non après ça.', hl:'Gap visible = vente' },
-    { ini:'MD', name:'Martine Dubé', role:'Planificatrice financière · 210 clients · Québec', text:'FINOX a remplacé mon CRM, mon calculateur et mon outil de signature. <strong>Tout au même endroit</strong>, c\'est libérateur.', hl:'Tout-en-un' },
-    { ini:'OL', name:'Olivier Lachance', role:'Conseiller junior · 65 clients · Granby', text:'L\'ABF se remplit <strong>quasi tout seul</strong> grâce à la propagation automatique. Je tape le salaire une fois et tout se calcule.', hl:'ABF quasi automatique' },
-    { ini:'GP', name:'Geneviève Paquette', role:'Directrice de cabinet · 4 conseillers · Alma', text:'Même avec un petit cabinet, FINOX nous donne des <strong>outils de grande entreprise</strong>. On est compétitifs contre n\'importe qui.', hl:'Petit cabinet, grands outils' },
-    { ini:'AR', name:'Alain Richard', role:'Conseiller senior · 290 clients · Montréal', text:'Le suivi automatique des anniversaires de police a généré <strong>28 opportunités de mise à jour</strong> ce trimestre.', hl:'28 opportunités/trimestre' },
-    { ini:'NL', name:'Nancy Landry', role:'Représentante en assurance · 120 clients · Terrebonne', text:'Mes clients reçoivent des <strong>rapports visuels professionnels</strong> que je génère en 1 clic. Ils partagent avec leurs amis.', hl:'Clients qui réfèrent' },
-    { ini:'JL', name:'Jean-François Lévesque', role:'Planificateur financier · 175 clients · Gatineau', text:'Le module fiscal calcule l\'<strong>impact exact d\'une cotisation REER</strong> en temps réel pendant la rencontre. Le client signe sur-le-champ.', hl:'Signature immédiate' },
-    { ini:'AC', name:'Andrée Caron', role:'Conseillère senior · 155 clients · Laval', text:'La timeline client me rappelle <strong>chaque interaction passée</strong>. Je commence chaque appel en parlant de la dernière conversation. Les clients adorent.', hl:'Mémoire parfaite' },
-    { ini:'RB', name:'Richard Beaulieu', role:'Directeur de cabinet · 16 conseillers · Montréal', text:'Le recrutement de nouveaux conseillers est plus facile quand je leur montre FINOX. Ils voient un cabinet <strong>moderne et technologique</strong>.', hl:'Attire les talents' },
-    { ini:'LF', name:'Laurence Fortin', role:'Conseillère junior · 50 clients · Victoriaville', text:'Les modèles de courriels IA sont tellement bons que mes clients pensent que j\'ai <strong>une assistante personnelle</strong>.', hl:'IA comme assistante' },
-    { ini:'YG', name:'Yanick Gagné', role:'Représentant en assurance · 135 clients · Shawinigan', text:'Le Pulse Vital m\'a montré que <strong>23 de mes clients</strong> n\'avaient pas de couverture maladies graves. 23 nouvelles conversations.', hl:'23 opportunités cachées' },
-    { ini:'MT', name:'Marie Thériault', role:'Adjointe · Cabinet de 12 conseillers · Québec', text:'La synchronisation Google Workspace élimine les <strong>doubles saisies</strong>. Ce que je mets dans FINOX apparaît dans le calendrier automatiquement.', hl:'Sync automatique' },
-    { ini:'SG2', name:'Sébastien Giroux', role:'Conseiller senior · 310 clients · Montréal', text:'En 20 ans de carrière, j\'ai utilisé 6 CRM différents. FINOX est <strong>le seul conçu pour nous</strong>, les conseillers québécois.', hl:'Le seul fait pour nous' },
-    { ini:'DB', name:'Diane Boucher', role:'Planificatrice financière · 185 clients · Longueuil', text:'L\'analyse des besoins financiers prend maintenant <strong>15 minutes au lieu de 2 heures</strong>. Mes journées ont changé du tout au tout.', hl:'15 min vs 2h' },
-    { ini:'FM', name:'François Morin', role:'Directeur de cabinet · 7 conseillers · Lévis', text:'Le suivi de conformité automatique a <strong>sauvé mon cabinet</strong> d\'une amende AMF. À lui seul, ça justifie l\'investissement.', hl:'Amende AMF évitée' },
-    { ini:'IB', name:'Isabelle Bélanger', role:'Conseillère senior · 225 clients · Rimouski', text:'Le comparatif de produits d\'assurance en <strong>temps réel</strong> me permet de toujours recommander la meilleure option. Mes clients font confiance.', hl:'Comparatif en direct' },
-    { ini:'PM', name:'Pascal Ménard', role:'Représentant en assurance · 80 clients · Sept-Îles', text:'L\'application mobile FINOX me permet de faire des <strong>ABF complets sur tablette</strong> directement chez le client. Plus de retour au bureau.', hl:'ABF sur tablette' },
-    { ini:'MJ', name:'Marie-Josée Simard', role:'Conseillère senior · 170 clients · Saguenay', text:'Depuis FINOX, je termine mes journées <strong>à 17h au lieu de 20h</strong>. Même productivité, mais je retrouve ma vie de famille.', hl:'Fin à 17h' },
-    { ini:'JD', name:'Jacques Dufour', role:'Planificateur financier · 250 clients · Montréal', text:'Le module de succession intégré à l\'ABF montre <strong>l\'impact fiscal au décès</strong>. C\'est l\'outil de vente le plus puissant que j\'ai vu.', hl:'Ventes succession ×2' },
-    { ini:'TB', name:'Tanya Bergeron', role:'Directrice de cabinet · 3 conseillers · Sorel', text:'On est seulement 3 conseillers mais on gère <strong>plus de 500 clients</strong> grâce à FINOX. Impossible sans l\'automatisation.', hl:'500+ clients à 3' },
-    { ini:'EL', name:'Etienne Lapointe', role:'Conseiller junior · 35 clients · Sherbrooke', text:'Les scripts de vente IA m\'ont donné <strong>la confiance pour appeler à froid</strong>. Mon ratio de conversion a doublé.', hl:'Conversion ×2' },
-    { ini:'NR', name:'Nicole Roy', role:'Représentante en assurance · 145 clients · Trois-Rivières', text:'L\'intégration avec les compagnies d\'assurance me donne le <strong>statut des demandes en temps réel</strong>. Plus d\'attente au téléphone.', hl:'Statut en temps réel' },
-    { ini:'GC', name:'Guy Chartrand', role:'Conseiller senior · 275 clients · Québec', text:'FINOX gère mes <strong>renouvellements, anniversaires et suivis</strong> automatiquement. Je ne fais que les rencontres — le meilleur de ma job.', hl:'Que les rencontres' },
-    { ini:'CF', name:'Claudine Fontaine', role:'Adjointe · Cabinet de 9 conseillers · Laval', text:'Le portail client permet aux clients de <strong>télécharger leurs documents eux-mêmes</strong>. 50% moins d\'appels à gérer.', hl:'50% moins d\'appels' },
-    { ini:'WP', name:'William Paradis', role:'Conseiller junior · 70 clients · Repentigny', text:'Le tableau de bord me montre mes <strong>KPIs en temps réel</strong>. Je sais exactement où je me situe par rapport à mes objectifs chaque jour.', hl:'KPIs en direct' },
-    { ini:'ML2', name:'Manon Leclerc', role:'Représentante en assurance · 160 clients · Montréal', text:'L\'automatisation des suivis post-vente m\'a valu <strong>le meilleur score NPS</strong> de toute notre bannière. Mes clients se sentent importants.', hl:'Meilleur NPS de la bannière' },
-    { ini:'JG', name:'Jonathan Grenon', role:'Planificateur financier · 145 clients · Québec', text:'Le module REEE calcule <strong>les subventions SCEE et IQEE automatiquement</strong>. Les jeunes parents signent en 10 minutes.', hl:'REEE en 10 min' },
+    /* 0  */ { initials:'MP', name:'Mathieu Perreault', role:'Conseiller senior · 200+ clients · Montréal', text:'FINOX a transformé ma pratique. Je fais maintenant <strong>3 ABF complets par jour</strong> au lieu d\'un seul. Le Pulse Vital m\'a permis de récupérer <strong>8 clients</strong> que j\'aurais perdus sans le savoir.', highlight:'3× plus d\'ABF par jour' },
+    /* 1  */ { initials:'CB', name:'Caroline Beauchamp', role:'Directrice de cabinet · 12 conseillers · Laval', text:'Enfin un OS fait par quelqu\'un qui comprend l\'assurance québécoise. Le préavis de remplacement automatique seul vaut le prix — ça me sauvait <strong>45 minutes par dossier</strong>.', highlight:'45 min économisées/dossier' },
+    /* 2  */ { initials:'FL', name:'François Lamontagne', role:'Entrepreneur · Agence indépendante · Québec', text:'J\'ai abandonné Salesforce après 3 ans. FINOX fait en <strong>1 clic</strong> ce qui me prenait 10 clics. Le calculateur hypothécaire Desjardins vs marché est un outil de vente incroyable.', highlight:'Ex-Salesforce converti' },
+    /* 3  */ { initials:'VT', name:'Véronique Tremblay', role:'Planificatrice financière · 180 clients · Sherbrooke', text:'Le module REEE avec les subventions SCEE, IQEE et BEC calculées automatiquement selon le revenu familial net, c\'est un game-changer. Mes clients comprennent enfin combien ils laissent sur la table. <strong>23 nouveaux REEE ouverts en 2 mois</strong>.', highlight:'+23 REEE en 2 mois' },
+    /* 4  */ { initials:'JG', name:'Jean-Philippe Gagnon', role:'Conseiller junior · 65 clients · Gatineau', text:'En tant que nouveau conseiller, FINOX m\'a donné une longueur d\'avance incroyable. L\'IA me suggère quoi dire, quand relancer, et le Pulse Vital me montre exactement où mettre mon énergie. <strong>Mon taux de conversion a doublé</strong> en 3 mois.', highlight:'2× taux de conversion' },
+    /* 5  */ { initials:'MB', name:'Marie-Ève Bouchard', role:'Adjointe administrative · Cabinet de 8 conseillers · Longueuil', text:'Je gérais les documents de 8 conseillers dans Google Drive — c\'était le chaos. Le renommage automatique conforme AMF et le centre de documentation par client m\'ont redonné <strong>2 heures par jour</strong>.', highlight:'2h récupérées/jour' },
+    /* 6  */ { initials:'PL', name:'Patrick Lavoie', role:'Représentant en assurance · 310 clients · Trois-Rivières', text:'Le pipeline kanban a complètement changé ma façon de travailler. Je vois mes <strong>47 dossiers actifs</strong> en un coup d\'œil, je drag-and-drop les statuts, et rien ne tombe entre les craques. Fini les Post-it.', highlight:'47 dossiers visibles d\'un coup' },
+    /* 7  */ { initials:'IG', name:'Isabelle Gauthier', role:'Directrice de cabinet · 15 conseillers · Montréal', text:'Le dashboard directeur me donne une vue en temps réel sur chaque conseiller. Je vois qui performe, qui a besoin d\'aide, et les primes du mois sans demander un seul rapport. <strong>Fini les réunions de statut</strong> du lundi matin.', highlight:'Réunions de statut éliminées' },
+    /* 8  */ { initials:'SM', name:'Stéphane Morin', role:'Conseiller senior · 420 clients · Québec', text:'Avec <strong>420 clients</strong>, le Pulse Vital est devenu mon outil #1. L\'alerte quand un score descend sous 60 m\'a permis de sauver <strong>12 renouvellements</strong> ce trimestre. Sans FINOX, je les aurais perdus.', highlight:'12 renouvellements sauvés' },
+    /* 9  */ { initials:'NF', name:'Nathalie Fortin', role:'Planificatrice financière · 145 clients · Saguenay', text:'Le calculateur d\'impôt au décès intégré à l\'ABF, c\'est exactement ce qui manquait. Je n\'ai plus besoin d\'un fichier Excel à part. Les données se propagent automatiquement — <strong>zéro saisie en double</strong>.', highlight:'Zéro saisie en double' },
+    /* 10 */ { initials:'RC', name:'Richard Côté', role:'Associé principal · Cabinet de 6 conseillers · Lévis', text:'On est passé de 3 logiciels différents à FINOX seul. Les signatures OneSpan intégrées, Google Workspace fourni, la téléphonie RingCentral — tout est dans <strong>un seul écran</strong>. On économise <strong>$1 200/mois</strong> en licences.', highlight:'$1 200/mois économisés' },
+    /* 11 */ { initials:'AG', name:'Andrée Gagné', role:'Conseillère · 95 clients · Terrebonne', text:'La communication centralisée a tout changé. SMS, emails, appels — tout dans le dossier du client. Plus jamais \"c\'était dans quel email déjà?\". Mon temps de recherche est passé de <strong>20 minutes à 10 secondes</strong>.', highlight:'20 min → 10 sec de recherche' },
+    /* 12 */ { initials:'DO', name:'Daniel Ouellet', role:'Entrepreneur · Agence indépendante · Rimouski', text:'Le module corporation avec l\'import REQ automatique m\'a fait gagner un contrat de <strong>$2.1M</strong>. Le client a été impressionné de voir ses données d\'entreprise déjà importées avant même qu\'on commence l\'ABF.', highlight:'Contrat de $2.1M décroché' },
+    /* 13 */ { initials:'SP', name:'Sophie Pelletier', role:'Conseillère junior · 50 clients · Drummondville', text:'Les 3 plans de maladies graves visuels sont un outil de vente exceptionnel. Le client voit clairement la différence entre 6, 12 et 24 mois de couverture. <strong>8 clients sur 10</strong> choisissent le plan Tranquillité.', highlight:'80% choisissent le plan recommandé' },
+    /* 14 */ { initials:'ML', name:'Marc-Antoine Lévesque', role:'Représentant en assurance · 175 clients · Saint-Jean', text:'La lettre explicative automatisée pour l\'AMF seule justifie l\'abonnement. Ce qui me prenait <strong>30 minutes à rédiger</strong> se génère maintenant en 3 secondes avec toutes les bonnes informations.', highlight:'30 min → 3 sec par lettre' },
+    /* 15 */ { initials:'EB', name:'Émilie Bergeron', role:'Planificatrice financière · 220 clients · Montréal', text:'Le profil investisseur conforme AMF directement dans le dossier client assure une traçabilité parfaite. Lors de mon dernier audit, l\'inspecteur a dit que c\'était <strong>le dossier le mieux organisé</strong> qu\'il avait vu.', highlight:'Audit AMF impeccable' },
+    /* 16 */ { initials:'YL', name:'Yannick Leblanc', role:'Conseiller senior · 280 clients · Granby', text:'Les opportunités futures automatisées sont de l\'or. FINOX m\'a rappelé <strong>14 renouvellements hypothécaires</strong> 3 mois avant terme ce trimestre. Chacun est devenu une occasion de vente additionnelle.', highlight:'14 opportunités auto-détectées' },
+    /* 17 */ { initials:'CP', name:'Catherine Paquette', role:'Directrice de cabinet · 9 conseillers · Saint-Hyacinthe', text:'La formation 1:1 à l\'onboarding a été exceptionnelle. En <strong>48 heures</strong>, mes 9 conseillers étaient opérationnels. L\'import de la clientèle existante s\'est fait sans aucune perte de données.', highlight:'9 conseillers formés en 48h' },
+    /* 18 */ { initials:'BG', name:'Bruno Girard', role:'Conseiller · 130 clients · Victoriaville', text:'Les workflows automatisés sans code sont parfaits pour quelqu\'un comme moi qui n\'est pas techno. J\'ai créé une séquence de suivi J+3, J+7, J+14 en <strong>5 minutes</strong>. Mes leads ne tombent plus jamais dans l\'oubli.', highlight:'Workflows créés en 5 min' },
+    /* 19 */ { initials:'LS', name:'Lucie Simard', role:'Adjointe · Cabinet de 5 conseillers · Shawinigan', text:'L\'envoi sécurisé de documents avec mot de passe a résolu notre plus gros problème de conformité. La traçabilité — qui a accédé, quand, depuis quel appareil — est exactement ce que l\'AMF exige. <strong>100% conforme</strong>.', highlight:'100% conforme Loi 25' },
+    /* 20 */ { initials:'TB', name:'Thomas Boucher', role:'Représentant en assurance · 88 clients · Alma', text:'En région, chaque client compte double. Le Pulse Vital m\'alerte dès qu\'un client descend sous 65 points. J\'ai récupéré <strong>5 clients</strong> qui étaient sur le point de partir chez un concurrent en 3 mois.', highlight:'5 clients récupérés en 3 mois' },
+    /* 21 */ { initials:'GC', name:'Geneviève Caron', role:'Planificatrice financière · 200 clients · Gatineau', text:'Le budget personnel avec recommandations IA donne une crédibilité immédiate auprès du client. Quand je montre la liquidité disponible et le budget d\'investissement suggéré, <strong>le client dit oui plus vite</strong>.', highlight:'Cycle de vente raccourci' },
+    /* 22 */ { initials:'AB', name:'Alexandre Beaulieu', role:'Associé · Cabinet de 4 conseillers · Joliette', text:'On payait <strong>$400/mois</strong> pour Compulife, WinQuote et un vieux CRM séparé. FINOX remplace tout ça avec une interface moderne et des données qui se parlent entre elles.', highlight:'3 logiciels remplacés' },
+    /* 23 */ { initials:'MC', name:'Marie-Claude Cloutier', role:'Conseillère senior · 350 clients · Montréal', text:'Le calculateur multi-compagnies QC & Canada est visuellement <strong>10 ans en avance</strong> sur Compulife. Le temporaire décroissant, le conjoint premier et dernier décès — tout y est. Et les données de l\'ABF s\'importent automatiquement.', highlight:'Compulife remplacé' },
+    /* 24 */ { initials:'FD', name:'Francis Dubé', role:'Entrepreneur · 3 conseillers · Repentigny', text:'L\'intégration Google Calendar + Google Workspace fourni a simplifié toute notre organisation. <strong>Plus de double-booking</strong>, plus de rendez-vous oubliés. Tout est synchronisé en temps réel.', highlight:'Fini les double-bookings' },
+    /* 25 */ { initials:'JP', name:'Julie Poirier', role:'Conseillère · 110 clients · Val-d\'Or', text:'En Abitibi, mes clients sont dispersés sur un grand territoire. La signature OneSpan par texto m\'évite des heures de route. Un client a signé son préavis de remplacement <strong>depuis son tracteur</strong> en 2 minutes.', highlight:'Signature à distance partout' },
+    /* 26 */ { initials:'DR', name:'David Richard', role:'Représentant en assurance · 190 clients · Rouyn-Noranda', text:'L\'IA qui lit les emails des compagnies et met à jour les dossiers automatiquement, c\'est de la magie. Plus de <strong>34 actions IA par jour</strong> dans mon cabinet. Je me concentre sur les relations humaines.', highlight:'34 actions IA/jour' },
+    /* 27 */ { initials:'KL', name:'Karine Landry', role:'Directrice de cabinet · 7 conseillers · Sorel', text:'Le rapport de primes en temps réel par conseiller a transformé notre gestion. Je vois instantanément que ce mois-ci on est à <strong>+23% vs le mois dernier</strong> et je sais exactement pourquoi.', highlight:'+23% primes ce mois' },
+    /* 28 */ { initials:'HA', name:'Hugo Audet', role:'Conseiller senior · 260 clients · Baie-Comeau', text:'Sur la Côte-Nord, le support client FINOX est impeccable — réponse en <strong>moins de 15 minutes</strong> à chaque fois. Et le fait que la plateforme soit pensée pour le Québec fait toute la différence.', highlight:'Support < 15 min' },
+    /* 29 */ { initials:'MH', name:'Mélanie Hébert', role:'Planificatrice financière · 165 clients · Sherbrooke', text:'La timeline complète par client est un bijou pour les audits. Chaque email, appel, signature, changement de statut — tout est horodaté et traçable. Mon dernier audit AMF s\'est fait <strong>en 1 heure au lieu de 3</strong>.', highlight:'Audit 3× plus rapide' },
+    /* 30 */ { initials:'ET', name:'Éric Thériault', role:'Représentant en assurance · 75 clients · Sept-Îles', text:'Je débute dans le métier et FINOX me donne des outils de pro. L\'ABF conforme, les recommandations IA, le Pulse Vital — j\'ai l\'impression d\'avoir <strong>10 ans d\'expérience</strong> dès ma première rencontre.', highlight:'Confiance dès le jour 1' },
+    /* 31 */ { initials:'SD', name:'Sylvie Dion', role:'Adjointe administrative · Cabinet de 10 conseillers · Laval', text:'La demande de documents sécurisée via le portail client a éliminé <strong>90% de mes emails</strong> de suivi. Le client uploade ses fichiers, je reçois une notification — c\'est tout. Simple, sécurisé, rapide.', highlight:'90% moins d\'emails de suivi' },
+    /* 32 */ { initials:'PLC', name:'Pierre-Luc Lachance', role:'Associé · Cabinet indépendant · Québec', text:'La politique de confidentialité conforme à la Loi 25 prête à l\'emploi nous a évité <strong>$5 000</strong> en frais d\'avocat. Envoyée automatiquement à chaque nouveau client avec confirmation de lecture électronique.', highlight:'$5 000 économisés en frais légaux' },
+    /* 33 */ { initials:'LB', name:'Laurence Bélanger', role:'Conseillère · 140 clients · Longueuil', text:'Le calculateur MG propriété partagée pour les entrepreneurs est unique sur le marché. Il démontre visuellement pourquoi financer la prime via la corporation est plus avantageux. <strong>3 ventes de produits permanents</strong> ce mois grâce à ça.', highlight:'3 ventes permanentes/mois' },
+    /* 34 */ { initials:'GT', name:'Guillaume Tremblay', role:'Conseiller senior · 300 clients · Montréal', text:'J\'utilisais des fichiers Excel pour suivre mes renouvellements. FINOX détecte automatiquement les opportunités et m\'envoie des alertes. Ce trimestre, j\'ai capté <strong>$45 000 en primes additionnelles</strong> que j\'aurais manquées.', highlight:'$45K primes additionnelles' },
+    /* 35 */ { initials:'NG', name:'Nancy Gagnon', role:'Planificatrice financière · 230 clients · Lévis', text:'L\'adresse Google Maps qui se propage automatiquement dans tous les modules, le salaire brut converti en net instantanément — ces petits détails qui font gagner <strong>5 à 10 minutes par dossier</strong>. Sur 230 clients, ça s\'additionne vite.', highlight:'10 min gagnées/dossier' },
+    /* 36 */ { initials:'RF', name:'Robert Fortin', role:'Entrepreneur · Agence de 3 conseillers · Trois-Rivières', text:'FINOX est le premier CRM que mes conseillers utilisent vraiment. Avec les anciens logiciels, ils saisissaient des données à moitié. Maintenant le taux d\'adoption est à <strong>100%</strong> parce que c\'est simple et beau.', highlight:'100% adoption par l\'équipe' },
+    /* 37 */ { initials:'AT', name:'Annie Tanguay', role:'Conseillère · 85 clients · Terrebonne', text:'Les séquences de relance automatisées via SMS RingCentral ont transformé mes suivis. <strong>12 prospects</strong> relancés automatiquement cette semaine sans que je lève le petit doigt — et 4 ont pris rendez-vous.', highlight:'4 RDV via relance auto' },
+    /* 38 */ { initials:'JB', name:'Jean-François Bergeron', role:'Représentant en assurance · 155 clients · Montréal', text:'Le fait que l\'ABF calcule les besoins individuellement pour chaque membre de la famille — conjoint(e) et enfants — c\'est une précision que je n\'avais nulle part ailleurs. <strong>Zéro approximation</strong>.', highlight:'ABF familiale précise' },
+    /* 39 */ { initials:'MP', name:'Maude Pelletier', role:'Directrice de cabinet · 18 conseillers · Québec', text:'Gérer 18 conseillers sans FINOX serait impossible. Le dashboard me montre les KPI en temps réel, les primes par conseiller, et le Pulse Vital moyen du cabinet à <strong>82/100</strong>. On ne perd plus de clients silencieusement.', highlight:'82/100 Pulse moyen cabinet' },
+    /* 40 */ { initials:'CB', name:'Christian Bouchard', role:'Conseiller senior · 370 clients · Gatineau', text:'Le pipeline en vue kanban drag-and-drop est le meilleur que j\'ai vu. Filtres par compagnie, type de produit, statut — tout est accessible en <strong>1 clic</strong>. Mon processus de suivi est maintenant infaillible.', highlight:'Pipeline infaillible' },
+    /* 41 */ { initials:'SG', name:'Stéphanie Gauthier', role:'Planificatrice financière · 195 clients · Saguenay', text:'Le profil investisseur intégré au dossier client assure la conformité de chaque transaction de placement. Quand l\'AMF appelle, j\'ai tout à portée de main en <strong>moins de 30 secondes</strong>.', highlight:'Conformité en 30 sec' },
+    /* 42 */ { initials:'AL', name:'Antoine Lavoie', role:'Conseiller · 120 clients · Saint-Hyacinthe', text:'La synchronisation des données entre modules est parfaite. J\'entre le salaire brut une fois et il se propage dans le budget, l\'impôt au décès, les besoins d\'assurance — <strong>partout automatiquement</strong>. Aucun autre CRM ne fait ça.', highlight:'Propagation automatique' },
+    /* 43 */ { initials:'VR', name:'Valérie Roy', role:'Adjointe · Cabinet de 12 conseillers · Montréal', text:'Le renommage automatique des documents selon la nomenclature AMF a sauvé notre cabinet. Plus de fichiers \"scan_001.pdf\" dans Google Drive — tout est nommé <strong>[Client]_[Date]_[Type]</strong> automatiquement.', highlight:'Fini les fichiers mal nommés' },
+    /* 44 */ { initials:'NL', name:'Nicolas Lévesque', role:'Entrepreneur · Agence de 5 conseillers · Drummondville', text:'Les workflows automatisés sans code m\'ont permis de créer un processus d\'onboarding client complet — email de bienvenue, demande de documents, planification ABF — tout se déclenche automatiquement. <strong>Temps d\'onboarding réduit de 60%</strong>.', highlight:'Onboarding 60% plus rapide' },
+    /* 45 */ { initials:'CM', name:'Chantal Morin', role:'Conseillère senior · 250 clients · Laval', text:'L\'IA qui analyse mon portefeuille proactivement est incroyable. Elle m\'a alertée que Sophie Roy n\'avait pas été contactée depuis 18 jours et que son score baissait. J\'ai appelé juste à temps — elle allait changer de conseiller. <strong>Rétention sauvée</strong>.', highlight:'+40% de rétention client' },
+    /* 46 */ { initials:'MG', name:'Martin Giroux', role:'Représentant en assurance · 100 clients · Shawinigan', text:'Avant FINOX, je refusais de vendre des MG parce que c\'était trop complexe à expliquer. Les 3 plans visuels avec les montants en dollars rendent la conversation <strong>simple et naturelle</strong>. Mes ventes MG ont triplé.', highlight:'3× ventes MG' },
+    /* 47 */ { initials:'ID', name:'Isabelle Dubois', role:'Planificatrice financière · 175 clients · Montréal', text:'Le calculateur hypothécaire Desjardins vs marché me permet de démontrer clairement l\'avantage d\'une police individuelle sur 25 ans. Les graphiques comparatifs sont tellement clairs que <strong>le client se vend lui-même</strong>.', highlight:'Client convaincu par les graphiques' },
+    /* 48 */ { initials:'PB', name:'Philippe Bouchard', role:'Conseiller · 90 clients · Rimouski', text:'Google Workspace fourni avec FINOX — Gmail pro, Drive, Calendar — c\'est un avantage que personne d\'autre n\'offre. Ça m\'économise <strong>$18/mois/utilisateur</strong> et tout est intégré nativement.', highlight:'Google Workspace inclus' },
+    /* 49 */ { initials:'LL', name:'Louise Lapointe', role:'Directrice de cabinet · 20 conseillers · Montréal', text:'Migrer 20 conseillers vers un nouveau CRM me faisait peur. L\'import de clientèle existante s\'est fait en <strong>une seule journée</strong> sans perte de données. L\'équipe FINOX a géré la transition de A à Z.', highlight:'Migration en 1 jour' },
+    /* 50 */ { initials:'JL', name:'Jonathan Lemieux', role:'Conseiller junior · 55 clients · Victoriaville', text:'Les recommandations automatiques de l\'IA me guident à chaque étape. Quand un client a un score Pulse de 42, l\'IA me dit exactement quoi faire pour le remonter. C\'est comme avoir un <strong>coach virtuel 24/7</strong>.', highlight:'Coach IA 24/7' },
+    /* 51 */ { initials:'RG', name:'Rachel Gagné', role:'Représentante en assurance · 135 clients · Granby', text:'La signature de l\'ABF intégrée en 30 secondes par texto ou courriel, protégée par mot de passe — c\'est <strong>la fonctionnalité la plus demandée</strong> par mes clients. Ils adorent ne pas avoir à imprimer.', highlight:'Signature ABF en 30 sec' },
+    /* 52 */ { initials:'DG', name:'Denis Gauthier', role:'Associé principal · Cabinet de 8 conseillers · Québec', text:'Le préavis de remplacement auto-rempli avec la lettre explicative automatisée a éliminé notre plus grande source d\'erreurs de conformité. <strong>Zéro erreur AMF</strong> depuis qu\'on utilise FINOX.', highlight:'Zéro erreur AMF' },
+    /* 53 */ { initials:'MJ', name:'Marie-Josée Leclerc', role:'Planificatrice financière · 210 clients · Longueuil', text:'Le module REEE avec les subventions gouvernementales détaillées par source — SCEE, IQEE, BEC — selon le revenu familial net, c\'est d\'une précision remarquable. Mes clients reçoivent <strong>en moyenne $800 de plus</strong> en subventions identifiées.', highlight:'+$800 subventions identifiées' },
+    /* 54 */ { initials:'SL', name:'Simon Lacroix', role:'Conseiller · 160 clients · Gatineau', text:'L\'intégration RingCentral pour la téléphonie est seamless. Les transcripts d\'appels par IA, les SMS automatisés, tout est dans le dossier client. <strong>Plus aucun suivi ne tombe entre les craques</strong>.', highlight:'Aucun suivi oublié' },
+    /* 55 */ { initials:'JC', name:'Josée Cloutier', role:'Adjointe · Cabinet de 15 conseillers · Laval', text:'La politique de confidentialité Loi 25 envoyée automatiquement à chaque nouveau client avec confirmation de lecture m\'a enlevé une tâche récurrente énorme. <strong>100% de conformité Loi 25</strong> sans effort.', highlight:'Loi 25 automatisée' },
+    /* 56 */ { initials:'FB', name:'Frédéric Bélanger', role:'Représentant en assurance · 205 clients · Trois-Rivières', text:'Le calculateur d\'assurance multi-compagnies QC & Canada remplace Compulife, LifeGuide ET WinQuote. L\'interface ressemble à 2025, pas à Windows XP, et les données de l\'ABF s\'importent toutes seules. <strong>Gain de temps phénoménal</strong>.', highlight:'3 outils remplacés par 1' },
+    /* 57 */ { initials:'ND', name:'Nadia Desjardins', role:'Conseillère senior · 330 clients · Montréal', text:'Le Pulse Vital sur <strong>330 clients</strong> me donne une vue d\'ensemble impossible à avoir autrement. En un regard, je vois les 15 qui ont besoin d\'attention immédiate et les 40 qui sont prêts pour une vente additionnelle.', highlight:'330 clients sous contrôle' },
+    /* 58 */ { initials:'PT', name:'Pascal Tremblay', role:'Entrepreneur · Agence indépendante · Saguenay', text:'L\'import REQ automatique pour les corporations m\'a impressionné le premier jour. NEQ, administrateurs, actionnaires — tout importé en <strong>3 secondes</strong>. Mes clients entrepreneurs sont immédiatement convaincus du sérieux de ma pratique.', highlight:'Import REQ en 3 sec' },
+    /* 59 */ { initials:'MR', name:'Martine Roy', role:'Planificatrice financière · 185 clients · Lévis', text:'Les opportunités futures auto-détectées m\'ont généré <strong>$68 000 en nouvelles primes</strong> ce trimestre. Renouvellements hypothécaires, révisions de portefeuille, événements de vie — FINOX pense à tout avant moi.', highlight:'$68K nouvelles primes/trimestre' },
+    /* 60 */ { initials:'EL', name:'Éric Lachapelle', role:'Conseiller · 115 clients · Saint-Jean', text:'La fiche familiale complète — conjoint(e), enfants, leurs contrats respectifs — dans une seule vue, c\'est exactement ce dont j\'avais besoin. L\'ABF est calculée <strong>par membre de famille</strong>, pas juste pour le titulaire.', highlight:'ABF par membre de famille' },
+    /* 61 */ { initials:'AC', name:'Anne-Marie Chouinard', role:'Directrice de cabinet · 6 conseillers · Repentigny', text:'Le fait que Google Workspace soit fourni et intégré nativement — Gmail, Drive, Calendar — élimine tous les problèmes de synchronisation. Mes 6 conseillers travaillent sur <strong>le même écosystème</strong> sans friction.', highlight:'Écosystème unifié' },
+    /* 62 */ { initials:'GL', name:'Gabriel Laroche', role:'Représentant en assurance · 70 clients · Val-d\'Or', text:'Les séquences de réengagement pour les leads froids m\'ont ramené <strong>6 prospects</strong> que je croyais perdus. L\'IA suggère le bon moment et le bon message basé sur l\'historique du dossier. C\'est bluffant.', highlight:'6 leads froids réactivés' },
+    /* 63 */ { initials:'NT', name:'Nadine Thibault', role:'Conseillère senior · 275 clients · Sherbrooke', text:'Les rappels stratégiques de références quand un client a un Pulse Vital élevé sont brillants. Ce trimestre, j\'ai obtenu <strong>11 références qualifiées</strong> simplement en demandant au bon moment.', highlight:'11 références obtenues' },
+    /* 64 */ { initials:'MF', name:'Maxime Fortier', role:'Associé · Cabinet de 3 conseillers · Joliette', text:'En tant que petit cabinet, chaque dollar compte. FINOX à lui seul remplace notre CRM ($89/mois), Compulife ($45/mois), et notre outil de signature ($35/mois). On économise <strong>$169/mois</strong> et on a un meilleur produit.', highlight:'$169/mois économisés' },
+    /* 65 */ { initials:'SB', name:'Sandra Blais', role:'Planificatrice financière · 150 clients · Montréal', text:'Le calculateur MG propriété partagée pour les entrepreneurs est un outil de vente que personne d\'autre n\'a. Il démontre clairement avec des graphiques que le financement via la corporation est plus avantageux. <strong>Mes clients entrepreneurs disent oui en 10 minutes</strong>.', highlight:'Vente corpo en 10 min' },
+    /* 66 */ { initials:'JD', name:'Jacques Dufour', role:'Conseiller senior · 400+ clients · Québec', text:'Avec plus de <strong>400 clients</strong>, la gestion sans FINOX était devenue impossible. Le Pulse Vital classe automatiquement mes clients par priorité. Je sais exactement qui appeler chaque matin et pourquoi.', highlight:'400+ clients priorisés' },
+    /* 67 */ { initials:'VL', name:'Vanessa Lecours', role:'Adjointe · Cabinet de 7 conseillers · Laval', text:'Le portail sécurisé de demande de documents a transformé mon quotidien. Plus de \"je vous envoie ça par email\" — le client uploade directement, je reçois une notification, tout est classé automatiquement. <strong>4 heures gagnées par semaine</strong>.', highlight:'4h gagnées/semaine' },
+    /* 68 */ { initials:'PP', name:'Pierre-Olivier Paquette', role:'Représentant en assurance · 180 clients · Sorel', text:'La gestion des contrats annulés et fermés dans le pipeline m\'aide à comprendre pourquoi je perds des dossiers. Le taux d\'annulation de mon cabinet est passé de 12% à <strong>4%</strong> depuis qu\'on analyse les données.', highlight:'Annulations de 12% à 4%' },
+    /* 69 */ { initials:'MV', name:'Marie-Pier Vaillancourt', role:'Conseillère · 105 clients · Baie-Comeau', text:'L\'IA qui prépare des réponses aux emails clients en attente d\'approbation me fait gagner un temps fou. Je révise et j\'envoie en <strong>1 clic</strong> au lieu de rédiger de zéro. La qualité est impeccable.', highlight:'Réponses IA en 1 clic' },
+    /* 70 */ { initials:'JT', name:'Jean-Sébastien Tardif', role:'Entrepreneur · Agence de 4 conseillers · Montréal', text:'Le fait que FINOX soit construit spécifiquement pour l\'assurance québécoise fait une différence énorme. Les formulaires AMF, les spécificités RAMQ, les compagnies du Québec — <strong>tout est déjà là</strong>. Aucune configuration nécessaire.', highlight:'Fait pour le Québec' },
+    /* 71 */ { initials:'AG', name:'Audrey Gendron', role:'Planificatrice financière · 240 clients · Gatineau', text:'Les rencontres de placement planifiées automatiquement selon la fréquence configurée et les changements de marché m\'assurent que <strong>chaque client est revu au bon moment</strong>. Mon taux de rétention est passé à 97%.', highlight:'97% rétention client' },
+    /* 72 */ { initials:'LP', name:'Louis-Philippe Perron', role:'Conseiller senior · 290 clients · Lévis', text:'Le transcript d\'appel par IA via RingCentral est une fonctionnalité qui vaut de l\'or pour les audits. Chaque conversation est documentée automatiquement dans la timeline du client. <strong>Fini les notes manuscrites perdues</strong>.', highlight:'Transcripts IA automatiques' },
+    /* 73 */ { initials:'AH', name:'Annie Houle', role:'Directrice de cabinet · 11 conseillers · Sherbrooke', text:'L\'envoi de la signature par texto au lieu du courriel a augmenté notre taux de complétion de <strong>68% à 94%</strong>. Les clients signent dans les 5 minutes au lieu de laisser traîner pendant des jours.', highlight:'94% taux de signature' },
+    /* 74 */ { initials:'RT', name:'René Trépanier', role:'Représentant en assurance · 145 clients · Alma', text:'Le calculateur d\'impôt au décès intégré à l\'ABF a changé mes conversations avec les clients de 50 ans et plus. Quand ils voient le montant que le fisc va prendre, la vente se fait toute seule. <strong>Taux de fermeture à 72%</strong> sur ce segment.', highlight:'72% taux de fermeture' },
+  ],
+
+  /* Pools pour générer les 425 témoignages additionnels */
+  tNames: [
+    'Alexandre','Amélie','André','Andrée','Annie','Antoine','Audrey','Benoît','Bernard','Brigitte',
+    'Bruno','Camille','Caroline','Catherine','Cédric','Chantal','Charles','Christian','Christine','Claire',
+    'Claude','Daniel','Danielle','David','Denis','Diane','Dominique','Éric','Étienne','Fabien',
+    'France','François','Frédéric','Gabriel','Geneviève','Georges','Ghislain','Ginette','Guillaume','Guy',
+    'Hélène','Hugo','Isabelle','Jacques','Jean','Jean-François','Jean-Marc','Jean-Philippe','Jocelyne','Jonathan',
+    'Josée','Julie','Julien','Karine','Katherine','Kevin','Laure','Laurence','Line','Lise',
+    'Louis','Louise','Luc','Lucie','Manon','Marc','Marc-André','Marco','Marie','Marie-Claude',
+    'Marie-Ève','Marie-Josée','Marie-Pierre','Martin','Martine','Mathieu','Maxime','Mélanie','Michel','Michèle',
+    'Monique','Nancy','Nathalie','Nicolas','Nicole','Normand','Olivier','Pascal','Patricia','Patrick',
+    'Paul','Philippe','Pierre','Pierre-Luc','Rachel','Raphaël','Raymond','René','Richard','Robert',
+    'Roxanne','Sandra','Sébastien','Simon','Sophie','Stéphane','Stéphanie','Suzanne','Sylvain','Sylvie',
+    'Thomas','Valérie','Véronique','Vincent','William','Yannick','Yves','Zoé'
+  ],
+  tLastNames: [
+    'Audet','Beaulieu','Beauchamp','Bédard','Bélanger','Bergeron','Bernard','Bernier','Bilodeau','Blais',
+    'Blouin','Bolduc','Bouchard','Boucher','Boudreau','Bourassa','Bourbonnais','Brassard','Brochu','Caron',
+    'Carrier','Champagne','Chaput','Chartrand','Cloutier','Côté','Couture','Daigle','Demers','Deschênes',
+    'Desjardins','Dion','Drouin','Dubé','Dubois','Duchesne','Dufour','Dumont','Dupont','Fillion',
+    'Fontaine','Forget','Fortier','Fortin','Fournier','Gagné','Gagnon','Gauthier','Gélinas','Gendron',
+    'Germain','Gilbert','Gingras','Girard','Giroux','Gosselin','Gravel','Grondin','Guay','Guillemette',
+    'Hamel','Harvey','Hébert','Houde','Houle','Huot','Labelle','Lachance','Lacroix','Laflamme',
+    'Lafontaine','Lajoie','Lalande','Laliberté','Lambert','Lamontagne','Landry','Langlois','Laperrière','Lapointe',
+    'Larivière','Larose','Laurin','Lavoie','Leblanc','Leclerc','Leduc','Lefebvre','Lemay','Lemieux',
+    'Lepage','Lessard','Lévesque','Lortie','Marchand','Marcoux','Martel','Martin','Massé','Ménard',
+    'Mercier','Michaud','Morin','Nadeau','Noël','Ouellette','Paquette','Paradis','Parent','Pelletier',
+    'Perreault','Picard','Plante','Poirier','Poulin','Proulx','Raymond','Renaud','Richard','Rioux',
+    'Rivard','Robert','Rochon','Rousseau','Roy','Savard','Séguin','Simard','St-Pierre','Talbot',
+    'Tardif','Thériault','Thibault','Tremblay','Trépanier','Turcotte','Vachon','Vallée','Vézina','Villeneuve'
+  ],
+  tCities: [
+    'Montréal','Laval','Québec','Gatineau','Longueuil','Sherbrooke','Saguenay','Lévis','Trois-Rivières',
+    'Terrebonne','Saint-Jean','Drummondville','Granby','Saint-Hyacinthe','Rimouski','Victoriaville',
+    'Shawinigan','Alma','Sept-Îles','Joliette','Repentigny','Val-d\'Or','Rouyn-Noranda','Sorel',
+    'Baie-Comeau','Rivière-du-Loup','Thetford Mines','Magog','Mascouche','Blainville','Saint-Jérôme',
+    'Brossard','Saint-Eustache','Chambly','Sainte-Thérèse','Varennes','Boucherville','Mirabel'
+  ],
+  tRoles: [
+    'Conseiller·ère junior','Conseiller·ère senior','Conseiller·ère en sécurité financière',
+    'Planificateur·trice financier·ère','Représentant·e en assurance','Directeur·trice de cabinet',
+    'Entrepreneur·e · Agence indépendante','Adjoint·e administratif·ve','Associé·e principal·e',
+    'Analyste en conformité','Gestionnaire de cabinet'
+  ],
+  tTexts: [
+    'Le Pulse Vital m\'a alerté sur <strong>{n} clients à risque</strong> ce mois-ci. Sans ça, je les aurais perdus.',
+    'Je fais maintenant <strong>{n} ABF par semaine</strong> au lieu de {n2}. Le gain de temps est incroyable.',
+    'L\'IA m\'a suggéré une opportunité de vente que j\'avais <strong>complètement manquée</strong>. Résultat : {k}$ de prime.',
+    'Le préavis de remplacement en <strong>30 secondes</strong> au lieu de 20 minutes. Juste ça, ça change tout.',
+    'Mes clients adorent les rapports visuels. J\'ai eu <strong>{n} références</strong> ce trimestre juste grâce à ça.',
+    'Le calculateur hypothécaire a convaincu mon client de consolider. <strong>Prime annuelle de {k}$</strong>.',
+    'La timeline client me donne une mémoire parfaite. <strong>Chaque interaction</strong> est là, en un coup d\'œil.',
+    'Depuis FINOX, je termine à <strong>17h au lieu de 20h</strong>. Même résultats, mais je retrouve ma vie.',
+    'L\'intégration OneSpan a éliminé les déplacements. Mes clients signent <strong>en 2 minutes</strong> sur leur cell.',
+    'Le module fiscal montre l\'impact REER en temps réel. Le client signe <strong>sur-le-champ</strong>, à chaque fois.',
+    'J\'ai remplacé <strong>{n} logiciels</strong> par FINOX. Un seul outil pour tout. Libérateur.',
+    'Les opportunités automatiques m\'ont généré <strong>{n} nouvelles ventes</strong> en {n2} mois. Inespéré.',
+    'Notre taux de conformité AMF est à <strong>100%</strong> depuis qu\'on utilise FINOX. Les audits sont une formalité.',
+    'Le score Pulse Vital me montre exactement <strong>qui contacter en priorité</strong>. Ma rétention est à {n}%.',
+    'Le comparatif de produits en temps réel me permet de toujours recommander <strong>la meilleure option</strong>.',
+    'Google Workspace intégré = <strong>zéro doublon</strong>. Calendrier, emails, contacts — tout synchronisé.',
+    'Les plans de maladies graves visuels ont <strong>triplé mon taux de fermeture</strong> en MG.',
+    'Le suivi automatique des anniversaires de police a généré <strong>{n} opportunités</strong> ce trimestre.',
+    'J\'ai abandonné mon ancien CRM après {n2} ans. FINOX fait en <strong>1 clic</strong> ce qui prenait 10.',
+    'En région, les déplacements sont longs. Avec FINOX je fais <strong>tout à distance</strong>. Extraordinaire.',
+    'FINOX comprend la réalité québécoise : <strong>RAMQ, impôt au décès, REEE, REER</strong>. Pas un outil américain adapté.',
+    'Le classement automatique des documents a éliminé <strong>{n} heures</strong> de travail administratif par semaine.',
+    'Mon book a grandi de <strong>{n}%</strong> en 6 mois grâce aux suggestions de l\'IA. Mes meilleurs mois de carrière.',
+    'Le rapport ABF est tellement bien présenté que les clients me disent que <strong>je suis le plus professionnel</strong> qu\'ils ont rencontré.',
+    'La gestion centralisée des communications a réduit mes <strong>appels manqués de 80%</strong>. Tout est suivi.',
+    'Le calculateur d\'impôt au décès <strong>fait la vente tout seul</strong>. Quand le client voit le montant, il comprend.',
+    'Les notifications push quand un client ouvre mon courriel — je rappelle dans <strong>les 5 minutes</strong>. Taux de fermeture explosé.',
+    'Même avec {n} clients, je gère <strong>sans adjoint</strong>. L\'automatisation fait le travail de 2 personnes.',
+    'Le module de renouvellement hypothécaire m\'a généré <strong>{n} rendez-vous</strong> le mois dernier.',
+    'Les modèles de courriels IA sont tellement bons que mes clients pensent que j\'ai <strong>une assistante personnelle</strong>.',
+    'Le transcript d\'appel par IA documente chaque conversation automatiquement. <strong>Fini les notes perdues</strong>.',
+    'L\'envoi de signature par texto au lieu du courriel — taux de complétion passé de <strong>68% à {n}%</strong>.',
+    'Simple, complet, fait pour nous. <strong>Le meilleur outil</strong> en {n2} ans de carrière.',
+    'Notre petit cabinet performe maintenant <strong>comme les gros bureaux de Montréal</strong>. FINOX égalise le jeu.',
+    'Les ABF se remplissent <strong>quasi tout seuls</strong> grâce à la propagation automatique. Je tape une fois, tout se calcule.',
+    'Le dashboard me montre mes <strong>KPIs en temps réel</strong> chaque matin. Je sais exactement où concentrer mes efforts.',
+    'L\'IA analyse les besoins et suggère des produits que <strong>je n\'aurais pas pensé proposer</strong>. +{n}% de prime par client.',
+    'Mes collègues seniors me demandent comment je fais <strong>autant de ventes</strong> dès ma première année.',
+    'Le portail client permet aux clients de télécharger leurs documents <strong>eux-mêmes</strong>. Moitié moins d\'appels.',
+    'Chaque renouvellement, FINOX me <strong>notifie 90 jours d\'avance</strong>. Plus jamais manqué une opportunité.',
   ],
 
   finalCTA: {
@@ -1003,16 +1090,77 @@ function abfMockup(n) {
 function initTestimonials() {
   const grid = document.getElementById('proof-grid');
   if (!grid) return;
-  const t = DATA.testimonials;
+
+  /* Seeded random for deterministic output */
+  let seed = 42;
+  function rand() { seed = (seed * 16807 + 0) % 2147483647; return (seed - 1) / 2147483646; }
+  function pick(arr) { return arr[Math.floor(rand() * arr.length)]; }
+
+  /* Avatar color palette */
+  const colors = [
+    ['#1e3a5f','#4a8ed4'],['#3b1f2b','#c46b8a'],['#1a3c34','#3ec89a'],['#3d2e1a','#c4a24a'],
+    ['#2d1b4e','#8a6ae4'],['#1b2f3d','#5ba4c9'],['#3c2415','#d4854a'],['#152e2e','#4ac4b0'],
+    ['#2e1539','#b44ac4'],['#1f3320','#5cc462'],['#3a2a1a','#c49a4a'],['#1a2540','#4a6ed4']
+  ];
+
+  /* Generate random date in 2025-2026 */
+  function rDate() {
+    const m = Math.floor(rand() * 18);  /* 0-17 → jan 2025 to jun 2026 */
+    const yr = m < 12 ? 2025 : 2026;
+    const mo = m < 12 ? m : m - 12;
+    const d = Math.floor(rand() * 28) + 1;
+    const mNames = ['jan.','fév.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.'];
+    return `${d} ${mNames[mo]} ${yr}`;
+  }
+
+  /* Fill template placeholders */
+  function fillTpl(txt) {
+    return txt
+      .replace('{n}', String(Math.floor(rand() * 30) + 5))
+      .replace('{n2}', String(Math.floor(rand() * 8) + 2))
+      .replace('{k}', String(Math.floor(rand() * 8 + 2)) + ' ' + String(Math.floor(rand() * 900 + 100)));
+  }
+
+  /* Build 500 cards — first 75 from DATA.testimonials, rest generated */
+  const cards = [];
+  const T = DATA.testimonials;
+  for (let i = 0; i < 75; i++) {
+    const c = T[i];
+    cards.push({ ini: c.initials || c.ini, name: c.name, role: c.role || '', text: c.text, date: rDate() });
+  }
+  const txts = DATA.tTexts;
+  const fNames = DATA.tNames;
+  const lNames = DATA.tLastNames;
+  const cities = DATA.tCities;
+  const roles = DATA.tRoles;
+  for (let i = 75; i < 500; i++) {
+    const fn = pick(fNames), ln = pick(lNames);
+    const ini = fn[0] + ln[0];
+    const city = pick(cities);
+    const nClients = Math.floor(rand() * 400) + 30;
+    const role = pick(roles).replace('·ère','').replace('·trice','').replace('·e','').replace('·ve','') + ' · ' + nClients + ' clients · ' + city;
+    cards.push({ ini, name: fn + ' ' + ln, role, text: fillTpl(pick(txts)), date: rDate() });
+  }
+
+  /* Shuffle (Fisher-Yates) */
+  for (let i = cards.length - 1; i > 0; i--) {
+    const j = Math.floor(rand() * (i + 1));
+    [cards[i], cards[j]] = [cards[j], cards[i]];
+  }
+
+  /* Render masonry cards */
   let h = '';
-  t.forEach((c, i) => {
-    h += `<div class="proof-card proof-card-anim" style="animation-delay:${Math.min(i * 0.08, 0.6)}s">
-      <div class="proof-glow"></div>
-      <div class="proof-stars">★★★★★</div>
-      <div class="proof-quote-mark">"</div>
+  cards.forEach((c, i) => {
+    const col = colors[i % colors.length];
+    const stars = rand() > 0.12 ? '★★★★★' : '★★★★☆';
+    h += `<div class="proof-card">
+      <div class="proof-author">
+        <div class="proof-avatar" style="background:linear-gradient(135deg,${col[0]},${col[1]});color:#fff">${c.ini}</div>
+        <div><div class="proof-name">${c.name}</div><div class="proof-verified">Conseiller vérifié ✓</div></div>
+      </div>
+      <div class="proof-stars">${stars}</div>
       <div class="proof-text">${c.text}</div>
-      <div class="proof-highlight">${c.hl}</div>
-      <div class="proof-author"><div class="proof-avatar">${c.ini}</div><div><div class="proof-name">${c.name}</div><div class="proof-role">${c.role}</div></div></div>
+      <div class="proof-date">${c.date}</div>
     </div>`;
   });
   grid.innerHTML = h;
@@ -1355,6 +1503,19 @@ function initPhoneMask() {
 
 
 /* ──────────────────────────────────────────────────────────────
+   PROOF SKIP — sticky button visible only during proof section
+────────────────────────────────────────────────────────────── */
+function initProofSkip() {
+  const btn = document.getElementById('proof-skip');
+  const section = document.getElementById('proof');
+  if (!btn || !section) return;
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => btn.classList.toggle('visible', e.isIntersecting));
+  }, { threshold: 0.05 });
+  obs.observe(section);
+}
+
+/* ──────────────────────────────────────────────────────────────
    COMM TABS
 ────────────────────────────────────────────────────────────── */
 function initCommTabs() {
@@ -1411,8 +1572,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Partnership diagram
   initPartnershipDiagram();
 
-  // Testimonials
+  // Testimonials + skip button
   initTestimonials();
+  initProofSkip();
 
   // ABF Carousel
   initAbfCarousel();
