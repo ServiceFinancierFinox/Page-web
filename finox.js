@@ -84,39 +84,82 @@ const DATA = {
   },
 
   pulseVital: {
-    client: 'Jacques Bergeron',
-    score: 75,
-    scoreMax: 100,
-    status: '💛 Stable — Dernier contact il y a 2 jours',
-    statusPts: '+20 pts actifs',
-    breakdown: [
-      { icon: '✅', text: 'Analyse des besoins financiers complétée', pts: '+20', neg: false },
-      { icon: '📞', text: 'Contact récent — interaction il y a 2 jours',  pts: '+15', neg: false },
-      { icon: '🛡️', text: '2 produits actifs sous gestion',               pts: '+10', neg: false },
-      { icon: '📅', text: 'Aucun rendez-vous planifié (manque)',          pts: '-5',  neg: true  },
-      { icon: '🎯', text: 'Opportunités futures non complétées',          pts: '-5',  neg: true  },
-    ],
-    suggestions: [
-      { icon: '📅', text: 'Planifier un rendez-vous — démontre une relation active avec le client', pts: '+10' },
-      { icon: '📈', text: 'Proposer un placement — renforce le lien et la confiance',               pts: '+10' },
-      { icon: '🎯', text: 'Créer une opportunité — identifier un nouveau besoin identifié',         pts: '+5'  },
-      { icon: '🗓️', text: 'Planifier des opportunités futures — 2+ avec dates cibles',             pts: '+5'  },
-      { icon: '✅', text: 'Compléter les tâches en cours — taux > 75% sur 30 jours',               pts: '+5'  },
-      { icon: '🤝', text: 'Obtenir une référence — client satisfait, demandez-la',                 pts: '+3'  },
-    ],
+    prospect: {
+      name: 'Sophie Roy', score: 42, scoreColor: 'var(--blue)',
+      status: 'Prospect chaud — Intéressée assurance vie + hypothèque', statusIcon: '🔵',
+      stage: { current: 1, steps: ['Découverte', 'ABF', 'Tarification', 'Signature'] },
+      infos: [
+        { lbl: 'Source', val: 'Référence Pierre Gagné' },
+        { lbl: 'Intérêt', val: 'Vie + Invalidité + Hypothèque' },
+        { lbl: 'Budget estimé', val: '$200–300/mois' },
+        { lbl: 'Dernier contact', val: 'Il y a 4 jours' },
+      ],
+      breakdown: [
+        { icon: '📞', text: 'Première rencontre complétée', pts: '+10', neg: false },
+        { icon: '💬', text: 'Intérêt confirmé par SMS', pts: '+10', neg: false },
+        { icon: '📅', text: 'Pas de suivi J+3 planifié', pts: '-5', neg: true },
+        { icon: '📋', text: 'Aucune ABF démarrée', pts: '-8', neg: true },
+      ],
+      nextStep: { icon: '📋', text: 'Planifier l\'ABF cette semaine', pts: '+15' },
+    },
+    client: {
+      name: 'Jacques Bergeron', score: 75, scoreColor: 'var(--green)',
+      status: 'Stable — 2 produits actifs sous gestion', statusIcon: '💛',
+      stage: null,
+      infos: [
+        { lbl: 'Produits', val: 'T-20 $500K + MG $100K' },
+        { lbl: 'Primes', val: '$151/mois' },
+        { lbl: 'Dernière interaction', val: 'Il y a 2 jours' },
+        { lbl: 'Prochaine échéance', val: 'Renouvellement mars 2026' },
+      ],
+      breakdown: [
+        { icon: '✅', text: 'ABF complétée et à jour', pts: '+20', neg: false },
+        { icon: '📞', text: 'Contact récent — il y a 2 jours', pts: '+15', neg: false },
+        { icon: '🛡️', text: '2 produits actifs sous gestion', pts: '+10', neg: false },
+        { icon: '📅', text: 'Aucun rendez-vous planifié', pts: '-5', neg: true },
+        { icon: '🎯', text: 'Opportunités futures non complétées', pts: '-5', neg: true },
+      ],
+      nextStep: { icon: '📅', text: 'Planifier un rendez-vous de révision annuelle', pts: '+10' },
+    },
+    corpo: {
+      name: 'ABC Solutions Inc.', score: 58, scoreColor: 'var(--purple)',
+      status: 'Corporation — Analyse en cours', statusIcon: '🏢',
+      stage: null,
+      infos: [
+        { lbl: 'NEQ', val: '1174856231' },
+        { lbl: 'Actionnaires', val: '2 (importés du REQ)' },
+        { lbl: 'Revenus annuels', val: '$2.4M' },
+        { lbl: 'Administrateur', val: 'Jacques Bergeron' },
+      ],
+      breakdown: [
+        { icon: '🏢', text: 'Données REQ importées', pts: '+10', neg: false },
+        { icon: '📋', text: 'ABF corporative démarrée', pts: '+15', neg: false },
+        { icon: '⚖️', text: 'Convention actionnaires non réglée', pts: '-10', neg: true },
+        { icon: '👤', text: 'Personne clé non analysée', pts: '-8', neg: true },
+      ],
+      nextStep: { icon: '⚖️', text: 'Compléter l\'analyse personne clé', pts: '+12' },
+    },
   },
 
   abfCards: [
-    { n:'01', icon:'🗺️', name:'Adresse automatique via Google Maps',         desc:'L\'adresse du client est trouvée et vérifiée automatiquement via l\'intégration Google Maps. Fini la saisie manuelle et les erreurs sur les contrats — l\'information se propage dans tout l\'ABF.',                                     tag:'Google Maps intégré'         },
-    { n:'02', icon:'💰', name:'Salaire brut → mensuel net automatique',       desc:'Entrez le salaire annuel brut une seule fois. FINOX le convertit en mensuel net et calcule automatiquement le besoin en invalidité et en assurance vie. Zéro répétition, zéro erreur.',                                                  tag:'Calculs en cascade'          },
-    { n:'03', icon:'⚖️', name:'Actifs & passifs interactifs + valeur nette',  desc:'Un calculateur visuellement beau et interactif pour le client. La valeur nette est calculée automatiquement et réutilisée pour justifier les montants d\'assurance vie nécessaires — données sauvegardées pour tous les modules.',   tag:'Interactif & visuel'         },
-    { n:'04', icon:'🛡️', name:'Besoins vie, invalidité & MG — séparés',       desc:'Calculs automatisés séparément pour le client et sa conjointe. Visuellement clairs, détaillés, faciles à comprendre. Les données de l\'ABF alimentent automatiquement sans jamais ressaisir.',                                        tag:'Client + Conjoint(e)'        },
-    { n:'04b',icon:'👨‍👩‍👧‍👦', name:'Fiche familiale complète — Conjoint(e) & enfants', desc:'Ajoutez les enfants au profil du client pour justifier les besoins avec précision. Conjoint(e), enfants et contrats respectifs restent dans la même fiche. L\'ABF est parfaitement précise pour toute la famille.',             tag:'Fiche familiale unifiée'     },
-    { n:'05', icon:'🏢', name:'Module Corporations complet',                  desc:'Gestion des corporations avec analyse des besoins financiers de l\'entreprise, outils de calculs dédiés pour donner un visuel clair à l\'entrepreneur. Opportunités reliées générées automatiquement.',                               tag:'ABF corporatif'              },
-    { n:'06', icon:'📋', name:'Module assurances en vigueur',                 desc:'Intégration complète des polices existantes dans l\'ABF. Le système identifie automatiquement les lacunes dans la couverture actuelle et les opportunités de consolidation ou de remplacement.',                                         tag:'Polices existantes'          },
-    { n:'07', icon:'💡', name:'Projets d\'épargne & placements',              desc:'Calculateurs intégrés pour justifier les placements avec des projets d\'épargne simplifiés. Liquidité disponible calculée automatiquement, recommandations de budget d\'investissement selon le profil.',                             tag:'Épargne & placements'        },
-    { n:'08', icon:'🧮', name:'Calculateur d\'impôt au décès',               desc:'Calcul automatisé de l\'impôt au décès directement dans l\'ABF pour justifier précisément le montant d\'assurance vie nécessaire. Données fiscales appliquées selon les règles québécoises et canadiennes.',                           tag:'Fiscalité intégrée'          },
-    { n:'09', icon:'🔒', name:'Module conformité & recommandations AMF',      desc:'Assure la conformité complète selon les exigences de l\'AMF. La plateforme prend automatiquement les bonnes notes au dossier sans jamais demander au conseiller d\'y consacrer du temps. Toujours en règle.',                           tag:'AMF-compatible'              },
+    { n:'conf', icon:'🔒', name:'Conformité AMF — automatisée de A à Z',
+      desc:'Recommandations automatiques générées par l\'IA selon le profil du client. Lettre explicative automatisée et jointe à chaque préavis. Signature de l\'ABF intégrée et réglée en 30 secondes — envoyée par courriel ou texto, sécurisée par mot de passe. Zéro paperasse, zéro oubli.',
+      tag:'AMF · Signature 30 sec · Lettre auto' },
+    { n:'fam', icon:'👨‍👩‍👧‍👦', name:'Fiche familiale complète — Conjoint(e) & enfants',
+      desc:'Conjoint(e), enfants et tous leurs contrats respectifs dans la même fiche. Si un contrat est fait pour un enfant, il est attribué directement à son profil. L\'ABF est parfaitement précise pour toute la famille — besoins calculés individuellement.',
+      tag:'Fiche familiale unifiée' },
+    { n:'corpo', icon:'🏢', name:'ABF Corporations — Import REQ automatique',
+      desc:'Importez automatiquement les données du Registraire des entreprises du Québec (REQ) : nom légal, NEQ, adresse, administrateurs, actionnaires. Outils de calculs dédiés pour l\'entrepreneur — convention entre actionnaires, personne clé, rachat d\'actions. Opportunités générées automatiquement.',
+      tag:'Import REQ · ABF corporatif' },
+    { n:'sync', icon:'🔄', name:'Synchronisation des données — Zéro saisie en double',
+      desc:'Entrez une donnée une seule fois — elle se propage automatiquement dans tous les modules. Adresse via Google Maps, salaire brut converti en net, actifs et passifs réutilisés partout. Le calculateur d\'impôt au décès, les besoins en assurance, le budget — tout s\'alimente automatiquement.',
+      tag:'Propagation automatique' },
+    { n:'mg', icon:'🛡️', name:'3 plans de maladies graves — Visuels pour le client',
+      desc:'Présentez 3 niveaux de couverture clairs et visuels au client : Protection essentielle (6 mois), Tranquillité d\'esprit (12 mois, recommandé), Protection totale (24 mois). Inclut revenus remplacés, frais médicaux, soins spécialisés et médicaments non couverts par la RAMQ.',
+      tag:'3 plans · Revenus + soins + médicaments' },
+    { n:'opps', icon:'🎯', name:'Opportunités futures — Générées automatiquement',
+      desc:'FINOX détecte et planifie automatiquement vos opportunités : renouvellements hypothécaires 3-6 mois avant terme, révisions de portefeuille périodiques, naissance d\'un enfant, contrats différés, opportunités corporatives selon les changements de revenus et d\'actifs. L\'IA suggère même quand relancer un lead froid.',
+      tag:'Auto-détection · 9 types d\'opportunités' },
   ],
 
   mgPlans: [
@@ -597,11 +640,87 @@ function animatePipelineBars() {
 /* ──────────────────────────────────────────────────────────────
    SCORE RING ANIMATION
 ────────────────────────────────────────────────────────────── */
-function animateScoreRing() {
+function animateScoreRing(scoreVal, scoreColor) {
   const ring = document.querySelector('.score-circle');
-  if (ring) ring.classList.add('animated');
+  if (ring) {
+    const offset = 283 - (283 * (scoreVal || 75) / 100);
+    ring.style.stroke = scoreColor || 'var(--green)';
+    ring.style.transition = 'stroke-dashoffset 2.2s var(--ease-out), stroke .4s';
+    ring.style.strokeDashoffset = offset;
+  }
   const sigLine = document.querySelector('.sig-animated-line');
   if (sigLine) setTimeout(() => sigLine.classList.add('an'), 600);
+}
+
+/* ──────────────────────────────────────────────────────────────
+   PULSE VITAL CARD BUILDER
+────────────────────────────────────────────────────────────── */
+let currentPulseType = 'prospect';
+
+function buildPulseCard(type) {
+  const card = document.getElementById('pulse-card');
+  if (!card) return;
+  const p = DATA.pulseVital[type];
+  if (!p) return;
+  currentPulseType = type;
+
+  let h = '';
+  /* Toggle */
+  h += '<div class="pulse-toggle">';
+  h += `<button class="ptab${type === 'prospect' ? ' active' : ''}" data-type="prospect">Prospect</button>`;
+  h += `<button class="ptab${type === 'client' ? ' active' : ''}" data-type="client">Client</button>`;
+  h += `<button class="ptab${type === 'corpo' ? ' active' : ''}" data-type="corpo">Corporation</button>`;
+  h += '</div>';
+  /* Header */
+  h += '<div class="pulse-card-header">';
+  h += '<div class="pulse-title-group"><span class="pulse-heart">💓</span>';
+  h += `<div><div class="pulse-name">Pulse Vital™</div><div class="pulse-client">${p.name}</div></div></div>`;
+  h += '<div class="score-ring-wrap"><svg class="score-svg" width="106" height="106" viewBox="0 0 106 106">';
+  h += '<circle class="score-track" cx="53" cy="53" r="47"/>';
+  h += '<circle class="score-circle" cx="53" cy="53" r="47" style="stroke-dashoffset:283"/>';
+  h += `</svg><div class="score-inner"><div class="score-number" style="color:${p.scoreColor}">${p.score}</div><div class="score-max">/100</div></div></div></div>`;
+  /* Status */
+  h += '<div class="pulse-status-bar">';
+  h += `<div class="status-dot" style="background:${p.scoreColor}"></div>`;
+  h += `<div class="status-text">${p.statusIcon} ${p.status}</div></div>`;
+  /* Stage pipeline (prospects only) */
+  if (p.stage) {
+    h += '<div class="pulse-stage">';
+    p.stage.steps.forEach((step, i) => {
+      if (i > 0) h += '<span class="stage-arrow">→</span>';
+      h += `<span class="stage-step${i === p.stage.current ? ' active' : i < p.stage.current ? ' done' : ''}">${step}</span>`;
+    });
+    h += '</div>';
+  }
+  /* Infos */
+  h += '<div class="pulse-infos">';
+  h += '<div class="suggestions-title">Informations</div>';
+  p.infos.forEach(info => {
+    h += `<div class="pulse-info-row"><span class="pulse-info-lbl">${info.lbl}</span><span class="pulse-info-val">${info.val}</span></div>`;
+  });
+  h += '</div>';
+  /* Breakdown */
+  h += '<div class="score-breakdown">';
+  h += '<div class="suggestions-title">Facteurs de score</div>';
+  p.breakdown.forEach(b => {
+    h += `<div class="score-line"><div class="score-line-icon">${b.icon}</div><div class="score-line-text">${b.text}</div><div class="score-line-pts${b.neg ? ' neg' : ''}">${b.pts}</div></div>`;
+  });
+  h += '</div>';
+  /* Next step */
+  h += '<div class="pulse-next">';
+  h += `<div class="suggestions-title">⚡ Prochaine étape suggérée</div>`;
+  h += `<div class="suggestion-item"><div class="sug-icon">${p.nextStep.icon}</div><div class="sug-text">${p.nextStep.text}</div><div class="sug-pts">${p.nextStep.pts}</div></div>`;
+  h += '</div>';
+
+  card.innerHTML = h;
+
+  /* Bind toggle */
+  card.querySelectorAll('.ptab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      buildPulseCard(btn.dataset.type);
+      setTimeout(() => animateScoreRing(DATA.pulseVital[btn.dataset.type].score, DATA.pulseVital[btn.dataset.type].scoreColor), 50);
+    });
+  });
 }
 
 /* ──────────────────────────────────────────────────────────────
@@ -656,12 +775,14 @@ function init3DParallax() {
    PULSE VITAL OBSERVER
 ────────────────────────────────────────────────────────────── */
 function initPulseObserver() {
+  buildPulseCard('prospect');
   const card = document.querySelector('.pulse-card');
   if (!card) return;
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
-        setTimeout(animateScoreRing, 400);
+        const p = DATA.pulseVital[currentPulseType];
+        setTimeout(() => animateScoreRing(p.score, p.scoreColor), 400);
         observer.disconnect();
       }
     });
@@ -712,35 +833,28 @@ function initPartnershipDiagram() {
   const diagram = document.getElementById('partnership-diagram');
   if (!diagram) return;
   const lines = diagram.querySelectorAll('.pline');
-  /* Compute each line length from coordinates and hide via dashoffset */
+  /* Compute each line length and hide via dashoffset */
   lines.forEach(line => {
     const x1 = +line.getAttribute('x1'), y1 = +line.getAttribute('y1');
     const x2 = +line.getAttribute('x2'), y2 = +line.getAttribute('y2');
     const len = Math.hypot(x2 - x1, y2 - y1);
-    line.setAttribute('stroke-dasharray', len);
-    line.setAttribute('stroke-dashoffset', len);
+    line.style.strokeDasharray = len;
+    line.style.strokeDashoffset = len;
   });
-  function drawLine(line, duration) {
-    const x1 = +line.getAttribute('x1'), y1 = +line.getAttribute('y1');
-    const x2 = +line.getAttribute('x2'), y2 = +line.getAttribute('y2');
-    const len = Math.hypot(x2 - x1, y2 - y1);
-    const start = performance.now();
-    (function step(now) {
-      const t = Math.min((now - start) / duration, 1);
-      const ease = t < .5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-      line.setAttribute('stroke-dashoffset', len * (1 - ease));
-      if (t < 1) requestAnimationFrame(step);
-    })(performance.now());
-  }
-  const delays = [0, 350, 700];
+  /* Use CSS transitions instead of rAF for reliability */
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
-        lines.forEach((l, i) => setTimeout(() => drawLine(l, 2000), delays[i]));
+        lines.forEach((l, i) => {
+          setTimeout(() => {
+            l.style.transition = 'stroke-dashoffset 1.8s cubic-bezier(.4,0,.2,1)';
+            l.style.strokeDashoffset = '0';
+          }, i * 300);
+        });
         observer.unobserve(diagram);
       }
     });
-  }, { threshold: .1 });
+  }, { threshold: .15 });
   observer.observe(diagram);
 }
 
@@ -749,78 +863,60 @@ function initPartnershipDiagram() {
 ────────────────────────────────────────────────────────────── */
 function abfMockup(n) {
   switch (n) {
-    case '01': return `
-      <div class="sv-search"><span>📍</span> 1455 Rue Peel, Montréal, QC H3A</div>
-      <div class="sv-suggest on"><strong>1455 Rue Peel</strong>, Montréal, QC H3A 1T5</div>
-      <div class="sv-suggest">1455 Rue Peel, Suite 200, Montréal, QC</div>
-      <div class="sv-suggest">1455 Peel Street, Montréal, Québec</div>
-      <div class="sv-flow">&#8594; Propagé dans ABF · Contrats · Polices</div>`;
-    case '02': return `
-      <div class="sv-calc"><div class="sv-big">$85 000</div><div class="sv-lbl">Salaire brut annuel</div></div>
-      <div class="sv-calc"><div class="sv-arr">&#8595;</div></div>
-      <div class="sv-calc"><div class="sv-big gd">$4 892</div><div class="sv-lbl">Mensuel net</div></div>
+    case 'conf': return `
+      <div class="sv-check"><span class="sv-tick">&#10003;</span> Recommandations IA selon le profil</div>
+      <div class="sv-check"><span class="sv-tick">&#10003;</span> Lettre explicative auto-générée</div>
+      <div class="sv-check"><span class="sv-tick">&#10003;</span> Préavis de remplacement auto-rempli</div>
+      <div class="sv-check"><span class="sv-tick">&#10003;</span> Signature ABF — 30 secondes</div>
       <div class="sv-divider"></div>
-      <div class="sv-flow">&#8594; Invalidité · Assurance vie · Budget</div>`;
-    case '03': return `
-      <div class="sv-row"><span>Actifs totaux</span><span class="sv-val gd">$487 200</span></div>
-      <div class="sv-row"><span>Passifs totaux</span><span class="sv-val">$312 800</span></div>
-      <div class="sv-divider"></div>
-      <div class="sv-row hl"><span>Valeur nette</span><span class="sv-val gd">$174 400</span></div>
-      <div class="sv-flow">&#8594; Montant assurance vie justifié auto</div>`;
-    case '04': return `
-      <div class="sv-cols"><div class="sv-col">
-        <div class="sv-col-h">Client</div>
-        <div class="sv-mini"><span>Vie</span><strong>$750 000</strong></div>
-        <div class="sv-mini"><span>Invalidité</span><strong>$4 200/m</strong></div>
-        <div class="sv-mini"><span>Mal. graves</span><strong>$100 000</strong></div>
-      </div><div class="sv-col">
-        <div class="sv-col-h">Conjoint(e)</div>
-        <div class="sv-mini"><span>Vie</span><strong>$500 000</strong></div>
-        <div class="sv-mini"><span>Invalidité</span><strong>$3 100/m</strong></div>
-        <div class="sv-mini"><span>Mal. graves</span><strong>$75 000</strong></div>
-      </div></div>`;
-    case '04b': return `
+      <div class="sv-row"><span>Envoi signature</span><span class="sv-val">Courriel ou Texto</span></div>
+      <div class="sv-row hl"><span>Sécurité</span><span class="sv-val gd">Mot de passe</span></div>`;
+    case 'fam': return `
       <div class="sv-member"><em>👤</em> Jacques Bergeron, 45 ans</div>
       <div class="sv-member"><em>👤</em> Marie Tremblay, 42 ans</div>
       <div class="sv-member child"><em>👦</em> Thomas, 12 ans — 1 contrat</div>
       <div class="sv-member child"><em>👧</em> Sophie, 8 ans — 0 contrat</div>
-      <div class="sv-flow">Contrats attribués par profil familial</div>`;
-    case '05': return `
-      <div class="sv-row"><span>Corporation</span><span class="sv-val">ABC Inc.</span></div>
-      <div class="sv-row"><span>Actionnaires</span><span class="sv-val">2</span></div>
       <div class="sv-divider"></div>
-      <div class="sv-row"><span>Convention entre actionnaires</span><span class="sv-pill">Opportunité</span></div>
+      <div class="sv-row hl"><span>Besoins calculés</span><span class="sv-val gd">Par membre</span></div>`;
+    case 'corpo': return `
+      <div class="sv-search"><span>🏢</span> Recherche REQ : 1234567890</div>
+      <div class="sv-divider"></div>
+      <div class="sv-row"><span>Entreprise</span><span class="sv-val">ABC Solutions Inc.</span></div>
+      <div class="sv-row"><span>NEQ</span><span class="sv-val gd">1174856231</span></div>
+      <div class="sv-row"><span>Administrateurs</span><span class="sv-val">2 importés</span></div>
+      <div class="sv-row"><span>Actionnaires</span><span class="sv-val">2 importés</span></div>
+      <div class="sv-divider"></div>
+      <div class="sv-row"><span>Convention actionnaires</span><span class="sv-pill">Opportunité</span></div>
       <div class="sv-row"><span>Personne clé</span><span class="sv-pill">Opportunité</span></div>
-      <div class="sv-row"><span>Rachat d'actions</span><span class="sv-pill">Opportunité</span></div>`;
-    case '06': return `
-      <div class="sv-policy"><span class="sv-dot green"></span> T-20 · $500K · SSQ <span class="sv-val">$62/m</span></div>
-      <div class="sv-policy"><span class="sv-dot gold"></span> MG · $250K · Manuvie <span class="sv-val">$89/m</span></div>
-      <div class="sv-policy"><span class="sv-dot red"></span> Invalidité · Industrielle <span class="sv-val">$45/m</span></div>
+      <div class="sv-flow">&#8594; Données REQ importées automatiquement</div>`;
+    case 'sync': return `
+      <div class="sv-row"><span>📍 Adresse Google Maps</span><span class="sv-val gd">&#10003;</span></div>
+      <div class="sv-row"><span>💰 Salaire brut &#8594; net</span><span class="sv-val gd">&#10003;</span></div>
+      <div class="sv-row"><span>⚖️ Actifs &amp; passifs</span><span class="sv-val gd">&#10003;</span></div>
+      <div class="sv-row"><span>🧮 Impôt au décès</span><span class="sv-val gd">&#10003;</span></div>
+      <div class="sv-row"><span>🛡️ Besoins assurance</span><span class="sv-val gd">&#10003;</span></div>
       <div class="sv-divider"></div>
-      <div class="sv-row hl"><span>Lacunes identifiées</span><span class="sv-val gd">2</span></div>`;
-    case '07': return `
-      <div class="sv-row"><span>Liquidité disponible</span><span class="sv-val gd">$1 240/m</span></div>
-      <div class="sv-row"><span>Budget recommandé</span><span class="sv-val">$800/m</span></div>
-      <div class="sv-bars">
-        <div class="sv-bar-item" style="height:30%"></div>
-        <div class="sv-bar-item" style="height:45%"></div>
-        <div class="sv-bar-item" style="height:58%"></div>
-        <div class="sv-bar-item" style="height:74%"></div>
-        <div class="sv-bar-item" style="height:100%"></div>
-      </div>
-      <div class="sv-flow">Projection 5 ans · rendement estimé 6.2%</div>`;
-    case '08': return `
-      <div class="sv-row"><span>REER au décès</span><span class="sv-val">$185 000</span></div>
-      <div class="sv-row"><span>Gain en capital</span><span class="sv-val">$92 000</span></div>
-      <div class="sv-row"><span>Taux marginal QC+CA</span><span class="sv-val">53.31%</span></div>
+      <div class="sv-flow">1 saisie &#8594; propagée dans tous les modules</div>`;
+    case 'mg': return `
+      <div class="sv-cols"><div class="sv-col">
+        <div class="sv-col-h" style="color:var(--blue)">Essentiel</div>
+        <div class="sv-mini"><span>Durée</span><strong>6 mois</strong></div>
+        <div class="sv-mini"><span>Revenus</span><strong>&#10003;</strong></div>
+        <div class="sv-mini"><span>Soins</span><strong>&#8212;</strong></div>
+      </div><div class="sv-col" style="border-color:rgba(196,162,74,.25)">
+        <div class="sv-col-h">Recommandé</div>
+        <div class="sv-mini"><span>Durée</span><strong>12 mois</strong></div>
+        <div class="sv-mini"><span>Revenus</span><strong>&#10003;</strong></div>
+        <div class="sv-mini"><span>Soins</span><strong>&#10003;</strong></div>
+      </div></div>
+      <div class="sv-row" style="margin-top:8px"><span>Plan 3 — Complet</span><span class="sv-val">24 mois · Tout inclus</span></div>`;
+    case 'opps': return `
+      <div class="sv-policy"><span class="sv-dot green"></span> Renouvellement hypothèque <span class="sv-val">Mars 2026</span></div>
+      <div class="sv-policy"><span class="sv-dot gold"></span> Révision portefeuille annuelle <span class="sv-val">Juin 2026</span></div>
+      <div class="sv-policy"><span class="sv-dot gold"></span> Naissance — REEE + ajust. vie <span class="sv-val">Auto</span></div>
+      <div class="sv-policy"><span class="sv-dot red"></span> Lead froid — Sophie Roy <span class="sv-val">IA suggère</span></div>
       <div class="sv-divider"></div>
-      <div class="sv-row hl"><span>Impôt estimé au décès</span><span class="sv-val gd">$147 650</span></div>`;
-    case '09': return `
-      <div class="sv-check"><span class="sv-tick">&#10003;</span> Profil investisseur complété</div>
-      <div class="sv-check"><span class="sv-tick">&#10003;</span> Notes au dossier automatiques</div>
-      <div class="sv-check"><span class="sv-tick">&#10003;</span> Convenance vérifiée</div>
-      <div class="sv-check"><span class="sv-tick">&#10003;</span> Préavis de remplacement</div>
-      <div class="sv-check"><span class="sv-tick">&#10003;</span> Lettre explicative signée</div>`;
+      <div class="sv-row hl"><span>Opportunités actives</span><span class="sv-val gd">9 types</span></div>`;
     default: return '';
   }
 }
@@ -1116,21 +1212,52 @@ function closeWaitlistModal(e) {
     document.body.style.overflow = '';
   }
 }
-function submitWaitlist() {
-  const name = document.getElementById('wl-name');
-  const email = document.getElementById('wl-email');
-  const form = document.getElementById('wl-form');
-  const suc = document.getElementById('wl-success');
+/* Google Sheets endpoint — replace with your deployed Apps Script URL */
+const SHEETS_URL = '';
+
+function sendToSheets(data) {
+  if (!SHEETS_URL) return;
+  fetch(SHEETS_URL, {
+    method: 'POST', mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  }).catch(() => {});
+}
+
+function validateRequired(fields) {
   let valid = true;
-  [name, email].forEach(el => {
+  fields.forEach(el => {
+    if (!el) return;
     el.classList.remove('error');
     if (!el.value.trim() || (el.type === 'email' && !el.value.includes('@'))) {
       el.classList.add('error');
-      setTimeout(() => el.classList.remove('error'), 2500);
+      el.style.outline = '1px solid var(--red)';
+      setTimeout(() => { el.classList.remove('error'); el.style.outline = ''; }, 2500);
       valid = false;
     }
   });
-  if (!valid) return;
+  return valid;
+}
+
+function submitWaitlist() {
+  const name  = document.getElementById('wl-name');
+  const email = document.getElementById('wl-email');
+  const phone = document.getElementById('wl-phone');
+  const form  = document.getElementById('wl-form');
+  const suc   = document.getElementById('wl-success');
+  if (!validateRequired([name, email, phone])) return;
+  sendToSheets({
+    source: 'modal',
+    name: name.value.trim(),
+    email: email.value.trim(),
+    phone: phone.value.trim(),
+    cabinet: (document.getElementById('wl-cabinet') || {}).value || '',
+    clients: (document.getElementById('wl-clients') || {}).value || '',
+    tool: (document.getElementById('wl-tool') || {}).value || '',
+    clientele: (document.getElementById('wl-clientele') || {}).value || '',
+    referral: (document.getElementById('wl-source') || {}).value || '',
+    date: new Date().toISOString(),
+  });
   if (form) form.style.display = 'none';
   if (suc) suc.classList.add('show');
 }
@@ -1142,18 +1269,14 @@ function ctaSubmit() {
   const form   = document.getElementById('cta-form-inner');
   const suc    = document.getElementById('cta-success');
   const spotFill = document.getElementById('spots-fill');
-
-  if (!name || !email) return;
-  if (!name.value.trim() || !email.value.trim() || !email.value.includes('@')) {
-    [name, email, phone].forEach(el => {
-      if (el && !el.value.trim()) {
-        el.style.outline = '1px solid var(--red)';
-        setTimeout(() => { if (el) el.style.outline = ''; }, 2000);
-      }
-    });
-    return;
-  }
-
+  if (!validateRequired([name, email])) return;
+  sendToSheets({
+    source: 'cta',
+    name: name.value.trim(),
+    email: email.value.trim(),
+    phone: (phone || {}).value || '',
+    date: new Date().toISOString(),
+  });
   if (form)  form.style.display  = 'none';
   if (suc)   suc.classList.add('show');
   if (spotFill) {
