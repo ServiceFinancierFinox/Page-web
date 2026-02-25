@@ -141,7 +141,7 @@ nav.scrolled{background:rgba(6,6,8,.96);border-bottom:1px solid rgba(196,162,74,
 /* ─── WAITLIST MODAL ─── */
 .wl-overlay{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.7);backdrop-filter:blur(12px);display:none;align-items:center;justify-content:center;opacity:0;transition:opacity .35s}
 .wl-overlay.open{display:flex;opacity:1}
-.wl-modal{position:relative;background:var(--s1);border:1px solid rgba(196,162,74,.15);border-radius:28px;padding:48px 44px;width:480px;max-width:92vw;max-height:90vh;overflow-y:auto;box-shadow:0 60px 120px rgba(0,0,0,.6),0 0 80px rgba(196,162,74,.08);animation:modalIn .4s var(--ease-out)}
+.wl-modal{position:relative;background:var(--s1);border:1px solid rgba(196,162,74,.15);border-radius:28px;padding:48px 44px;width:560px;max-width:92vw;max-height:90vh;overflow-y:auto;box-shadow:0 60px 120px rgba(0,0,0,.6),0 0 80px rgba(196,162,74,.08);animation:modalIn .4s var(--ease-out)}
 @keyframes modalIn{from{opacity:0;transform:translateY(30px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
 .wl-close{position:absolute;top:18px;right:18px;width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.04);color:var(--cm);font-size:20px;display:flex;align-items:center;justify-content:center;cursor:none;transition:all .3s}
 .wl-close:hover{background:rgba(255,255,255,.08);color:var(--cr)}
@@ -149,8 +149,8 @@ nav.scrolled{background:rgba(6,6,8,.96);border-bottom:1px solid rgba(196,162,74,
 .wl-eyebrow{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--g);margin-bottom:16px}
 .wl-title{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:600;margin-bottom:10px}
 .wl-sub{font-size:14px;color:var(--cd);line-height:1.7;max-width:360px;margin:0 auto}
-.wl-zoho-wrap{width:100%;overflow:hidden;border-radius:12px}
-.wl-zoho-iframe{width:100%;min-height:480px;border:none;border-radius:12px}
+.wl-zoho-wrap{width:100%;overflow:hidden;border-radius:16px;background:#1a1a1a}
+.wl-zoho-iframe{width:100%;min-height:520px;border:none;border-radius:16px;filter:invert(.92) hue-rotate(180deg);-webkit-filter:invert(.92) hue-rotate(180deg)}
 .scroll-indicator span{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--cm)}
 .scroll-mouse{width:22px;height:36px;border-radius:100px;border:1px solid rgba(196,162,74,.3);display:flex;justify-content:center;padding-top:8px}
 .scroll-mouse::before{content:'';width:3px;height:7px;background:var(--g);border-radius:100px;animation:scrolldot 2s ease-in-out infinite}
