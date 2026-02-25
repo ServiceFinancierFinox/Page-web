@@ -1233,7 +1233,15 @@ function sendToZoho(data) {
   form.method = 'POST';
   form.action = ZOHO_FORM_URL;
   form.target = 'zoho-hidden';
+  form.enctype = 'multipart/form-data';
+  form.acceptCharset = 'UTF-8';
   form.style.display = 'none';
+  /* Champs cachés requis par Zoho Forms */
+  ['zf_referrer_name', 'zf_redirect_url', 'zc_gad'].forEach(n => {
+    const h = document.createElement('input');
+    h.type = 'hidden'; h.name = n; h.value = '';
+    form.appendChild(h);
+  });
   Object.entries(data).forEach(([k, v]) => {
     if (!v) return;
     const inp = document.createElement('input');
