@@ -1212,14 +1212,37 @@ function closeWaitlistModal(e) {
     document.body.style.overflow = '';
   }
 }
-/* Zoho Forms endpoint — replace with your Zoho Form submission URL */
-const ZOHO_FORM_URL = '';
+/*
+  Zoho Forms — soumission via hidden iframe POST
+  Field link names (vérifier dans Zoho Forms > champ > Field Link Name) :
+    Name_First, Name_Last, Email, PhoneNumber_countrycode, PhoneNumber, Dropdown
+*/
+const ZOHO_FORM_URL = 'https://forms.zohopublic.ca/Finox/form/WaitlistFinoxOSConseillers/formperma/HHK7J7cucQPW3b1Y0D95g2yUxw7Vm2antELMCEUhpII/htmlRecords/submit';
 
 function sendToZoho(data) {
   if (!ZOHO_FORM_URL) return;
-  const form = new FormData();
-  Object.entries(data).forEach(([k, v]) => { if (v) form.append(k, v); });
-  fetch(ZOHO_FORM_URL, { method: 'POST', mode: 'no-cors', body: form }).catch(() => {});
+  let iframe = document.getElementById('zoho-hidden');
+  if (!iframe) {
+    iframe = document.createElement('iframe');
+    iframe.id = 'zoho-hidden';
+    iframe.name = 'zoho-hidden';
+    iframe.style.display = 'none';
+    document.body.appendChild(iframe);
+  }
+  const form = document.createElement('form');
+  form.method = 'POST';
+  form.action = ZOHO_FORM_URL;
+  form.target = 'zoho-hidden';
+  form.style.display = 'none';
+  Object.entries(data).forEach(([k, v]) => {
+    if (!v) return;
+    const inp = document.createElement('input');
+    inp.type = 'hidden'; inp.name = k; inp.value = v;
+    form.appendChild(inp);
+  });
+  document.body.appendChild(form);
+  form.submit();
+  setTimeout(() => form.remove(), 500);
 }
 
 function validateRequired(fields) {
@@ -1246,13 +1269,15 @@ function submitWaitlist() {
   const form  = document.getElementById('wl-form');
   const suc   = document.getElementById('wl-success');
   if (!validateRequired([fname, lname, email, phone, agent])) return;
+  /* Zoho field link names — ajuster si différents dans ton admin Zoho Forms */
   sendToZoho({
-    prenom: fname.value.trim(),
-    nom: lname.value.trim(),
-    email: email.value.trim(),
-    telephone: phone.value.trim(),
-    agent_general: agent.value,
-    date: new Date().toISOString(),
+    Name_First: fname.value.trim(),
+    Name_Last: lname.value.trim(),
+    Email: email.value.trim(),
+    PhoneNumber_countrycode: '+1',
+    PhoneNumber: phone.value.trim(),
+    Dropdown: agent.value,
+    zf_referrer_name: location.href,
   });
   if (form) form.style.display = 'none';
   if (suc) suc.classList.add('show');
