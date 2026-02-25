@@ -20,7 +20,6 @@
 <nav id="nav">
   <a href="#" class="nav-logo">FINOX<span class="logo-accent">·</span>OS</a>
   <div class="crm-nav-wrap">
-    <button class="crm-nav-arrow crm-nav-arrow-left" id="crm-arrow-left" aria-label="Défiler à gauche">‹</button>
     <div class="crm-nav-track" id="crm-nav-track">
       <div class="crm-nav-line"></div>
       <div class="crm-nav-line-fill" id="crm-nav-line-fill"></div>
@@ -99,7 +98,6 @@
         </div>
       </div>
     </div>
-    <button class="crm-nav-arrow crm-nav-arrow-right" id="crm-arrow-right" aria-label="Défiler à droite">›</button>
   </div>
   <a href="#cta" class="nav-cta-btn">
     <div class="live-dot"></div>Accès anticipé
@@ -754,32 +752,10 @@
     <h2 class="sec-title rx" style="font-size:clamp(42px,6vw,80px)">Ils ont essayé.</h2>
     <h2 class="sec-title rx" style="font-size:clamp(42px,6vw,80px);margin-top:-4px" data-delay="250"><em>Ils ne reviennent pas en arrière.</em></h2>
     <p class="sec-sub rx" style="max-width:560px;margin:0 auto" data-delay="400">Voici ce que disent les conseillers qui utilisent FINOX au quotidien.</p>
+    <a href="#cta" class="proof-skip-btn">Skipper les 75 témoignages ↓</a>
   </div>
-  <div class="proof-grid">
-    <div class="proof-card proof-card-anim">
-      <div class="proof-glow"></div>
-      <div class="proof-stars">★★★★★</div>
-      <div class="proof-quote-mark">"</div>
-      <div class="proof-text">FINOX a transformé ma pratique. Je fais maintenant <strong>3 ABF complets par jour</strong> au lieu d'un seul. Le Pulse Vital m'a permis de récupérer 8 clients que j'aurais perdus sans le savoir.</div>
-      <div class="proof-highlight">3× plus d'ABF par jour</div>
-      <div class="proof-author"><div class="proof-avatar">MP</div><div><div class="proof-name">Mathieu Perreault</div><div class="proof-role">Conseiller senior · 200+ clients · Montréal</div></div></div>
-    </div>
-    <div class="proof-card proof-card-anim">
-      <div class="proof-glow"></div>
-      <div class="proof-stars">★★★★★</div>
-      <div class="proof-quote-mark">"</div>
-      <div class="proof-text">Enfin un OS fait par quelqu'un qui comprend l'assurance québécoise. Le préavis de remplacement automatique seul vaut le prix — ça me sauvait <strong>45 minutes par dossier</strong>.</div>
-      <div class="proof-highlight">45 min économisées/dossier</div>
-      <div class="proof-author"><div class="proof-avatar">CB</div><div><div class="proof-name">Caroline Beauchamp</div><div class="proof-role">Directrice de cabinet · 12 conseillers · Laval</div></div></div>
-    </div>
-    <div class="proof-card proof-card-anim">
-      <div class="proof-glow"></div>
-      <div class="proof-stars">★★★★★</div>
-      <div class="proof-quote-mark">"</div>
-      <div class="proof-text">J'ai abandonné Salesforce après 3 ans. FINOX fait <strong>en 1 clic</strong> ce qui me prenait 10 clics. Le calculateur hypothécaire Desjardins vs marché est un outil de vente incroyable.</div>
-      <div class="proof-highlight">Ex-Salesforce converti</div>
-      <div class="proof-author"><div class="proof-avatar">FL</div><div><div class="proof-name">François Lamontagne</div><div class="proof-role">Entrepreneur · Agence indépendante · Québec</div></div></div>
-    </div>
+  <div class="proof-grid" id="proof-grid">
+    <!-- Les 75 témoignages sont injectés dynamiquement par finox.js -->
   </div>
 </section>
 
