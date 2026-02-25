@@ -164,15 +164,42 @@
       <div class="wl-fields">
         <div class="wl-field">
           <label class="wl-label" for="wl-name">Nom complet <span class="wl-req">*</span></label>
-          <input type="text" class="wl-input" id="wl-name" placeholder="Jean Tremblay">
+          <input type="text" class="wl-input" id="wl-name" placeholder="Jean Tremblay" required>
         </div>
         <div class="wl-field">
           <label class="wl-label" for="wl-email">Courriel <span class="wl-req">*</span></label>
-          <input type="email" class="wl-input" id="wl-email" placeholder="votre@courriel.com">
+          <input type="email" class="wl-input" id="wl-email" placeholder="votre@courriel.com" required>
         </div>
         <div class="wl-field">
-          <label class="wl-label" for="wl-phone">Téléphone <span class="wl-opt">(optionnel)</span></label>
-          <input type="tel" class="wl-input" id="wl-phone" placeholder="514-xxx-xxxx">
+          <label class="wl-label" for="wl-phone">Téléphone <span class="wl-req">*</span></label>
+          <input type="tel" class="wl-input" id="wl-phone" placeholder="514-xxx-xxxx" required>
+        </div>
+      </div>
+      <div class="wl-optional-toggle" onclick="document.getElementById('wl-optional').classList.toggle('show')">
+        <span>Informations supplémentaires</span><span class="wl-toggle-arrow">▾</span>
+      </div>
+      <div class="wl-optional" id="wl-optional">
+        <div class="wl-fields">
+          <div class="wl-field">
+            <label class="wl-label" for="wl-cabinet">Nom du cabinet <span class="wl-opt">(optionnel)</span></label>
+            <input type="text" class="wl-input" id="wl-cabinet" placeholder="Cabinet XYZ">
+          </div>
+          <div class="wl-field">
+            <label class="wl-label" for="wl-clients">Nombre de clients <span class="wl-opt">(optionnel)</span></label>
+            <select class="wl-input" id="wl-clients"><option value="">Sélectionner</option><option>1–50</option><option>50–150</option><option>150–300</option><option>300+</option></select>
+          </div>
+          <div class="wl-field">
+            <label class="wl-label" for="wl-tool">Outil actuel <span class="wl-opt">(optionnel)</span></label>
+            <select class="wl-input" id="wl-tool"><option value="">Sélectionner</option><option>Kronos</option><option>Equisoft</option><option>Excel</option><option>Aucun</option><option>Autre</option></select>
+          </div>
+          <div class="wl-field">
+            <label class="wl-label" for="wl-clientele">Type de clientèle <span class="wl-opt">(optionnel)</span></label>
+            <select class="wl-input" id="wl-clientele"><option value="">Sélectionner</option><option>100% Marché familial</option><option>50/50 Corpo & familial</option><option>100% Corpo</option></select>
+          </div>
+          <div class="wl-field">
+            <label class="wl-label" for="wl-source">Comment avez-vous entendu parler de FINOX? <span class="wl-opt">(optionnel)</span></label>
+            <select class="wl-input" id="wl-source"><option value="">Sélectionner</option><option>Référence d'un collègue</option><option>Réseaux sociaux</option><option>Recherche Google</option><option>Événement / conférence</option><option>Autre</option></select>
+          </div>
         </div>
       </div>
       <button class="wl-submit" onclick="submitWaitlist()">Réserver ma place →</button>
@@ -354,54 +381,18 @@
   </div>
   <div class="pulse-layout">
     <div class="rxl">
-      <div class="pulse-card">
-        <div class="pulse-card-header">
-          <div class="pulse-title-group">
-            <span class="pulse-heart">💓</span>
-            <div><div class="pulse-name">Pulse Vital™</div><div class="pulse-client">Jacques Bergeron</div></div>
-          </div>
-          <div class="score-ring-wrap">
-            <svg class="score-svg" width="106" height="106" viewBox="0 0 106 106">
-              <circle class="score-track" cx="53" cy="53" r="47"/>
-              <circle class="score-circle" cx="53" cy="53" r="47"/>
-            </svg>
-            <div class="score-inner"><div class="score-number">75</div><div class="score-max">/100</div></div>
-          </div>
-        </div>
-        <div class="pulse-status-bar">
-          <div class="status-dot"></div>
-          <div class="status-text">💛 Stable — Dernier contact il y a 2 jours</div>
-          <div class="status-pts">+20 pts actifs</div>
-        </div>
-        <div class="score-breakdown">
-          <div class="score-line"><div class="score-line-icon">✅</div><div class="score-line-text">Analyse des besoins financiers complétée</div><div class="score-line-pts">+20</div></div>
-          <div class="score-line"><div class="score-line-icon">📞</div><div class="score-line-text">Contact récent — interaction il y a 2 jours</div><div class="score-line-pts">+15</div></div>
-          <div class="score-line"><div class="score-line-icon">🛡️</div><div class="score-line-text">2 produits actifs sous gestion</div><div class="score-line-pts">+10</div></div>
-          <div class="score-line"><div class="score-line-icon">📅</div><div class="score-line-text">Aucun rendez-vous planifié (manque)</div><div class="score-line-pts neg">-5</div></div>
-          <div class="score-line"><div class="score-line-icon">🎯</div><div class="score-line-text">Opportunités futures non complétées</div><div class="score-line-pts neg">-5</div></div>
-        </div>
-        <div class="pulse-suggestions">
-          <div class="suggestions-title">💡 Suggestions — +38 pts potentiels</div>
-          <div class="suggestion-item"><div class="sug-icon">📅</div><div class="sug-text">Planifier un rendez-vous — démontre une relation active avec le client</div><div class="sug-pts">+10</div></div>
-          <div class="suggestion-item"><div class="sug-icon">📈</div><div class="sug-text">Proposer un placement — renforce le lien et la confiance</div><div class="sug-pts">+10</div></div>
-          <div class="suggestion-item"><div class="sug-icon">🎯</div><div class="sug-text">Créer une opportunité — identifier un nouveau besoin identifié</div><div class="sug-pts">+5</div></div>
-          <div class="suggestion-item"><div class="sug-icon">🗓️</div><div class="sug-text">Planifier des opportunités futures — 2+ avec dates cibles</div><div class="sug-pts">+5</div></div>
-          <div class="suggestion-item"><div class="sug-icon">✅</div><div class="sug-text">Compléter les tâches en cours — taux &gt; 75% sur 30 jours</div><div class="sug-pts">+5</div></div>
-          <div class="suggestion-item"><div class="sug-icon">🤝</div><div class="sug-text">Obtenir une référence — client satisfait, demandez-la</div><div class="sug-pts">+3</div></div>
-        </div>
-      </div>
+      <div class="pulse-card" id="pulse-card"></div>
     </div>
     <div class="rxr" style="padding-top:20px">
-      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(34px,4.2vw,62px);font-weight:300;line-height:1.04;margin-bottom:22px">Une gestion basée sur la <em style="font-style:italic;color:var(--green)">qualité de service</em>, pas sur les actifs</h2>
-      <p style="font-size:15px;line-height:1.9;color:var(--cd);margin-bottom:20px">Le Pulse Vital analyse en continu la qualité de votre relation avec chaque contact : fréquence des interactions, produits actifs, tâches complétées, opportunités planifiées, renouvellements à venir. Il génère un score 0–100 avec des actions concrètes pour l'améliorer.</p>
-      <p style="font-size:15px;line-height:1.9;color:var(--cd);margin-bottom:22px">Chaque type de contact — client, prospect, corporatif — a ses propres critères qui déterminent s'il est bien traité. Un prospect n'a pas les mêmes indicateurs qu'un client actif. Le Pulse s'adapte automatiquement pour que plus jamais un contact ne tombe entre les craques.</p>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(34px,4.2vw,62px);font-weight:300;line-height:1.04;margin-bottom:22px">Le centre de gestion <em style="font-style:italic;color:var(--green)">de chaque contact</em></h2>
+      <p style="font-size:15px;line-height:1.9;color:var(--cd);margin-bottom:20px">Le Pulse Vital est votre centre de commande pour chaque contact. Statut du lead, informations clés, facteurs de score et prochaine action suggérée — tout est visible en un coup d'oeil. Chaque type de contact a ses propres critères et son propre parcours.</p>
+      <p style="font-size:15px;line-height:1.9;color:var(--cd);margin-bottom:22px">Un prospect n'a pas les mêmes indicateurs qu'un client actif ou une corporation. Le Pulse s'adapte automatiquement pour que plus jamais un contact ne tombe entre les craques — et vous dit exactement quoi faire pour le faire avancer.</p>
       <div class="tag-row">
         <span class="pill-tag">Score 0–100 en temps réel</span>
-        <span class="pill-tag">Actions concrètes suggérées</span>
-        <span class="pill-tag gold">Personnalisé par type de contact</span>
+        <span class="pill-tag gold">Centre de gestion par contact</span>
+        <span class="pill-tag">Prochaine étape suggérée</span>
         <span class="pill-tag">Alertes risque de churn</span>
-        <span class="pill-tag">Vue directeur équipe</span>
-        <span class="pill-tag blue">Client · Prospect · Corpo</span>
+        <span class="pill-tag blue">Prospect · Client · Corpo</span>
       </div>
     </div>
   </div>
@@ -412,7 +403,7 @@
   <div class="abf-header">
     <div class="sec-label rx">ABF & Conformité AMF</div>
     <h2 class="sec-title rx">L'Analyse des Besoins Financiers<br>la plus <em>complète au Québec</em></h2>
-    <p class="sec-sub rx">Conforme AMF, intelligente, tellement bien faite que vos clients adorent la remplir. Entrez une donnée une seule fois — elle se propage dans toute l'analyse.</p>
+    <p class="sec-sub rx">Conformité AMF automatisée, signatures en 30 secondes, données synchronisées entre tous les modules. ABF familiale, corporative avec import REQ, 3 plans de maladies graves et opportunités futures générées automatiquement.</p>
   </div>
 
   <div class="abf-carousel rx" id="abf-carousel"></div>
@@ -857,6 +848,10 @@
   </div>
   <div class="footer-copy">© 2025 Services Financiers Finox inc. · Québec · AMF-compatible</div>
 </footer>
+
+<!-- Tidio Chat Widget — replace YOUR_PUBLIC_KEY with your Tidio public key -->
+<!-- To set up: 1) Create free account at tidio.com 2) Get your public key 3) Replace below -->
+<!-- <script src="//code.tidio.co/YOUR_PUBLIC_KEY.js" async></script> -->
 
 <script src="finox.js"></script>
 </body>
