@@ -1227,7 +1227,7 @@ function handleWaitlistSubmit(e) {
   fields.forEach(el => {
     if (!el) return;
     el.classList.remove('error');
-    if (!el.value.trim() || (el.type === 'email' && !el.value.includes('@'))) {
+    if (!el.value.trim() || (el.type === 'email' && !el.validity.valid)) {
       el.classList.add('error');
       setTimeout(() => el.classList.remove('error'), 2500);
       valid = false;
@@ -1242,6 +1242,18 @@ function handleWaitlistSubmit(e) {
     if (suc) suc.classList.add('show');
   }, 400);
   return true;
+}
+
+/* Formatage automatique du téléphone : 555-555-5555 */
+function initPhoneMask() {
+  const ph = document.getElementById('wl-phone');
+  if (!ph) return;
+  ph.addEventListener('input', () => {
+    let v = ph.value.replace(/\D/g, '').slice(0, 10);
+    if (v.length > 6) v = v.slice(0,3) + '-' + v.slice(3,6) + '-' + v.slice(6);
+    else if (v.length > 3) v = v.slice(0,3) + '-' + v.slice(3);
+    ph.value = v;
+  });
 }
 
 function ctaSubmit() {
@@ -1329,6 +1341,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Comm tabs
   initCommTabs();
+
+  // Phone mask
+  initPhoneMask();
 
   // Live timestamp
   updateTimestamp();
