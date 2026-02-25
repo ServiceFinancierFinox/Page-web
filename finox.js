@@ -1212,7 +1212,59 @@ function closeWaitlistModal(e) {
     document.body.style.overflow = '';
   }
 }
-/* Zoho Forms — intégré via iframe directement dans le modal */
+/*
+  Zoho Forms — soumission via fetch no-cors + lien partagé JS
+  Le lien partagé accepte les soumissions cross-origin.
+*/
+const ZOHO_SUBMIT_URL = 'https://forms.zohopublic.ca/Finox/form/WaitlistFinoxOSConseillers/formperma/HHK7J7cucQPW3b1Y0D95g2yUxw7Vm2antELMCEUhpII/htmlRecords/submit';
+
+function sendToZoho(data) {
+  const body = new URLSearchParams();
+  body.append('zf_referrer_name', '');
+  body.append('zf_redirect_url', '');
+  body.append('zc_gad', '');
+  Object.entries(data).forEach(([k, v]) => body.append(k, v));
+  fetch(ZOHO_SUBMIT_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    body: body,
+  }).catch(() => {});
+}
+
+function validateRequired(fields) {
+  let valid = true;
+  fields.forEach(el => {
+    if (!el) return;
+    el.classList.remove('error');
+    if (!el.value.trim() || (el.type === 'email' && !el.value.includes('@'))) {
+      el.classList.add('error');
+      setTimeout(() => el.classList.remove('error'), 2500);
+      valid = false;
+    }
+  });
+  return valid;
+}
+
+function submitWaitlist() {
+  const fname = document.getElementById('wl-fname');
+  const lname = document.getElementById('wl-lname');
+  const email = document.getElementById('wl-email');
+  const phone = document.getElementById('wl-phone');
+  const agent = document.getElementById('wl-agent');
+  const form  = document.getElementById('wl-form');
+  const suc   = document.getElementById('wl-success');
+  if (!validateRequired([fname, lname, email, phone, agent])) return;
+  sendToZoho({
+    'Name_First': fname.value.trim(),
+    'Name_Last':  lname.value.trim(),
+    'Email':      email.value.trim(),
+    'PhoneNumber_countrycode': '',
+    'PhoneNumber': phone.value.trim(),
+    'Dropdown':   agent.value,
+  });
+  if (form) form.style.display = 'none';
+  if (suc) suc.classList.add('show');
+}
 
 function ctaSubmit() {
   const name   = document.getElementById('cta-name');
@@ -1221,7 +1273,6 @@ function ctaSubmit() {
   const suc    = document.getElementById('cta-success');
   const spotFill = document.getElementById('spots-fill');
   if (!name || !email || !name.value.trim() || !email.value.trim() || !email.value.includes('@')) return;
-  /* Ouvre le modal waitlist Zoho pour compléter l'inscription */
   openWaitlistModal();
   if (form)  form.style.display  = 'none';
   if (suc)   suc.classList.add('show');
@@ -1254,6 +1305,7 @@ function initCommTabs() {
 ────────────────────────────────────────────────────────────── */
 window.openWaitlistModal  = openWaitlistModal;
 window.closeWaitlistModal = closeWaitlistModal;
+window.submitWaitlist     = submitWaitlist;
 window.ctaSubmit          = ctaSubmit;
 
 /* ──────────────────────────────────────────────────────────────
