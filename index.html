@@ -99,10 +99,6 @@
       </div>
     </div>
   </div>
-  <div class="spots-bar-row spots-bar-nav">
-    <div class="spots-track"><div class="spots-fill" style="width:60.8%"></div></div>
-    152 / 250 places remplies
-  </div>
   <a href="#cta" class="nav-cta-btn">
     <div class="live-dot"></div>Accès anticipé
   </a>
@@ -143,6 +139,10 @@
 
     <div class="hero-cta" style="animation-delay:1.65s">
       <button class="btn-gold btn-gold-lg" onclick="openWaitlistModal()"><div class="btn-shine"></div>Rejoindre la waitlist →</button>
+      <div class="spots-bar-row">
+        <div class="spots-track"><div class="spots-fill" style="width:60.8%"></div></div>
+        152 / 250 places remplies
+      </div>
       <p class="cta-note">Accès bêta gratuit · Aucune carte requise · AMF-compatible · Google Workspace inclus</p>
     </div>
   </div>
@@ -412,24 +412,6 @@
         <span class="pill-tag">Lettre explicative auto</span>
       </div>
     </div>
-    <div class="rxr">
-      <div class="preavis-img-wrap">
-        <!-- Remplacer src par le vrai fichier image du préavis AMF -->
-        <img src="préavis.png" alt="Préavis de remplacement AMF" class="preavis-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="preavis-placeholder" style="display:flex">
-          <div class="preavis-placeholder-icon">📋</div>
-          <div class="preavis-placeholder-title">Préavis de remplacement — AMF</div>
-          <div class="preavis-placeholder-sub">Image du formulaire AMF à fournir</div>
-        </div>
-        <!-- Animated dots overlaying the image -->
-        <div class="preavis-dot" style="top:18%;left:35%"></div>
-        <div class="preavis-dot" style="top:32%;left:60%;animation-delay:.4s"></div>
-        <div class="preavis-dot" style="top:48%;left:25%;animation-delay:.8s"></div>
-        <div class="preavis-dot" style="top:62%;left:55%;animation-delay:1.2s"></div>
-        <div class="preavis-dot" style="top:78%;left:40%;animation-delay:1.6s"></div>
-        <div class="preavis-dot" style="top:88%;left:70%;animation-delay:2s"></div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -442,28 +424,7 @@
   </div>
 
   <!-- Comparateur fictif — UI complète -->
-  <div class="comp-frame rx" id="comp-frame">
-    <div class="comp-chrome">
-      <div class="chrome-dots">
-        <div class="chrome-dot" style="background:#FF5F57"></div>
-        <div class="chrome-dot" style="background:#FEBC2E"></div>
-        <div class="chrome-dot" style="background:#28C840"></div>
-      </div>
-      <div class="chrome-url">app.finox.ca/outils/comparateur</div>
-      <div class="comp-chrome-badge">Live · Connecté à toutes les compagnies</div>
-    </div>
-    <div class="comp-body">
-      <!-- Screenshot du vrai outil comparateur -->
-      <img src="comparateur.png" alt="Comparateur d'assurance FINOX" class="comp-screenshot" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="comp-screenshot-placeholder">
-        <div class="comp-screenshot-placeholder-icon">💡</div>
-        <div class="comp-screenshot-placeholder-title">Comparateur d'assurance multi-compagnies</div>
-        <div class="comp-screenshot-placeholder-sub">Screenshot du vrai outil à fournir</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Description sous le comparateur -->
+  <!-- Description du comparateur -->
   <div class="comp-desc-layout rx" style="margin-top:80px">
     <div class="rxl">
       <h3 style="font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4vw,56px);font-weight:300;line-height:1.05;margin-bottom:22px">Le seul comparateur <em style="font-style:italic;color:var(--g)">dont vous aurez besoin</em></h3>
@@ -1227,6 +1188,11 @@
 
     <button class="cta-submit-btn" onclick="openWaitlistModal()">Réserver ma place →</button>
 
+    <div class="spots-bar-row">
+      <div class="spots-track"><div class="spots-fill" style="width:60.8%"></div></div>
+      152 / 250 places remplies
+    </div>
+
     <div class="trust-row">
       <div class="trust-item"><div class="trust-check">✓</div>Accès anticipé</div>
       <div class="trust-item"><div class="trust-check">✓</div>AMF-compatible</div>
@@ -1246,10 +1212,6 @@
     <a href="#ai"       class="footer-link">IA</a>
     <a href="#cabinet"  class="footer-link">Cabinet</a>
     <a href="#cta"      class="footer-link">Accès anticipé</a>
-  </div>
-  <div class="spots-bar-row">
-    <div class="spots-track"><div class="spots-fill" style="width:60.8%"></div></div>
-    152 / 250 places remplies
   </div>
   <div class="footer-copy">© 2025 Services Financiers Finox inc. · Québec · AMF-compatible</div>
 </footer>
