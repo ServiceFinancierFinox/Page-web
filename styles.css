@@ -124,7 +124,7 @@ nav.scrolled{background:rgba(6,6,8,.96);border-bottom:1px solid rgba(196,162,74,
 .stat-item::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,transparent,var(--g),transparent);transform:scaleX(0);transition:transform .5s}
 .stat-item:hover::before{transform:scaleX(1)}
 .stat-num,.hero-stat-num{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:700;background:linear-gradient(180deg,var(--gl),var(--g));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
-.stat-label{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--cm);margin-top:8px}
+.stat-label{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--cr);font-weight:700;margin-top:8px}
 
 /* CTA group */
 .hero-cta{display:flex;flex-direction:column;align-items:center;gap:24px;opacity:0;animation:fup .7s var(--ease-out) 1.6s forwards}
@@ -133,7 +133,7 @@ nav.scrolled{background:rgba(6,6,8,.96);border-bottom:1px solid rgba(196,162,74,
 .btn-gold-lg{padding:20px 52px;font-size:16px;border-radius:100px;box-shadow:0 0 100px rgba(196,162,74,.3)}
 .btn-gold .btn-shine,.cta-submit-btn .btn-shine{position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);transform:skewX(-20deg);transition:left .6s}
 .btn-gold:hover .btn-shine,.cta-submit-btn:hover .btn-shine{left:150%}
-.cta-note{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;color:var(--cm);font-weight:400;margin-top:4px}
+.cta-note{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;color:var(--cr);font-weight:700;margin-top:4px}
 
 /* Scroll mouse */
 .scroll-indicator{position:absolute;bottom:32px;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:8px;z-index:3;opacity:0;animation:fup .6s ease 2.4s forwards}
@@ -456,7 +456,7 @@ select.wl-input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg 
 .mg-feature::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;font-size:11px;margin-top:2px}
 
 /* Preavis layout */
-.preavis-layout{max-width:1300px;margin:80px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.preavis-layout{max-width:900px;margin:80px auto 0}
 .doc-preview{background:var(--s1);border:1px solid rgba(255,255,255,.07);border-radius:20px;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.45)}
 .dp-header{padding:20px 26px;border-bottom:1px solid rgba(255,255,255,.05);background:rgba(0,0,0,.22);display:flex;align-items:center;gap:14px}
 .dp-icon{font-size:24px}
@@ -473,29 +473,14 @@ select.wl-input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg 
 .sig-animated-line.an{width:85%}
 .sig-confirm{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--green);display:flex;align-items:center;gap:8px}
 
-/* ─── PREAVIS AMF IMAGE ─── */
-.preavis-img-wrap{position:relative;border-radius:20px;overflow:hidden;background:var(--s1);border:1px solid rgba(255,255,255,.07);box-shadow:0 30px 60px rgba(0,0,0,.45);min-height:400px}
-.preavis-img{width:100%;display:block;border-radius:20px}
-.preavis-placeholder{flex-direction:column;align-items:center;justify-content:center;min-height:400px;gap:14px;background:rgba(0,0,0,.22)}
-.preavis-placeholder-icon{font-size:48px}
-.preavis-placeholder-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--cr)}
-.preavis-placeholder-sub{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--cm);letter-spacing:.08em}
-.preavis-dot{position:absolute;width:14px;height:14px;border-radius:50%;background:var(--g);box-shadow:0 0 18px rgba(196,162,74,.6),0 0 36px rgba(196,162,74,.3);animation:dotPulse 2.4s ease-in-out infinite;pointer-events:none;z-index:2}
-@keyframes dotPulse{0%,100%{transform:scale(1);opacity:.85}50%{transform:scale(1.6);opacity:.35}}
 
 /* ─── SPOTS BAR NAV ─── */
 .spots-bar-nav{font-size:9px;padding:8px 16px;gap:10px;flex-shrink:0}
 .spots-bar-nav .spots-track{width:60px;height:3px}
 
 /* ─── SECTION CTA ROW ─── */
-.section-cta-row{text-align:center;padding:60px 40px 80px;background:var(--ink)}
+.section-cta-row{text-align:center;padding:60px 40px 80px;background:transparent}
 
-/* ─── COMPARATEUR SCREENSHOT ─── */
-.comp-screenshot{width:100%;display:block}
-.comp-screenshot-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:350px;gap:14px;background:rgba(0,0,0,.22)}
-.comp-screenshot-placeholder-icon{font-size:48px}
-.comp-screenshot-placeholder-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--cr)}
-.comp-screenshot-placeholder-sub{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--cm);letter-spacing:.08em}
 
 /* ─── TOOLS BENTO ─── */
 .tools-section{padding:140px 60px;background:var(--s2);overflow:hidden;position:relative}
@@ -607,8 +592,8 @@ select.wl-input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg 
 .comp-feature-text p{font-size:13px;line-height:1.65;color:var(--cd)}
 
 /* ─── INDIVIDUAL TOOL SECTIONS ─── */
-.tool-individual-section{padding:120px 60px;overflow:hidden;position:relative;background:var(--s2)}
-.tool-individual-section.tool-alt{background:var(--s1)}
+.tool-individual-section{padding:120px 60px;overflow:hidden;position:relative;background:linear-gradient(to bottom,var(--s2),var(--s1))}
+.tool-individual-section.tool-alt{background:linear-gradient(to bottom,var(--s1),var(--s2))}
 
 /* ─── SHARED CALC FRAME (all calculator UIs) ─── */
 .calc-frame{max-width:1300px;margin:0 auto;border-radius:20px;overflow:hidden;border:1px solid rgba(196,162,74,.18);box-shadow:0 50px 140px rgba(0,0,0,.6),0 0 60px rgba(196,162,74,.03) inset}
@@ -828,7 +813,7 @@ select.wl-input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg 
 .ibadge-or{background:rgba(196,162,74,.1);color:var(--g)}
 
 /* ─── TIMELINE ─── */
-.timeline-section{padding:150px 60px;background:var(--s1);overflow:hidden}
+.timeline-section{padding:150px 60px;background:linear-gradient(to bottom,var(--ink),var(--s1));overflow:hidden}
 .tl-wrap{max-width:1100px;margin:65px auto 0;background:var(--s2);border:1px solid rgba(255,255,255,.07);border-radius:22px;overflow:hidden;box-shadow:0 40px 90px rgba(0,0,0,.45)}
 .tl-top{display:flex;align-items:center;justify-content:space-between;padding:24px 30px;border-bottom:1px solid rgba(255,255,255,.05);flex-wrap:wrap;gap:14px}
 .tl-top-name{font-size:18px;font-weight:800}
@@ -878,7 +863,7 @@ select.wl-input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg 
 .conf-tx p{font-size:13px;line-height:1.7;color:var(--cd)}
 
 /* ─── NUMBERS ─── */
-.cabinet-section{padding:150px 60px;background:var(--s1);overflow:hidden}
+.cabinet-section{padding:150px 60px;background:linear-gradient(to bottom,var(--s1),var(--ink));overflow:hidden}
 .cabinet-layout{max-width:1300px;margin:65px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
 .cabinet-partnership-visual{padding:40px 30px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.055);border-radius:20px}
 .partnership-diagram{margin-top:24px;padding:10px 0}
@@ -1031,4 +1016,7 @@ footer{padding:48px 60px;border-top:1px solid rgba(255,255,255,.05);display:flex
   .crm-nav-item{padding:2px 5px}
   .crm-nav-group{padding:0 4px}
   .crm-nav-arrow{width:32px;height:32px;font-size:20px}
+}
+@media(max-height:800px){
+  .scroll-indicator{display:none}
 }
