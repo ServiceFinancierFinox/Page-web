@@ -310,6 +310,41 @@ select.wl-input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg 
 .badge-bl{background:rgba(74,142,212,.1);color:var(--blue)}
 .badge-rd{background:rgba(196,74,74,.1);color:var(--red)}
 
+/* ─── APP COMPARISON ─── */
+.compare-section{padding:140px 60px;background:linear-gradient(to bottom,var(--s2),var(--s1));overflow:hidden;position:relative}
+.compare-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:1200px;height:1200px;background:radial-gradient(circle,rgba(196,162,74,.03),transparent 55%);pointer-events:none}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:1100px;margin:60px auto 0;align-items:start}
+.compare-card{border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,.06)}
+.compare-card.compare-old{background:rgba(196,74,74,.03)}
+.compare-card.compare-new{background:rgba(62,200,154,.03);border-color:rgba(62,200,154,.15)}
+.compare-card-header{display:flex;align-items:center;justify-content:space-between;padding:20px 28px;border-bottom:1px solid rgba(255,255,255,.06)}
+.compare-card-header.old{background:rgba(196,74,74,.06)}
+.compare-card-header.new{background:rgba(62,200,154,.06)}
+.compare-card-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700}
+.compare-card-badge{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border-radius:100px}
+.compare-card-badge.old{background:rgba(196,74,74,.1);color:var(--red);border:1px solid rgba(196,74,74,.2)}
+.compare-card-badge.new{background:rgba(62,200,154,.1);color:var(--green);border:1px solid rgba(62,200,154,.2)}
+.compare-rows{padding:8px 0}
+.compare-row{display:flex;align-items:center;justify-content:space-between;padding:11px 28px;transition:background .2s}
+.compare-row:nth-child(odd){background:rgba(255,255,255,.015)}
+.compare-row:hover{background:rgba(255,255,255,.03)}
+.compare-row.finox:hover{background:rgba(62,200,154,.04)}
+.compare-app{display:flex;align-items:center;gap:12px}
+.compare-logo{width:28px;height:28px;border-radius:8px;object-fit:contain;background:rgba(255,255,255,.08);padding:3px;flex-shrink:0}
+.compare-logo-fallback{width:28px;height:28px;border-radius:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:var(--cm);flex-shrink:0}
+.compare-finox-icon{width:28px;height:28px;border-radius:8px;background:rgba(62,200,154,.1);border:1px solid rgba(62,200,154,.18);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.compare-name{font-size:14px;color:var(--cr)}
+.compare-price{font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--red);font-weight:500;flex-shrink:0}
+.compare-price small{font-size:10px;color:var(--cm);font-weight:400}
+.compare-included{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.06em;color:var(--green);padding:4px 12px;background:rgba(62,200,154,.08);border:1px solid rgba(62,200,154,.15);border-radius:100px;flex-shrink:0}
+.compare-total{display:flex;align-items:center;justify-content:space-between;padding:18px 28px;border-top:1px solid rgba(255,255,255,.06);font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--cm)}
+.compare-total.old{background:rgba(196,74,74,.06);border-top-color:rgba(196,74,74,.15)}
+.compare-total.new{background:rgba(62,200,154,.06);border-top-color:rgba(62,200,154,.15)}
+.compare-total-price{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;letter-spacing:0;text-transform:none}
+.compare-total-price.old{color:var(--red)}
+.compare-total-price.new{color:var(--green)}
+.compare-total-price small{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--cm);font-weight:400}
+
 /* ─── PULSE VITAL ─── */
 .pulse-section{padding:140px 60px;background:var(--s1);overflow:hidden;position:relative}
 .pulse-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:1200px;height:1200px;background:radial-gradient(circle,rgba(62,200,154,.035),transparent 55%);pointer-events:none}
@@ -989,6 +1024,8 @@ footer{padding:48px 60px;display:flex;flex-direction:column;align-items:center;g
   .dashboard-grid{grid-template-columns:1fr 1fr}
   .chart-card,.activity-card{grid-column:1/2}
   .pipeline-card,.clients-card{grid-column:2/3}
+  .compare-grid{grid-template-columns:1fr;gap:24px}
+  .compare-section{padding:130px 24px}
   .pulse-layout,.ai-layout,.comm-layout,.conf-layout,.cabinet-layout,.preavis-layout{grid-template-columns:1fr;gap:52px}
   .pulse-card{max-width:100%}
   .carousel-slide{flex-direction:column;gap:28px}
@@ -1003,7 +1040,7 @@ footer{padding:48px 60px;display:flex;flex-direction:column;align-items:center;g
   footer{flex-direction:column;gap:22px;text-align:center}
   .footer-links{flex-wrap:wrap;justify-content:center}
   .corner{display:none}
-  .showcase,.pulse-section,.abf-section,.tools-section,.ai-section,.comm-section,.timeline-section,.opps-section,.conf-section,.cabinet-section,.numbers-section,.proof-section,.final-section{padding:130px 24px}
+  .showcase,.compare-section,.pulse-section,.abf-section,.tools-section,.ai-section,.comm-section,.timeline-section,.opps-section,.conf-section,.cabinet-section,.numbers-section,.proof-section,.final-section{padding:130px 24px}
 }
 @media(max-width:640px){
   nav{height:88px}
