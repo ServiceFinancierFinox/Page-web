@@ -171,8 +171,8 @@ select.wl-input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg 
 @keyframes scrolldot{0%,100%{transform:translateY(0);opacity:1}85%{transform:translateY(10px);opacity:0}}
 
 /* ─── MARQUEE ─── */
-.marquee-wrap{padding:26px 0;border-top:1px solid rgba(196,162,74,.07);border-bottom:1px solid rgba(196,162,74,.07);overflow:hidden;background:rgba(196,162,74,.012);position:relative}
-.marquee-wrap+.marquee-wrap{margin-top:2px}
+.marquee-wrap{padding:26px 0;overflow:hidden;position:relative}
+.marquee-wrap+.marquee-wrap{margin-top:0}
 .marquee-track{display:flex;width:max-content;animation:mqa 30s linear infinite}
 .marquee-track.reverse{animation-direction:reverse;animation-duration:24s}
 .marquee-item{display:flex;align-items:center;gap:14px;padding:0 36px;border-right:1px solid rgba(196,162,74,.08);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cr);font-weight:700;white-space:nowrap}
@@ -456,7 +456,9 @@ select.wl-input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg 
 .mg-feature::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;font-size:11px;margin-top:2px}
 
 /* Preavis layout */
-.preavis-layout{max-width:900px;margin:80px auto 0}
+.preavis-layout{max-width:1300px;margin:80px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.preavis-img-wrap{position:relative;border-radius:20px;overflow:hidden;background:var(--s1);border:1px solid rgba(255,255,255,.07);box-shadow:0 30px 60px rgba(0,0,0,.45)}
+.preavis-img{width:100%;display:block;border-radius:20px}
 .doc-preview{background:var(--s1);border:1px solid rgba(255,255,255,.07);border-radius:20px;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.45)}
 .dp-header{padding:20px 26px;border-bottom:1px solid rgba(255,255,255,.05);background:rgba(0,0,0,.22);display:flex;align-items:center;gap:14px}
 .dp-icon{font-size:24px}
@@ -473,6 +475,8 @@ select.wl-input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg 
 .sig-animated-line.an{width:85%}
 .sig-confirm{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--green);display:flex;align-items:center;gap:8px}
 
+/* ─── COMPARATEUR SCREENSHOT ─── */
+.comp-screenshot{width:100%;display:block}
 
 /* ─── SPOTS BAR NAV ─── */
 .spots-bar-nav{font-size:9px;padding:8px 16px;gap:10px;flex-shrink:0}
@@ -852,7 +856,7 @@ select.wl-input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg 
 .opp-tag{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;padding:5px 13px;border-radius:100px;background:rgba(196,162,74,.06);border:1px solid rgba(196,162,74,.14);color:var(--g)}
 
 /* ─── CONFORMITE & DOCS ─── */
-.conf-section{padding:150px 60px;background:var(--s2);overflow:hidden}
+.conf-section{padding:150px 60px;background:linear-gradient(to bottom,var(--s2),var(--s1));overflow:hidden}
 .conf-layout{max-width:1300px;margin:65px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
 .conf-list{display:flex;flex-direction:column;gap:12px}
 .conf-item{display:flex;gap:18px;padding:22px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.055);border-radius:16px;cursor:default;transition:all .3s}
@@ -958,7 +962,7 @@ select.wl-input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg 
 .success-sub{font-size:16px;color:var(--cd);max-width:420px;text-align:center;line-height:1.7}
 
 /* ─── FOOTER ─── */
-footer{padding:48px 60px;border-top:1px solid rgba(255,255,255,.05);display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center;background:var(--ink)}
+footer{padding:48px 60px;display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center;background:var(--ink)}
 .footer-logo{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:700;letter-spacing:.07em;color:var(--cr)}
 .footer-logo span{color:var(--g)}
 .footer-links{display:flex;gap:26px;flex-wrap:wrap;justify-content:center}
