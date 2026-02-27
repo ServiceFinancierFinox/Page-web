@@ -328,7 +328,9 @@ select.wl-input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg 
 .compare-app{display:flex;align-items:center;gap:12px}
 .compare-logo{width:28px;height:28px;border-radius:8px;object-fit:contain;background:rgba(255,255,255,.08);padding:3px;flex-shrink:0}
 .compare-logo-fallback{width:28px;height:28px;border-radius:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:var(--cm);flex-shrink:0}
+.compare-name-wrap{display:flex;flex-direction:column;gap:1px}
 .compare-name{font-size:14px;color:var(--cr)}
+.compare-role{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.04em;color:var(--cm);opacity:.7}
 .compare-price{font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--red);font-weight:500;flex-shrink:0}
 .compare-price small{font-size:10px;color:var(--cm);font-weight:400}
 .compare-total{display:flex;align-items:center;justify-content:space-between;padding:18px 28px;border-top:1px solid rgba(255,255,255,.06);font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--cm)}
@@ -346,6 +348,12 @@ select.wl-input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg 
 @keyframes brandGlow{0%,100%{opacity:.5;transform:scale(.9)}50%{opacity:1;transform:scale(1.1)}}
 .finox-brand-logo{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:700;color:var(--cr);letter-spacing:.06em;position:relative;z-index:1}
 .finox-brand-accent{color:var(--g);font-size:56px;line-height:0;position:relative;top:2px}
+.finox-brand-pricing{display:flex;flex-direction:column;align-items:center;gap:6px}
+.finox-brand-price{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:700;color:var(--g);letter-spacing:-.01em;line-height:1}
+.finox-brand-price small{font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--cm);font-weight:400}
+.finox-brand-savings{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.06em;color:var(--green);font-weight:500;display:flex;align-items:center;gap:6px}
+.finox-brand-savings::before{content:'▼';font-size:9px}
+.finox-brand-savings-annual{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--cm);letter-spacing:.04em}
 .finox-brand-sub{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--g);text-align:center;max-width:260px;line-height:1.6}
 
 /* ─── PULSE VITAL ─── */
