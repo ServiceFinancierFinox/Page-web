@@ -366,124 +366,125 @@
 
 <!-- ══════════════════════════ APP COMPARISON ══════════ -->
 <section class="compare-section" id="compare">
-  <div style="max-width:1300px;margin:0 auto;text-align:center">
-    <div class="sec-label rx">Construit par des courtiers, pour des courtiers</div>
-    <h2 class="sec-title rx">On a vécu le même problème.<br><em>Alors on l'a réglé.</em></h2>
-    <p class="sec-sub rx">10 logiciels, 10 factures, 10 mots de passe — et rien qui se parle entre eux. On payait 381 $ par mois juste pour fonctionner. Alors on a tout reconstruit dans une seule plateforme, plus performante, plus simple, et on l'offre à tous les courtiers du Québec. Moins cher. Meilleur. En tout point.</p>
-  </div>
+  <div class="compare-scroll-outer">
+    <div class="compare-scroll-sticky">
+      <div class="compare-scroll-content">
+        <!-- Header text -->
+        <div class="compare-header-text" id="compare-header-text">
+          <div class="sec-label">Construit par des courtiers, pour des courtiers</div>
+          <h2 class="sec-title">On a vécu le même problème.<br><em>Alors on l'a réglé.</em></h2>
+          <p class="sec-sub">10 logiciels, 10 factures, 10 mots de passe — et rien qui se parle entre eux. On payait 381 $ par mois juste pour fonctionner. Alors on a tout reconstruit dans une seule plateforme, plus performante, plus simple, et on l'offre à tous les courtiers du Québec. Moins cher. Meilleur. En tout point.</p>
+        </div>
 
-  <div class="compare-layout">
-    <!-- LEFT — Current Stack Table -->
-    <div class="compare-card compare-old rx">
-      <div class="compare-card-header old">
-        <span class="compare-card-title">Votre stack actuelle</span>
-        <span class="compare-card-badge old">10 abonnements</span>
-      </div>
-      <div class="compare-rows">
-        <div class="compare-row">
-          <div class="compare-app">
-            <img src="https://logo.clearbit.com/equisoft.com" alt="Équisoft" class="compare-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-            <span class="compare-logo-fallback" style="display:none">É</span>
-            <div class="compare-name-wrap"><span class="compare-name">Équisoft</span><span class="compare-role">CRM & dossiers clients</span></div>
+        <!-- Morph stage -->
+        <div class="compare-stage">
+          <div class="compare-card compare-old" id="compare-card-morph">
+            <div class="compare-card-header old" id="compare-card-hdr">
+              <span class="compare-card-title">Votre stack actuelle</span>
+              <span class="compare-card-badge old">10 abonnements</span>
+            </div>
+            <div class="compare-rows" id="compare-rows-wrap">
+              <div class="compare-row">
+                <div class="compare-app">
+                  <img src="https://logo.clearbit.com/equisoft.com" alt="Équisoft" class="compare-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+                  <span class="compare-logo-fallback" style="display:none">É</span>
+                  <div class="compare-name-wrap"><span class="compare-name">Équisoft</span><span class="compare-role">CRM & dossiers clients</span></div>
+                </div>
+                <span class="compare-price">105 $<small>/mois</small></span>
+              </div>
+              <div class="compare-row">
+                <div class="compare-app">
+                  <img src="https://logo.clearbit.com/lifeguide.ca" alt="LifeGuide" class="compare-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+                  <span class="compare-logo-fallback" style="display:none">L</span>
+                  <div class="compare-name-wrap"><span class="compare-name">LifeGuide</span><span class="compare-role">Comparateur assurance</span></div>
+                </div>
+                <span class="compare-price">50 $<small>/mois</small></span>
+              </div>
+              <div class="compare-row">
+                <div class="compare-app">
+                  <img src="https://logo.clearbit.com/calendly.com" alt="Calendly" class="compare-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+                  <span class="compare-logo-fallback" style="display:none">C</span>
+                  <div class="compare-name-wrap"><span class="compare-name">Calendly</span><span class="compare-role">Prise de rendez-vous</span></div>
+                </div>
+                <span class="compare-price">10 $<small>/mois</small></span>
+              </div>
+              <div class="compare-row">
+                <div class="compare-app">
+                  <img src="https://logo.clearbit.com/google.com" alt="Google Workspace" class="compare-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+                  <span class="compare-logo-fallback" style="display:none">G</span>
+                  <div class="compare-name-wrap"><span class="compare-name">Google Workspace</span><span class="compare-role">Courriel & agenda</span></div>
+                </div>
+                <span class="compare-price">22 $<small>/mois</small></span>
+              </div>
+              <div class="compare-row">
+                <div class="compare-app">
+                  <img src="https://logo.clearbit.com/ringcentral.com" alt="RingCentral" class="compare-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+                  <span class="compare-logo-fallback" style="display:none">R</span>
+                  <div class="compare-name-wrap"><span class="compare-name">RingCentral</span><span class="compare-role">Téléphonie VoIP</span></div>
+                </div>
+                <span class="compare-price">35 $<small>/mois</small></span>
+              </div>
+              <div class="compare-row">
+                <div class="compare-app">
+                  <img src="https://logo.clearbit.com/ringcentral.com" alt="RingCentral SMS" class="compare-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+                  <span class="compare-logo-fallback" style="display:none">R</span>
+                  <div class="compare-name-wrap"><span class="compare-name">RingCentral SMS</span><span class="compare-role">Messagerie texte</span></div>
+                </div>
+                <span class="compare-price">55 $<small>/mois</small></span>
+              </div>
+              <div class="compare-row">
+                <div class="compare-app">
+                  <img src="https://logo.clearbit.com/planvie.ca" alt="Plan Vie" class="compare-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+                  <span class="compare-logo-fallback" style="display:none">P</span>
+                  <div class="compare-name-wrap"><span class="compare-name">Plan Vie</span><span class="compare-role">ABF & conformité AMF</span></div>
+                </div>
+                <span class="compare-price">47 $<small>/mois</small></span>
+              </div>
+              <div class="compare-row">
+                <div class="compare-app">
+                  <img src="https://logo.clearbit.com/claude.ai" alt="Claude" class="compare-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+                  <span class="compare-logo-fallback" style="display:none">C</span>
+                  <div class="compare-name-wrap"><span class="compare-name">Claude</span><span class="compare-role">Intelligence artificielle</span></div>
+                </div>
+                <span class="compare-price">20 $<small>/mois</small></span>
+              </div>
+              <div class="compare-row">
+                <div class="compare-app">
+                  <img src="https://logo.clearbit.com/fireflies.ai" alt="Fireflies" class="compare-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+                  <span class="compare-logo-fallback" style="display:none">F</span>
+                  <div class="compare-name-wrap"><span class="compare-name">Fireflies</span><span class="compare-role">Transcription de rencontres</span></div>
+                </div>
+                <span class="compare-price">18 $<small>/mois</small></span>
+              </div>
+              <div class="compare-row">
+                <div class="compare-app">
+                  <img src="https://logo.clearbit.com/wisestamp.com" alt="WiseStamp" class="compare-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+                  <span class="compare-logo-fallback" style="display:none">W</span>
+                  <div class="compare-name-wrap"><span class="compare-name">WiseStamp</span><span class="compare-role">Signature courriel</span></div>
+                </div>
+                <span class="compare-price">19 $<small>/mois</small></span>
+              </div>
+            </div>
+            <div class="compare-total old" id="compare-total-bar">
+              <span class="compare-total-txt">Total mensuel</span>
+              <span class="compare-total-price old">381 $<small>/mois</small></span>
+            </div>
+            <!-- FINOX inner (overlaid, appears during morph) -->
+            <div class="compare-finox-inner" id="compare-finox-inner">
+              <div class="finox-brand-glow"></div>
+              <span class="finox-brand-logo">FINOX<span class="finox-brand-accent">.</span>OS</span>
+            </div>
           </div>
-          <span class="compare-price">105 $<small>/mois</small></span>
-        </div>
-        <div class="compare-row">
-          <div class="compare-app">
-            <img src="https://logo.clearbit.com/lifeguide.ca" alt="LifeGuide" class="compare-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-            <span class="compare-logo-fallback" style="display:none">L</span>
-            <div class="compare-name-wrap"><span class="compare-name">LifeGuide</span><span class="compare-role">Comparateur assurance</span></div>
-          </div>
-          <span class="compare-price">50 $<small>/mois</small></span>
-        </div>
-        <div class="compare-row">
-          <div class="compare-app">
-            <img src="https://logo.clearbit.com/calendly.com" alt="Calendly" class="compare-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-            <span class="compare-logo-fallback" style="display:none">C</span>
-            <div class="compare-name-wrap"><span class="compare-name">Calendly</span><span class="compare-role">Prise de rendez-vous</span></div>
-          </div>
-          <span class="compare-price">10 $<small>/mois</small></span>
-        </div>
-        <div class="compare-row">
-          <div class="compare-app">
-            <img src="https://logo.clearbit.com/google.com" alt="Google Workspace" class="compare-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-            <span class="compare-logo-fallback" style="display:none">G</span>
-            <div class="compare-name-wrap"><span class="compare-name">Google Workspace</span><span class="compare-role">Courriel & agenda</span></div>
-          </div>
-          <span class="compare-price">22 $<small>/mois</small></span>
-        </div>
-        <div class="compare-row">
-          <div class="compare-app">
-            <img src="https://logo.clearbit.com/ringcentral.com" alt="RingCentral" class="compare-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-            <span class="compare-logo-fallback" style="display:none">R</span>
-            <div class="compare-name-wrap"><span class="compare-name">RingCentral</span><span class="compare-role">Téléphonie VoIP</span></div>
-          </div>
-          <span class="compare-price">35 $<small>/mois</small></span>
-        </div>
-        <div class="compare-row">
-          <div class="compare-app">
-            <img src="https://logo.clearbit.com/ringcentral.com" alt="RingCentral SMS" class="compare-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-            <span class="compare-logo-fallback" style="display:none">R</span>
-            <div class="compare-name-wrap"><span class="compare-name">RingCentral SMS</span><span class="compare-role">Messagerie texte</span></div>
-          </div>
-          <span class="compare-price">55 $<small>/mois</small></span>
-        </div>
-        <div class="compare-row">
-          <div class="compare-app">
-            <img src="https://logo.clearbit.com/planvie.ca" alt="Plan Vie" class="compare-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-            <span class="compare-logo-fallback" style="display:none">P</span>
-            <div class="compare-name-wrap"><span class="compare-name">Plan Vie</span><span class="compare-role">ABF & conformité AMF</span></div>
-          </div>
-          <span class="compare-price">47 $<small>/mois</small></span>
-        </div>
-        <div class="compare-row">
-          <div class="compare-app">
-            <img src="https://logo.clearbit.com/claude.ai" alt="Claude" class="compare-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-            <span class="compare-logo-fallback" style="display:none">C</span>
-            <div class="compare-name-wrap"><span class="compare-name">Claude</span><span class="compare-role">Intelligence artificielle</span></div>
-          </div>
-          <span class="compare-price">20 $<small>/mois</small></span>
-        </div>
-        <div class="compare-row">
-          <div class="compare-app">
-            <img src="https://logo.clearbit.com/fireflies.ai" alt="Fireflies" class="compare-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-            <span class="compare-logo-fallback" style="display:none">F</span>
-            <div class="compare-name-wrap"><span class="compare-name">Fireflies</span><span class="compare-role">Transcription de rencontres</span></div>
-          </div>
-          <span class="compare-price">18 $<small>/mois</small></span>
-        </div>
-        <div class="compare-row">
-          <div class="compare-app">
-            <img src="https://logo.clearbit.com/wisestamp.com" alt="WiseStamp" class="compare-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
-            <span class="compare-logo-fallback" style="display:none">W</span>
-            <div class="compare-name-wrap"><span class="compare-name">WiseStamp</span><span class="compare-role">Signature courriel</span></div>
-          </div>
-          <span class="compare-price">19 $<small>/mois</small></span>
-        </div>
-      </div>
-      <div class="compare-total old">
-        <span>Total mensuel</span>
-        <span class="compare-total-price old">381 $<small>/mois</small></span>
-      </div>
-    </div>
 
-    <!-- CENTER — Animated equals sign -->
-    <div class="compare-equals rx">
-      <div class="equals-symbol">=</div>
-    </div>
-
-    <!-- RIGHT — FINOX OS Logo -->
-    <div class="compare-finox-brand rx">
-      <div class="finox-brand-ring">
-        <div class="finox-brand-glow"></div>
-        <span class="finox-brand-logo">FINOX<span class="finox-brand-accent">.</span>OS</span>
+          <!-- Pricing (below card/circle, fades in last) -->
+          <div class="compare-finox-pricing-wrap" id="compare-finox-pricing-wrap">
+            <span class="finox-brand-price">200 $<small>/mois</small></span>
+            <span class="finox-brand-savings">Économisez 181 $/mois</span>
+            <span class="finox-brand-savings-annual">soit 2 172 $ par année</span>
+            <span class="finox-brand-sub">Tout inclus. Une seule plateforme.</span>
+          </div>
+        </div>
       </div>
-      <div class="finox-brand-pricing">
-        <span class="finox-brand-price">200 $<small>/mois</small></span>
-        <span class="finox-brand-savings">Économisez 181 $/mois</span>
-        <span class="finox-brand-savings-annual">soit 2 172 $ par année</span>
-      </div>
-      <span class="finox-brand-sub">Tout inclus. Une seule plateforme.</span>
     </div>
   </div>
 </section>
