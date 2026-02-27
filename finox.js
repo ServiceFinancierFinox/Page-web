@@ -1384,10 +1384,7 @@ function initCompareScrollAnim() {
     headerEl.style.paddingBottom   = (1 - hpe) * 16 + 'px';
     headerEl.style.borderBottomWidth = (1 - hpe) + 'px';
 
-    // Fade section header text above card
-    var htp = clamp01((p - 0.42) / 0.16);
-    headerText.style.opacity   = 1 - htp;
-    headerText.style.transform = 'translateY(' + (-htp * 40) + 'px)';
+    // Header text is outside the sticky — scrolls away naturally
 
     /* ═══ PHASE 3: Total bar → gold line (p: 0.55 → 0.62) ═══ */
     var gp = clamp01((p - 0.55) / 0.07);
