@@ -324,7 +324,7 @@ select.wl-input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg 
 /* Stage */
 .compare-stage{display:flex;flex-direction:column;align-items:center;gap:16px}
 /* Card */
-.compare-card{border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.08);width:100%;max-width:620px;position:relative;max-height:min(85vh,680px)}
+.compare-card{border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.08);width:100%;max-width:620px;position:relative}
 .compare-card.compare-old{background:rgba(196,74,74,.03)}
 .compare-card-header{display:flex;align-items:center;justify-content:space-between;padding:12px 28px;border-bottom:1px solid rgba(255,255,255,.06);overflow:hidden}
 .compare-card-header.old{background:rgba(196,74,74,.06)}
@@ -1327,4 +1327,11 @@ footer{padding:48px 60px;display:flex;flex-direction:column;align-items:center;g
 }
 @media(max-height:800px){
   .scroll-indicator{display:none}
+  .compare-stage{transform:scale(.88);transform-origin:center center}
+}
+@media(max-height:700px){
+  .compare-stage{transform:scale(.78);transform-origin:center center}
+}
+@media(max-height:600px){
+  .compare-stage{transform:scale(.68);transform-origin:center center}
 }
