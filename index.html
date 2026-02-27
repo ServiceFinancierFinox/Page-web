@@ -534,123 +534,91 @@
     <div class="rxr">
       <div class="preavis-form-wrap">
         <div class="preavis-form" id="preavis-form">
-          <!-- HEADER -->
-          <div class="pf-header">
-            <div class="pf-header-left">
-              <div class="pf-title-main">PRÉAVIS DE REMPLACEMENT</div>
-              <div class="pf-title-sub">D'UN CONTRAT D'ASSURANCE DE PERSONNES<br>OU D'UN CONTRAT DE RENTE</div>
-            </div>
-            <div class="pf-header-right">
-              <div class="pf-field-row">
-                <span class="pf-label-sm">Contrat individuel</span>
-                <span class="pf-checkbox checked">&#10003;</span>
-              </div>
-              <div class="pf-field-row">
-                <span class="pf-label-sm">Contrat collectif</span>
-                <span class="pf-checkbox"></span>
-              </div>
-            </div>
-          </div>
 
-          <!-- 1. RENSEIGNEMENTS CLIENT -->
-          <div class="pf-section-title">1. RENSEIGNEMENTS SUR LE PRENEUR OU L'ADHÉRENT</div>
+          <!-- N° du préavis -->
+          <div class="pf-num">N° du préavis : <span id="pf-num-val"></span></div>
+
+          <!-- PARTIE 1 header -->
+          <div class="pf-partie-header">PARTIE 1 – Renseignements généraux (suite)</div>
+
+          <!-- Contrats remplacés -->
           <table class="pf-table">
             <tr>
-              <td class="pf-lbl">Nom</td>
-              <td class="pf-val" id="pf-nom"></td>
-              <td class="pf-lbl">Prénom</td>
-              <td class="pf-val" id="pf-prenom"></td>
-            </tr>
-          </table>
-
-          <!-- 2. CONTRAT EN VIGUEUR -->
-          <div class="pf-section-title">2. RENSEIGNEMENTS SUR LE CONTRAT EN VIGUEUR</div>
-          <table class="pf-table">
-            <tr class="pf-subheader">
-              <td>Assureur</td>
-              <td>N° de police</td>
-              <td>Type de produit</td>
-              <td>Montant de la protection ou de la rente</td>
-              <td>Prime ou dépôt</td>
+              <td class="pf-lbl-tall" rowspan="3"><strong>Contrats remplacés</strong><br><span class="pf-sub">Indiquez tous les contrats d'assurance remplacés par le contrat proposé</span></td>
+              <td class="pf-col-header">N° de police</td>
+              <td class="pf-col-header">Date d'entrée en vigueur</td>
             </tr>
             <tr>
-              <td class="pf-val" id="pf-assureur1"></td>
               <td class="pf-val" id="pf-police1"></td>
-              <td class="pf-val" id="pf-type1"></td>
-              <td class="pf-val" id="pf-montant1"></td>
-              <td class="pf-val" id="pf-prime1"></td>
+              <td class="pf-val"><span id="pf-date-vigueur1"></span><div class="pf-date-hint">Jour&nbsp;&nbsp;&nbsp;Mois&nbsp;&nbsp;&nbsp;Année</div></td>
             </tr>
             <tr>
-              <td class="pf-val" id="pf-assureur2"></td>
               <td class="pf-val" id="pf-police2"></td>
-              <td class="pf-val" id="pf-type2"></td>
-              <td class="pf-val" id="pf-montant2"></td>
-              <td class="pf-val" id="pf-prime2"></td>
-            </tr>
-          </table>
-          <table class="pf-table pf-mt">
-            <tr class="pf-subheader">
-              <td>Valeur de rachat</td>
-              <td>Frais de rachat</td>
-              <td>Période d'indemnisation</td>
-              <td>Délai de carence</td>
-            </tr>
-            <tr>
-              <td class="pf-val" id="pf-rachat1"></td>
-              <td class="pf-val" id="pf-frais1"></td>
-              <td class="pf-val"></td>
-              <td class="pf-val" id="pf-carence1"></td>
-            </tr>
-            <tr>
-              <td class="pf-val" id="pf-rachat2"></td>
-              <td class="pf-val" id="pf-frais2"></td>
-              <td class="pf-val"></td>
-              <td class="pf-val" id="pf-carence2"></td>
+              <td class="pf-val"><span id="pf-date-vigueur2"></span><div class="pf-date-hint">Jour&nbsp;&nbsp;&nbsp;Mois&nbsp;&nbsp;&nbsp;Année</div></td>
             </tr>
           </table>
 
-          <!-- 3. CONTRAT PROPOSÉ -->
-          <div class="pf-section-title">3. RENSEIGNEMENTS SUR LE CONTRAT PROPOSÉ EN REMPLACEMENT</div>
-          <table class="pf-table">
-            <tr class="pf-subheader">
-              <td>Assureur</td>
-              <td>Type de produit</td>
-              <td>Montant de la protection ou de la rente</td>
-              <td>Prime ou dépôt</td>
-            </tr>
-            <tr>
-              <td class="pf-val" id="pf-new-assureur1"></td>
-              <td class="pf-val" id="pf-new-type1"></td>
-              <td class="pf-val" id="pf-new-montant1"></td>
-              <td class="pf-val" id="pf-new-prime1"></td>
-            </tr>
-            <tr>
-              <td class="pf-val" id="pf-new-assureur2"></td>
-              <td class="pf-val" id="pf-new-type2"></td>
-              <td class="pf-val" id="pf-new-montant2"></td>
-              <td class="pf-val" id="pf-new-prime2"></td>
-            </tr>
-          </table>
+          <!-- Contrat d'assurance — header row -->
           <table class="pf-table pf-mt">
             <tr class="pf-subheader">
-              <td>Période d'indemnisation</td>
-              <td>Délai de carence</td>
+              <td class="pf-col-label">Contrat d'assurance</td>
+              <td class="pf-col-mid">Actuel</td>
+              <td class="pf-col-mid">Proposé</td>
             </tr>
+            <!-- Nom de l'assureur -->
             <tr>
-              <td class="pf-val"></td>
-              <td class="pf-val" id="pf-new-carence1"></td>
+              <td class="pf-row-label"><strong>Nom de l'assureur</strong></td>
+              <td class="pf-val" id="pf-assureur-actuel"></td>
+              <td class="pf-val" id="pf-assureur-propose"></td>
             </tr>
+            <!-- Nature de l'assurance -->
             <tr>
+              <td class="pf-row-label"><strong>Nature de l'assurance</strong><br><span class="pf-sub">Assurance vie, maladie grave, invalidité, etc. (précisez le type : temporaire, permanente, vie universelle, etc.)</span><br><span class="pf-sub">Si conjointe, payable au :</span></td>
+              <td class="pf-val"><span id="pf-nature-actuel"></span><div class="pf-deces-row"><span class="pf-sub">1<sup>er</sup>&nbsp;<span class="pf-checkbox"></span>&nbsp;&nbsp;2<sup>e</sup>&nbsp;<span class="pf-checkbox"></span>&nbsp;décès</span></div></td>
+              <td class="pf-val"><span id="pf-nature-propose"></span><div class="pf-deces-row"><span class="pf-sub">1<sup>er</sup>&nbsp;<span class="pf-checkbox"></span>&nbsp;&nbsp;2<sup>e</sup>&nbsp;<span class="pf-checkbox"></span>&nbsp;décès</span></div></td>
+            </tr>
+            <!-- Date d'entrée en vigueur -->
+            <tr>
+              <td class="pf-row-label"><strong>Date d'entrée en vigueur</strong></td>
+              <td class="pf-val"><span id="pf-date-actuel"></span><div class="pf-date-hint">Jour&nbsp;&nbsp;&nbsp;Mois&nbsp;&nbsp;&nbsp;Année</div></td>
+              <td class="pf-val" id="pf-date-propose"></td>
+            </tr>
+            <!-- Spacer row -->
+            <tr class="pf-spacer-row">
+              <td></td><td></td><td></td>
+            </tr>
+            <!-- Montant de prestation -->
+            <tr>
+              <td class="pf-row-label"><strong>Montant de prestation</strong><br><span class="pf-sub">Montant versé au moment de la réalisation du risque couvert</span><br><span class="pf-sub">• Énumérez le ou les montants.</span></td>
+              <td class="pf-val" id="pf-prestation-actuel"></td>
+              <td class="pf-val" id="pf-prestation-propose"></td>
+            </tr>
+            <!-- Montant de la prime annuelle -->
+            <tr>
+              <td class="pf-row-label"><strong>Montant de la prime annuelle</strong></td>
+              <td class="pf-val" id="pf-prime-actuel"></td>
+              <td class="pf-val" id="pf-prime-propose"></td>
+            </tr>
+            <!-- Période d'indemnisation / Délai de carence -->
+            <tr>
+              <td class="pf-row-label"><strong>Période d'indemnisation / Délai de carence</strong></td>
               <td class="pf-val"></td>
-              <td class="pf-val" id="pf-new-carence2"></td>
+              <td class="pf-val"></td>
             </tr>
           </table>
 
-          <!-- 4. COMMENTAIRES -->
-          <div class="pf-section-title">4. COMMENTAIRES DU REPRÉSENTANT</div>
-          <div class="pf-comment-box">
-            <div class="pf-comment-text" id="pf-comment"></div>
-          </div>
+          <!-- Commentaires -->
+          <table class="pf-table pf-mt">
+            <tr>
+              <td class="pf-row-label pf-comment-label">
+                <strong>Commentaires</strong><br>
+                <span class="pf-sub">Cette section permet de compléter les renseignements inscrits précédemment. Indiquez notamment si les montants de prestations et de primes indiqués ci-dessus sont fixes, garantis ou non, les primes payables dans 10 ans, à un âge précis, etc.</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="pf-comment-cell" id="pf-comment"></td>
+            </tr>
+          </table>
 
           <!-- CURSOR -->
           <div class="pf-cursor" id="pf-cursor"></div>
