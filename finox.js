@@ -1733,31 +1733,23 @@ function initPreavisTypewriter() {
 }
 
 /* ═══════════════════════════════════════════════════════
-   SCHEDULER SHOWCASE — 5-step animated demo
+   SCHEDULER SHOWCASE — Google Calendar unified interface
 ═══════════════════════════════════════════════════════ */
 function initSchedulerShowcase() {
   const phone = document.getElementById('sched-phone');
   if (!phone) return;
 
-  const screens = [
-    document.getElementById('sched-s0'),
-    document.getElementById('sched-s1'),
-    document.getElementById('sched-s2'),
-    document.getElementById('sched-s3'),
-    document.getElementById('sched-s4'),
-    document.getElementById('sched-s5')
-  ];
   const stepItems = document.querySelectorAll('.sched-step-item');
+  const dayEl     = document.getElementById('gcal-day-10');
+  const slotEl    = document.getElementById('gcal-slot-12');
+  const rdvEl     = document.getElementById('gcal-rdv-target');
+  const rdvSec    = document.getElementById('gcal-rdv');
+  const dateLabel = document.getElementById('gcal-selected-label');
+  const confirmOv = document.getElementById('gcal-confirm');
+  const cfBtn     = document.getElementById('gcal-cf-btn');
+  const successOv = document.getElementById('gcal-success');
 
   let running = false;
-  let currentStep = -1;
-
-  function showScreen(index) {
-    screens.forEach((s, i) => {
-      if (!s) return;
-      s.classList.toggle('active', i === index);
-    });
-  }
 
   function updateSteps(activeIndex) {
     stepItems.forEach((item, i) => {
@@ -1769,92 +1761,83 @@ function initSchedulerShowcase() {
 
   function wait(ms) { return new Promise(r => setTimeout(r, ms)); }
 
+  function resetAll() {
+    if (dayEl) dayEl.classList.remove('selected');
+    if (slotEl) slotEl.classList.remove('selected');
+    if (rdvEl) rdvEl.classList.remove('selected');
+    if (rdvSec) rdvSec.classList.remove('show');
+    if (dateLabel) { dateLabel.textContent = ''; dateLabel.classList.remove('show'); }
+    if (confirmOv) confirmOv.classList.remove('show');
+    if (cfBtn) cfBtn.classList.remove('clicked');
+    if (successOv) successOv.classList.remove('show');
+    document.querySelectorAll('.gcal-success-msg').forEach(el => el.classList.remove('show'));
+    updateSteps(-1);
+  }
+
   async function runLoop() {
     running = true;
-
-    // Reset everything
-    showScreen(-1);
-    updateSteps(-1);
-    const dayTarget = document.getElementById('sched-day-target');
-    const slotTarget = document.getElementById('sched-slot-target');
-    const typeTarget = document.getElementById('sched-type-target');
-    const calBtn = document.getElementById('sched-cal-btn');
-    const confirmBtn = document.getElementById('sched-confirm-btn');
-    if (dayTarget) dayTarget.classList.remove('selected');
-    if (slotTarget) slotTarget.classList.remove('selected');
-    if (typeTarget) typeTarget.classList.remove('selected');
-    if (calBtn) calBtn.classList.remove('highlight');
-    if (confirmBtn) confirmBtn.classList.remove('clicked');
-    document.querySelectorAll('.sched-success-sent').forEach(el => el.classList.remove('show'));
-
-    await wait(600);
+    resetAll();
+    await wait(800);
     if (!running) return;
 
-    // ── Step 0: Show action bar, highlight calendar ──
-    showScreen(0);
+    // ── Step 1: Select day 10 on calendar ──
     updateSteps(0);
     await wait(1200);
     if (!running) return;
-    if (calBtn) calBtn.classList.add('highlight');
+    if (dayEl) dayEl.classList.add('selected');
+    if (dateLabel) { dateLabel.textContent = 'Mardi 10 mars 2026'; dateLabel.classList.add('show'); }
     await wait(1400);
     if (!running) return;
 
-    // ── Step 1: Show calendar, select day 10 ──
-    showScreen(1);
+    // ── Step 2: Select 12:00 time slot ──
     updateSteps(1);
-    await wait(1200);
+    await wait(800);
     if (!running) return;
-    if (dayTarget) dayTarget.classList.add('selected');
+    if (slotEl) slotEl.classList.add('selected');
     await wait(1400);
     if (!running) return;
 
-    // ── Step 2: Show time slots, select 12:00 ──
-    showScreen(2);
+    // ── Step 3: Show RDV section, select type ──
     updateSteps(2);
+    if (rdvSec) rdvSec.classList.add('show');
     await wait(1000);
     if (!running) return;
-    if (slotTarget) slotTarget.classList.add('selected');
+    if (rdvEl) rdvEl.classList.add('selected');
     await wait(1400);
     if (!running) return;
 
-    // ── Step 3: Show meeting types, select invalidité ──
-    showScreen(3);
+    // ── Step 4: Show confirmation overlay ──
     updateSteps(3);
-    await wait(1200);
+    if (confirmOv) confirmOv.classList.add('show');
+    await wait(2000);
     if (!running) return;
-    if (typeTarget) typeTarget.classList.add('selected');
-    await wait(1400);
+    if (cfBtn) cfBtn.classList.add('clicked');
+    await wait(800);
     if (!running) return;
 
-    // ── Step 4: Show confirmation, click button ──
-    showScreen(4);
+    // ── Step 5: Success overlay ──
     updateSteps(4);
-    await wait(1800);
-    if (!running) return;
-    if (confirmBtn) confirmBtn.classList.add('clicked');
-    await wait(1000);
-    if (!running) return;
-
-    // ── Step 5: Success screen ──
-    showScreen(5);
-    stepItems.forEach(item => { item.classList.remove('active'); item.classList.add('done'); });
+    if (confirmOv) confirmOv.classList.remove('show');
+    if (successOv) successOv.classList.add('show');
     await wait(400);
     if (!running) return;
 
     // Stagger success messages
-    const sentItems = document.querySelectorAll('.sched-success-sent');
-    for (let i = 0; i < sentItems.length; i++) {
+    const msgs = document.querySelectorAll('.gcal-success-msg');
+    for (let i = 0; i < msgs.length; i++) {
       if (!running) return;
       await wait(400);
-      sentItems[i].classList.add('show');
+      msgs[i].classList.add('show');
     }
 
-    // Pause on success then loop
+    // Mark all steps done
+    stepItems.forEach(item => { item.classList.remove('active'); item.classList.add('done'); });
+
+    // Hold then loop
     await wait(4000);
     if (running) runLoop();
   }
 
-  // Start/stop on scroll into view
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting && !running) {
@@ -1863,6 +1846,6 @@ function initSchedulerShowcase() {
         running = false;
       }
     });
-  }, { threshold: 0.2 });
+  }, { threshold: 0.15 });
   observer.observe(phone);
 }
