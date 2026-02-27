@@ -591,32 +591,85 @@
       </div>
     </div>
 
-    <!-- Statuts de leads -->
+    <!-- Statuts de leads — interface CRM exacte -->
     <div class="pulse-pipeline-layout">
       <div class="pulse-statuts-card">
         <div class="pulse-statuts-header">
           <span class="pulse-statuts-title">Statuts de leads</span>
           <span class="pulse-statuts-badge">Optimisés sur le terrain</span>
         </div>
-        <div class="pulse-statuts-grid">
-          <div class="pulse-statut new"><span class="pulse-statut-dot"></span>Nouveau lead</div>
-          <div class="pulse-statut unreached"><span class="pulse-statut-dot"></span>Non rejoint</div>
-          <div class="pulse-statut callback"><span class="pulse-statut-dot"></span>À rappeler</div>
-          <div class="pulse-statut meeting"><span class="pulse-statut-dot"></span>Rencontre planifiée</div>
-          <div class="pulse-statut abf"><span class="pulse-statut-dot"></span>ABF en cours</div>
-          <div class="pulse-statut proposal"><span class="pulse-statut-dot"></span>Proposition envoyée</div>
-          <div class="pulse-statut won"><span class="pulse-statut-dot"></span>Vente conclue</div>
-          <div class="pulse-statut lost"><span class="pulse-statut-dot"></span>Lead perdu</div>
+        <div class="pulse-statuts-groups">
+          <!-- Contact -->
+          <div class="ps-group">
+            <div class="ps-group-label">Contact</div>
+            <div class="ps-group-items">
+              <div class="ps-item"><span class="ps-dot" style="background:#3b82f6"></span>Nouveau lead</div>
+              <div class="ps-item"><span class="ps-dot" style="background:#f59e0b"></span>Non rejoint</div>
+              <div class="ps-item"><span class="ps-dot" style="background:#8b5cf6"></span>Rappel planifié</div>
+              <div class="ps-item"><span class="ps-dot" style="background:#3b82f6"></span>Contacté — intéressé</div>
+              <div class="ps-item"><span class="ps-dot" style="background:#ef4444"></span>Pas intéressé</div>
+            </div>
+          </div>
+          <!-- Suivi -->
+          <div class="ps-group">
+            <div class="ps-group-label">Suivi</div>
+            <div class="ps-group-items">
+              <div class="ps-item"><span class="ps-dot" style="background:#f59e0b"></span>En attente info client</div>
+              <div class="ps-item"><span class="ps-dot" style="background:#3b82f6"></span>Suivi à faire</div>
+              <div class="ps-item"><span class="ps-dot" style="background:#10b981"></span>Docs reçus — à analyser</div>
+            </div>
+          </div>
+          <!-- Rencontre -->
+          <div class="ps-group">
+            <div class="ps-group-label">Rencontre</div>
+            <div class="ps-group-items">
+              <div class="ps-item"><span class="ps-dot" style="background:#8b5cf6"></span>Rencontre planifiée</div>
+              <div class="ps-item"><span class="ps-dot" style="background:#10b981"></span>Rencontre complétée</div>
+              <div class="ps-item"><span class="ps-dot" style="background:#ef4444"></span>No show</div>
+              <div class="ps-item"><span class="ps-dot" style="background:#f59e0b"></span>À replanifier</div>
+            </div>
+          </div>
+          <!-- ABF -->
+          <div class="ps-group">
+            <div class="ps-group-label">ABF</div>
+            <div class="ps-group-items">
+              <div class="ps-item"><span class="ps-dot" style="background:#f59e0b"></span>ABF en cours</div>
+              <div class="ps-item"><span class="ps-dot" style="background:#10b981"></span>ABF complété</div>
+              <div class="ps-item"><span class="ps-dot" style="background:#3b82f6"></span>Soumission en cours</div>
+              <div class="ps-item"><span class="ps-dot" style="background:#8b5cf6"></span>En attente approbation assureur</div>
+            </div>
+          </div>
+          <!-- Vente -->
+          <div class="ps-group">
+            <div class="ps-group-label">Vente</div>
+            <div class="ps-group-items">
+              <div class="ps-item"><span class="ps-dot" style="background:#10b981"></span>Approuvé — en signature</div>
+              <div class="ps-item"><span class="ps-dot" style="background:#10b981;box-shadow:0 0 8px rgba(16,185,129,.5)"></span>Vente conclue</div>
+              <div class="ps-item"><span class="ps-dot" style="background:#f59e0b"></span>Approuvé avec modifications</div>
+              <div class="ps-item"><span class="ps-dot" style="background:#ef4444"></span>Refusé par assureur</div>
+            </div>
+          </div>
+          <!-- Terminaux -->
+          <div class="ps-group">
+            <div class="ps-group-label">Terminaux</div>
+            <div class="ps-group-items">
+              <div class="ps-item"><span class="ps-dot" style="background:#6b7280"></span>Lead perdu — pas intéressé</div>
+              <div class="ps-item"><span class="ps-dot" style="background:#6b7280"></span>Lead perdu — concurrent</div>
+              <div class="ps-item"><span class="ps-dot" style="background:#6b7280"></span>Lead perdu — non qualifié</div>
+              <div class="ps-item"><span class="ps-dot" style="background:#3b82f6"></span>Client transféré</div>
+              <div class="ps-item"><span class="ps-dot" style="background:#f59e0b"></span>Dossier en pause</div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="pulse-pipeline-text">
         <h4 class="pulse-pipeline-text-title">Prouvé par notre équipe.<br>Optimisé dans le CRM.</h4>
-        <p class="pulse-pipeline-text-desc">C'est pas un pipeline générique sorti d'un template Salesforce. C'est <strong>le nôtre</strong> — testé avec de vrais courtiers, sur de vrais leads, avec de vrais résultats. Chaque statut a été placé là parce qu'il améliore le taux de conversion.</p>
-        <p class="pulse-pipeline-text-desc">Le CRM sait exactement où est chaque lead, depuis combien de temps, et qu'est-ce qui devrait arriver ensuite. Moins de leads oubliés. Plus de closing. En volume <em>et</em> en efficacité.</p>
+        <p class="pulse-pipeline-text-desc">C'est pas un pipeline générique sorti d'un template Salesforce. C'est <strong>le nôtre</strong> — testé avec de vrais courtiers, sur de vrais leads, avec de vrais résultats. Chaque statut existe parce qu'il améliore le taux de conversion.</p>
+        <p class="pulse-pipeline-text-desc">26 statuts. 6 catégories. Du premier contact jusqu'à la vente conclue — ou le lead perdu avec la raison exacte. Le CRM sait où est chaque lead, depuis combien de temps, et ce qui devrait arriver ensuite.</p>
         <div class="tag-row">
-          <span class="pill-tag">Pipeline éprouvé</span>
-          <span class="pill-tag gold">Statuts intelligents</span>
-          <span class="pill-tag">Lead scoring intégré</span>
+          <span class="pill-tag">26 statuts uniques</span>
+          <span class="pill-tag gold">6 catégories de pipeline</span>
+          <span class="pill-tag">Raison de perte tracée</span>
           <span class="pill-tag gold">Relances automatisées</span>
         </div>
       </div>
@@ -1440,131 +1493,109 @@
     <div class="sched-showcase-demo">
       <div class="sched-phone" id="sched-phone">
 
-        <!-- ── ÉTAPE 0 : Barre d'actions — icône calendrier ── -->
-        <div class="sched-screen sched-s0" id="sched-s0">
-          <div class="sched-bar-title">Jacques Bergeron — Actions rapides</div>
-          <div class="sched-actions-bar">
-            <div class="sched-action-btn"><span>📞</span><small>Appeler</small></div>
-            <div class="sched-action-btn"><span>💬</span><small>SMS</small></div>
-            <div class="sched-action-btn"><span>✉️</span><small>Email</small></div>
-            <div class="sched-action-btn sched-cal-btn" id="sched-cal-btn"><span>📅</span><small>Calendrier</small></div>
-            <div class="sched-action-btn"><span>📋</span><small>ABF</small></div>
-            <div class="sched-action-btn"><span>📝</span><small>Note</small></div>
+        <!-- Google Calendar interface — unified view -->
+        <div class="gcal-interface">
+          <!-- Top bar -->
+          <div class="gcal-topbar">
+            <span class="gcal-topbar-title">📅 Planifier une rencontre</span>
+            <span class="gcal-topbar-client">Jacques Bergeron</span>
           </div>
-          <div class="sched-hint">Le courtier clique sur <strong>📅 Calendrier</strong></div>
-        </div>
 
-        <!-- ── ÉTAPE 1 : Calendrier mensuel ── -->
-        <div class="sched-screen sched-s1" id="sched-s1">
-          <div class="sched-modal-head">
-            <span class="sched-modal-title">📅 Planifier une rencontre</span>
-            <span class="sched-modal-close">✕</span>
-          </div>
-          <div class="sched-cal-grid">
-            <div class="sched-cal-month">
-              <span class="sched-cal-arrow">‹</span>
-              <span class="sched-cal-month-name">Mars 2026</span>
-              <span class="sched-cal-arrow">›</span>
+          <!-- Main split: calendar + time slots -->
+          <div class="gcal-body">
+            <!-- Left: Calendar grid -->
+            <div class="gcal-left">
+              <div class="gcal-month-nav">
+                <span class="gcal-arrow">‹</span>
+                <span class="gcal-month-name">Mars 2026</span>
+                <span class="gcal-arrow">›</span>
+              </div>
+              <div class="gcal-days-grid">
+                <span class="gcal-dh">D</span><span class="gcal-dh">L</span><span class="gcal-dh">M</span><span class="gcal-dh">M</span><span class="gcal-dh">J</span><span class="gcal-dh">V</span><span class="gcal-dh">S</span>
+                <span class="gcal-d e"></span><span class="gcal-d e"></span><span class="gcal-d e"></span><span class="gcal-d e"></span><span class="gcal-d e"></span><span class="gcal-d e"></span><span class="gcal-d">1</span>
+                <span class="gcal-d">2</span><span class="gcal-d">3</span><span class="gcal-d">4</span><span class="gcal-d">5</span><span class="gcal-d">6</span><span class="gcal-d">7</span><span class="gcal-d">8</span>
+                <span class="gcal-d">9</span><span class="gcal-d target" id="gcal-day-10">10</span><span class="gcal-d">11</span><span class="gcal-d">12</span><span class="gcal-d">13</span><span class="gcal-d">14</span><span class="gcal-d">15</span>
+                <span class="gcal-d">16</span><span class="gcal-d">17</span><span class="gcal-d">18</span><span class="gcal-d">19</span><span class="gcal-d">20</span><span class="gcal-d">21</span><span class="gcal-d">22</span>
+                <span class="gcal-d">23</span><span class="gcal-d">24</span><span class="gcal-d">25</span><span class="gcal-d">26</span><span class="gcal-d">27</span><span class="gcal-d">28</span><span class="gcal-d">29</span>
+                <span class="gcal-d">30</span><span class="gcal-d">31</span>
+              </div>
+              <div class="gcal-selected-date" id="gcal-selected-label"></div>
             </div>
-            <div class="sched-cal-days">
-              <span class="sched-day-label">D</span><span class="sched-day-label">L</span><span class="sched-day-label">M</span><span class="sched-day-label">M</span><span class="sched-day-label">J</span><span class="sched-day-label">V</span><span class="sched-day-label">S</span>
-              <span class="sched-day empty"></span><span class="sched-day empty"></span><span class="sched-day empty"></span><span class="sched-day empty"></span><span class="sched-day empty"></span><span class="sched-day empty"></span><span class="sched-day">1</span>
-              <span class="sched-day">2</span><span class="sched-day">3</span><span class="sched-day">4</span><span class="sched-day">5</span><span class="sched-day">6</span><span class="sched-day">7</span><span class="sched-day">8</span>
-              <span class="sched-day">9</span><span class="sched-day target" id="sched-day-target">10</span><span class="sched-day">11</span><span class="sched-day">12</span><span class="sched-day">13</span><span class="sched-day">14</span><span class="sched-day">15</span>
-              <span class="sched-day">16</span><span class="sched-day">17</span><span class="sched-day">18</span><span class="sched-day">19</span><span class="sched-day">20</span><span class="sched-day">21</span><span class="sched-day">22</span>
-              <span class="sched-day">23</span><span class="sched-day">24</span><span class="sched-day">25</span><span class="sched-day">26</span><span class="sched-day">27</span><span class="sched-day">28</span><span class="sched-day">29</span>
-              <span class="sched-day">30</span><span class="sched-day">31</span>
-            </div>
-          </div>
-          <div class="sched-hint">Il sélectionne le <strong>10 mars</strong></div>
-        </div>
 
-        <!-- ── ÉTAPE 2 : Sélection de l'heure ── -->
-        <div class="sched-screen sched-s2" id="sched-s2">
-          <div class="sched-modal-head">
-            <span class="sched-modal-title">📅 Mardi 10 mars 2026</span>
-            <span class="sched-modal-close">✕</span>
+            <!-- Right: Time slots -->
+            <div class="gcal-right">
+              <div class="gcal-right-head">Mardi 10 mars</div>
+              <div class="gcal-slots" id="gcal-slots">
+                <div class="gcal-slot"><span class="gcal-slot-time">09:00</span><span class="gcal-slot-bar dispo"></span><span class="gcal-slot-tag dispo">Dispo</span></div>
+                <div class="gcal-slot"><span class="gcal-slot-time">09:30</span><span class="gcal-slot-bar dispo"></span><span class="gcal-slot-tag dispo">Dispo</span></div>
+                <div class="gcal-slot"><span class="gcal-slot-time">10:00</span><span class="gcal-slot-bar dispo"></span><span class="gcal-slot-tag dispo">Dispo</span></div>
+                <div class="gcal-slot"><span class="gcal-slot-time">10:30</span><span class="gcal-slot-bar dispo"></span><span class="gcal-slot-tag dispo">Dispo</span></div>
+                <div class="gcal-slot"><span class="gcal-slot-time">11:00</span><span class="gcal-slot-bar busy"></span><span class="gcal-slot-tag busy">Occupé</span></div>
+                <div class="gcal-slot"><span class="gcal-slot-time">11:30</span><span class="gcal-slot-bar busy"></span><span class="gcal-slot-tag busy">Occupé</span></div>
+                <div class="gcal-slot target" id="gcal-slot-12"><span class="gcal-slot-time">12:00</span><span class="gcal-slot-bar dispo"></span><span class="gcal-slot-tag dispo">Dispo</span></div>
+                <div class="gcal-slot"><span class="gcal-slot-time">13:00</span><span class="gcal-slot-bar dispo"></span><span class="gcal-slot-tag dispo">Dispo</span></div>
+                <div class="gcal-slot"><span class="gcal-slot-time">14:00</span><span class="gcal-slot-bar dispo"></span><span class="gcal-slot-tag dispo">Dispo</span></div>
+                <div class="gcal-slot"><span class="gcal-slot-time">14:30</span><span class="gcal-slot-bar dispo"></span><span class="gcal-slot-tag dispo">Dispo</span></div>
+              </div>
+            </div>
           </div>
-          <div class="sched-time-header">Créneaux disponibles</div>
-          <div class="sched-time-slots">
-            <div class="sched-slot dispo">09:00<span class="sched-slot-tag green">Dispo</span></div>
-            <div class="sched-slot dispo">09:30<span class="sched-slot-tag green">Dispo</span></div>
-            <div class="sched-slot dispo">10:00<span class="sched-slot-tag green">Dispo</span></div>
-            <div class="sched-slot dispo">10:30<span class="sched-slot-tag green">Dispo</span></div>
-            <div class="sched-slot busy">11:00<span class="sched-slot-tag red">Occupé</span></div>
-            <div class="sched-slot busy">11:30<span class="sched-slot-tag red">Occupé</span></div>
-            <div class="sched-slot dispo target" id="sched-slot-target">12:00<span class="sched-slot-tag green">Dispo</span></div>
-            <div class="sched-slot dispo">12:30<span class="sched-slot-tag green">Dispo</span></div>
-            <div class="sched-slot dispo">13:00<span class="sched-slot-tag green">Dispo</span></div>
-            <div class="sched-slot dispo">14:00<span class="sched-slot-tag green">Dispo</span></div>
-          </div>
-          <div class="sched-hint">Il choisit <strong>12:00</strong></div>
-        </div>
 
-        <!-- ── ÉTAPE 3 : Type de rencontre ── -->
-        <div class="sched-screen sched-s3" id="sched-s3">
-          <div class="sched-modal-head">
-            <span class="sched-modal-title">📅 10 mars · 12:00</span>
-            <span class="sched-modal-close">✕</span>
-          </div>
-          <div class="sched-type-grid">
-            <div class="sched-type-col">
-              <div class="sched-type-col-title">📞 Appels</div>
-              <div class="sched-type-item">Comparative assurance vie</div>
-              <div class="sched-type-item">Comparative assurance hypothécaire</div>
-              <div class="sched-type-item target" id="sched-type-target">Comparative assurance invalidité</div>
-              <div class="sched-type-item">Qualification santé / MG</div>
-              <div class="sched-type-item">Suivi client existant</div>
-            </div>
-            <div class="sched-type-col">
-              <div class="sched-type-col-title">🤝 Rencontres</div>
-              <div class="sched-type-item">Présentation ABF complète</div>
-              <div class="sched-type-item">Rencontre de placement</div>
-              <div class="sched-type-item">Planification successorale</div>
-              <div class="sched-type-item">Signature de documents</div>
-              <div class="sched-type-item">Corporation — analyse</div>
+          <!-- Bottom: RDV types (two columns) -->
+          <div class="gcal-rdv-section" id="gcal-rdv">
+            <div class="gcal-rdv-head">Type de RDV</div>
+            <div class="gcal-rdv-cols">
+              <div class="gcal-rdv-col">
+                <div class="gcal-rdv-col-title">📞 Appels</div>
+                <div class="gcal-rdv-item" data-type="call">Comparative assurance vie</div>
+                <div class="gcal-rdv-item" data-type="call">Comparative assurance hypothécaire</div>
+                <div class="gcal-rdv-item target" id="gcal-rdv-target" data-type="call">Comparative assurance invalidité</div>
+                <div class="gcal-rdv-item" data-type="call">Qualification santé / MG</div>
+                <div class="gcal-rdv-item" data-type="call">Suivi client existant</div>
+              </div>
+              <div class="gcal-rdv-col">
+                <div class="gcal-rdv-col-title">🤝 Rencontres</div>
+                <div class="gcal-rdv-item" data-type="meet">Présentation ABF complète</div>
+                <div class="gcal-rdv-item" data-type="meet">Rencontre de placement</div>
+                <div class="gcal-rdv-item" data-type="meet">Planification successorale</div>
+                <div class="gcal-rdv-item" data-type="meet">Signature de documents</div>
+                <div class="gcal-rdv-item" data-type="meet">Corporation — analyse</div>
+              </div>
             </div>
           </div>
-          <div class="sched-hint">Il sélectionne <strong>Comparative assurance invalidité</strong></div>
-        </div>
 
-        <!-- ── ÉTAPE 4 : Confirmation ── -->
-        <div class="sched-screen sched-s4" id="sched-s4">
-          <div class="sched-modal-head">
-            <span class="sched-modal-title">✅ Confirmation</span>
-            <span class="sched-modal-close">✕</span>
-          </div>
-          <div class="sched-confirm-card">
-            <div class="sched-confirm-type">Appel — Comparative assurance invalidité</div>
-            <div class="sched-confirm-rows">
-              <div class="sched-confirm-row"><span class="sched-confirm-lbl">Client</span><span class="sched-confirm-val">Jacques Bergeron</span></div>
-              <div class="sched-confirm-row"><span class="sched-confirm-lbl">Date</span><span class="sched-confirm-val">Mardi 10 mars 2026</span></div>
-              <div class="sched-confirm-row"><span class="sched-confirm-lbl">Heure</span><span class="sched-confirm-val">12:00 — 12:30</span></div>
-              <div class="sched-confirm-row"><span class="sched-confirm-lbl">Durée</span><span class="sched-confirm-val">30 minutes</span></div>
+          <!-- Confirm overlay -->
+          <div class="gcal-confirm-overlay" id="gcal-confirm">
+            <div class="gcal-confirm-box">
+              <div class="gcal-confirm-title">Appel — Comparative assurance invalidité</div>
+              <div class="gcal-confirm-info">
+                <div class="gcal-cf-row"><span>Client</span><span>Jacques Bergeron</span></div>
+                <div class="gcal-cf-row"><span>Date</span><span>Mardi 10 mars 2026</span></div>
+                <div class="gcal-cf-row"><span>Heure</span><span>12:00 — 12:30</span></div>
+                <div class="gcal-cf-row"><span>Durée</span><span>30 minutes</span></div>
+              </div>
+              <div class="gcal-cf-opts">
+                <div class="gcal-cf-opt"><span class="gcal-ck on">✓</span>Invitation email au client</div>
+                <div class="gcal-cf-opt"><span class="gcal-ck on">✓</span>Rappel SMS 1h avant</div>
+                <div class="gcal-cf-opt"><span class="gcal-ck">✓</span>Lien Google Meet</div>
+              </div>
+              <div class="gcal-cf-btn" id="gcal-cf-btn">Confirmer la rencontre</div>
             </div>
-            <div class="sched-confirm-options">
-              <label class="sched-opt"><span class="sched-check on">✓</span> Invitation email au client</label>
-              <label class="sched-opt"><span class="sched-check on">✓</span> Rappel SMS 1h avant</label>
-              <label class="sched-opt"><span class="sched-check">✓</span> Lien Google Meet</label>
-            </div>
-            <div class="sched-confirm-btn" id="sched-confirm-btn">Confirmer la rencontre</div>
           </div>
-          <div class="sched-hint" id="sched-hint-final">Il confirme — <strong>email envoyé automatiquement</strong></div>
-        </div>
 
-        <!-- ── ÉTAPE 5 : Succès ── -->
-        <div class="sched-screen sched-s5" id="sched-s5">
-          <div class="sched-success-wrap">
-            <div class="sched-success-icon">✅</div>
-            <div class="sched-success-title">Rencontre confirmée!</div>
-            <div class="sched-success-sub">Appel — Comparative assurance invalidité</div>
-            <div class="sched-success-detail">Mardi 10 mars 2026 · 12:00</div>
-            <div class="sched-success-actions">
-              <div class="sched-success-sent"><span>📧</span> Invitation envoyée à jacques.bergeron@gmail.com</div>
-              <div class="sched-success-sent"><span>📅</span> Ajouté à Google Calendar</div>
-              <div class="sched-success-sent"><span>💬</span> SMS rappel programmé — 10 mars 11:00</div>
+          <!-- Success overlay -->
+          <div class="gcal-success-overlay" id="gcal-success">
+            <div class="gcal-success-box">
+              <div class="gcal-success-ic">✅</div>
+              <div class="gcal-success-t">Rencontre confirmée!</div>
+              <div class="gcal-success-sub">Mardi 10 mars 2026 · 12:00</div>
+              <div class="gcal-success-msgs">
+                <div class="gcal-success-msg" data-i="0"><span>📧</span>Invitation envoyée à jacques.bergeron@gmail.com</div>
+                <div class="gcal-success-msg" data-i="1"><span>📅</span>Ajouté à Google Calendar</div>
+                <div class="gcal-success-msg" data-i="2"><span>💬</span>SMS rappel programmé — 10 mars 11:00</div>
+              </div>
             </div>
           </div>
+
         </div>
 
       </div>
