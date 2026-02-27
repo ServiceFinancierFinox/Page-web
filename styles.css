@@ -1278,6 +1278,7 @@ footer{padding:48px 60px;display:flex;flex-direction:column;align-items:center;g
   .compare-circle-wrap{width:260px;height:260px}
   .compare-section{padding:80px 0 0}
   .pulse-layout,.ai-layout,.comm-layout,.conf-layout,.cabinet-layout,.preavis-layout{grid-template-columns:1fr;gap:52px}
+  .preavis-form-wrap{min-width:unset;width:100%}
   .pulse-pipeline-layout{grid-template-columns:1fr;gap:40px}
   .pulse-funnel{gap:8px}
   .pulse-funnel-step{min-width:90px;padding:14px 16px}
@@ -1324,6 +1325,78 @@ footer{padding:48px 60px;display:flex;flex-direction:column;align-items:center;g
   .crm-nav-item{padding:2px 5px}
   .crm-nav-group{padding:0 4px}
   .crm-nav-arrow{width:32px;height:32px;font-size:20px}
+  /* ── 1. Compare table compact ── */
+  .compare-scroll-outer{height:350vh}
+  .compare-card-header{padding:8px 14px;flex-direction:column;align-items:flex-start;gap:4px}
+  .compare-card-title{font-size:15px}
+  .compare-card-badge{font-size:8px;padding:3px 8px}
+  .compare-logo,.compare-logo-fallback{width:22px;height:22px;border-radius:5px;padding:2px;font-size:10px}
+  .compare-name{font-size:11px}
+  .compare-role{font-size:9px}
+  .compare-price{font-size:12px}
+  .compare-price small{font-size:9px}
+  .compare-row{padding:3px 12px}
+  .compare-app{gap:8px}
+  .compare-total{padding:8px 14px;font-size:11px}
+  .compare-total-price{font-size:24px}
+  .compare-total-price small{font-size:10px}
+  .compare-circle-wrap{width:200px;height:200px}
+  .finox-brand-logo{font-size:36px}
+  .finox-brand-price{font-size:44px}
+  .finox-brand-savings{font-size:13px}
+  .finox-brand-sub{font-size:11px;max-width:220px}
+  /* ── 2. Dashboard grid single column ── */
+  .dashboard-grid{grid-template-columns:1fr}
+  .chart-card,.activity-card,.pipeline-card,.clients-card{grid-column:auto;grid-row:auto}
+  /* ── 3. Preavis form responsive ── */
+  .preavis-form{padding:16px 14px 18px;height:auto;max-height:520px}
+  .pf-table{table-layout:auto}
+  .pf-table td{font-size:10px;padding:4px 6px}
+  .pf-partie-header{font-size:10px;padding:5px 8px}
+  .pf-lbl-tall,.pf-row-label{width:28%}
+  .pf-lbl-tall strong,.pf-row-label strong{font-size:10px}
+  .pf-col-header,.pf-col-mid,.pf-col-label{font-size:9px}
+  .pf-sub{font-size:8px}
+  .pf-num{font-size:10px}
+  .pf-comment-cell{height:60px;font-size:10px}
+  .pf-val{font-size:11px}
+  .pf-subheader td{font-size:10px;padding:5px 6px}
+  /* ── 4. Doc preview responsive ── */
+  .doc-preview{border-radius:14px}
+  .dp-header{padding:14px 16px;gap:10px;flex-wrap:wrap}
+  .dp-title{font-size:14px}
+  .dp-sub{font-size:9px}
+  .dp-status{font-size:10px}
+  .dp-body{padding:16px}
+  .dp-row{flex-direction:column;gap:4px}
+  .dp-lbl{width:auto}
+  .dp-val{font-size:13px}
+  /* ── 5. Comparateur demo responsive ── */
+  .comp-frame{border-radius:14px}
+  .comp-chrome{padding:10px 14px;gap:10px}
+  .comp-chrome-badge{display:none}
+  .chrome-url{font-size:9px}
+  .comp-demo-topbar{flex-direction:column;align-items:flex-start;gap:8px;padding:12px 16px}
+  .comp-demo-topbar-title{font-size:13px}
+  .comp-demo-topbar-actions{flex-wrap:wrap}
+  .comp-demo-left{padding:16px}
+  .comp-demo-right{padding:16px}
+  .comp-demo-btn{font-size:15px;padding:12px}
+  .comp-demo-price{font-size:20px}
+  .comp-demo-logo{width:44px;height:44px}
+  .comp-demo-company{font-size:12px}
+  .comp-demo-row{padding:10px 12px;gap:8px}
+  .comp-demo-rank{width:30px;height:30px;font-size:13px}
+  /* ── Calc frames responsive ── */
+  .calc-frame{border-radius:14px}
+  .calc-topbar{padding:12px 16px}
+  .calc-topbar-title{font-size:13px}
+  .calc-left,.calc-right{padding:16px}
+  .calc-card{padding:14px}
+  .hypo-compare-big{font-size:24px}
+  .hypo-myth-row{grid-template-columns:1fr}
+  .budget-kpi{padding:12px 14px}
+  .budget-kpi-val{font-size:22px}
 }
 @media(max-height:900px){
   .scroll-indicator{display:none}
