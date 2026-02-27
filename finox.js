@@ -1316,4 +1316,114 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.mg-grid .mg-plan').forEach((el, i)    => el.dataset.delay = i * 80);
   document.querySelectorAll('.opps-grid .opp-card').forEach((el, i)  => el.dataset.delay = i * 55);
   document.querySelectorAll('.bento-card').forEach((el, i)           => el.dataset.delay = i * 70);
+
+  // Préavis typewriter
+  initPreavisTypewriter();
 });
+
+/* ═══════════════════════════════════════════════════════
+   PRÉAVIS — Typewriter Animation
+═══════════════════════════════════════════════════════ */
+function initPreavisTypewriter() {
+  const form = document.getElementById('preavis-form');
+  if (!form) return;
+
+  const cursor = document.getElementById('pf-cursor');
+
+  const fields = [
+    { id: 'pf-nom',           text: 'Bergeron' },
+    { id: 'pf-prenom',        text: 'Jacques' },
+    { id: 'pf-assureur1',     text: 'Desjardins Assurances' },
+    { id: 'pf-police1',       text: 'DVU-4481920' },
+    { id: 'pf-type1',         text: 'Vie universelle' },
+    { id: 'pf-montant1',      text: '500 000 $' },
+    { id: 'pf-prime1',        text: '187,50 $/mois' },
+    { id: 'pf-assureur2',     text: 'Manuvie' },
+    { id: 'pf-police2',       text: 'MG-7720183' },
+    { id: 'pf-type2',         text: 'Maladies graves' },
+    { id: 'pf-montant2',      text: '100 000 $' },
+    { id: 'pf-prime2',        text: '94,30 $/mois' },
+    { id: 'pf-rachat1',       text: '12 340 $' },
+    { id: 'pf-frais1',        text: '0 $' },
+    { id: 'pf-carence1',      text: 'N/A' },
+    { id: 'pf-rachat2',       text: '0 $' },
+    { id: 'pf-frais2',        text: '0 $' },
+    { id: 'pf-carence2',      text: 'N/A' },
+    { id: 'pf-new-assureur1', text: 'iA Groupe financier' },
+    { id: 'pf-new-type1',     text: 'Vie universelle' },
+    { id: 'pf-new-montant1',  text: '500 000 $' },
+    { id: 'pf-new-prime1',    text: '165,00 $/mois' },
+    { id: 'pf-new-assureur2', text: 'Beneva' },
+    { id: 'pf-new-type2',     text: 'Maladies graves' },
+    { id: 'pf-new-montant2',  text: '100 000 $' },
+    { id: 'pf-new-prime2',    text: '82,15 $/mois' },
+    { id: 'pf-new-carence1',  text: 'N/A' },
+    { id: 'pf-new-carence2',  text: 'N/A' },
+    { id: 'pf-comment',       text: 'Le client souhaite remplacer ses contrats actuels pour bénéficier de primes réduites tout en conservant des protections équivalentes. Le nouveau contrat vie universelle offre une économie de 22,50 $/mois avec une couverture identique. Le contrat maladies graves proposé offre les mêmes garanties à un coût inférieur de 12,15 $/mois. Aucune perte de couverture pendant la transition.' },
+  ];
+
+  let running = false;
+
+  function moveCursor(el) {
+    if (!cursor || !el) return;
+    const formRect = form.getBoundingClientRect();
+    const elRect = el.getBoundingClientRect();
+    cursor.style.opacity = '1';
+    cursor.style.top = (elRect.top - formRect.top + 4) + 'px';
+    cursor.style.left = (elRect.left - formRect.left + el.offsetWidth + 2) + 'px';
+  }
+
+  function typeField(field) {
+    return new Promise(resolve => {
+      const el = document.getElementById(field.id);
+      if (!el) { resolve(); return; }
+      el.textContent = '';
+      let i = 0;
+      const speed = field.id === 'pf-comment' ? 12 : 35;
+      moveCursor(el);
+      const iv = setInterval(() => {
+        if (!running) { clearInterval(iv); resolve(); return; }
+        el.textContent += field.text[i];
+        i++;
+        moveCursor(el);
+        if (i >= field.text.length) {
+          clearInterval(iv);
+          resolve();
+        }
+      }, speed);
+    });
+  }
+
+  function clearAll() {
+    fields.forEach(f => {
+      const el = document.getElementById(f.id);
+      if (el) el.textContent = '';
+    });
+  }
+
+  async function runLoop() {
+    running = true;
+    clearAll();
+    for (const field of fields) {
+      if (!running) return;
+      await typeField(field);
+      await new Promise(r => setTimeout(r, 180));
+    }
+    if (cursor) cursor.style.opacity = '0';
+    await new Promise(r => setTimeout(r, 4000));
+    if (running) runLoop();
+  }
+
+  // Start when form scrolls into view
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !running) {
+        runLoop();
+      } else if (!entry.isIntersecting && running) {
+        running = false;
+        if (cursor) cursor.style.opacity = '0';
+      }
+    });
+  }, { threshold: 0.2 });
+  observer.observe(form);
+}
