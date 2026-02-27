@@ -1297,7 +1297,8 @@ footer{padding:48px 60px;display:flex;flex-direction:column;align-items:center;g
   .gcal-rdv-cols{grid-template-columns:1fr}
   .carousel-slide{flex-direction:column;gap:28px}
   .slide-visual{width:100%}
-  .carousel-track{min-height:700px}
+  .carousel-track{min-height:auto}
+  .carousel-slide.active{position:relative}
   .mg-grid,.opps-grid{grid-template-columns:1fr}
   .proof-grid{columns:1}
   .bento-grid{grid-template-columns:1fr 1fr;gap:10px}
@@ -1387,16 +1388,17 @@ footer{padding:48px 60px;display:flex;flex-direction:column;align-items:center;g
   .comp-demo-left{padding:16px}
   .comp-demo-right{padding:16px}
   .comp-demo-btn{font-size:15px;padding:12px}
-  .comp-demo-price{font-size:15px}
-  .comp-demo-price-label{font-size:8px}
-  .comp-demo-logo{width:34px;height:34px;padding:3px}
-  .comp-demo-company{font-size:11px}
-  .comp-demo-product{font-size:9px}
-  .comp-demo-row{padding:8px 10px;gap:6px;flex-wrap:wrap}
-  .comp-demo-rank{width:26px;height:26px;font-size:11px}
-  .comp-demo-cat-title{font-size:13px}
-  .comp-demo-cat-count{font-size:10px;padding:4px 10px}
-  .comp-demo-cat-header{gap:8px;margin-bottom:10px;padding-bottom:8px}
+  .comp-demo-price{font-size:18px;font-weight:800}
+  .comp-demo-price-label{font-size:9px}
+  .comp-demo-logo{width:42px;height:42px;padding:4px}
+  .comp-demo-company{font-size:14px;font-weight:700}
+  .comp-demo-product{font-size:10px}
+  .comp-demo-row{padding:12px;gap:10px}
+  .comp-demo-rank{width:30px;height:30px;font-size:13px}
+  .comp-demo-info{min-width:0;flex:1}
+  .comp-demo-cat-title{font-size:14px}
+  .comp-demo-cat-count{font-size:11px;padding:4px 12px}
+  .comp-demo-cat-header{gap:8px;margin-bottom:12px;padding-bottom:8px}
   /* ── Calc frames responsive ── */
   .calc-frame{border-radius:14px}
   .calc-topbar{padding:12px 16px}
