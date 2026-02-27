@@ -1331,35 +1331,20 @@ function initPreavisTypewriter() {
   const cursor = document.getElementById('pf-cursor');
 
   const fields = [
-    { id: 'pf-nom',           text: 'Bergeron' },
-    { id: 'pf-prenom',        text: 'Jacques' },
-    { id: 'pf-assureur1',     text: 'Desjardins Assurances' },
-    { id: 'pf-police1',       text: 'DVU-4481920' },
-    { id: 'pf-type1',         text: 'Vie universelle' },
-    { id: 'pf-montant1',      text: '500 000 $' },
-    { id: 'pf-prime1',        text: '187,50 $/mois' },
-    { id: 'pf-assureur2',     text: 'Manuvie' },
-    { id: 'pf-police2',       text: 'MG-7720183' },
-    { id: 'pf-type2',         text: 'Maladies graves' },
-    { id: 'pf-montant2',      text: '100 000 $' },
-    { id: 'pf-prime2',        text: '94,30 $/mois' },
-    { id: 'pf-rachat1',       text: '12 340 $' },
-    { id: 'pf-frais1',        text: '0 $' },
-    { id: 'pf-carence1',      text: 'N/A' },
-    { id: 'pf-rachat2',       text: '0 $' },
-    { id: 'pf-frais2',        text: '0 $' },
-    { id: 'pf-carence2',      text: 'N/A' },
-    { id: 'pf-new-assureur1', text: 'iA Groupe financier' },
-    { id: 'pf-new-type1',     text: 'Vie universelle' },
-    { id: 'pf-new-montant1',  text: '500 000 $' },
-    { id: 'pf-new-prime1',    text: '165,00 $/mois' },
-    { id: 'pf-new-assureur2', text: 'Beneva' },
-    { id: 'pf-new-type2',     text: 'Maladies graves' },
-    { id: 'pf-new-montant2',  text: '100 000 $' },
-    { id: 'pf-new-prime2',    text: '82,15 $/mois' },
-    { id: 'pf-new-carence1',  text: 'N/A' },
-    { id: 'pf-new-carence2',  text: 'N/A' },
-    { id: 'pf-comment',       text: 'Le client souhaite remplacer ses contrats actuels pour bénéficier de primes réduites tout en conservant des protections équivalentes. Le nouveau contrat vie universelle offre une économie de 22,50 $/mois avec une couverture identique. Le contrat maladies graves proposé offre les mêmes garanties à un coût inférieur de 12,15 $/mois. Aucune perte de couverture pendant la transition.' },
+    { id: 'pf-num-val',            text: '89175' },
+    { id: 'pf-police1',            text: 'SE0070214' },
+    { id: 'pf-date-vigueur1',      text: '05/08/2021' },
+    { id: 'pf-assureur-actuel',    text: 'Humania' },
+    { id: 'pf-assureur-propose',   text: 'UV Assurance' },
+    { id: 'pf-nature-actuel',      text: 'Vie Permanente' },
+    { id: 'pf-nature-propose',     text: 'Vie Temporaire, Vie Permanente' },
+    { id: 'pf-date-actuel',        text: '05/08/2021' },
+    { id: 'pf-date-propose',       text: 'Ne s\'applique pas' },
+    { id: 'pf-prestation-actuel',  text: '25 000' },
+    { id: 'pf-prestation-propose', text: '125 000' },
+    { id: 'pf-prime-actuel',       text: '799,44' },
+    { id: 'pf-prime-propose',      text: '1 388,40' },
+    { id: 'pf-comment',            text: 'Le client souhaite remplacer son contrat actuel d\'assurance vie permanente chez Humania par une combinaison vie temporaire et vie permanente chez UV Assurance. Le nouveau contrat offre une couverture significativement plus élevée (125 000 $ vs 25 000 $) pour une prime annuelle de 1 388,40 $. Le client a été informé des avantages et inconvénients du remplacement, incluant la nouvelle période de contestabilité de deux ans.' },
   ];
 
   let running = false;
@@ -1368,9 +1353,18 @@ function initPreavisTypewriter() {
     if (!cursor || !el) return;
     const formRect = form.getBoundingClientRect();
     const elRect = el.getBoundingClientRect();
+    // Measure text width using a temp range
+    let textW = 0;
+    if (el.firstChild && el.firstChild.nodeType === 3) {
+      const range = document.createRange();
+      range.selectNodeContents(el);
+      textW = range.getBoundingClientRect().width;
+    } else {
+      textW = el.scrollWidth;
+    }
     cursor.style.opacity = '1';
-    cursor.style.top = (elRect.top - formRect.top + 4) + 'px';
-    cursor.style.left = (elRect.left - formRect.left + el.offsetWidth + 2) + 'px';
+    cursor.style.top = (elRect.top - formRect.top + 3) + 'px';
+    cursor.style.left = (elRect.left - formRect.left + Math.min(textW, elRect.width - 4) + 2) + 'px';
   }
 
   function typeField(field) {
