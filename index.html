@@ -1417,6 +1417,159 @@
       </div>
     </div>
   </div>
+
+  <!-- ── Showcase Planification Rencontre ── -->
+  <div class="sched-showcase-wrap">
+    <div class="sched-showcase-text">
+      <h3 class="sched-showcase-title">Planifier une rencontre?<br><em>5 clics. C'est tout.</em></h3>
+      <p class="sched-showcase-desc">On voulait un calendrier qui ne ressemble pas à un formulaire de gouvernement. Sélectionnez la date, l'heure, le type de rencontre — et le client reçoit automatiquement son invitation par email. Synchronisé avec Google Calendar en temps réel.</p>
+      <div class="sched-steps-list">
+        <div class="sched-step-item" data-step="0"><span class="sched-step-num">1</span><span>Cliquer sur l'icône calendrier</span></div>
+        <div class="sched-step-item" data-step="1"><span class="sched-step-num">2</span><span>Sélectionner la journée</span></div>
+        <div class="sched-step-item" data-step="2"><span class="sched-step-num">3</span><span>Choisir l'heure</span></div>
+        <div class="sched-step-item" data-step="3"><span class="sched-step-num">4</span><span>Sélectionner le type de rencontre</span></div>
+        <div class="sched-step-item" data-step="4"><span class="sched-step-num">5</span><span>Confirmer — email envoyé automatiquement</span></div>
+      </div>
+      <div class="tag-row" style="margin-top:24px">
+        <span class="pill-tag blue">Sync Google Calendar</span>
+        <span class="pill-tag gold">Email auto au client</span>
+        <span class="pill-tag blue">SMS rappel auto</span>
+        <span class="pill-tag">Google Meet intégré</span>
+      </div>
+    </div>
+    <div class="sched-showcase-demo">
+      <div class="sched-phone" id="sched-phone">
+
+        <!-- ── ÉTAPE 0 : Barre d'actions — icône calendrier ── -->
+        <div class="sched-screen sched-s0" id="sched-s0">
+          <div class="sched-bar-title">Jacques Bergeron — Actions rapides</div>
+          <div class="sched-actions-bar">
+            <div class="sched-action-btn"><span>📞</span><small>Appeler</small></div>
+            <div class="sched-action-btn"><span>💬</span><small>SMS</small></div>
+            <div class="sched-action-btn"><span>✉️</span><small>Email</small></div>
+            <div class="sched-action-btn sched-cal-btn" id="sched-cal-btn"><span>📅</span><small>Calendrier</small></div>
+            <div class="sched-action-btn"><span>📋</span><small>ABF</small></div>
+            <div class="sched-action-btn"><span>📝</span><small>Note</small></div>
+          </div>
+          <div class="sched-hint">Le courtier clique sur <strong>📅 Calendrier</strong></div>
+        </div>
+
+        <!-- ── ÉTAPE 1 : Calendrier mensuel ── -->
+        <div class="sched-screen sched-s1" id="sched-s1">
+          <div class="sched-modal-head">
+            <span class="sched-modal-title">📅 Planifier une rencontre</span>
+            <span class="sched-modal-close">✕</span>
+          </div>
+          <div class="sched-cal-grid">
+            <div class="sched-cal-month">
+              <span class="sched-cal-arrow">‹</span>
+              <span class="sched-cal-month-name">Mars 2026</span>
+              <span class="sched-cal-arrow">›</span>
+            </div>
+            <div class="sched-cal-days">
+              <span class="sched-day-label">D</span><span class="sched-day-label">L</span><span class="sched-day-label">M</span><span class="sched-day-label">M</span><span class="sched-day-label">J</span><span class="sched-day-label">V</span><span class="sched-day-label">S</span>
+              <span class="sched-day empty"></span><span class="sched-day empty"></span><span class="sched-day empty"></span><span class="sched-day empty"></span><span class="sched-day empty"></span><span class="sched-day empty"></span><span class="sched-day">1</span>
+              <span class="sched-day">2</span><span class="sched-day">3</span><span class="sched-day">4</span><span class="sched-day">5</span><span class="sched-day">6</span><span class="sched-day">7</span><span class="sched-day">8</span>
+              <span class="sched-day">9</span><span class="sched-day target" id="sched-day-target">10</span><span class="sched-day">11</span><span class="sched-day">12</span><span class="sched-day">13</span><span class="sched-day">14</span><span class="sched-day">15</span>
+              <span class="sched-day">16</span><span class="sched-day">17</span><span class="sched-day">18</span><span class="sched-day">19</span><span class="sched-day">20</span><span class="sched-day">21</span><span class="sched-day">22</span>
+              <span class="sched-day">23</span><span class="sched-day">24</span><span class="sched-day">25</span><span class="sched-day">26</span><span class="sched-day">27</span><span class="sched-day">28</span><span class="sched-day">29</span>
+              <span class="sched-day">30</span><span class="sched-day">31</span>
+            </div>
+          </div>
+          <div class="sched-hint">Il sélectionne le <strong>10 mars</strong></div>
+        </div>
+
+        <!-- ── ÉTAPE 2 : Sélection de l'heure ── -->
+        <div class="sched-screen sched-s2" id="sched-s2">
+          <div class="sched-modal-head">
+            <span class="sched-modal-title">📅 Mardi 10 mars 2026</span>
+            <span class="sched-modal-close">✕</span>
+          </div>
+          <div class="sched-time-header">Créneaux disponibles</div>
+          <div class="sched-time-slots">
+            <div class="sched-slot dispo">09:00<span class="sched-slot-tag green">Dispo</span></div>
+            <div class="sched-slot dispo">09:30<span class="sched-slot-tag green">Dispo</span></div>
+            <div class="sched-slot dispo">10:00<span class="sched-slot-tag green">Dispo</span></div>
+            <div class="sched-slot dispo">10:30<span class="sched-slot-tag green">Dispo</span></div>
+            <div class="sched-slot busy">11:00<span class="sched-slot-tag red">Occupé</span></div>
+            <div class="sched-slot busy">11:30<span class="sched-slot-tag red">Occupé</span></div>
+            <div class="sched-slot dispo target" id="sched-slot-target">12:00<span class="sched-slot-tag green">Dispo</span></div>
+            <div class="sched-slot dispo">12:30<span class="sched-slot-tag green">Dispo</span></div>
+            <div class="sched-slot dispo">13:00<span class="sched-slot-tag green">Dispo</span></div>
+            <div class="sched-slot dispo">14:00<span class="sched-slot-tag green">Dispo</span></div>
+          </div>
+          <div class="sched-hint">Il choisit <strong>12:00</strong></div>
+        </div>
+
+        <!-- ── ÉTAPE 3 : Type de rencontre ── -->
+        <div class="sched-screen sched-s3" id="sched-s3">
+          <div class="sched-modal-head">
+            <span class="sched-modal-title">📅 10 mars · 12:00</span>
+            <span class="sched-modal-close">✕</span>
+          </div>
+          <div class="sched-type-grid">
+            <div class="sched-type-col">
+              <div class="sched-type-col-title">📞 Appels</div>
+              <div class="sched-type-item">Comparative assurance vie</div>
+              <div class="sched-type-item">Comparative assurance hypothécaire</div>
+              <div class="sched-type-item target" id="sched-type-target">Comparative assurance invalidité</div>
+              <div class="sched-type-item">Qualification santé / MG</div>
+              <div class="sched-type-item">Suivi client existant</div>
+            </div>
+            <div class="sched-type-col">
+              <div class="sched-type-col-title">🤝 Rencontres</div>
+              <div class="sched-type-item">Présentation ABF complète</div>
+              <div class="sched-type-item">Rencontre de placement</div>
+              <div class="sched-type-item">Planification successorale</div>
+              <div class="sched-type-item">Signature de documents</div>
+              <div class="sched-type-item">Corporation — analyse</div>
+            </div>
+          </div>
+          <div class="sched-hint">Il sélectionne <strong>Comparative assurance invalidité</strong></div>
+        </div>
+
+        <!-- ── ÉTAPE 4 : Confirmation ── -->
+        <div class="sched-screen sched-s4" id="sched-s4">
+          <div class="sched-modal-head">
+            <span class="sched-modal-title">✅ Confirmation</span>
+            <span class="sched-modal-close">✕</span>
+          </div>
+          <div class="sched-confirm-card">
+            <div class="sched-confirm-type">Appel — Comparative assurance invalidité</div>
+            <div class="sched-confirm-rows">
+              <div class="sched-confirm-row"><span class="sched-confirm-lbl">Client</span><span class="sched-confirm-val">Jacques Bergeron</span></div>
+              <div class="sched-confirm-row"><span class="sched-confirm-lbl">Date</span><span class="sched-confirm-val">Mardi 10 mars 2026</span></div>
+              <div class="sched-confirm-row"><span class="sched-confirm-lbl">Heure</span><span class="sched-confirm-val">12:00 — 12:30</span></div>
+              <div class="sched-confirm-row"><span class="sched-confirm-lbl">Durée</span><span class="sched-confirm-val">30 minutes</span></div>
+            </div>
+            <div class="sched-confirm-options">
+              <label class="sched-opt"><span class="sched-check on">✓</span> Invitation email au client</label>
+              <label class="sched-opt"><span class="sched-check on">✓</span> Rappel SMS 1h avant</label>
+              <label class="sched-opt"><span class="sched-check">✓</span> Lien Google Meet</label>
+            </div>
+            <div class="sched-confirm-btn" id="sched-confirm-btn">Confirmer la rencontre</div>
+          </div>
+          <div class="sched-hint" id="sched-hint-final">Il confirme — <strong>email envoyé automatiquement</strong></div>
+        </div>
+
+        <!-- ── ÉTAPE 5 : Succès ── -->
+        <div class="sched-screen sched-s5" id="sched-s5">
+          <div class="sched-success-wrap">
+            <div class="sched-success-icon">✅</div>
+            <div class="sched-success-title">Rencontre confirmée!</div>
+            <div class="sched-success-sub">Appel — Comparative assurance invalidité</div>
+            <div class="sched-success-detail">Mardi 10 mars 2026 · 12:00</div>
+            <div class="sched-success-actions">
+              <div class="sched-success-sent"><span>📧</span> Invitation envoyée à jacques.bergeron@gmail.com</div>
+              <div class="sched-success-sent"><span>📅</span> Ajouté à Google Calendar</div>
+              <div class="sched-success-sent"><span>💬</span> SMS rappel programmé — 10 mars 11:00</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- CTA fin de catégorie Automatisation -->
