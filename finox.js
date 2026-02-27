@@ -1334,7 +1334,7 @@ function runComparatorDemo() {
   btn.textContent = '🔍 Recherche en cours...';
 
   // Show loading spinner
-  resultsArea.innerHTML = '<div class="comp-demo-loading"><div class="comp-demo-spinner"></div><div style="font-size:14px;font-weight:700;color:var(--cr)">Analyse des meilleures offres...</div><div style="font-size:11px;color:var(--cm)">Connexion aux 12+ compagnies</div></div>';
+  resultsArea.innerHTML = '<div class="comp-demo-loading"><div class="comp-demo-spinner"></div><div style="font-size:14px;font-weight:700;color:var(--cr)">Analyse des meilleures offres...</div><div style="font-size:11px;color:var(--cm)">Connexion à tous les assureurs du Canada</div></div>';
 
   // Real hardcoded results matching actual T20 250k search
   const standardResults = [
