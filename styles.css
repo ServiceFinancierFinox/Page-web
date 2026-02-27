@@ -319,20 +319,20 @@ select.wl-input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg 
 .compare-header-text{text-align:center;max-width:700px;margin:0 auto;padding:0 24px 40px}
 .compare-header-text .sec-sub{font-size:14px;line-height:1.5}
 .compare-scroll-outer{height:500vh;position:relative}
-.compare-scroll-sticky{position:sticky;top:0;height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;box-sizing:border-box}
+.compare-scroll-sticky{position:sticky;top:0;height:100vh;display:flex;align-items:center;justify-content:center;overflow:visible;box-sizing:border-box;padding:20px 0}
 .compare-scroll-content{text-align:center;max-width:700px;padding:0 24px;width:100%}
 /* Stage */
 .compare-stage{display:flex;flex-direction:column;align-items:center;gap:16px}
 /* Card */
 .compare-card{border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.08);width:100%;max-width:620px;position:relative}
 .compare-card.compare-old{background:rgba(196,74,74,.03)}
-.compare-card-header{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;border-bottom:1px solid rgba(255,255,255,.06);overflow:hidden}
+.compare-card-header{display:flex;align-items:center;justify-content:space-between;padding:12px 28px;border-bottom:1px solid rgba(255,255,255,.06);overflow:hidden}
 .compare-card-header.old{background:rgba(196,74,74,.06)}
 .compare-card-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700}
 .compare-card-badge{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border-radius:100px}
 .compare-card-badge.old{background:rgba(196,74,74,.1);color:var(--red);border:1px solid rgba(196,74,74,.2)}
-.compare-rows{padding:4px 0}
-.compare-row{display:flex;align-items:center;justify-content:space-between;padding:8px 28px;overflow:hidden}
+.compare-rows{padding:2px 0}
+.compare-row{display:flex;align-items:center;justify-content:space-between;padding:6px 28px;overflow:hidden}
 .compare-row:nth-child(odd){background:rgba(255,255,255,.015)}
 .compare-app{display:flex;align-items:center;gap:12px}
 .compare-logo{width:32px;height:32px;border-radius:8px;object-fit:contain;background:rgba(255,255,255,.08);padding:3px;flex-shrink:0}
@@ -342,7 +342,7 @@ select.wl-input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg 
 .compare-role{font-size:12px;color:var(--cm);opacity:.8}
 .compare-price{font-family:'JetBrains Mono',monospace;font-size:15px;color:var(--red);font-weight:600;flex-shrink:0}
 .compare-price small{font-size:11px;color:var(--cm);font-weight:400}
-.compare-total{display:flex;align-items:center;justify-content:space-between;padding:14px 28px;border-top:1px solid rgba(255,255,255,.06);font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--cm)}
+.compare-total{display:flex;align-items:center;justify-content:space-between;padding:10px 28px;border-top:1px solid rgba(255,255,255,.06);font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--cm)}
 .compare-total.old{background:rgba(196,74,74,.06);border-top-color:rgba(196,74,74,.15)}
 .compare-total-price{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:700;letter-spacing:0;text-transform:none}
 .compare-total-price.old{color:var(--red)}
