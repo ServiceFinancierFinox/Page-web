@@ -634,6 +634,13 @@
     <p class="sec-sub rx">Comparez instantanément les primes de toutes les compagnies d'assurance au Québec et au Canada. Plus besoin de Compulife, LifeGuide ou WinQuote — FINOX les remplace tous avec une interface moderne et des données toujours à jour.</p>
   </div>
 
+  <!-- CTA invitation -->
+  <div class="comp-try-cta rx" style="margin-top:40px;margin-bottom:20px;text-align:center">
+    <p style="font-size:17px;color:var(--cd);line-height:1.7;max-width:700px;margin:0 auto">
+      <span style="font-size:22px">👇</span> <strong style="color:var(--g)">Essayez par vous-même</strong> — Cliquez sur <em>« Comparer les prix »</em> pour voir le comparateur en action, en temps réel.
+    </p>
+  </div>
+
   <div class="comp-frame rx" id="comp-frame">
     <div class="comp-chrome">
       <div class="chrome-dots">
@@ -645,7 +652,65 @@
       <div class="comp-chrome-badge">Live · Connecté à toutes les compagnies</div>
     </div>
     <div class="comp-body">
-      <img src="comparateur.png" alt="Comparateur d'assurance FINOX" class="comp-screenshot">
+      <!-- Interactive comparator demo -->
+      <div class="comp-demo" id="comp-demo">
+        <!-- Top bar -->
+        <div class="comp-topbar">
+          <div class="comp-topbar-title"><span>📊</span> Calculateur d'Assurance Vie</div>
+          <div class="comp-topbar-actions">
+            <div class="comp-action-btn">Export PDF</div>
+            <div class="comp-action-btn primary">Sauvegarder</div>
+          </div>
+        </div>
+
+        <div class="comp-demo-grid">
+          <!-- LEFT: Form inputs -->
+          <div class="comp-demo-left">
+            <div class="comp-demo-section-title">👤 Profil Client</div>
+
+            <div class="comp-demo-field">
+              <div class="comp-demo-label">Âge le plus proche</div>
+              <div class="comp-demo-input">35</div>
+            </div>
+            <div class="comp-demo-field">
+              <div class="comp-demo-label">Sexe</div>
+              <div class="comp-demo-input">Homme <span class="comp-chevron">▾</span></div>
+            </div>
+            <div class="comp-demo-field">
+              <div class="comp-demo-label">Usage du tabac</div>
+              <div class="comp-demo-input">Non-fumeur <span class="comp-chevron">▾</span></div>
+            </div>
+
+            <div class="comp-demo-section-title" style="margin-top:18px">🔍 Critères de recherche</div>
+
+            <div class="comp-demo-field">
+              <div class="comp-demo-label">Montant d'assurance ($)</div>
+              <div class="comp-demo-input">250 000</div>
+            </div>
+            <div class="comp-demo-field">
+              <div class="comp-demo-label">Type d'assurance</div>
+              <div class="comp-demo-input">Temporaire <span class="comp-chevron">▾</span></div>
+            </div>
+            <div class="comp-demo-field">
+              <div class="comp-demo-label">Durée</div>
+              <div class="comp-demo-input">20 ans <span class="comp-chevron">▾</span></div>
+            </div>
+
+            <button class="comp-demo-btn" id="comp-demo-btn" onclick="runComparatorDemo()">
+              Comparer les prix 🔍
+            </button>
+          </div>
+
+          <!-- RIGHT: Results area -->
+          <div class="comp-demo-right" id="comp-demo-results">
+            <div class="comp-demo-empty">
+              <div style="font-size:42px;margin-bottom:12px">💰</div>
+              <div style="font-size:15px;font-weight:700;color:var(--cr);margin-bottom:6px">Prêt à comparer?</div>
+              <div style="font-size:12px;color:var(--cm)">Cliquez sur « Comparer les prix » pour voir les résultats</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 

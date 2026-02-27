@@ -1322,6 +1322,86 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ═══════════════════════════════════════════════════════
+   COMPARATEUR — Interactive Demo
+═══════════════════════════════════════════════════════ */
+function runComparatorDemo() {
+  const btn = document.getElementById('comp-demo-btn');
+  const resultsArea = document.getElementById('comp-demo-results');
+  if (!btn || !resultsArea) return;
+
+  // Disable button
+  btn.disabled = true;
+  btn.textContent = '🔍 Recherche en cours...';
+
+  // Show loading spinner
+  resultsArea.innerHTML = '<div class="comp-demo-loading"><div class="comp-demo-spinner"></div><div style="font-size:14px;font-weight:700;color:var(--cr)">Analyse des meilleures offres...</div><div style="font-size:11px;color:var(--cm)">Connexion aux 12+ compagnies</div></div>';
+
+  // Fake hardcoded results
+  const standardResults = [
+    { rank: 1, company: 'Beneva', product: 'Temporaire 20 - Non-fumeur Préféré', price: '16.43', logo: 'https://www.finox.ca/Images-Assureurs/Beneva.png' },
+    { rank: 2, company: 'Canada Vie', product: 'Temporaire 20 ans - Elite Non-Tabac', price: '17.10', logo: 'https://www.finox.ca/Images-Assureurs/Canada%20Vie.png' },
+    { rank: 3, company: 'RBC', product: 'Temporaire 20 - Non-fumeur Select', price: '17.55', logo: 'https://www.finox.ca/Images-Assureurs/RBC.png' },
+    { rank: 4, company: 'Desjardins', product: 'T20 Privilège - Non-fumeur', price: '18.23', logo: 'https://www.finox.ca/Images-Assureurs/Desjardins.png' },
+    { rank: 5, company: 'Industrielle Alliance', product: 'Écono 20 - Non-fumeur Elite', price: '18.90', logo: 'https://www.finox.ca/Images-Assureurs/IA.png' },
+  ];
+
+  const simplifiedResults = [
+    { rank: 1, company: 'UV Assurance', product: 'SI - Temporaire 20 Simplifié', price: '28.50', logo: 'https://www.finox.ca/Images-Assureurs/UV.png' },
+    { rank: 2, company: 'Humania', product: 'Simplifié T20 - Non-fumeur', price: '31.75', logo: 'https://www.finox.ca/Images-Assureurs/Humania.png' },
+    { rank: 3, company: 'Empire Vie', product: 'Temporaire Simplifié 20 ans', price: '33.20', logo: 'https://www.finox.ca/Images-Assureurs/Empire.png' },
+    { rank: 4, company: 'CPP', product: 'Express 20 - Non-fumeur', price: '35.10', logo: 'https://www.finox.ca/Images-Assureurs/CPP.png' },
+    { rank: 5, company: 'Assomption Vie', product: 'Platine T20 Simplifié', price: '36.90', logo: 'https://www.finox.ca/Images-Assureurs/Assomption%20Vie.png' },
+  ];
+
+  // After fake delay show results
+  setTimeout(() => {
+    btn.textContent = 'Comparer les prix 🔍';
+    btn.disabled = true; // Keep disabled — demo only
+
+    function buildRow(item, isBest) {
+      const rankClass = item.rank === 1 ? 'gold' : item.rank === 2 ? 'silver' : item.rank === 3 ? 'bronze' : 'normal';
+      return `<div class="comp-demo-row${isBest ? ' best' : ''}" style="transition-delay:${(item.rank - 1) * 80}ms">
+        <div class="comp-demo-rank ${rankClass}">${item.rank}</div>
+        <div class="comp-demo-logo"><img src="${item.logo}" alt="${item.company}"></div>
+        <div class="comp-demo-info">
+          <div class="comp-demo-company">${item.company}</div>
+          <div class="comp-demo-product">${item.product}</div>
+        </div>
+        <div style="text-align:right;flex-shrink:0">
+          <div class="comp-demo-price">${item.price}$</div>
+          <div class="comp-demo-price-label">PAR MOIS</div>
+        </div>
+      </div>`;
+    }
+
+    function buildCategory(icon, title, count, items) {
+      let rows = items.map((item, i) => buildRow(item, i === 0)).join('');
+      return `<div class="comp-demo-cat">
+        <div class="comp-demo-cat-header">
+          <div class="comp-demo-cat-icon">${icon}</div>
+          <div class="comp-demo-cat-title">${title}</div>
+          <div class="comp-demo-cat-count">${count}</div>
+        </div>
+        ${rows}
+      </div>`;
+    }
+
+    let html = `<div class="comp-demo-results-header"><span class="comp-results-dot"></span> 10 résultats trouvés — Temporaire 20 ans, 250 000$</div>`;
+    html += buildCategory('🏆', 'Assurance Standard', '5 résultats', standardResults);
+    html += buildCategory('⚡', 'Assurance Simplifiée', '5 résultats', simplifiedResults);
+
+    resultsArea.innerHTML = html;
+
+    // Animate rows in
+    requestAnimationFrame(() => {
+      resultsArea.querySelectorAll('.comp-demo-row').forEach(row => {
+        row.classList.add('visible');
+      });
+    });
+  }, 2200);
+}
+
+/* ═══════════════════════════════════════════════════════
    PRÉAVIS — Typewriter Animation
 ═══════════════════════════════════════════════════════ */
 function initPreavisTypewriter() {
