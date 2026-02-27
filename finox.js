@@ -1336,21 +1336,21 @@ function runComparatorDemo() {
   // Show loading spinner
   resultsArea.innerHTML = '<div class="comp-demo-loading"><div class="comp-demo-spinner"></div><div style="font-size:14px;font-weight:700;color:var(--cr)">Analyse des meilleures offres...</div><div style="font-size:11px;color:var(--cm)">Connexion aux 12+ compagnies</div></div>';
 
-  // Fake hardcoded results
+  // Real hardcoded results matching actual T20 250k search
   const standardResults = [
-    { rank: 1, company: 'Beneva', product: 'Temporaire 20 - Non-fumeur Préféré', price: '16.43', logo: 'https://www.finox.ca/Images-Assureurs/Beneva.png' },
-    { rank: 2, company: 'Canada Vie', product: 'Temporaire 20 ans - Elite Non-Tabac', price: '17.10', logo: 'https://www.finox.ca/Images-Assureurs/Canada%20Vie.png' },
-    { rank: 3, company: 'RBC', product: 'Temporaire 20 - Non-fumeur Select', price: '17.55', logo: 'https://www.finox.ca/Images-Assureurs/RBC.png' },
-    { rank: 4, company: 'Desjardins', product: 'T20 Privilège - Non-fumeur', price: '18.23', logo: 'https://www.finox.ca/Images-Assureurs/Desjardins.png' },
-    { rank: 5, company: 'Industrielle Alliance', product: 'Écono 20 - Non-fumeur Elite', price: '18.90', logo: 'https://www.finox.ca/Images-Assureurs/IA.png' },
+    { rank: 1, company: 'Equitable', product: 'Terme 20 Ans Renouvelable & Convertible', price: '19.01', logo: 'https://www.finox.ca/Images-Assureurs/%C3%89quitable.png' },
+    { rank: 2, company: 'Beneva', product: 'Tempo Plus 20 - Assurance Temporaire 20', price: '19.13', logo: 'https://www.finox.ca/Images-Assureurs/Beneva.png' },
+    { rank: 3, company: 'Co-operators', product: 'Temporaire polyvalente 20', price: '19.13', logo: 'https://www.finox.ca/Images-Assureurs/Cooperators.png' },
+    { rank: 4, company: 'Desjardins', product: 'Temporaire 20 ans', price: '19.13', logo: 'https://www.finox.ca/Images-Assureurs/Desjardins.png' },
+    { rank: 5, company: 'Empire Vie', product: 'Solution 20 - Terme 20 Ans R & C', price: '19.13', logo: 'https://www.finox.ca/Images-Assureurs/Empire.png' },
   ];
 
   const simplifiedResults = [
-    { rank: 1, company: 'UV Assurance', product: 'SI - Temporaire 20 Simplifié', price: '28.50', logo: 'https://www.finox.ca/Images-Assureurs/UV.png' },
-    { rank: 2, company: 'Humania', product: 'Simplifié T20 - Non-fumeur', price: '31.75', logo: 'https://www.finox.ca/Images-Assureurs/Humania.png' },
-    { rank: 3, company: 'Empire Vie', product: 'Temporaire Simplifié 20 ans', price: '33.20', logo: 'https://www.finox.ca/Images-Assureurs/Empire.png' },
-    { rank: 4, company: 'CPP', product: 'Express 20 - Non-fumeur', price: '35.10', logo: 'https://www.finox.ca/Images-Assureurs/CPP.png' },
-    { rank: 5, company: 'Assomption Vie', product: 'Platine T20 Simplifié', price: '36.90', logo: 'https://www.finox.ca/Images-Assureurs/Assomption%20Vie.png' },
+    { rank: 1, company: 'UV Assurance', product: 'T-20 Supérieur+ (Immédiat)', price: '19.80', logo: 'https://www.finox.ca/Images-Assureurs/UV.png' },
+    { rank: 2, company: 'Beneva', product: 'SI - Vie temporaire 10 simplifiée', price: '23.85', logo: 'https://www.finox.ca/Images-Assureurs/Beneva.png' },
+    { rank: 3, company: 'CPP', product: 'SI - CPP Préféré Terme 20 Ans', price: '29.48', logo: 'https://www.finox.ca/Images-Assureurs/CPP.png' },
+    { rank: 4, company: 'Assomption Vie', product: 'SI - Protection Platine Temporaire 20', price: '32.40', logo: 'https://www.finox.ca/Images-Assureurs/Assomption%20Vie.png' },
+    { rank: 5, company: 'Industrielle Alliance', product: 'Accès Vie T20 Immédiat +', price: '48.38', logo: 'https://www.finox.ca/Images-Assureurs/IA.png' },
   ];
 
   // After fake delay show results
@@ -1387,8 +1387,10 @@ function runComparatorDemo() {
     }
 
     let html = `<div class="comp-demo-results-header"><span class="comp-results-dot"></span> 10 résultats trouvés — Temporaire 20 ans, 250 000$</div>`;
-    html += buildCategory('🏆', 'Assurance Standard', '5 résultats', standardResults);
-    html += buildCategory('⚡', 'Assurance Simplifiée', '5 résultats', simplifiedResults);
+    html += `<div class="comp-demo-cats-grid">`;
+    html += buildCategory('🏆', 'Assurance Standard', '5', standardResults);
+    html += buildCategory('⚡', 'Assurance Simplifiée', '5', simplifiedResults);
+    html += `</div>`;
 
     resultsArea.innerHTML = html;
 
