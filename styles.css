@@ -436,6 +436,47 @@ select.wl-input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg 
 .pill-tag.purple{background:rgba(138,106,228,.06);border-color:rgba(138,106,228,.15);color:var(--purple)}
 .tag-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
 
+/* ─── PULSE PIPELINE — Gestion A à Z ─── */
+.pulse-pipeline-section{max-width:1300px;margin:0 auto;padding-top:120px}
+.pulse-pipeline-header{text-align:center;margin-bottom:60px}
+.pulse-pipeline-title{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4vw,58px);font-weight:300;line-height:1.05;margin-bottom:18px}
+.pulse-pipeline-title em{font-style:italic;color:var(--green)}
+.pulse-pipeline-sub{font-size:15px;line-height:1.8;color:var(--cd);max-width:700px;margin:0 auto}
+/* Funnel */
+.pulse-funnel{display:flex;align-items:center;justify-content:center;gap:0;margin-bottom:60px;flex-wrap:wrap}
+.pulse-funnel-step{display:flex;flex-direction:column;align-items:center;gap:8px;padding:20px 28px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:16px;min-width:120px;transition:all .3s}
+.pulse-funnel-step:hover{background:rgba(62,200,154,.04);border-color:rgba(62,200,154,.15);transform:translateY(-3px)}
+.pulse-funnel-step.accent{background:rgba(62,200,154,.06);border-color:rgba(62,200,154,.2)}
+.pulse-funnel-icon{font-size:24px}
+.pulse-funnel-label{font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--cr)}
+.pulse-funnel-desc{font-size:12px;color:var(--cm);text-align:center}
+.pulse-funnel-arrow{font-family:'JetBrains Mono',monospace;font-size:20px;color:var(--green);opacity:.5;padding:0 8px}
+/* Pipeline layout */
+.pulse-pipeline-layout{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+/* Statuts card */
+.pulse-statuts-card{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.07);border-radius:20px;padding:28px;position:relative;overflow:hidden}
+.pulse-statuts-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(62,200,154,.03),transparent);pointer-events:none}
+.pulse-statuts-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.pulse-statuts-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700}
+.pulse-statuts-badge{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border-radius:100px;background:rgba(62,200,154,.08);border:1px solid rgba(62,200,154,.18);color:var(--green)}
+.pulse-statuts-grid{display:flex;flex-direction:column;gap:6px}
+.pulse-statut{display:flex;align-items:center;gap:12px;padding:10px 16px;border-radius:10px;font-size:14px;color:var(--cd);background:rgba(255,255,255,.015);border:1px solid rgba(255,255,255,.04);transition:all .3s}
+.pulse-statut:hover{background:rgba(255,255,255,.04);transform:translateX(4px)}
+.pulse-statut-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.pulse-statut.new .pulse-statut-dot{background:#3ec89a}
+.pulse-statut.unreached .pulse-statut-dot{background:#e8a84c}
+.pulse-statut.callback .pulse-statut-dot{background:#4a8ed4}
+.pulse-statut.meeting .pulse-statut-dot{background:#8a6ae4}
+.pulse-statut.abf .pulse-statut-dot{background:#c4a24a}
+.pulse-statut.proposal .pulse-statut-dot{background:#d47a4a}
+.pulse-statut.won .pulse-statut-dot{background:#3ec89a;box-shadow:0 0 8px rgba(62,200,154,.5)}
+.pulse-statut.lost .pulse-statut-dot{background:#c44a4a}
+/* Pipeline text */
+.pulse-pipeline-text-title{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,3vw,42px);font-weight:300;line-height:1.1;margin-bottom:20px}
+.pulse-pipeline-text-title em{font-style:italic;color:var(--green)}
+.pulse-pipeline-text-desc{font-size:15px;line-height:1.85;color:var(--cd);margin-bottom:16px}
+.pulse-pipeline-text-desc strong{color:var(--cr)}
+
 /* ─── ABF ─── */
 .abf-section{padding:140px 60px;background:linear-gradient(to bottom,var(--s1),var(--s2));overflow:hidden}
 .abf-header{text-align:center;margin-bottom:50px}
@@ -1150,6 +1191,11 @@ footer{padding:48px 60px;display:flex;flex-direction:column;align-items:center;g
   .compare-circle-wrap{width:260px;height:260px}
   .compare-section{padding:80px 0 0}
   .pulse-layout,.ai-layout,.comm-layout,.conf-layout,.cabinet-layout,.preavis-layout{grid-template-columns:1fr;gap:52px}
+  .pulse-pipeline-layout{grid-template-columns:1fr;gap:40px}
+  .pulse-funnel{gap:8px}
+  .pulse-funnel-step{min-width:90px;padding:14px 16px}
+  .pulse-funnel-arrow{padding:0 4px;font-size:16px}
+  .pulse-pipeline-section{padding-top:80px}
   .comp-demo-grid{grid-template-columns:1fr;overflow:visible}
   .comp-demo{height:auto;overflow:visible}
   .comp-demo-left{border-right:none;border-bottom:1px solid rgba(255,255,255,.04)}
