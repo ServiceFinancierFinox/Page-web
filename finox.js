@@ -1265,12 +1265,13 @@ window.handleWaitlistSubmit = handleWaitlistSubmit;
    BOOT
 ────────────────────────────────────────────────────────────── */
 /* ═══════════════════════════════════════════════════════
-   COMPARE — Scroll-Driven Morph Animation
+   COMPARE — Scroll-Driven Sparkle Circle Animation (v2)
 ═══════════════════════════════════════════════════════ */
 function initCompareScrollAnim() {
   const outer = document.querySelector('.compare-scroll-outer');
   if (!outer) return;
 
+  /* ── DOM refs ── */
   const card       = document.getElementById('compare-card-morph');
   const headerEl   = document.getElementById('compare-card-hdr');
   const rowsWrap   = document.getElementById('compare-rows-wrap');
@@ -1278,122 +1279,200 @@ function initCompareScrollAnim() {
   const totalBar   = document.getElementById('compare-total-bar');
   const totalTxt   = totalBar ? totalBar.querySelector('.compare-total-txt') : null;
   const totalPrice = totalBar ? totalBar.querySelector('.compare-total-price') : null;
+  const headerText = document.getElementById('compare-header-text');
+  const circleWrap = document.getElementById('compare-circle-wrap');
+  const circlePath = document.getElementById('compare-circle-path');
+  const sparkHead  = document.getElementById('compare-spark-head');
   const finoxInner = document.getElementById('compare-finox-inner');
   const pricingW   = document.getElementById('compare-finox-pricing-wrap');
-  const headerText = document.getElementById('compare-header-text');
 
-  if (!card || !rows.length || !totalBar || !finoxInner || !pricingW) return;
+  if (!card || !rows.length || !totalBar || !circleWrap || !circlePath || !finoxInner || !pricingW) return;
 
   const rowCount = rows.length;
+  const CIRC     = 974;          // 2 * PI * 155
+  const CX       = 170;
+  const CY       = 170;
+  const CR       = 155;
+  const PI2      = Math.PI * 2;
 
-  // Helper utils
+  /* ── Helpers ── */
   function clamp01(v) { return Math.max(0, Math.min(1, v)); }
   function lerp(a, b, t) { return a + (b - a) * t; }
   function easeInOut(t) { return t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3) / 2; }
   function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
 
-  // Cache original row heights
-  const rowH = 66; // approximate row height (14px padding top + 38px content + 14px padding bottom)
+  /* ── Sparkle particle system ── */
+  var sparklePool = [];
+  function spawnSparkle(x, y) {
+    var el = sparklePool.length ? sparklePool.pop() : document.createElement('div');
+    var isStar = Math.random() > 0.5;
+    el.className = isStar ? 'sparkle-star' : 'sparkle-particle';
+    var size = isStar ? lerp(5, 12, Math.random()) : lerp(3, 7, Math.random());
+    el.style.width = size + 'px';
+    el.style.height = size + 'px';
+    el.style.left = x + 'px';
+    el.style.top = y + 'px';
+    el.style.background = isStar
+      ? 'linear-gradient(135deg, #FFF0B0, #F0D070)'
+      : 'radial-gradient(circle, #fff 0%, #FFF0B0 40%, rgba(196,162,74,.6) 100%)';
+    el.style.opacity = '1';
+    circleWrap.appendChild(el);
 
-  let ticking = false;
+    var dx = (Math.random() - 0.5) * 40;
+    var dy = (Math.random() - 0.5) * 40;
+    var dur = 500 + Math.random() * 600;
+
+    el.animate([
+      { transform: 'translate(0,0) scale(1)', opacity: 1 },
+      { transform: 'translate(' + dx + 'px,' + dy + 'px) scale(0)', opacity: 0 }
+    ], { duration: dur, easing: 'ease-out', fill: 'forwards' })
+    .onfinish = function() {
+      if (el.parentNode) el.parentNode.removeChild(el);
+      sparklePool.push(el);
+    };
+  }
+
+  /* ── Constants ── */
+  var rowH = 66;
+  var lastDrawP = -1;  // track circle draw progress for sparkle spawning
+
+  var ticking = false;
 
   function update() {
-    const rect = outer.getBoundingClientRect();
-    const totalScroll = outer.offsetHeight - window.innerHeight;
-    const scrolled = Math.max(0, -rect.top);
-    const p = Math.min(1, scrolled / totalScroll);
+    var rect = outer.getBoundingClientRect();
+    var totalScroll = outer.offsetHeight - window.innerHeight;
+    var scrolled = Math.max(0, -rect.top);
+    var p = Math.min(1, scrolled / totalScroll);
 
-    // ═══ PHASE 1: Rows collapse bottom-to-top (p: 0.03 → 0.50) ═══
-    for (let i = 0; i < rowCount; i++) {
-      const ri = rowCount - 1 - i; // bottom row first
-      const start = 0.03 + i * 0.043;
-      const end = start + 0.043;
-      const rp = clamp01((p - start) / (end - start));
-      const ease = easeOut(rp);
+    /*
+     * Timeline:
+     *   0.00 → 0.15  Reading time (nothing happens)
+     *   0.15 → 0.52  Rows collapse bottom-to-top
+     *   0.52 → 0.60  Header collapses
+     *   0.60 → 0.66  Total bar text fades, border turns gold
+     *   0.66 → 0.72  Card fades out, circle-wrap fades in
+     *   0.72 → 0.88  SVG circle draws + sparkle trail
+     *   0.88 → 0.94  FINOX.OS logo fades in
+     *   0.94 → 1.00  Pricing fades in
+     */
+
+    /* ═══ PHASE 1: Rows collapse bottom-to-top (p: 0.15 → 0.52) ═══ */
+    var rowSpan = (0.52 - 0.15) / rowCount;
+    for (var i = 0; i < rowCount; i++) {
+      var ri = rowCount - 1 - i; // bottom row first
+      var start = 0.15 + i * rowSpan;
+      var end = start + rowSpan;
+      var rp = clamp01((p - start) / (end - start));
+      var ease = easeOut(rp);
 
       rows[ri].style.maxHeight = (1 - ease) * rowH + 'px';
-      rows[ri].style.opacity = 1 - ease;
-      rows[ri].style.paddingTop = (1 - ease) * 14 + 'px';
+      rows[ri].style.opacity   = 1 - ease;
+      rows[ri].style.paddingTop    = (1 - ease) * 14 + 'px';
       rows[ri].style.paddingBottom = (1 - ease) * 14 + 'px';
     }
 
     // Collapse rows wrapper padding
-    const rowsDone = clamp01((p - 0.46) / 0.04);
+    var rowsDone = clamp01((p - 0.48) / 0.04);
     rowsWrap.style.padding = (1 - rowsDone) * 6 + 'px 0';
 
-    // ═══ PHASE 2: Header collapses (p: 0.48 → 0.56) ═══
-    const hp = clamp01((p - 0.48) / 0.08);
-    const hpe = easeOut(hp);
-    headerEl.style.maxHeight = (1 - hpe) * 72 + 'px';
-    headerEl.style.opacity = 1 - hpe;
-    headerEl.style.paddingTop = (1 - hpe) * 24 + 'px';
-    headerEl.style.paddingBottom = (1 - hpe) * 24 + 'px';
+    /* ═══ PHASE 2: Header collapses (p: 0.52 → 0.60) ═══ */
+    var hp = clamp01((p - 0.52) / 0.08);
+    var hpe = easeOut(hp);
+    headerEl.style.maxHeight       = (1 - hpe) * 72 + 'px';
+    headerEl.style.opacity         = 1 - hpe;
+    headerEl.style.paddingTop      = (1 - hpe) * 24 + 'px';
+    headerEl.style.paddingBottom   = (1 - hpe) * 24 + 'px';
     headerEl.style.borderBottomWidth = (1 - hpe) + 'px';
 
-    // Fade header text above
-    const htp = clamp01((p - 0.42) / 0.18);
-    headerText.style.opacity = 1 - htp;
+    // Fade section header text above card
+    var htp = clamp01((p - 0.46) / 0.18);
+    headerText.style.opacity   = 1 - htp;
     headerText.style.transform = 'translateY(' + (-htp * 40) + 'px)';
 
-    // ═══ PHASE 3: Morph card → circle (p: 0.58 → 0.85) ═══
-    const mp = clamp01((p - 0.58) / 0.27);
-    const mpe = easeInOut(mp);
+    /* ═══ PHASE 3: Total bar → gold line (p: 0.60 → 0.66) ═══ */
+    var gp = clamp01((p - 0.60) / 0.06);
+    var gpe = easeOut(gp);
 
-    // Dimensions
-    const cardW = Math.min(620, window.innerWidth - 48);
-    const circleSize = Math.min(320, window.innerWidth - 80);
-    const totalBarH = 86;
+    // Fade total text
+    if (totalTxt)   totalTxt.style.opacity   = 1 - gpe;
+    if (totalPrice) totalPrice.style.opacity = 1 - gpe;
 
-    if (mp > 0) {
-      const w = lerp(cardW, circleSize, mpe);
-      const h = lerp(totalBarH, circleSize, mpe);
-      const r = lerp(22, circleSize / 2, mpe);
+    // Border color: red → gold
+    var cg = lerp(74, 162, gpe);
+    card.style.borderColor = 'rgba(196,' + cg + ',74,' + lerp(0.15, 0.35, gpe) + ')';
+    totalBar.style.borderTopColor = 'rgba(196,' + cg + ',74,' + lerp(0.15, 0, gpe) + ')';
+    totalBar.style.background = 'rgba(196,' + cg + ',74,' + lerp(0.06, 0, gpe) + ')';
 
-      card.style.width = w + 'px';
-      card.style.maxWidth = w + 'px';
-      card.style.minHeight = h + 'px';
-      card.style.borderRadius = r + 'px';
-
-      // Color morph: red(196,74,74) → gold(196,162,74)
-      const cg = lerp(74, 162, mpe);
-      card.style.background = 'rgba(196,' + cg + ',74,' + lerp(0.03, 0.04, mpe) + ')';
-      card.style.borderColor = 'rgba(196,' + cg + ',74,' + lerp(0.15, 0.25, mpe) + ')';
-
-      // Total bar loses its own background/border
-      totalBar.style.background = 'rgba(196,' + cg + ',74,' + lerp(0.06, 0, mpe) + ')';
-      totalBar.style.borderTopColor = 'rgba(196,' + cg + ',74,' + lerp(0.15, 0, mpe) + ')';
-
-      // Center the total bar content (it moves to center during morph)
-      totalBar.style.justifyContent = 'center';
-      totalBar.style.gap = lerp(0, 12, mpe) + 'px';
+    // Add glow to card border at end
+    if (gpe > 0.5) {
+      var glowIntensity = (gpe - 0.5) * 2;
+      card.style.boxShadow = '0 0 ' + (glowIntensity * 20) + 'px rgba(196,162,74,' + (glowIntensity * 0.15) + '), inset 0 0 ' + (glowIntensity * 10) + 'px rgba(196,162,74,' + (glowIntensity * 0.05) + ')';
     } else {
-      card.style.width = '';
-      card.style.maxWidth = '';
-      card.style.minHeight = '';
-      card.style.borderRadius = '';
-      card.style.background = '';
-      card.style.borderColor = '';
-      totalBar.style.background = '';
-      totalBar.style.borderTopColor = '';
-      totalBar.style.justifyContent = '';
-      totalBar.style.gap = '';
+      card.style.boxShadow = '';
     }
 
-    // Fade total text out
-    const textFade = clamp01(mp * 3); // fades quickly in first third
-    if (totalTxt) totalTxt.style.opacity = 1 - textFade;
-    if (totalPrice) totalPrice.style.opacity = 1 - textFade;
+    /* ═══ PHASE 4: Card fades out / Circle wrap fades in (p: 0.66 → 0.72) ═══ */
+    var tp = clamp01((p - 0.66) / 0.06);
+    var tpe = easeInOut(tp);
 
-    // Fade FINOX logo in
-    const fp = clamp01((mp - 0.25) / 0.55);
-    const fpe = easeOut(fp);
-    finoxInner.style.opacity = fpe;
-    finoxInner.style.transform = 'scale(' + lerp(0.5, 1, fpe) + ')';
+    card.style.opacity = 1 - tpe;
+    if (tpe >= 1) {
+      card.style.pointerEvents = 'none';
+      card.style.position = 'absolute';
+      card.style.visibility = 'hidden';
+    } else {
+      card.style.pointerEvents = '';
+      card.style.position = '';
+      card.style.visibility = '';
+    }
 
-    // ═══ PHASE 4: Pricing fades in (p: 0.86 → 1.0) ═══
-    const pp = clamp01((p - 0.86) / 0.14);
-    const ppe = easeOut(pp);
-    pricingW.style.opacity = ppe;
+    circleWrap.style.opacity = tpe;
+    circleWrap.style.pointerEvents = tpe > 0.1 ? 'auto' : 'none';
+    circleWrap.style.transform = 'scale(' + lerp(0.8, 1, easeOut(tpe)) + ')';
+
+    /* ═══ PHASE 5: Circle draws + sparkle trail (p: 0.72 → 0.88) ═══ */
+    var dp = clamp01((p - 0.72) / 0.16);
+    var dpe = easeInOut(dp);
+
+    // Draw circle via stroke-dashoffset
+    var offset = CIRC * (1 - dpe);
+    circlePath.style.strokeDashoffset = offset;
+
+    // Position the spark head at the tip of the drawn arc
+    if (dp > 0 && dp < 1) {
+      sparkHead.style.opacity = '1';
+      var angle = (-Math.PI / 2) + dpe * PI2;
+      var tipX = CX + CR * Math.cos(angle);
+      var tipY = CY + CR * Math.sin(angle);
+      // Convert SVG coords to pixel coords (circle-wrap is 320×320, viewBox 340×340)
+      var wrapSize = circleWrap.offsetWidth || 320;
+      var scale = wrapSize / 340;
+      sparkHead.style.left = (tipX * scale) + 'px';
+      sparkHead.style.top  = (tipY * scale) + 'px';
+
+      // Spawn sparkles along the trail
+      if (dpe - lastDrawP > 0.015) {
+        var count = 2 + Math.floor(Math.random() * 3);
+        for (var s = 0; s < count; s++) {
+          spawnSparkle(tipX * scale, tipY * scale);
+        }
+        lastDrawP = dpe;
+      }
+    } else {
+      sparkHead.style.opacity = '0';
+      if (dp >= 1) lastDrawP = -1;
+    }
+
+    /* ═══ PHASE 6: FINOX.OS logo fades in (p: 0.88 → 0.94) ═══ */
+    var fp = clamp01((p - 0.88) / 0.06);
+    var fpe = easeOut(fp);
+    finoxInner.style.opacity   = fpe;
+    finoxInner.style.transform = 'scale(' + lerp(0.6, 1, fpe) + ')';
+
+    /* ═══ PHASE 7: Pricing fades in (p: 0.94 → 1.00) ═══ */
+    var pp = clamp01((p - 0.94) / 0.06);
+    var ppe = easeOut(pp);
+    pricingW.style.opacity   = ppe;
     pricingW.style.transform = 'translateY(' + lerp(30, 0, ppe) + 'px)';
 
     ticking = false;

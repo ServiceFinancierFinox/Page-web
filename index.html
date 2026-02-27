@@ -469,14 +469,37 @@
               <span class="compare-total-txt">Total mensuel</span>
               <span class="compare-total-price old">381 $<small>/mois</small></span>
             </div>
-            <!-- FINOX inner (overlaid, appears during morph) -->
+          </div>
+
+          <!-- Circle drawing + sparkle trail (hidden initially) -->
+          <div class="compare-circle-wrap" id="compare-circle-wrap">
+            <svg class="compare-circle-svg" viewBox="0 0 340 340">
+              <defs>
+                <linearGradient id="sparkStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#FFF0B0"/>
+                  <stop offset="40%" stop-color="#F0D070"/>
+                  <stop offset="100%" stop-color="#C4A24A"/>
+                </linearGradient>
+                <filter id="sparkGlow">
+                  <feGaussianBlur stdDeviation="4" result="blur"/>
+                  <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+              </defs>
+              <circle class="compare-circle-bg" cx="170" cy="170" r="155" fill="none" stroke="rgba(196,162,74,0.06)" stroke-width="1.5"/>
+              <circle id="compare-circle-path" cx="170" cy="170" r="155"
+                      fill="none" stroke="url(#sparkStroke)" stroke-width="2.5"
+                      stroke-dasharray="974" stroke-dashoffset="974"
+                      transform="rotate(-90 170 170)"
+                      filter="url(#sparkGlow)" stroke-linecap="round"/>
+            </svg>
+            <div class="compare-spark-head" id="compare-spark-head"></div>
             <div class="compare-finox-inner" id="compare-finox-inner">
               <div class="finox-brand-glow"></div>
               <span class="finox-brand-logo">FINOX<span class="finox-brand-accent">.</span>OS</span>
             </div>
           </div>
 
-          <!-- Pricing (below card/circle, fades in last) -->
+          <!-- Pricing (below circle, fades in last) -->
           <div class="compare-finox-pricing-wrap" id="compare-finox-pricing-wrap">
             <span class="finox-brand-price">200 $<small>/mois</small></span>
             <span class="finox-brand-savings">Économisez 181 $/mois</span>
