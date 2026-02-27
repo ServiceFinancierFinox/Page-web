@@ -494,43 +494,43 @@ select.wl-input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg 
 .mg-feature::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;font-size:11px;margin-top:2px}
 
 /* Preavis layout */
-.preavis-layout{max-width:1300px;margin:80px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.preavis-layout{max-width:1400px;margin:80px auto 0;display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:center}
 /* Preavis form replica — pixel-perfect AMF */
-.preavis-form-wrap{position:relative;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.07);box-shadow:0 30px 60px rgba(0,0,0,.45)}
-.preavis-form{background:#fff;padding:14px 18px 18px;font-family:Arial,Helvetica,sans-serif;position:relative;color:#1a1a1a;transform-origin:top center}
+.preavis-form-wrap{position:relative;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.07);box-shadow:0 30px 60px rgba(0,0,0,.45);min-width:620px}
+.preavis-form{background:#fff;padding:28px 32px 32px;font-family:Arial,Helvetica,sans-serif;position:relative;color:#1a1a1a;transform-origin:top center;height:820px;overflow:hidden}
 /* N° du préavis top-right */
-.pf-num{text-align:right;font-size:8px;font-weight:700;color:#1a1a1a;margin-bottom:6px}
+.pf-num{text-align:right;font-size:12px;font-weight:700;color:#1a1a1a;margin-bottom:10px}
 /* PARTIE header */
-.pf-partie-header{font-size:9px;font-weight:900;color:#1a1a1a;background:#e0e0e0;border:1px solid #999;padding:5px 8px;margin-bottom:0;text-transform:uppercase;letter-spacing:.02em}
+.pf-partie-header{font-size:13px;font-weight:900;color:#1a1a1a;background:#e0e0e0;border:1px solid #999;padding:8px 12px;margin-bottom:0;text-transform:uppercase;letter-spacing:.02em}
 /* Table core */
-.pf-table{width:100%;border-collapse:collapse}
-.pf-table td{border:1px solid #999;padding:4px 6px;font-size:8px;vertical-align:top;color:#1a1a1a}
+.pf-table{width:100%;border-collapse:collapse;table-layout:fixed}
+.pf-table td{border:1px solid #999;padding:7px 10px;font-size:12px;vertical-align:top;color:#1a1a1a}
 .pf-mt{margin-top:-1px}
 /* Left label cells */
-.pf-lbl-tall{width:35%;background:#f5f5f5;font-size:8px;vertical-align:middle}
-.pf-lbl-tall strong{font-weight:900;font-size:8.5px}
-.pf-row-label{width:35%;background:#f5f5f5;font-size:8px;vertical-align:top;padding:5px 7px!important}
-.pf-row-label strong{font-weight:900;font-size:8.5px;display:block;margin-bottom:1px}
-.pf-sub{font-weight:400;font-size:7px;color:#333;line-height:1.4}
+.pf-lbl-tall{width:35%;background:#f5f5f5;font-size:12px;vertical-align:middle}
+.pf-lbl-tall strong{font-weight:900;font-size:12.5px}
+.pf-row-label{width:35%;background:#f5f5f5;font-size:12px;vertical-align:top;padding:8px 10px!important}
+.pf-row-label strong{font-weight:900;font-size:12.5px;display:block;margin-bottom:2px}
+.pf-sub{font-weight:400;font-size:10px;color:#333;line-height:1.4}
 /* Column headers */
-.pf-col-header{font-weight:900;font-size:7.5px;text-align:center;background:#f0f0f0;color:#1a1a1a}
-.pf-col-label{width:35%;font-weight:900;font-size:8px;background:#e0e0e0;color:#1a1a1a;text-align:left}
-.pf-col-mid{font-weight:900;font-size:8px;background:#e0e0e0;color:#1a1a1a;text-align:center}
-.pf-subheader td{font-weight:900;font-size:8px;color:#1a1a1a;background:#e0e0e0;text-align:center;padding:5px 6px}
+.pf-col-header{font-weight:900;font-size:11px;text-align:center;background:#f0f0f0;color:#1a1a1a}
+.pf-col-label{width:35%;font-weight:900;font-size:12px;background:#e0e0e0;color:#1a1a1a;text-align:left}
+.pf-col-mid{font-weight:900;font-size:12px;background:#e0e0e0;color:#1a1a1a;text-align:center}
+.pf-subheader td{font-weight:900;font-size:12px;color:#1a1a1a;background:#e0e0e0;text-align:center;padding:8px 10px}
 /* Value cells */
-.pf-val{font-size:9px;color:#1a1a1a;font-weight:400;position:relative;overflow:hidden;vertical-align:top}
+.pf-val{font-size:13px;color:#1a1a1a;font-weight:400;position:relative;overflow:hidden;vertical-align:top}
 /* Date hint */
-.pf-date-hint{font-size:6px;color:#888;margin-top:1px;font-weight:400}
+.pf-date-hint{font-size:9px;color:#888;margin-top:2px;font-weight:400}
 /* Décès checkboxes row */
-.pf-deces-row{margin-top:3px}
-.pf-checkbox{display:inline-block;width:9px;height:9px;border:1px solid #1a1a1a;vertical-align:middle;text-align:center;font-size:7px;line-height:9px}
+.pf-deces-row{margin-top:4px}
+.pf-checkbox{display:inline-block;width:12px;height:12px;border:1.5px solid #1a1a1a;vertical-align:middle;text-align:center;font-size:9px;line-height:12px}
 /* Spacer row */
-.pf-spacer-row td{height:6px;padding:0!important;border-left:1px solid #999;border-right:1px solid #999;border-top:1px solid #999;border-bottom:1px solid #999}
+.pf-spacer-row td{height:8px;padding:0!important;border-left:1px solid #999;border-right:1px solid #999;border-top:1px solid #999;border-bottom:1px solid #999}
 /* Commentaires */
 .pf-comment-label{background:#f5f5f5;vertical-align:top}
-.pf-comment-cell{font-size:8.5px;color:#1a1a1a;line-height:1.5;font-weight:400;min-height:55px;padding:6px 7px!important;vertical-align:top;white-space:normal;word-wrap:break-word}
+.pf-comment-cell{font-size:12.5px;color:#1a1a1a;line-height:1.55;font-weight:400;height:110px;padding:10px 12px!important;vertical-align:top;white-space:normal;word-wrap:break-word;overflow:hidden}
 /* Typing cursor */
-.pf-cursor{position:absolute;width:1px;height:10px;background:#1a1a1a;opacity:0;animation:pfBlink 1s step-end infinite;pointer-events:none;z-index:2;transition:top .15s,left .15s}
+.pf-cursor{position:absolute;width:1.5px;height:15px;background:#1a1a1a;opacity:0;animation:pfBlink 1s step-end infinite;pointer-events:none;z-index:2;transition:top .15s,left .15s}
 @keyframes pfBlink{0%,100%{opacity:1}50%{opacity:0}}
 .doc-preview{background:var(--s1);border:1px solid rgba(255,255,255,.07);border-radius:20px;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.45)}
 .dp-header{padding:20px 26px;border-bottom:1px solid rgba(255,255,255,.05);background:rgba(0,0,0,.22);display:flex;align-items:center;gap:14px}
