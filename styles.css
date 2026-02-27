@@ -1280,9 +1280,9 @@ footer{padding:48px 60px;display:flex;flex-direction:column;align-items:center;g
   .pulse-layout,.ai-layout,.comm-layout,.conf-layout,.cabinet-layout,.preavis-layout{grid-template-columns:1fr;gap:52px}
   .preavis-form-wrap{min-width:unset;width:100%}
   .pulse-pipeline-layout{grid-template-columns:1fr;gap:40px}
-  .pulse-funnel{gap:8px}
-  .pulse-funnel-step{min-width:90px;padding:14px 16px}
-  .pulse-funnel-arrow{padding:0 4px;font-size:16px}
+  .pulse-funnel{gap:8px;flex-direction:column;align-items:stretch}
+  .pulse-funnel-step{min-width:unset;padding:14px 16px;width:100%}
+  .pulse-funnel-arrow{padding:4px 0;font-size:16px;transform:rotate(90deg)}
   .pulse-pipeline-section{padding-top:80px}
   .comp-demo-grid{grid-template-columns:1fr;overflow:visible}
   .comp-demo{height:auto;overflow:visible}
@@ -1297,7 +1297,7 @@ footer{padding:48px 60px;display:flex;flex-direction:column;align-items:center;g
   .gcal-rdv-cols{grid-template-columns:1fr}
   .carousel-slide{flex-direction:column;gap:28px}
   .slide-visual{width:100%}
-  .carousel-track{min-height:auto}
+  .carousel-track{min-height:700px}
   .mg-grid,.opps-grid{grid-template-columns:1fr}
   .proof-grid{columns:1}
   .bento-grid{grid-template-columns:1fr 1fr;gap:10px}
@@ -1345,9 +1345,14 @@ footer{padding:48px 60px;display:flex;flex-direction:column;align-items:center;g
   .finox-brand-price{font-size:44px}
   .finox-brand-savings{font-size:13px}
   .finox-brand-sub{font-size:11px;max-width:220px}
-  /* ── 2. Dashboard grid single column ── */
-  .dashboard-grid{grid-template-columns:1fr}
-  .chart-card,.activity-card,.pipeline-card,.clients-card{grid-column:auto;grid-row:auto}
+  /* ── 1. Dashboard — keep 2 columns, don't go 1fr (decorative UI) ── */
+  .dashboard-grid{grid-template-columns:1fr 1fr}
+  .chart-card,.activity-card{grid-column:1/2}
+  .pipeline-card,.clients-card{grid-column:2/3}
+  .kpi-card{padding:10px}
+  .kpi-value{font-size:20px}
+  .kpi-label{font-size:8px}
+  .kpi-change{font-size:8px;padding:1px 5px}
   /* ── 3. Preavis form responsive ── */
   .preavis-form{padding:16px 14px 18px;height:auto;max-height:520px}
   .pf-table{table-layout:auto}
@@ -1382,11 +1387,16 @@ footer{padding:48px 60px;display:flex;flex-direction:column;align-items:center;g
   .comp-demo-left{padding:16px}
   .comp-demo-right{padding:16px}
   .comp-demo-btn{font-size:15px;padding:12px}
-  .comp-demo-price{font-size:20px}
-  .comp-demo-logo{width:44px;height:44px}
-  .comp-demo-company{font-size:12px}
-  .comp-demo-row{padding:10px 12px;gap:8px}
-  .comp-demo-rank{width:30px;height:30px;font-size:13px}
+  .comp-demo-price{font-size:15px}
+  .comp-demo-price-label{font-size:8px}
+  .comp-demo-logo{width:34px;height:34px;padding:3px}
+  .comp-demo-company{font-size:11px}
+  .comp-demo-product{font-size:9px}
+  .comp-demo-row{padding:8px 10px;gap:6px;flex-wrap:wrap}
+  .comp-demo-rank{width:26px;height:26px;font-size:11px}
+  .comp-demo-cat-title{font-size:13px}
+  .comp-demo-cat-count{font-size:10px;padding:4px 10px}
+  .comp-demo-cat-header{gap:8px;margin-bottom:10px;padding-bottom:8px}
   /* ── Calc frames responsive ── */
   .calc-frame{border-radius:14px}
   .calc-topbar{padding:12px 16px}
