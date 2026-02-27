@@ -1326,6 +1326,27 @@ footer{padding:48px 60px;display:flex;flex-direction:column;align-items:center;g
   .crm-nav-item{padding:2px 5px}
   .crm-nav-group{padding:0 4px}
   .crm-nav-arrow{width:32px;height:32px;font-size:20px}
+  /* ── Nav: pipeline starts after logo ── */
+  nav{justify-content:flex-start}
+  .crm-nav-wrap{justify-content:flex-start}
+  .crm-nav-track{justify-content:flex-start}
+  /* ── Dashboard showcase mobile ── */
+  .main-topbar{padding:8px 12px}
+  .main-title{font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+  .main-actions{gap:4px}
+  .action-btn{font-size:7px;padding:3px 6px;letter-spacing:.02em}
+  .dashboard-grid{padding:8px;gap:6px}
+  .kpi-icon{font-size:12px;margin-bottom:4px}
+  .card-title{font-size:7px}
+  .card-header{margin-bottom:4px}
+  .tab-pill{font-size:7px;padding:2px 5px}
+  .pipeline-label{font-size:7px;width:52px}
+  .pipeline-count{font-size:7px}
+  .pipeline-row{gap:4px;margin-bottom:4px}
+  .pipeline-track{height:4px}
+  .chart-svg{height:60px}
+  .activity-card,.clients-card{display:none}
+  .chart-card,.pipeline-card{grid-column:auto}
   /* ── 1. Compare table compact ── */
   .compare-scroll-outer{height:350vh}
   .compare-card-header{padding:8px 14px;flex-direction:column;align-items:flex-start;gap:4px}
