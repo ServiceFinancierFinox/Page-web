@@ -103,6 +103,7 @@ nav.scrolled{background:rgba(6,6,8,.96);border-bottom:1px solid rgba(196,162,74,
 @keyframes arrbounce{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
 .hero-title-line{overflow:hidden}
 .hero-title-line.hero-l2{overflow:visible}
+.hero-l2 .hero-word{padding-bottom:.2em;margin-bottom:-.2em}
 .hero-word{display:inline-block;font-family:'Cormorant Garamond',serif;line-height:.95;letter-spacing:-.02em;opacity:0;transform:translateY(105%);font-size:clamp(58px,10vw,138px);font-weight:300}
 .hero-word.animate{animation:wu .9s var(--ease-out) forwards}
 .hero-l1{font-size:clamp(58px,10vw,138px);font-weight:300}
