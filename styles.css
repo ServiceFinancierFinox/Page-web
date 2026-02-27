@@ -102,7 +102,8 @@ nav.scrolled{background:rgba(6,6,8,.96);border-bottom:1px solid rgba(196,162,74,
 .hero-eyebrow .arrow-anim{animation:arrbounce 1.5s ease-in-out infinite}
 @keyframes arrbounce{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
 .hero-title-line{overflow:hidden}
-.hero-word{display:inline-block;font-family:'Cormorant Garamond',serif;line-height:1.15;letter-spacing:-.02em;opacity:0;transform:translateY(105%);font-size:clamp(58px,10vw,138px);font-weight:300}
+.hero-title-line.hero-l2{padding-bottom:.25em;margin-bottom:-.15em}
+.hero-word{display:inline-block;font-family:'Cormorant Garamond',serif;line-height:.95;letter-spacing:-.02em;opacity:0;transform:translateY(105%);font-size:clamp(58px,10vw,138px);font-weight:300}
 .hero-word.animate{animation:wu .9s var(--ease-out) forwards}
 .hero-l1{font-size:clamp(58px,10vw,138px);font-weight:300}
 .hero-l2{font-size:clamp(58px,10vw,138px);font-weight:700;font-style:italic}
