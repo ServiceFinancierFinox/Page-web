@@ -315,37 +315,39 @@ select.wl-input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg 
 /* ─── APP COMPARISON — SCROLL-DRIVEN SPARKLE MORPH ─── */
 .compare-section{padding:0;background:linear-gradient(to bottom,var(--s2),var(--s1));overflow:visible;position:relative}
 .compare-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:1200px;height:1200px;background:radial-gradient(circle,rgba(196,162,74,.03),transparent 55%);pointer-events:none}
-/* Scroll container — 600vh for plenty of reading time */
-.compare-scroll-outer{height:800vh;position:relative}
-.compare-scroll-sticky{position:sticky;top:0;height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;box-sizing:border-box}
+/* Scroll container */
+.compare-scroll-outer{height:500vh;position:relative}
+.compare-scroll-sticky{position:sticky;top:0;height:100vh;display:flex;align-items:flex-start;justify-content:center;overflow:hidden;box-sizing:border-box;padding-top:28px}
 .compare-scroll-content{text-align:center;max-width:700px;padding:0 24px;width:100%}
-.compare-header-text{margin-bottom:28px}
+.compare-header-text{margin-bottom:16px}
+.compare-header-text .sec-title{font-size:clamp(26px,3.5vw,46px)}
+.compare-header-text .sec-sub{font-size:14px;line-height:1.5}
 /* Stage */
-.compare-stage{display:flex;flex-direction:column;align-items:center;gap:28px}
+.compare-stage{display:flex;flex-direction:column;align-items:center;gap:16px}
 /* Card */
-.compare-card{border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.08);width:100%;max-width:620px;position:relative}
+.compare-card{border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.08);width:100%;max-width:620px;position:relative}
 .compare-card.compare-old{background:rgba(196,74,74,.03)}
-.compare-card-header{display:flex;align-items:center;justify-content:space-between;padding:24px 34px;border-bottom:1px solid rgba(255,255,255,.06);overflow:hidden}
+.compare-card-header{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;border-bottom:1px solid rgba(255,255,255,.06);overflow:hidden}
 .compare-card-header.old{background:rgba(196,74,74,.06)}
-.compare-card-title{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700}
-.compare-card-badge{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:6px 16px;border-radius:100px}
+.compare-card-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700}
+.compare-card-badge{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border-radius:100px}
 .compare-card-badge.old{background:rgba(196,74,74,.1);color:var(--red);border:1px solid rgba(196,74,74,.2)}
-.compare-rows{padding:6px 0}
-.compare-row{display:flex;align-items:center;justify-content:space-between;padding:14px 34px;overflow:hidden}
+.compare-rows{padding:4px 0}
+.compare-row{display:flex;align-items:center;justify-content:space-between;padding:8px 28px;overflow:hidden}
 .compare-row:nth-child(odd){background:rgba(255,255,255,.015)}
-.compare-app{display:flex;align-items:center;gap:16px}
-.compare-logo{width:38px;height:38px;border-radius:10px;object-fit:contain;background:rgba(255,255,255,.08);padding:4px;flex-shrink:0}
-.compare-logo-fallback{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:700;color:var(--cm);flex-shrink:0}
-.compare-name-wrap{display:flex;flex-direction:column;gap:2px}
-.compare-name{font-size:16px;font-weight:600;color:var(--cr)}
-.compare-role{font-size:13px;color:var(--cm);opacity:.8}
-.compare-price{font-family:'JetBrains Mono',monospace;font-size:17px;color:var(--red);font-weight:600;flex-shrink:0}
-.compare-price small{font-size:12px;color:var(--cm);font-weight:400}
-.compare-total{display:flex;align-items:center;justify-content:space-between;padding:22px 34px;border-top:1px solid rgba(255,255,255,.06);font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--cm)}
+.compare-app{display:flex;align-items:center;gap:12px}
+.compare-logo{width:32px;height:32px;border-radius:8px;object-fit:contain;background:rgba(255,255,255,.08);padding:3px;flex-shrink:0}
+.compare-logo-fallback{width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;color:var(--cm);flex-shrink:0}
+.compare-name-wrap{display:flex;flex-direction:column;gap:1px}
+.compare-name{font-size:14px;font-weight:600;color:var(--cr)}
+.compare-role{font-size:12px;color:var(--cm);opacity:.8}
+.compare-price{font-family:'JetBrains Mono',monospace;font-size:15px;color:var(--red);font-weight:600;flex-shrink:0}
+.compare-price small{font-size:11px;color:var(--cm);font-weight:400}
+.compare-total{display:flex;align-items:center;justify-content:space-between;padding:14px 28px;border-top:1px solid rgba(255,255,255,.06);font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--cm)}
 .compare-total.old{background:rgba(196,74,74,.06);border-top-color:rgba(196,74,74,.15)}
-.compare-total-price{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:700;letter-spacing:0;text-transform:none}
+.compare-total-price{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:700;letter-spacing:0;text-transform:none}
 .compare-total-price.old{color:var(--red)}
-.compare-total-price small{font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--cm);font-weight:400}
+.compare-total-price small{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--cm);font-weight:400}
 /* Circle wrap (hidden initially) */
 .compare-circle-wrap{position:relative;width:320px;height:320px;margin:0 auto;opacity:0;pointer-events:none}
 .compare-circle-svg{position:absolute;inset:0;width:100%;height:100%}
@@ -1143,7 +1145,7 @@ footer{padding:48px 60px;display:flex;flex-direction:column;align-items:center;g
   .dashboard-grid{grid-template-columns:1fr 1fr}
   .chart-card,.activity-card{grid-column:1/2}
   .pipeline-card,.clients-card{grid-column:2/3}
-  .compare-scroll-outer{height:650vh}
+  .compare-scroll-outer{height:420vh}
   .compare-scroll-content{max-width:100%;padding:0 16px}
   .compare-card{max-width:100%}
   .compare-circle-wrap{width:260px;height:260px}

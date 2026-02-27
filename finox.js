@@ -1333,7 +1333,7 @@ function initCompareScrollAnim() {
   }
 
   /* ── Constants ── */
-  var rowH = 66;
+  var rowH = 49;       // compact row: 8px pad + ~33px content + 8px pad
   var lastDrawP = -1;  // track circle draw progress for sparkle spawning
 
   var ticking = false;
@@ -1345,52 +1345,52 @@ function initCompareScrollAnim() {
     var p = Math.min(1, scrolled / totalScroll);
 
     /*
-     * Timeline (800vh total):
-     *   0.00 → 0.30  Reading time — table fully visible, nothing moves
-     *   0.30 → 0.55  Rows collapse bottom-to-top
-     *   0.55 → 0.62  Header collapses
-     *   0.62 → 0.68  Total bar text fades, border turns gold
-     *   0.68 → 0.73  Card fades out, circle-wrap fades in
-     *   0.73 → 0.88  SVG circle draws + sparkle trail
-     *   0.88 → 0.93  FINOX.OS logo fades in
-     *   0.93 → 1.00  Pricing fades in
+     * Timeline (500vh total):
+     *   0.00 → 0.20  Reading time — table fully visible, nothing moves
+     *   0.20 → 0.48  Rows collapse bottom-to-top
+     *   0.48 → 0.55  Header collapses
+     *   0.55 → 0.62  Total bar text fades, border turns gold
+     *   0.62 → 0.68  Card fades out, circle-wrap fades in
+     *   0.68 → 0.84  SVG circle draws + sparkle trail
+     *   0.84 → 0.90  FINOX.OS logo fades in
+     *   0.90 → 1.00  Pricing fades in
      */
 
-    /* ═══ PHASE 1: Rows collapse bottom-to-top (p: 0.30 → 0.55) ═══ */
-    var rowSpan = (0.55 - 0.30) / rowCount;
+    /* ═══ PHASE 1: Rows collapse bottom-to-top (p: 0.20 → 0.48) ═══ */
+    var rowSpan = (0.48 - 0.20) / rowCount;
     for (var i = 0; i < rowCount; i++) {
       var ri = rowCount - 1 - i; // bottom row first
-      var start = 0.30 + i * rowSpan;
+      var start = 0.20 + i * rowSpan;
       var end = start + rowSpan;
       var rp = clamp01((p - start) / (end - start));
       var ease = easeOut(rp);
 
       rows[ri].style.maxHeight = (1 - ease) * rowH + 'px';
       rows[ri].style.opacity   = 1 - ease;
-      rows[ri].style.paddingTop    = (1 - ease) * 14 + 'px';
-      rows[ri].style.paddingBottom = (1 - ease) * 14 + 'px';
+      rows[ri].style.paddingTop    = (1 - ease) * 8 + 'px';
+      rows[ri].style.paddingBottom = (1 - ease) * 8 + 'px';
     }
 
     // Collapse rows wrapper padding
-    var rowsDone = clamp01((p - 0.52) / 0.03);
-    rowsWrap.style.padding = (1 - rowsDone) * 6 + 'px 0';
+    var rowsDone = clamp01((p - 0.45) / 0.03);
+    rowsWrap.style.padding = (1 - rowsDone) * 4 + 'px 0';
 
-    /* ═══ PHASE 2: Header collapses (p: 0.55 → 0.62) ═══ */
-    var hp = clamp01((p - 0.55) / 0.07);
+    /* ═══ PHASE 2: Header collapses (p: 0.48 → 0.55) ═══ */
+    var hp = clamp01((p - 0.48) / 0.07);
     var hpe = easeOut(hp);
-    headerEl.style.maxHeight       = (1 - hpe) * 72 + 'px';
+    headerEl.style.maxHeight       = (1 - hpe) * 52 + 'px';
     headerEl.style.opacity         = 1 - hpe;
-    headerEl.style.paddingTop      = (1 - hpe) * 24 + 'px';
-    headerEl.style.paddingBottom   = (1 - hpe) * 24 + 'px';
+    headerEl.style.paddingTop      = (1 - hpe) * 16 + 'px';
+    headerEl.style.paddingBottom   = (1 - hpe) * 16 + 'px';
     headerEl.style.borderBottomWidth = (1 - hpe) + 'px';
 
     // Fade section header text above card
-    var htp = clamp01((p - 0.50) / 0.16);
+    var htp = clamp01((p - 0.42) / 0.16);
     headerText.style.opacity   = 1 - htp;
     headerText.style.transform = 'translateY(' + (-htp * 40) + 'px)';
 
-    /* ═══ PHASE 3: Total bar → gold line (p: 0.62 → 0.68) ═══ */
-    var gp = clamp01((p - 0.62) / 0.06);
+    /* ═══ PHASE 3: Total bar → gold line (p: 0.55 → 0.62) ═══ */
+    var gp = clamp01((p - 0.55) / 0.07);
     var gpe = easeOut(gp);
 
     // Fade total text
@@ -1411,8 +1411,8 @@ function initCompareScrollAnim() {
       card.style.boxShadow = '';
     }
 
-    /* ═══ PHASE 4: Card fades out / Circle wrap fades in (p: 0.68 → 0.73) ═══ */
-    var tp = clamp01((p - 0.68) / 0.05);
+    /* ═══ PHASE 4: Card fades out / Circle wrap fades in (p: 0.62 → 0.68) ═══ */
+    var tp = clamp01((p - 0.62) / 0.06);
     var tpe = easeInOut(tp);
 
     card.style.opacity = 1 - tpe;
@@ -1430,8 +1430,8 @@ function initCompareScrollAnim() {
     circleWrap.style.pointerEvents = tpe > 0.1 ? 'auto' : 'none';
     circleWrap.style.transform = 'scale(' + lerp(0.8, 1, easeOut(tpe)) + ')';
 
-    /* ═══ PHASE 5: Circle draws + sparkle trail (p: 0.73 → 0.88) ═══ */
-    var dp = clamp01((p - 0.73) / 0.15);
+    /* ═══ PHASE 5: Circle draws + sparkle trail (p: 0.68 → 0.84) ═══ */
+    var dp = clamp01((p - 0.68) / 0.16);
     var dpe = easeInOut(dp);
 
     // Draw circle via stroke-dashoffset
@@ -1463,14 +1463,14 @@ function initCompareScrollAnim() {
       if (dp >= 1) lastDrawP = -1;
     }
 
-    /* ═══ PHASE 6: FINOX.OS logo fades in (p: 0.88 → 0.93) ═══ */
-    var fp = clamp01((p - 0.88) / 0.05);
+    /* ═══ PHASE 6: FINOX.OS logo fades in (p: 0.84 → 0.90) ═══ */
+    var fp = clamp01((p - 0.84) / 0.06);
     var fpe = easeOut(fp);
     finoxInner.style.opacity   = fpe;
     finoxInner.style.transform = 'scale(' + lerp(0.6, 1, fpe) + ')';
 
-    /* ═══ PHASE 7: Pricing fades in (p: 0.93 → 1.00) ═══ */
-    var pp = clamp01((p - 0.93) / 0.07);
+    /* ═══ PHASE 7: Pricing fades in (p: 0.90 → 1.00) ═══ */
+    var pp = clamp01((p - 0.90) / 0.10);
     var ppe = easeOut(pp);
     pricingW.style.opacity   = ppe;
     pricingW.style.transform = 'translateY(' + lerp(30, 0, ppe) + 'px)';
