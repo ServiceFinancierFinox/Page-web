@@ -101,8 +101,8 @@ nav.scrolled{background:rgba(6,6,8,.96);border-bottom:1px solid rgba(196,162,74,
 .hero-eyebrow{display:inline-flex;align-items:center;gap:12px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--g);padding:8px 20px;border:1px solid rgba(196,162,74,.2);border-radius:100px;background:rgba(196,162,74,.04);margin-bottom:48px;opacity:0;animation:fup .8s var(--ease-out) .2s forwards;backdrop-filter:blur(10px)}
 .hero-eyebrow .arrow-anim{animation:arrbounce 1.5s ease-in-out infinite}
 @keyframes arrbounce{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
-.hero-title-line{overflow:hidden;margin-bottom:4px;padding-bottom:.35em;margin-bottom:-.2em}
-.hero-word{display:inline-block;font-family:'Cormorant Garamond',serif;line-height:.95;letter-spacing:-.02em;opacity:0;transform:translateY(105%);font-size:clamp(58px,10vw,138px);font-weight:300}
+.hero-title-line{overflow:hidden}
+.hero-word{display:inline-block;font-family:'Cormorant Garamond',serif;line-height:1.15;letter-spacing:-.02em;opacity:0;transform:translateY(105%);font-size:clamp(58px,10vw,138px);font-weight:300}
 .hero-word.animate{animation:wu .9s var(--ease-out) forwards}
 .hero-l1{font-size:clamp(58px,10vw,138px);font-weight:300}
 .hero-l2{font-size:clamp(58px,10vw,138px);font-weight:700;font-style:italic}
