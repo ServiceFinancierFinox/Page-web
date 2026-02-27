@@ -459,16 +459,9 @@ select.wl-input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg 
 .pulse-statuts-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
 .pulse-statuts-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700}
 .pulse-statuts-badge{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border-radius:100px;background:rgba(62,200,154,.08);border:1px solid rgba(62,200,154,.18);color:var(--green)}
-.pulse-statuts-groups{display:flex;flex-direction:column;gap:10px;max-height:520px;overflow-y:auto;padding-right:4px}
-.pulse-statuts-groups::-webkit-scrollbar{width:4px}
-.pulse-statuts-groups::-webkit-scrollbar-track{background:transparent}
-.pulse-statuts-groups::-webkit-scrollbar-thumb{background:rgba(255,255,255,.08);border-radius:4px}
-.ps-group{background:rgba(255,255,255,.015);border:1px solid rgba(255,255,255,.04);border-radius:12px;padding:10px 14px;transition:all .3s}
-.ps-group:hover{border-color:rgba(255,255,255,.08)}
-.ps-group-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--cm);margin-bottom:8px;padding-left:2px}
-.ps-group-items{display:flex;flex-direction:column;gap:3px}
-.ps-item{display:flex;align-items:center;gap:10px;padding:5px 8px;border-radius:6px;font-size:12.5px;color:var(--cd);transition:all .2s;cursor:default}
-.ps-item:hover{background:rgba(255,255,255,.03);transform:translateX(3px)}
+.pulse-statuts-list{display:flex;flex-direction:column;gap:4px}
+.ps-item{display:flex;align-items:center;gap:12px;padding:9px 14px;border-radius:10px;font-size:14px;color:var(--cd);background:rgba(255,255,255,.015);border:1px solid rgba(255,255,255,.04);transition:all .25s;cursor:default}
+.ps-item:hover{background:rgba(255,255,255,.035);border-color:rgba(255,255,255,.08);transform:translateX(4px)}
 .ps-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
 /* Pipeline text */
 .pulse-pipeline-text-title{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,3vw,42px);font-weight:300;line-height:1.1;margin-bottom:20px}
@@ -1025,10 +1018,10 @@ select.wl-input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg 
 .sched-step-item.active .sched-step-num{background:var(--blue);border-color:var(--blue);color:#fff;box-shadow:0 0 12px rgba(74,142,212,.4)}
 
 /* Phone / demo container */
-.sched-phone{position:relative;width:100%;margin:0 auto;background:#1a1d23;border:1px solid rgba(255,255,255,.07);border-radius:18px;overflow:hidden;box-shadow:0 40px 90px rgba(0,0,0,.55)}
+.sched-phone{position:relative;width:100%;margin:0 auto;background:#1a1d23;border:1px solid rgba(255,255,255,.07);border-radius:18px;overflow:hidden;box-shadow:0 40px 90px rgba(0,0,0,.55);display:flex;flex-direction:column}
 
 /* ── Google Calendar Interface ── */
-.gcal-interface{display:flex;flex-direction:column;font-family:'Poppins',sans-serif}
+.gcal-interface{display:flex;flex-direction:column;font-family:'Poppins',sans-serif;flex:1}
 
 /* Top bar */
 .gcal-topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:rgba(255,255,255,.03);border-bottom:1px solid rgba(255,255,255,.06)}
@@ -1036,7 +1029,7 @@ select.wl-input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg 
 .gcal-topbar-client{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--cm)}
 
 /* Body: calendar + slots split */
-.gcal-body{display:grid;grid-template-columns:1fr 1fr;min-height:290px}
+.gcal-body{display:grid;grid-template-columns:1fr 1fr}
 .gcal-left{padding:16px 18px;border-right:1px solid rgba(255,255,255,.05)}
 .gcal-right{padding:16px 18px;display:flex;flex-direction:column}
 
@@ -1070,8 +1063,7 @@ select.wl-input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg 
 .gcal-slot.target.selected .gcal-slot-tag{color:var(--blue)}
 
 /* RDV section (bottom) */
-.gcal-rdv-section{border-top:1px solid rgba(255,255,255,.06);padding:14px 18px;opacity:.3;transition:opacity .5s}
-.gcal-rdv-section.show{opacity:1}
+.gcal-rdv-section{border-top:1px solid rgba(255,255,255,.06);padding:14px 18px;transition:opacity .5s}
 .gcal-rdv-head{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--cm);margin-bottom:10px}
 .gcal-rdv-cols{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .gcal-rdv-col-title{font-size:11px;font-weight:700;color:rgba(255,255,255,.5);margin-bottom:6px;padding-left:2px}

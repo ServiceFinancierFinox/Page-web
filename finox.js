@@ -1743,7 +1743,6 @@ function initSchedulerShowcase() {
   const dayEl     = document.getElementById('gcal-day-10');
   const slotEl    = document.getElementById('gcal-slot-12');
   const rdvEl     = document.getElementById('gcal-rdv-target');
-  const rdvSec    = document.getElementById('gcal-rdv');
   const dateLabel = document.getElementById('gcal-selected-label');
   const confirmOv = document.getElementById('gcal-confirm');
   const cfBtn     = document.getElementById('gcal-cf-btn');
@@ -1765,7 +1764,6 @@ function initSchedulerShowcase() {
     if (dayEl) dayEl.classList.remove('selected');
     if (slotEl) slotEl.classList.remove('selected');
     if (rdvEl) rdvEl.classList.remove('selected');
-    if (rdvSec) rdvSec.classList.remove('show');
     if (dateLabel) { dateLabel.textContent = ''; dateLabel.classList.remove('show'); }
     if (confirmOv) confirmOv.classList.remove('show');
     if (cfBtn) cfBtn.classList.remove('clicked');
@@ -1797,9 +1795,8 @@ function initSchedulerShowcase() {
     await wait(1400);
     if (!running) return;
 
-    // ── Step 3: Show RDV section, select type ──
+    // ── Step 3: Select meeting type ──
     updateSteps(2);
-    if (rdvSec) rdvSec.classList.add('show');
     await wait(1000);
     if (!running) return;
     if (rdvEl) rdvEl.classList.add('selected');
