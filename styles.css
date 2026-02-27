@@ -1388,14 +1388,14 @@ footer{padding:48px 60px;display:flex;flex-direction:column;align-items:center;g
   .comp-demo-left{padding:16px}
   .comp-demo-right{padding:16px}
   .comp-demo-btn{font-size:15px;padding:12px}
-  .comp-demo-price{font-size:18px;font-weight:800}
+  .comp-demo-price{font-size:16px;font-weight:800;flex-shrink:0}
   .comp-demo-price-label{font-size:9px}
-  .comp-demo-logo{width:42px;height:42px;padding:4px}
-  .comp-demo-company{font-size:14px;font-weight:700}
-  .comp-demo-product{font-size:10px}
-  .comp-demo-row{padding:12px;gap:10px}
-  .comp-demo-rank{width:30px;height:30px;font-size:13px}
-  .comp-demo-info{min-width:0;flex:1}
+  .comp-demo-logo{width:32px;height:32px;padding:3px}
+  .comp-demo-company{font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .comp-demo-product{font-size:9px}
+  .comp-demo-row{padding:10px;gap:8px}
+  .comp-demo-rank{display:none}
+  .comp-demo-info{min-width:0;flex:1;overflow:hidden}
   .comp-demo-cat-title{font-size:14px}
   .comp-demo-cat-count{font-size:11px;padding:4px 12px}
   .comp-demo-cat-header{gap:8px;margin-bottom:12px;padding-bottom:8px}
