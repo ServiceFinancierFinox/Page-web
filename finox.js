@@ -1544,6 +1544,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Préavis typewriter
   initPreavisTypewriter();
+
+  // Scheduler showcase
+  initSchedulerShowcase();
 });
 
 /* ═══════════════════════════════════════════════════════
@@ -1727,4 +1730,139 @@ function initPreavisTypewriter() {
     });
   }, { threshold: 0.2 });
   observer.observe(form);
+}
+
+/* ═══════════════════════════════════════════════════════
+   SCHEDULER SHOWCASE — 5-step animated demo
+═══════════════════════════════════════════════════════ */
+function initSchedulerShowcase() {
+  const phone = document.getElementById('sched-phone');
+  if (!phone) return;
+
+  const screens = [
+    document.getElementById('sched-s0'),
+    document.getElementById('sched-s1'),
+    document.getElementById('sched-s2'),
+    document.getElementById('sched-s3'),
+    document.getElementById('sched-s4'),
+    document.getElementById('sched-s5')
+  ];
+  const stepItems = document.querySelectorAll('.sched-step-item');
+
+  let running = false;
+  let currentStep = -1;
+
+  function showScreen(index) {
+    screens.forEach((s, i) => {
+      if (!s) return;
+      s.classList.toggle('active', i === index);
+    });
+  }
+
+  function updateSteps(activeIndex) {
+    stepItems.forEach((item, i) => {
+      item.classList.remove('active', 'done');
+      if (i < activeIndex) item.classList.add('done');
+      else if (i === activeIndex) item.classList.add('active');
+    });
+  }
+
+  function wait(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+  async function runLoop() {
+    running = true;
+
+    // Reset everything
+    showScreen(-1);
+    updateSteps(-1);
+    const dayTarget = document.getElementById('sched-day-target');
+    const slotTarget = document.getElementById('sched-slot-target');
+    const typeTarget = document.getElementById('sched-type-target');
+    const calBtn = document.getElementById('sched-cal-btn');
+    const confirmBtn = document.getElementById('sched-confirm-btn');
+    if (dayTarget) dayTarget.classList.remove('selected');
+    if (slotTarget) slotTarget.classList.remove('selected');
+    if (typeTarget) typeTarget.classList.remove('selected');
+    if (calBtn) calBtn.classList.remove('highlight');
+    if (confirmBtn) confirmBtn.classList.remove('clicked');
+    document.querySelectorAll('.sched-success-sent').forEach(el => el.classList.remove('show'));
+
+    await wait(600);
+    if (!running) return;
+
+    // ── Step 0: Show action bar, highlight calendar ──
+    showScreen(0);
+    updateSteps(0);
+    await wait(1200);
+    if (!running) return;
+    if (calBtn) calBtn.classList.add('highlight');
+    await wait(1400);
+    if (!running) return;
+
+    // ── Step 1: Show calendar, select day 10 ──
+    showScreen(1);
+    updateSteps(1);
+    await wait(1200);
+    if (!running) return;
+    if (dayTarget) dayTarget.classList.add('selected');
+    await wait(1400);
+    if (!running) return;
+
+    // ── Step 2: Show time slots, select 12:00 ──
+    showScreen(2);
+    updateSteps(2);
+    await wait(1000);
+    if (!running) return;
+    if (slotTarget) slotTarget.classList.add('selected');
+    await wait(1400);
+    if (!running) return;
+
+    // ── Step 3: Show meeting types, select invalidité ──
+    showScreen(3);
+    updateSteps(3);
+    await wait(1200);
+    if (!running) return;
+    if (typeTarget) typeTarget.classList.add('selected');
+    await wait(1400);
+    if (!running) return;
+
+    // ── Step 4: Show confirmation, click button ──
+    showScreen(4);
+    updateSteps(4);
+    await wait(1800);
+    if (!running) return;
+    if (confirmBtn) confirmBtn.classList.add('clicked');
+    await wait(1000);
+    if (!running) return;
+
+    // ── Step 5: Success screen ──
+    showScreen(5);
+    stepItems.forEach(item => { item.classList.remove('active'); item.classList.add('done'); });
+    await wait(400);
+    if (!running) return;
+
+    // Stagger success messages
+    const sentItems = document.querySelectorAll('.sched-success-sent');
+    for (let i = 0; i < sentItems.length; i++) {
+      if (!running) return;
+      await wait(400);
+      sentItems[i].classList.add('show');
+    }
+
+    // Pause on success then loop
+    await wait(4000);
+    if (running) runLoop();
+  }
+
+  // Start/stop on scroll into view
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !running) {
+        runLoop();
+      } else if (!entry.isIntersecting && running) {
+        running = false;
+      }
+    });
+  }, { threshold: 0.2 });
+  observer.observe(phone);
 }
