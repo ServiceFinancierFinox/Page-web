@@ -313,48 +313,48 @@ select.wl-input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg 
 /* ─── APP COMPARISON ─── */
 .compare-section{padding:140px 60px;background:linear-gradient(to bottom,var(--s2),var(--s1));overflow:hidden;position:relative}
 .compare-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:1200px;height:1200px;background:radial-gradient(circle,rgba(196,162,74,.03),transparent 55%);pointer-events:none}
-.compare-layout{display:flex;align-items:center;justify-content:center;gap:50px;max-width:1300px;margin:60px auto 0}
-.compare-card{border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,.06);flex:0 1 480px}
+.compare-layout{display:flex;align-items:center;justify-content:center;gap:60px;max-width:1400px;margin:60px auto 0}
+.compare-card{border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.08);flex:0 1 580px}
 .compare-card.compare-old{background:rgba(196,74,74,.03)}
-.compare-card-header{display:flex;align-items:center;justify-content:space-between;padding:20px 28px;border-bottom:1px solid rgba(255,255,255,.06)}
+.compare-card-header{display:flex;align-items:center;justify-content:space-between;padding:24px 34px;border-bottom:1px solid rgba(255,255,255,.06)}
 .compare-card-header.old{background:rgba(196,74,74,.06)}
-.compare-card-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700}
-.compare-card-badge{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border-radius:100px}
+.compare-card-title{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700}
+.compare-card-badge{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:6px 16px;border-radius:100px}
 .compare-card-badge.old{background:rgba(196,74,74,.1);color:var(--red);border:1px solid rgba(196,74,74,.2)}
-.compare-rows{padding:8px 0}
-.compare-row{display:flex;align-items:center;justify-content:space-between;padding:11px 28px;transition:background .2s}
+.compare-rows{padding:6px 0}
+.compare-row{display:flex;align-items:center;justify-content:space-between;padding:14px 34px;transition:background .2s}
 .compare-row:nth-child(odd){background:rgba(255,255,255,.015)}
 .compare-row:hover{background:rgba(255,255,255,.03)}
-.compare-app{display:flex;align-items:center;gap:12px}
-.compare-logo{width:28px;height:28px;border-radius:8px;object-fit:contain;background:rgba(255,255,255,.08);padding:3px;flex-shrink:0}
-.compare-logo-fallback{width:28px;height:28px;border-radius:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:var(--cm);flex-shrink:0}
-.compare-name-wrap{display:flex;flex-direction:column;gap:1px}
-.compare-name{font-size:14px;color:var(--cr)}
-.compare-role{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.04em;color:var(--cm);opacity:.7}
-.compare-price{font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--red);font-weight:500;flex-shrink:0}
-.compare-price small{font-size:10px;color:var(--cm);font-weight:400}
-.compare-total{display:flex;align-items:center;justify-content:space-between;padding:18px 28px;border-top:1px solid rgba(255,255,255,.06);font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--cm)}
+.compare-app{display:flex;align-items:center;gap:16px}
+.compare-logo{width:38px;height:38px;border-radius:10px;object-fit:contain;background:rgba(255,255,255,.08);padding:4px;flex-shrink:0}
+.compare-logo-fallback{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:700;color:var(--cm);flex-shrink:0}
+.compare-name-wrap{display:flex;flex-direction:column;gap:2px}
+.compare-name{font-size:16px;font-weight:600;color:var(--cr)}
+.compare-role{font-size:13px;color:var(--cm);opacity:.8}
+.compare-price{font-family:'JetBrains Mono',monospace;font-size:17px;color:var(--red);font-weight:600;flex-shrink:0}
+.compare-price small{font-size:12px;color:var(--cm);font-weight:400}
+.compare-total{display:flex;align-items:center;justify-content:space-between;padding:22px 34px;border-top:1px solid rgba(255,255,255,.06);font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--cm)}
 .compare-total.old{background:rgba(196,74,74,.06);border-top-color:rgba(196,74,74,.15)}
-.compare-total-price{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;letter-spacing:0;text-transform:none}
+.compare-total-price{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:700;letter-spacing:0;text-transform:none}
 .compare-total-price.old{color:var(--red)}
-.compare-total-price small{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--cm);font-weight:400}
+.compare-total-price small{font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--cm);font-weight:400}
 /* Equals sign */
 .compare-equals{display:flex;align-items:center;justify-content:center;flex-shrink:0;padding:0 10px}
 .equals-symbol{font-family:'Cormorant Garamond',serif;font-size:clamp(80px,10vw,140px);font-weight:700;color:var(--g);line-height:1;text-shadow:0 0 40px rgba(196,162,74,.25),0 0 80px rgba(196,162,74,.08)}
 /* FINOX Brand block */
 .compare-finox-brand{display:flex;flex-direction:column;align-items:center;gap:28px;flex-shrink:0}
-.finox-brand-ring{position:relative;width:300px;height:300px;border-radius:50%;background:rgba(196,162,74,.04);border:2px solid rgba(196,162,74,.2);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.finox-brand-ring{position:relative;width:340px;height:340px;border-radius:50%;background:rgba(196,162,74,.04);border:2px solid rgba(196,162,74,.2);display:flex;align-items:center;justify-content:center;overflow:hidden}
 .finox-brand-glow{position:absolute;inset:-30px;border-radius:50%;background:radial-gradient(circle,rgba(196,162,74,.12),transparent 70%);animation:brandGlow 4s ease-in-out infinite}
 @keyframes brandGlow{0%,100%{opacity:.5;transform:scale(.9)}50%{opacity:1;transform:scale(1.1)}}
-.finox-brand-logo{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:700;color:var(--cr);letter-spacing:.06em;position:relative;z-index:1}
-.finox-brand-accent{color:var(--g);font-size:56px;line-height:0;position:relative;top:2px}
-.finox-brand-pricing{display:flex;flex-direction:column;align-items:center;gap:6px}
-.finox-brand-price{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:700;color:var(--g);letter-spacing:-.01em;line-height:1}
-.finox-brand-price small{font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--cm);font-weight:400}
-.finox-brand-savings{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.06em;color:var(--green);font-weight:500;display:flex;align-items:center;gap:6px}
-.finox-brand-savings::before{content:'▼';font-size:9px}
-.finox-brand-savings-annual{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--cm);letter-spacing:.04em}
-.finox-brand-sub{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--g);text-align:center;max-width:260px;line-height:1.6}
+.finox-brand-logo{font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:700;color:var(--cr);letter-spacing:.06em;position:relative;z-index:1}
+.finox-brand-accent{color:var(--g);font-size:64px;line-height:0;position:relative;top:2px}
+.finox-brand-pricing{display:flex;flex-direction:column;align-items:center;gap:8px}
+.finox-brand-price{font-family:'Cormorant Garamond',serif;font-size:62px;font-weight:700;color:var(--g);letter-spacing:-.01em;line-height:1}
+.finox-brand-price small{font-family:'JetBrains Mono',monospace;font-size:16px;color:var(--cm);font-weight:400}
+.finox-brand-savings{font-family:'JetBrains Mono',monospace;font-size:15px;letter-spacing:.06em;color:var(--green);font-weight:600;display:flex;align-items:center;gap:6px}
+.finox-brand-savings::before{content:'▼';font-size:10px}
+.finox-brand-savings-annual{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--cm);letter-spacing:.04em}
+.finox-brand-sub{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--g);text-align:center;max-width:300px;line-height:1.6}
 
 /* ─── PULSE VITAL ─── */
 .pulse-section{padding:140px 60px;background:var(--s1);overflow:hidden;position:relative}
