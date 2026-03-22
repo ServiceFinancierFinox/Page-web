@@ -15,7 +15,7 @@
   --ease-out:cubic-bezier(0.16,1,0.3,1);
   --ease-smooth:cubic-bezier(0.4,0,0.2,1);
 }
-html{scroll-behavior:smooth;font-size:16px;overflow-x:hidden}
+html{scroll-behavior:smooth;font-size:16px}
 body{font-family:'Cabinet Grotesk',sans-serif;background:var(--ink);color:var(--cr);overflow-x:hidden;cursor:none;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 
 /* ─── CURSOR ─── */
@@ -1449,7 +1449,7 @@ footer{padding:48px 60px;display:flex;flex-direction:column;align-items:center;g
   .dp-val{word-break:break-word}
   .tag-row{gap:6px}
   .pill-tag{font-size:8px;padding:4px 10px}
-  section{max-width:100vw}
+  section{max-width:100vw;overflow-x:hidden}
 }
 @media(max-height:900px){
   .scroll-indicator{display:none}
