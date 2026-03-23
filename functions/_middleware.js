@@ -1,4 +1,4 @@
-const PASSWORD = "finoxos";
+const PASSWORD = "finoxos2026";
 const COOKIE_NAME = "finox_auth";
 const COOKIE_MAX_AGE = 86400 * 7; // 7 jours
 
