@@ -11,74 +11,74 @@
 const DATA = {
 
   hero: {
-    eyebrow: 'Construit au Québec · Pour les conseillers en assurance et placement',
-    line1: ["L'OS", ' complet'],
-    line2: ["de l'assurance."],
-    line3: ['ABF · Signatures · IA · Conformité AMF · Tout intégré.'],
-    sub: 'FINOX OS est la première plateforme exclusive aux conseillers québécois qui automatise <strong>80% du travail administratif</strong> — de l\'analyse des besoins financiers au préavis de remplacement — pour que vous passiez votre temps à <strong>bâtir des relations</strong>, pas à cliquer.',
+    eyebrow: 'Built in Quebec · For insurance and investment advisors',
+    line1: ["The complete", ' complet'],
+    line2: ["of insurance."],
+    line3: ['FNA · Signatures · AI · AMF Compliance · Fully integrated.'],
+    sub: 'FINOX CRM is the first platform built exclusively for Quebec advisors that automates <strong>80% of the administrative work</strong> — from the financial needs analysis to the replacement notice — so you can spend your time <strong>building relationships</strong>, not clicking.',
     stats: [
-      { target: 70,  suffix: '%',  label: 'Admin éliminé' },
-      { target: 3,   suffix: '×',  label: 'Plus de ventes' },
-      { target: 10,  suffix: '→1', label: 'Outils fusionnés' },
-      { target: 8,   suffix: 'h',  label: 'Récupérées/semaine' },
+      { target: 70,  suffix: '%',  label: 'Admin eliminated' },
+      { target: 3,   suffix: '×',  label: 'More sales' },
+      { target: 10,  suffix: '→1', label: 'Tools merged' },
+      { target: 8,   suffix: 'h',  label: 'Recovered/week' },
     ],
-    ctaNote: 'Accès anticipé · AMF-compatible · Google Workspace inclus',
+    ctaNote: 'Early access · AMF-compatible · Google Workspace included',
   },
 
   marquee1: [
-    'ABF complet & conforme AMF',
-    'Signature Finox Sign & DocuSign',
-    'IA — 80% de l\'admin automatisé',
-    'Hub communication SMS · Email · Appels',
-    'Pulse Vital — santé du client en temps réel',
-    'Calculateur multi-compagnies QC & Canada',
-    'RingCentral téléphonie intégrée',
-    'Calendrier intégré · Sync Google Calendar',
-    'Google Workspace fourni',
-    'Module REEE + subventions gouvernementales',
-    'Pipeline assurances kanban',
-    'Import clientèle existante',
+    'Complete, AMF-compliant FNA',
+    'Finox Sign & DocuSign e-signature',
+    'AI — 80% of admin automated',
+    'Communication hub: SMS · Email · Calls',
+    'Vital Pulse — real-time client health',
+    'Multi-carrier calculator: QC & Canada',
+    'Built-in RingCentral telephony',
+    'Built-in calendar · Google Calendar sync',
+    'Google Workspace included',
+    'RESP module + government grants',
+    'Kanban insurance pipeline',
+    'Existing client import',
   ],
   marquee2: [
-    'Préavis remplacement auto-rempli & signé',
-    'Lettre explicative automatisée AMF',
-    'Module gestion corporations',
-    'Timeline complète par client',
-    'Opportunités futures automatisées',
-    'Calculateur MG — propriété partagée entreprises',
-    'Budget personnel + recommandations IA',
-    'Assurance hypothécaire Desjardins vs marché',
-    'Profil investisseur conforme AMF',
-    'Documents sécurisés avec mot de passe',
-    'Calculateur impôt au décès',
-    'Workflows automatisés sans code',
+    'Replacement notice auto-filled & signed',
+    'Automated AMF explanatory letter',
+    'Corporation management module',
+    'Complete timeline for every client',
+    'Automated future opportunities',
+    'MG calculator — shared ownership for businesses',
+    'Personal budget + AI recommendations',
+    'Desjardins mortgage insurance vs. market',
+    'AMF-compliant investor profile',
+    'Password-protected secure documents',
+    'Tax-at-death calculator',
+    'No-code automated workflows',
   ],
 
   dashboard: {
     kpis: [
-      { icon: '💰', value: '$84 240', label: 'Primes ce mois',      change: '↑ +23.4%', dir: 'up', cls: 'gold' },
-      { icon: '💓', value: '82/100',  label: 'Pulse Vital moyen',   change: '↑ +6 pts',  dir: 'up', cls: 'gn'   },
-      { icon: '✍️', value: '18',      label: 'Signatures en attente',change: '↓ -3 auj.', dir: 'dn', cls: 'bl'   },
-      { icon: '🤖', value: '34',      label: 'Actions IA complétées',change: '↑ +12 auj.',dir: 'up', cls: 'pu'   },
+      { icon: '💰', value: '$84,240', label: 'Premiums this month',      change: '↑ +23.4%', dir: 'up', cls: 'gold' },
+      { icon: '💓', value: '82/100',  label: 'Average Vital Pulse',   change: '↑ +6 pts',  dir: 'up', cls: 'gn'   },
+      { icon: '✍️', value: '18',      label: 'Pending signatures',change: '↓ -3 today', dir: 'dn', cls: 'bl'   },
+      { icon: '🤖', value: '34',      label: 'AI actions completed',change: '↑ +12 today',dir: 'up', cls: 'pu'   },
     ],
     pipeline: [
       { label: 'Prospects',   color: '#4A8ED4', width: '90%', count: 47 },
-      { label: 'Analyse ABF', color: '#C4A24A', width: '66%', count: 31 },
-      { label: 'Tarification',color: '#8A6AE4', width: '50%', count: 24 },
+      { label: 'FNA analysis', color: '#C4A24A', width: '66%', count: 31 },
+      { label: 'Underwriting',color: '#8A6AE4', width: '50%', count: 24 },
       { label: 'Signature',   color: '#E08040', width: '33%', count: 15 },
-      { label: 'En vigueur',  color: '#3EC89A', width: '22%', count: 11 },
+      { label: 'In force',  color: '#3EC89A', width: '22%', count: 11 },
     ],
     activity: [
-      { color: '#3EC89A', title: 'IA — Dossier mis à jour',   text: 'Email Agenz reçu · Police MT-4821 approuvée · Statut mis à jour automatiquement', time: 'maintenant' },
-      { color: '#C4A24A', title: 'Signature reçue — AMF ✓',    text: 'Préavis de remplacement signé — Jacques Bergeron · DocuSign confirmé', time: '2 min' },
-      { color: '#4A8ED4', title: 'Suivi automatique envoyé',   text: 'Séquence J+3 · 12 prospects · SMS RingCentral déclenchés via workflow', time: '8 min' },
-      { color: '#8A6AE4', title: 'ABF complété — Pierre Gagné',text: 'Valeur nette $1.1M · Besoin vie $600k · MG plan Tranquillité recommandé', time: '22 min' },
-      { color: '#C44A4A', title: 'Alerte Pulse Vital',         text: 'Sophie Roy : score 72 → 58 · Aucun contact depuis 18 jours · Relance suggérée', time: '1h' },
+      { color: '#3EC89A', title: 'AI — File updated',   text: 'Agenz email received · Policy MT-4821 approved · Status updated automatically', time: 'now' },
+      { color: '#C4A24A', title: 'Signature received — AMF ✓',    text: 'Replacement notice signed — Jacques Bergeron · DocuSign confirmed', time: '2 min' },
+      { color: '#4A8ED4', title: 'Automatic follow-up sent',   text: 'D+3 sequence · 12 prospects · RingCentral SMS triggered via workflow', time: '8 min' },
+      { color: '#8A6AE4', title: 'FNA completed — Pierre Gagné',text: 'Net worth $1.1M · Life need $600k · MG Peace-of-Mind plan recommended', time: '22 min' },
+      { color: '#C44A4A', title: 'Vital Pulse alert',         text: 'Sophie Roy: score 72 → 58 · No contact in 18 days · Follow-up suggested', time: '1h' },
     ],
     clients: [
-      { initials: 'MT', name: 'Marie Tremblay',   meta: 'Vie entière · Laval',           pulse: '💓 94/100 — Excellent', value: '$412k', badgeCls: 'badge-gn', badgeTxt: 'Actif'     },
-      { initials: 'JB', name: 'Jacques Bergeron', meta: 'Invalidité + Corp · Montréal',  pulse: '💛 75/100 — Stable',    value: '$2.1M', badgeCls: 'badge-or', badgeTxt: 'En cours'  },
-      { initials: 'SR', name: 'Sophie Roy',        meta: 'Hypothèque + REEE · Québec',   pulse: '🔵 58/100 — À relancer', value: '$680k', badgeCls: 'badge-bl', badgeTxt: 'Prospect'  },
+      { initials: 'MT', name: 'Marie Tremblay',   meta: 'Whole life · Laval',           pulse: '💓 94/100 — Excellent', value: '$412k', badgeCls: 'badge-gn', badgeTxt: 'Active'     },
+      { initials: 'JB', name: 'Jacques Bergeron', meta: 'Disability + Corp · Montreal',  pulse: '💛 75/100 — Stable',    value: '$2.1M', badgeCls: 'badge-or', badgeTxt: 'In progress'  },
+      { initials: 'SR', name: 'Sophie Roy',        meta: 'Mortgage + RESP · Quebec City',   pulse: '🔵 58/100 — Follow up', value: '$680k', badgeCls: 'badge-bl', badgeTxt: 'Prospect'  },
     ],
     chartPoints: [62, 55, 58, 60, 42, 30, 36, 40, 22, 8, 14, 18, 4],
   },
@@ -86,112 +86,112 @@ const DATA = {
   pulseVital: {
     prospect: {
       name: 'Sophie Roy', score: 42, scoreColor: 'var(--blue)',
-      status: 'Prospect chaud — Intéressée assurance vie + hypothèque', statusIcon: '🔵',
-      stage: { current: 1, steps: ['Découverte', 'ABF', 'Tarification', 'Signature'] },
+      status: 'Hot prospect — Interested in life insurance + mortgage', statusIcon: '🔵',
+      stage: { current: 1, steps: ['Discovery', 'FNA', 'Underwriting', 'Signature'] },
       infos: [
-        { lbl: 'Source', val: 'Référence Pierre Gagné' },
-        { lbl: 'Intérêt', val: 'Vie + Invalidité + Hypothèque' },
-        { lbl: 'Budget estimé', val: '$200–300/mois' },
-        { lbl: 'Dernier contact', val: 'Il y a 4 jours' },
+        { lbl: 'Source', val: 'Referral from Pierre Gagné' },
+        { lbl: 'Interest', val: 'Life + Disability + Mortgage' },
+        { lbl: 'Estimated budget', val: '$200–300/month' },
+        { lbl: 'Last contact', val: '4 days ago' },
       ],
       breakdown: [
-        { icon: '📞', text: 'Première rencontre complétée', pts: '+10', neg: false },
-        { icon: '💬', text: 'Intérêt confirmé par SMS', pts: '+10', neg: false },
-        { icon: '📅', text: 'Pas de suivi J+3 planifié', pts: '-5', neg: true },
-        { icon: '📋', text: 'Aucune ABF démarrée', pts: '-8', neg: true },
+        { icon: '📞', text: 'First meeting completed', pts: '+10', neg: false },
+        { icon: '💬', text: 'Interest confirmed by SMS', pts: '+10', neg: false },
+        { icon: '📅', text: 'No D+3 follow-up scheduled', pts: '-5', neg: true },
+        { icon: '📋', text: 'No FNA started', pts: '-8', neg: true },
       ],
-      nextStep: { icon: '📋', text: 'Planifier l\'ABF cette semaine', pts: '+15' },
+      nextStep: { icon: '📋', text: 'Schedule the FNA this week', pts: '+15' },
     },
     client: {
       name: 'Jacques Bergeron', score: 75, scoreColor: 'var(--green)',
-      status: 'Stable — 2 produits actifs sous gestion', statusIcon: '💛',
+      status: 'Stable — 2 active products under management', statusIcon: '💛',
       stage: null,
       infos: [
         { lbl: 'Produits', val: 'T-20 $500K + MG $100K' },
-        { lbl: 'Primes', val: '$151/mois' },
-        { lbl: 'Dernière interaction', val: 'Il y a 2 jours' },
-        { lbl: 'Prochaine échéance', val: 'Renouvellement mars 2026' },
+        { lbl: 'Primes', val: '$151/month' },
+        { lbl: 'Last interaction', val: '2 days ago' },
+        { lbl: 'Next milestone', val: 'Renewal March 2026' },
       ],
       breakdown: [
-        { icon: '✅', text: 'ABF complétée et à jour', pts: '+20', neg: false },
-        { icon: '📞', text: 'Contact récent — il y a 2 jours', pts: '+15', neg: false },
-        { icon: '🛡️', text: '2 produits actifs sous gestion', pts: '+10', neg: false },
-        { icon: '📅', text: 'Aucun rendez-vous planifié', pts: '-5', neg: true },
-        { icon: '🎯', text: 'Opportunités futures non complétées', pts: '-5', neg: true },
+        { icon: '✅', text: 'FNA completed and up to date', pts: '+20', neg: false },
+        { icon: '📞', text: 'Recent contact — 2 days ago', pts: '+15', neg: false },
+        { icon: '🛡️', text: '2 active products under management', pts: '+10', neg: false },
+        { icon: '📅', text: 'No appointment scheduled', pts: '-5', neg: true },
+        { icon: '🎯', text: 'Future opportunities not completed', pts: '-5', neg: true },
       ],
-      nextStep: { icon: '📅', text: 'Planifier un rendez-vous de révision annuelle', pts: '+10' },
+      nextStep: { icon: '📅', text: 'Schedule an annual review appointment', pts: '+10' },
     },
     corpo: {
       name: 'ABC Solutions Inc.', score: 58, scoreColor: 'var(--purple)',
-      status: 'Corporation — Analyse en cours', statusIcon: '🏢',
+      status: 'Corporation — Analysis in progress', statusIcon: '🏢',
       stage: null,
       infos: [
         { lbl: 'NEQ', val: '1174856231' },
-        { lbl: 'Actionnaires', val: '2 (importés du REQ)' },
-        { lbl: 'Revenus annuels', val: '$2.4M' },
+        { lbl: 'Actionnaires', val: '2 (imported from the REQ)' },
+        { lbl: 'Annual revenue', val: '$2.4M' },
         { lbl: 'Administrateur', val: 'Jacques Bergeron' },
       ],
       breakdown: [
-        { icon: '🏢', text: 'Données REQ importées', pts: '+10', neg: false },
-        { icon: '📋', text: 'ABF corporative démarrée', pts: '+15', neg: false },
-        { icon: '⚖️', text: 'Convention actionnaires non réglée', pts: '-10', neg: true },
-        { icon: '👤', text: 'Personne clé non analysée', pts: '-8', neg: true },
+        { icon: '🏢', text: 'REQ data imported', pts: '+10', neg: false },
+        { icon: '📋', text: 'Corporate FNA started', pts: '+15', neg: false },
+        { icon: '⚖️', text: 'Shareholder agreement not settled', pts: '-10', neg: true },
+        { icon: '👤', text: 'Key person not analyzed', pts: '-8', neg: true },
       ],
-      nextStep: { icon: '⚖️', text: 'Compléter l\'analyse personne clé', pts: '+12' },
+      nextStep: { icon: '⚖️', text: 'Complete the key person analysis', pts: '+12' },
     },
   },
 
   abfCards: [
-    { n:'conf', icon:'🔒', name:'Conformité AMF — automatisée de A à Z',
-      desc:'Recommandations automatiques générées par l\'IA selon le profil du client. Lettre explicative automatisée et jointe à chaque préavis. Signature de l\'ABF intégrée et réglée en 30 secondes — envoyée par courriel ou texto, sécurisée par mot de passe. Zéro paperasse, zéro oubli.',
-      tag:'AMF · Signature 30 sec · Lettre auto' },
-    { n:'fam', icon:'👨‍👩‍👧‍👦', name:'Fiche familiale complète — Conjoint(e) & enfants',
-      desc:'Conjoint(e), enfants et tous leurs contrats respectifs dans la même fiche. Si un contrat est fait pour un enfant, il est attribué directement à son profil. L\'ABF est parfaitement précise pour toute la famille — besoins calculés individuellement.',
-      tag:'Fiche familiale unifiée' },
-    { n:'corpo', icon:'🏢', name:'ABF Corporations — Import REQ automatique',
-      desc:'Importez automatiquement les données du Registraire des entreprises du Québec (REQ) : nom légal, NEQ, adresse, administrateurs, actionnaires. Outils de calculs dédiés pour l\'entrepreneur — convention entre actionnaires, personne clé, rachat d\'actions. Opportunités générées automatiquement.',
-      tag:'Import REQ · ABF corporatif' },
-    { n:'sync', icon:'🔄', name:'Synchronisation des données — Zéro saisie en double',
-      desc:'Entrez une donnée une seule fois — elle se propage automatiquement dans tous les modules. Adresse via Google Maps, salaire brut converti en net, actifs et passifs réutilisés partout. Le calculateur d\'impôt au décès, les besoins en assurance, le budget — tout s\'alimente automatiquement.',
-      tag:'Propagation automatique' },
-    { n:'opps', icon:'🎯', name:'Opportunités futures — Générées automatiquement',
-      desc:'FINOX détecte et planifie automatiquement vos opportunités : renouvellements hypothécaires 3-6 mois avant terme, révisions de portefeuille périodiques, naissance d\'un enfant, contrats différés, opportunités corporatives selon les changements de revenus et d\'actifs. L\'IA suggère même quand relancer un lead froid.',
-      tag:'Auto-détection · 9 types d\'opportunités' },
+    { n:'conf', icon:'🔒', name:'AMF compliance — automated from A to Z',
+      desc:'Automatic recommendations generated by the AI based on the client\'s profile. Explanatory letter automated and attached to every notice. FNA signature built in and done in 30 seconds — sent by email or text, password-protected. Zero paperwork, zero oversights.',
+      tag:'AMF · 30-sec signature · Auto letter' },
+    { n:'fam', icon:'👨‍👩‍👧‍👦', name:'Complete family record — Spouse & children',
+      desc:'Spouse, children and all of their respective contracts in the same record. If a contract is made for a child, it\'s assigned directly to their profile. The FNA is precise for the whole family — needs calculated individually.',
+      tag:'Unified family record' },
+    { n:'corpo', icon:'🏢', name:'Corporate FNA — Automatic REQ import',
+      desc:'Automatically import data from the Quebec Enterprise Register (REQ): legal name, NEQ, address, directors, shareholders. Dedicated calculators for business owners — shareholder agreement, key person, share buyback. Opportunities generated automatically.',
+      tag:'REQ import · Corporate FNA' },
+    { n:'sync', icon:'🔄', name:'Data synchronization — Zero duplicate entry',
+      desc:'Enter a piece of data once — it propagates automatically across every module. Address via Google Maps, gross salary converted to net, assets and liabilities reused everywhere. The tax-at-death calculator, insurance needs, the budget — everything feeds itself automatically.',
+      tag:'Automatic propagation' },
+    { n:'opps', icon:'🎯', name:'Future opportunities — Generated automatically',
+      desc:'FINOX automatically detects and schedules your opportunities: mortgage renewals 3–6 months before maturity, periodic portfolio reviews, birth of a child, deferred contracts, corporate opportunities as income and assets change. The AI even suggests when to re-engage a cold lead.',
+      tag:'Auto-detection · 9 opportunity types' },
   ],
 
   mgPlans: [
     {
-      badge: 'Plan 1 — Répit temporaire', badgeCls: 'blue', name: 'Protection essentielle',
-      duration: '6', durationSub: 'mois de revenus + frais immédiats', featured: false,
+      badge: 'Plan 1 — Temporary Relief', badgeCls: 'blue', name: 'Essential protection',
+      duration: '6', durationSub: 'months of income + immediate expenses', featured: false,
       features: [
-        '6 mois de revenus nets remplacés',
-        'Frais immédiats couverts (médical, transport)',
-        'Protection minimale pour traverser la période aiguë',
-        'Prime la plus abordable — idéal pour les budgets serrés',
-        'Seuil d\'entrée pour tous les clients',
+        '6 months of net income replaced',
+        'Immediate expenses covered (medical, transportation)',
+        'Minimal protection to get through the acute period',
+        'Most affordable premium — ideal for tight budgets',
+        'Entry point for every client',
       ],
     },
     {
-      badge: 'Plan 2 — Recommandé ⭐', badgeCls: 'gold', name: 'Tranquillité d\'esprit',
-      duration: '12', durationSub: 'mois de revenus + soins + médicaments', featured: true,
+      badge: 'Plan 2 — Recommended ⭐', badgeCls: 'gold', name: 'Peace of mind',
+      duration: '12', durationSub: 'months of income + care + medications', featured: true,
       features: [
-        '12 mois de revenus nets remplacés',
-        'Frais immédiats + soins spécialisés',
-        'Médicaments non couverts par la RAMQ inclus',
-        'Soins souvent négligés dans les calculs standards',
-        'Équilibre optimal protection / prime',
-        'Recommandé pour la majorité des clients',
+        '12 months of net income replaced',
+        'Immediate expenses + specialized care',
+        'Medications not covered by the RAMQ included',
+        'Care often overlooked in standard calculations',
+        'Optimal balance of protection and premium',
+        'Recommended for most clients',
       ],
     },
     {
-      badge: 'Plan 3 — Confort complet', badgeCls: 'purple', name: 'Protection totale',
-      duration: '24', durationSub: 'mois de revenus + couverture complète imprévus', featured: false,
+      badge: 'Plan 3 — Complete Comfort', badgeCls: 'purple', name: 'Total protection',
+      duration: '24', durationSub: 'months of income + complete coverage for the unexpected', featured: false,
       features: [
-        '24 mois de revenus nets remplacés',
-        'Couverture complète de tous les imprévus',
-        'Soins, médicaments, convalescence longue durée',
-        'Zéro compromis sur la protection',
-        'Idéal pour les travailleurs autonomes & entrepreneurs',
+        '24 months of net income replaced',
+        'Complete coverage for every contingency',
+        'Care, medications, long-term convalescence',
+        'Zero compromise on protection',
+        'Ideal for self-employed workers & business owners',
       ],
     },
   ],
@@ -199,106 +199,106 @@ const DATA = {
   bentoTools: [
     {
       cls: 'bento-1', n: '01', icon: '💡',
-      name: 'Calculateur d\'assurance multi-compagnies QC & Canada',
-      desc: 'Connecté à toutes les compagnies d\'assurance au Québec et au Canada. Plus besoin de Compulife, LifeGuide ou WinQuote. Visuellement beaucoup plus attractif — l\'interface ressemble à 2025, pas à Windows XP. Le temporaire décroissant est sélectionnable (rare), le conjoint premier et dernier décès aussi. Les données de l\'ABF — âge le plus proche calculé auto, sexe, statut fumeur — sont importées automatiquement sans jamais ressaisir.',
-      tag: 'Remplace Compulife · WinQuote · LifeGuide',
+      name: 'Multi-carrier insurance calculator: QC & Canada',
+      desc: 'Connected to every insurance carrier in Quebec and Canada. No more Compulife, LifeGuide or WinQuote. Far more visually appealing — the interface looks like 2025, not Windows XP. Decreasing term is selectable (rare), and so is joint first-to-die and last-to-die. FNA data — age nearest calculated automatically, sex, smoker status — is imported automatically with no re-entry.',
+      tag: 'Replaces Compulife · WinQuote · LifeGuide',
       widget: 'quotes',
     },
     {
       cls: 'bento-2', n: '02', icon: '🏠',
-      name: 'Assurance hypothécaire — Vrai coût Desjardins vs marché',
-      desc: 'Calculateur qui montre au client le vrai coût de l\'assurance hypothécaire bancaire vs l\'avoir au personnel avec l\'assurance privée individuelle. Facilite radicalement la vente avec des graphiques et données claires sur 25 ans. Le client comprend instantanément pourquoi une police individuelle lui coûte moins cher et lui offre une meilleure protection — capital fixe vs décroissant, cessibilité, conversion.',
-      tag: 'Graphiques comparatifs · Vente simplifiée',
+      name: 'Mortgage insurance — True Desjardins cost vs. market',
+      desc: 'A calculator that shows the client the true cost of bank mortgage insurance versus owning private individual coverage. Radically simplifies the sale with clear charts and data over 25 years. The client instantly understands why an individual policy costs less and offers better protection — fixed vs. decreasing coverage, assignability, conversion.',
+      tag: 'Comparison charts · Simplified sale',
       widget: 'hypoth',
     },
     {
       cls: 'bento-3', n: '03', icon: '💼',
-      name: 'Budget personnel + recommandations auto',
-      desc: 'Budget personnel détaillé pour calculer la liquidité disponible du client. Visuellement beau avec des recommandations automatiques sur les habitudes de dépenses et une suggestion de budget d\'investissement personnalisée selon le profil.',
-      tag: 'Liquidité disponible · Recommandations IA',
+      name: 'Personal budget + automatic recommendations',
+      desc: 'Detailed personal budget to calculate the client\'s available liquidity. Visually polished, with automatic recommendations on spending habits and a personalized investment budget suggestion based on the profile.',
+      tag: 'Available liquidity · AI recommendations',
       widget: null,
     },
     {
       cls: 'bento-4', n: '04', icon: '🎓',
-      name: 'Calculateur REEE complet + subventions',
-      desc: 'Rendements potentiels incluant toutes les subventions gouvernementales détaillées par source (SCEE, IQEE, BEC) en tenant compte du revenu familial net pour calculer précisément les subventions auxquelles le client a droit.',
-      tag: 'SCEE · IQEE · BEC par revenu familial',
+      name: 'Complete RESP calculator + grants',
+      desc: 'Potential returns including every government grant broken down by source (CESG, QESI, CLB), taking net family income into account to calculate precisely the grants the client is entitled to.',
+      tag: 'CESG · QESI · CLB by family income',
       widget: 'reee',
     },
     {
       cls: 'bento-5', n: '05', icon: '🏗️',
-      name: 'Calculateur MG — Propriété partagée pour entreprises',
-      desc: 'Outil exclusif qui permet de justifier visuellement le remboursement de primes dans le cadre d\'une stratégie de propriété partagée MG. Démontre clairement qu\'il est plus avantageux pour l\'entrepreneur de financer sa prime via la corporation plutôt que via un placement à l\'intérieur de la corp — avec graphiques comparatifs et données chiffrées. Simplifie radicalement la vente de produits permanents aux entrepreneurs québécois.',
-      tag: 'Propriété partagée · MG · Entrepreneurs',
+      name: 'MG Calculator — Shared Ownership for Businesses',
+      desc: 'An exclusive tool that visually justifies premium reimbursement within a shared-ownership MG strategy. Clearly demonstrates that it\'s more advantageous for the business owner to fund the premium through the corporation rather than through an investment inside the corp — with comparison charts and hard numbers. Radically simplifies selling permanent products to Quebec business owners.',
+      tag: 'Shared ownership · MG · Business owners',
       widget: null,
     },
   ],
 
   aiMessages: [
-    { role: 'ai',   text: '<strong>IA — Mise à jour automatique</strong>J\'ai reçu un email d\'Agenz concernant Jacques Bergeron. Sa police #MT-4821 a été approuvée standard. J\'ai mis à jour son dossier, changé le statut pipeline de "Tarification" à "En vigueur" et créé un rappel de suivi dans 3 mois automatiquement.' },
-    { role: 'user', text: 'Parfait. Envoie-lui un message de félicitations et prépare le prochain rendez-vous dans 6 mois.' },
-    { role: 'ai',   text: '<strong>IA — 4 actions complétées</strong>✓ SMS envoyé via RingCentral — "Félicitations Jacques, votre police est maintenant en vigueur..."<br>✓ Rendez-vous de suivi créé — 21 août 2025, 10h00<br>✓ Opportunité future ajoutée — Renouvellement hypothécaire mars 2027<br>✓ Pulse Vital mis à jour — 75 → 84 (+9 pts)' },
-    { role: 'ai',   text: '<strong>IA — Analyse proactive de votre portefeuille</strong>Sophie Roy n\'a pas été contactée depuis 18 jours. Son Pulse Vital est passé de 72 à 58. Je suggère un appel cette semaine — elle a une hypothèque à renouveler en mars 2025 et n\'a toujours pas de couverture invalidité.' },
+    { role: 'ai',   text: '<strong>AI — Automatic update</strong>I received an email from Agenz about Jacques Bergeron. His policy #MT-4821 was approved standard. I updated his file, changed the pipeline status from \"Underwriting\" to \"In force\" and automatically created a follow-up reminder for 3 months from now.' },
+    { role: 'user', text: 'Perfect. Send him a congratulations message and set up the next appointment in 6 months.' },
+    { role: 'ai',   text: '<strong>AI — 4 actions completed</strong>✓ SMS sent via RingCentral — \"Congratulations Jacques, your policy is now in force...\"<br>✓ Follow-up appointment created — August 21, 2025, 10:00 AM<br>✓ Future opportunity added — Mortgage renewal March 2027<br>✓ Vital Pulse updated — 75 → 84 (+9 pts)' },
+    { role: 'ai',   text: '<strong>AI — Proactive analysis of your portfolio</strong>Sophie Roy hasn\'t been contacted in 18 days. Her Vital Pulse dropped from 72 to 58. I suggest a call this week — she has a mortgage to renew in March 2025 and still has no disability coverage.' },
   ],
 
   commItems: [
-    { initials: 'AG', from: 'Agenz — Compagnie A', time: 'maintenant', prev: 'Police #MT-4821 — Approuvée standard · Émission prévue 25 fév 2025', badge: 'gn', badgeTxt: '✓ IA mis à jour dossier JB automatiquement', unread: true  },
-    { initials: 'MT', from: 'Marie Tremblay',      time: '14:22',      prev: 'Bonjour, j\'aimerais avoir plus d\'information sur la maladie grave pour mon conjoint aussi', badge: 'bl', badgeTxt: 'IA — Réponse préparée · En attente approbation', unread: false },
-    { initials: 'SR', from: 'Sophie Roy',           time: 'hier',       prev: 'Mon hypothèque arrive à terme en mars, j\'aimerais qu\'on se rencontre', badge: 'or', badgeTxt: 'IA — Opportunité créée · Renouvellement mars 2025', unread: false },
-    { initials: 'PG', from: 'Pierre Gagné',         time: 'lundi',      prev: 'Suite à notre rencontre, je confirme que je veux procéder avec le plan 2', badge: 'gn', badgeTxt: '✓ ABF complété · Prêt pour soumission', unread: false },
+    { initials: 'AG', from: 'Agenz — Carrier A', time: 'now', prev: 'Policy #MT-4821 — Approved standard · Issue expected Feb 25, 2025', badge: 'gn', badgeTxt: '✓ AI updated JB\'s file automatically', unread: true  },
+    { initials: 'MT', from: 'Marie Tremblay',      time: '14:22',      prev: 'Hello, I\'d like more information on critical illness coverage for my spouse too', badge: 'bl', badgeTxt: 'AI — Reply drafted · Awaiting approval', unread: false },
+    { initials: 'SR', from: 'Sophie Roy',           time: 'yesterday',       prev: 'My mortgage comes up for renewal in March, I\'d like us to meet', badge: 'or', badgeTxt: 'AI — Opportunity created · Renewal March 2025', unread: false },
+    { initials: 'PG', from: 'Pierre Gagné',         time: 'Monday',      prev: 'Following our meeting, I confirm I want to proceed with plan 2', badge: 'gn', badgeTxt: '✓ FNA completed · Ready for submission', unread: false },
   ],
 
   timelineEvents: [
-    { iconCls: 'sign',   icon: '✍️',  title: 'Signature reçue — Préavis de remplacement AMF', tag: 'Conformité', tagCls: 'opp', desc: 'Préavis de remplacement signé via DocuSign et lettre explicative signée via Finox Sign. Police vie entière $750k approuvée. Dossier AMF 100% conforme.', time: 'Aujourd\'hui · 14:32 · Finox Sign' },
-    { iconCls: 'email',  icon: '✉️',  title: 'Email Agenz reçu — Police approuvée', tag: 'IA mis à jour auto', tagCls: 'opp', desc: 'Police MT-4821 approuvée standard. IA a mis à jour le dossier, changé le statut pipeline et créé les tâches de suivi automatiquement.', time: 'Aujourd\'hui · 13:15 · Gmail IA' },
-    { iconCls: 'call',   icon: '📞',  title: 'Appel — Présentation ABF finale', tag: null, tagCls: null, desc: 'Rencontre de 45 min — Présentation ABF complète, besoins vie $750k, invalidité $5 400/mois acceptés. Client enthousiaste, prêt à procéder. Transcript IA disponible.', time: '19 fév · 10:00 · RingCentral · 45 min' },
-    { iconCls: 'note',   icon: '📝',  title: 'ABF complété — Analyse des besoins financiers', tag: null, tagCls: null, desc: 'ABF rempli complet. Valeur nette $1.2M. Besoin vie $750k, invalidité $5 400/mois, MG plan Tranquillité d\'esprit. Corporation analysée — proposition MG propriété partagée à préparer.', time: '17 fév · Dany Lévesque' },
-    { iconCls: 'future', icon: '🏠',  title: 'Opportunité future — Renouvellement hypothécaire', tag: 'Automatisé dans 24 mois', tagCls: 'fut', desc: 'Hypothèque $450k arrive à terme mars 2027. Rappel automatique créé — contact prévu 3 mois avant l\'échéance pour préparer l\'analyse.', time: 'Mars 2027 · Rappel auto · IA FINOX' },
-    { iconCls: 'opport', icon: '💼',  title: 'Opportunité future — Corporation · MG propriété partagée', tag: 'Q3 2025', tagCls: 'fut', desc: 'Proposition MG propriété partagée pour la corporation de Jacques à préparer. Rencontre planifiée avec son comptable pour Q3 2025.', time: 'Sep 2025 · Rencontre planifiée · Comptable confirmé' },
+    { iconCls: 'sign',   icon: '✍️',  title: 'Signature received — AMF replacement notice', tag: 'Compliance', tagCls: 'opp', desc: 'Replacement notice signed via DocuSign and explanatory letter signed via Finox Sign. Whole life policy $750k approved. AMF file 100% compliant.', time: 'Today · 2:32 PM · Finox Sign' },
+    { iconCls: 'email',  icon: '✉️',  title: 'Agenz email received — Policy approved', tag: 'AI auto-updated', tagCls: 'opp', desc: 'Policy MT-4821 approved standard. The AI updated the file, changed the pipeline status and created the follow-up tasks automatically.', time: 'Today · 1:15 PM · Gmail AI' },
+    { iconCls: 'call',   icon: '📞',  title: 'Call — Final FNA presentation', tag: null, tagCls: null, desc: '45-minute meeting — full FNA presentation, life needs $750k, disability $5,400/month accepted. Enthusiastic client, ready to proceed. AI transcript available.', time: 'Feb 19 · 10:00 AM · RingCentral · 45 min' },
+    { iconCls: 'note',   icon: '📝',  title: 'FNA completed — Financial needs analysis', tag: null, tagCls: null, desc: 'FNA fully completed. Net worth $1.2M. Life need $750k, disability $5,400/month, MG Peace-of-Mind plan. Corporation analyzed — shared-ownership MG proposal to prepare.', time: 'Feb 17 · Dany Lévesque' },
+    { iconCls: 'future', icon: '🏠',  title: 'Future opportunity — Mortgage renewal', tag: 'Automated in 24 months', tagCls: 'fut', desc: '$450k mortgage matures March 2027. Automatic reminder created — contact planned 3 months before maturity to prepare the analysis.', time: 'March 2027 · Auto reminder · FINOX AI' },
+    { iconCls: 'opport', icon: '💼',  title: 'Future opportunity — Corporation · Shared-ownership MG', tag: 'Q3 2025', tagCls: 'fut', desc: 'Shared-ownership MG proposal for Jacques\'s corporation to prepare. Meeting scheduled with his accountant for Q3 2025.', time: 'Sep 2025 · Meeting scheduled · Accountant confirmed' },
   ],
 
   opportunities: [
-    { icon: '🏠', name: 'Renouvellements hypothécaires',     desc: 'Rappel automatique 3–6 mois avant la date de renouvellement pour préparer l\'analyse et proposer la bonne couverture hypothécaire privée.',                                                           tag: 'Auto · 3 mois avant'         },
-    { icon: '🚗', name: 'Assurances auto & habitation',       desc: 'Suivi des renouvellements annuels et opportunités de consolidation. Ne laissez plus vos clients renouveler sans vous.',                                                                                   tag: 'Auto · Annuel'               },
-    { icon: '📈', name: 'Rencontres de placement',            desc: 'Planification automatique des rencontres de révision de portefeuille selon la fréquence configurée et les changements de marché significatifs.',                                                           tag: 'Selon fréquence'             },
-    { icon: '👶', name: 'Naissance d\'un enfant',             desc: 'Détection et rappel pour ajouter l\'enfant au REEE, ajuster l\'assurance vie et revoir les besoins familiaux complets lors d\'un événement de vie.',                                                       tag: 'Événement de vie'            },
-    { icon: '📋', name: 'Contrats délayés (qualifiabilité)',  desc: 'Suivi automatique des clients qui attendent d\'être qualifiables pour l\'assurance. Rappel à la date cible avec toutes les informations du dossier précédent.',                                            tag: 'Date cible auto'             },
-    { icon: '🤝', name: 'Références & recommandations',       desc: 'Rappels stratégiques pour demander une référence aux clients avec un Pulse Vital élevé. Gestion complète du cycle de référence jusqu\'à la conversion.',                                                  tag: 'Pulse > 80'                  },
-    { icon: '⚖️', name: 'Testament & planification successorale', desc: 'Opportunités de planification successorale créées automatiquement selon l\'âge, les actifs et les événements familiaux. Rappels coordonnés avec notaires.',                                           tag: 'Événement successoral'       },
-    { icon: '🏢', name: 'Opportunités corporatives',          desc: 'Analyse des besoins de la corporation mise à jour automatiquement selon les changements de revenus, actifs et structure. Propositions MG et propriété partagée suggérées.',                               tag: 'Corporation auto'            },
-    { icon: '🔄', name: 'Relances & retours de leads froids', desc: 'Séquences de réengagement automatisées pour les leads qui n\'ont pas converti. L\'IA suggère le meilleur moment et le bon message basé sur l\'historique du dossier.',                                    tag: 'IA prédictif'                },
+    { icon: '🏠', name: 'Mortgage renewals',     desc: 'Automatic reminder 3–6 months before the renewal date to prepare the analysis and propose the right private mortgage coverage.',                                                           tag: 'Auto · 3 months before'         },
+    { icon: '🚗', name: 'Auto & home insurance',       desc: 'Tracking of annual renewals and consolidation opportunities. Never let your clients renew without you.',                                                                                   tag: 'Auto · Annual'               },
+    { icon: '📈', name: 'Investment meetings',            desc: 'Automatic scheduling of portfolio review meetings based on your configured frequency and significant market changes.',                                                           tag: 'Per frequency'             },
+    { icon: '👶', name: 'Birth of a child',             desc: 'Detection and reminder to add the child to the RESP, adjust life insurance and review full family needs after a life event.',                                                       tag: 'Life event'            },
+    { icon: '📋', name: 'Deferred contracts (insurability)',  desc: 'Automatic tracking of clients waiting to become insurable. Reminder on the target date with all the information from the previous file.',                                            tag: 'Auto target date'             },
+    { icon: '🤝', name: 'Referrals & recommendations',       desc: 'Strategic reminders to ask high-Vital-Pulse clients for a referral. Full referral-cycle management through to conversion.',                                                  tag: 'Pulse > 80'                  },
+    { icon: '⚖️', name: 'Wills & estate planning', desc: 'Estate planning opportunities created automatically based on age, assets and family events. Reminders coordinated with notaries.',                                           tag: 'Estate event'       },
+    { icon: '🏢', name: 'Corporate opportunities',          desc: 'Corporate needs analysis updated automatically as income, assets and structure change. MG and shared-ownership proposals suggested.',                               tag: 'Corporation auto'            },
+    { icon: '🔄', name: 'Cold lead follow-ups & win-backs', desc: 'Automated re-engagement sequences for leads that haven\'t converted. The AI suggests the best timing and the right message based on the file\'s history.',                                    tag: 'Predictive AI'                },
   ],
 
   conformite: [
-    { icon: '📁', name: 'Centre de documentation par client',      desc: 'Tous les documents du client centralisés dans son dossier, renommés automatiquement selon les normes AMF. Plus jamais de fichiers nommés "scan_001.pdf" dans votre Drive.' },
-    { icon: '📨', name: 'Demande de documents sécurisée',          desc: 'Envoyez une demande de documents directement au client. Il uploade ses fichiers via un portail sécurisé — sans email, sans risque de confidentialité, avec confirmation de réception automatique.' },
-    { icon: '🔒', name: 'Envoi sécurisé avec mot de passe',        desc: 'Partagez des documents confidentiels avec un lien protégé par mot de passe. Traçabilité complète — qui a accédé, quand, depuis quel appareil.' },
-    { icon: '📜', name: 'Politique de confidentialité de cabinet', desc: 'Politique de confidentialité prête à l\'emploi, conforme à la Loi 25 et aux exigences de l\'AMF. Envoyée automatiquement à chaque nouveau client avec confirmation de lecture électronique.' },
-    { icon: '✍️', name: 'Signature électronique Finox Sign & DocuSign',  desc: 'Finox Sign pour les ABF et lettres explicatives, DocuSign pour les préavis de remplacement. Toutes les signatures liées directement au dossier — traçabilité parfaite pour les audits AMF.' },
-    { icon: '🗂️', name: 'Renommage automatique conforme AMF',      desc: 'Chaque document est renommé automatiquement selon la nomenclature AMF — [Client]_[Date]_[Type]. Fini le chaos dans Google Drive, tout est trouvable en 3 secondes.' },
+    { icon: '📁', name: 'Document center for each client',      desc: 'All of the client\'s documents centralized in their file, renamed automatically to AMF standards. Never another file named \"scan_001.pdf\" in your Drive.' },
+    { icon: '📨', name: 'Secure document requests',          desc: 'Send a document request directly to the client. They upload their files through a secure portal — no email, no privacy risk, with automatic receipt confirmation.' },
+    { icon: '🔒', name: 'Secure password-protected sharing',        desc: 'Share confidential documents through a password-protected link. Complete traceability — who accessed it, when, from which device.' },
+    { icon: '📜', name: 'Firm privacy policy', desc: 'Ready-to-use privacy policy, compliant with Law 25 and AMF requirements. Automatically sent to every new client with electronic read confirmation.' },
+    { icon: '✍️', name: 'Finox Sign & DocuSign e-signature',  desc: 'Finox Sign for FNAs and explanatory letters, DocuSign for replacement notices. Every signature linked directly to the file — perfect traceability for AMF audits.' },
+    { icon: '🗂️', name: 'AMF-compliant automatic renaming',      desc: 'Every document is renamed automatically to the AMF naming convention — [Client]_[Date]_[Type]. No more Google Drive chaos, everything findable in 3 seconds.' },
   ],
 
   numbers: [
-    { num: '70', suffix: '%', label: 'Réduction du temps administratif', sub: 'Mesuré chez nos conseillers bêta' },
-    { num: '147', suffix: '',  label: 'Clients gérés par conseiller en moyenne', sub: 'Sans adjoint supplémentaire' },
-    { num: '8',   suffix: 'h',  label: 'Récupérées chaque semaine', sub: 'Consacrées aux ventes & relations' },
-    { num: '3',   suffix: '×',  label: 'Plus de propositions émises', sub: 'Grâce à l\'automatisation des ABF' },
+    { num: '70', suffix: '%', label: 'Reduction in administrative time', sub: 'Measured with our beta advisors' },
+    { num: '147', suffix: '',  label: 'Clients managed per advisor on average', sub: 'With no additional assistant' },
+    { num: '8',   suffix: 'h',  label: 'Recovered every week', sub: 'Devoted to sales & relationships' },
+    { num: '3',   suffix: '×',  label: 'More proposals issued', sub: 'Thanks to FNA automation' },
   ],
 
   _testimonials_removed: true, /* Section témoignages supprimée */
 
   finalCTA: {
-    eyebrow: 'Accès anticipé — Places limitées',
-    title: 'Rejoignez les',
+    eyebrow: 'Early access — Limited spots',
+    title: 'Join the',
     titleEm: 'premiers.',
-    sub: '50 conseillers sélectionnés bénéficieront d\'un accès bêta complet et d\'une formation personnalisée pour maximiser leur impact dès le premier mois.',
-    spots: '152 / 250 places remplies',
+    sub: '50 selected advisors will receive full beta access and personalized training to maximize their impact from the first month.',
+    spots: '152 / 250 spots filled',
     trust: [
-      'Accès bêta complet',
-      'Formation 1:1 incluse',
+      'Full beta access',
+      '1:1 training included',
       'AMF-compatible',
-      'Google Workspace fourni',
-      'Inscription rapide',
+      'Google Workspace included',
+      'Quick sign-up',
     ],
   },
 };
@@ -528,9 +528,9 @@ function buildChart() {
     <text x="0" y="${h}" fill="#5A5548" font-size="7" font-family="monospace">Sep</text>
     <text x="66" y="${h}" fill="#5A5548" font-size="7" font-family="monospace">Oct</text>
     <text x="133" y="${h}" fill="#5A5548" font-size="7" font-family="monospace">Nov</text>
-    <text x="200" y="${h}" fill="#5A5548" font-size="7" font-family="monospace">Déc</text>
+    <text x="200" y="${h}" fill="#5A5548" font-size="7" font-family="monospace">Dec</text>
     <text x="266" y="${h}" fill="#5A5548" font-size="7" font-family="monospace">Jan</text>
-    <text x="332" y="${h}" fill="#5A5548" font-size="7" font-family="monospace">Fév</text>`;
+    <text x="332" y="${h}" fill="#5A5548" font-size="7" font-family="monospace">Feb</text>`;
 }
 
 function animateChart() {
@@ -653,7 +653,7 @@ function buildPulseCard(type) {
   /* Header */
   h += '<div class="pulse-card-header">';
   h += '<div class="pulse-title-group"><span class="pulse-heart">💓</span>';
-  h += `<div><div class="pulse-name">Pulse Vital™</div><div class="pulse-client">${p.name}</div></div></div>`;
+  h += `<div><div class="pulse-name">Vital Pulse™</div><div class="pulse-client">${p.name}</div></div></div>`;
   h += '<div class="score-ring-wrap"><svg class="score-svg" width="106" height="106" viewBox="0 0 106 106">';
   h += '<circle class="score-track" cx="53" cy="53" r="47"/>';
   h += '<circle class="score-circle" cx="53" cy="53" r="47" style="stroke-dashoffset:283"/>';
@@ -680,14 +680,14 @@ function buildPulseCard(type) {
   h += '</div>';
   /* Breakdown */
   h += '<div class="score-breakdown">';
-  h += '<div class="suggestions-title">Facteurs de score</div>';
+  h += '<div class="suggestions-title">Score factors</div>';
   p.breakdown.forEach(b => {
     h += `<div class="score-line"><div class="score-line-icon">${b.icon}</div><div class="score-line-text">${b.text}</div><div class="score-line-pts${b.neg ? ' neg' : ''}">${b.pts}</div></div>`;
   });
   h += '</div>';
   /* Next step */
   h += '<div class="pulse-next">';
-  h += `<div class="suggestions-title">⚡ Prochaine étape suggérée</div>`;
+  h += `<div class="suggestions-title">⚡ Suggested next step</div>`;
   h += `<div class="suggestion-item"><div class="sug-icon">${p.nextStep.icon}</div><div class="sug-text">${p.nextStep.text}</div><div class="sug-pts">${p.nextStep.pts}</div></div>`;
   h += '</div>';
 
@@ -843,63 +843,63 @@ function initPartnershipDiagram() {
 function abfMockup(n) {
   switch (n) {
     case 'conf': return `
-      <div class="sv-check"><span class="sv-tick">&#10003;</span> Recommandations IA selon le profil</div>
-      <div class="sv-check"><span class="sv-tick">&#10003;</span> Lettre explicative auto-générée</div>
-      <div class="sv-check"><span class="sv-tick">&#10003;</span> Préavis de remplacement auto-rempli</div>
-      <div class="sv-check"><span class="sv-tick">&#10003;</span> Signature ABF — 30 secondes</div>
+      <div class="sv-check"><span class="sv-tick">&#10003;</span> AI recommendations based on profile</div>
+      <div class="sv-check"><span class="sv-tick">&#10003;</span> Auto-generated explanatory letter</div>
+      <div class="sv-check"><span class="sv-tick">&#10003;</span> Auto-filled replacement notice</div>
+      <div class="sv-check"><span class="sv-tick">&#10003;</span> FNA signature — 30 seconds</div>
       <div class="sv-divider"></div>
-      <div class="sv-row"><span>Envoi signature</span><span class="sv-val">Courriel ou Texto</span></div>
-      <div class="sv-row hl"><span>Sécurité</span><span class="sv-val gd">Mot de passe</span></div>`;
+      <div class="sv-row"><span>Sent for signature</span><span class="sv-val">Email or Text</span></div>
+      <div class="sv-row hl"><span>Security</span><span class="sv-val gd">Password</span></div>`;
     case 'fam': return `
-      <div class="sv-member"><em>👤</em> Jacques Bergeron, 45 ans</div>
-      <div class="sv-member"><em>👤</em> Marie Tremblay, 42 ans</div>
-      <div class="sv-member child"><em>👦</em> Thomas, 12 ans — 1 contrat</div>
-      <div class="sv-member child"><em>👧</em> Sophie, 8 ans — 0 contrat</div>
+      <div class="sv-member"><em>👤</em> Jacques Bergeron, 45</div>
+      <div class="sv-member"><em>👤</em> Marie Tremblay, 42</div>
+      <div class="sv-member child"><em>👦</em> Thomas, 12 — 1 contract</div>
+      <div class="sv-member child"><em>👧</em> Sophie, 8 — 0 contracts</div>
       <div class="sv-divider"></div>
-      <div class="sv-row hl"><span>Besoins calculés</span><span class="sv-val gd">Par membre</span></div>`;
+      <div class="sv-row hl"><span>Needs calculated</span><span class="sv-val gd">Per member</span></div>`;
     case 'corpo': return `
-      <div class="sv-search"><span>🏢</span> Recherche REQ : 1234567890</div>
+      <div class="sv-search"><span>🏢</span> REQ search: 1234567890</div>
       <div class="sv-divider"></div>
       <div class="sv-row"><span>Entreprise</span><span class="sv-val">ABC Solutions Inc.</span></div>
       <div class="sv-row"><span>NEQ</span><span class="sv-val gd">1174856231</span></div>
-      <div class="sv-row"><span>Administrateurs</span><span class="sv-val">2 importés</span></div>
-      <div class="sv-row"><span>Actionnaires</span><span class="sv-val">2 importés</span></div>
+      <div class="sv-row"><span>Administrateurs</span><span class="sv-val">2 imported</span></div>
+      <div class="sv-row"><span>Actionnaires</span><span class="sv-val">2 imported</span></div>
       <div class="sv-divider"></div>
-      <div class="sv-row"><span>Convention actionnaires</span><span class="sv-pill">Opportunité</span></div>
-      <div class="sv-row"><span>Personne clé</span><span class="sv-pill">Opportunité</span></div>
-      <div class="sv-flow">&#8594; Données REQ importées automatiquement</div>`;
+      <div class="sv-row"><span>Shareholder agreement</span><span class="sv-pill">Opportunity</span></div>
+      <div class="sv-row"><span>Key person</span><span class="sv-pill">Opportunity</span></div>
+      <div class="sv-flow">&#8594; REQ data imported automatically</div>`;
     case 'sync': return `
-      <div class="sv-row"><span>📍 Adresse Google Maps</span><span class="sv-val gd">&#10003;</span></div>
-      <div class="sv-row"><span>💰 Salaire brut &#8594; net</span><span class="sv-val gd">&#10003;</span></div>
-      <div class="sv-row"><span>⚖️ Actifs &amp; passifs</span><span class="sv-val gd">&#10003;</span></div>
-      <div class="sv-row"><span>🧮 Impôt au décès</span><span class="sv-val gd">&#10003;</span></div>
-      <div class="sv-row"><span>🛡️ Besoins assurance</span><span class="sv-val gd">&#10003;</span></div>
+      <div class="sv-row"><span>📍 Google Maps address</span><span class="sv-val gd">&#10003;</span></div>
+      <div class="sv-row"><span>💰 Gross salary &#8594; net</span><span class="sv-val gd">&#10003;</span></div>
+      <div class="sv-row"><span>⚖️ Assets &amp; liabilities</span><span class="sv-val gd">&#10003;</span></div>
+      <div class="sv-row"><span>🧮 Tax at death</span><span class="sv-val gd">&#10003;</span></div>
+      <div class="sv-row"><span>🛡️ Insurance needs</span><span class="sv-val gd">&#10003;</span></div>
       <div class="sv-divider"></div>
-      <div class="sv-flow">1 saisie &#8594; propagée dans tous les modules</div>`;
+      <div class="sv-flow">1 entry &#8594; propagated across every module</div>`;
     case 'mg': return `
       <div class="sv-cols sv-cols-3"><div class="sv-col">
         <div class="sv-col-h" style="color:var(--blue)">Essentiel</div>
-        <div class="sv-mini"><span>Durée</span><strong>6 mois</strong></div>
-        <div class="sv-mini"><span>Revenus</span><strong>&#10003;</strong></div>
+        <div class="sv-mini"><span>Term</span><strong>6 months</strong></div>
+        <div class="sv-mini"><span>Income</span><strong>&#10003;</strong></div>
         <div class="sv-mini"><span>Soins</span><strong>&#8212;</strong></div>
       </div><div class="sv-col" style="border-color:rgba(196,162,74,.25)">
-        <div class="sv-col-h">Recommandé ⭐</div>
-        <div class="sv-mini"><span>Durée</span><strong>12 mois</strong></div>
-        <div class="sv-mini"><span>Revenus</span><strong>&#10003;</strong></div>
+        <div class="sv-col-h">Recommended ⭐</div>
+        <div class="sv-mini"><span>Term</span><strong>12 months</strong></div>
+        <div class="sv-mini"><span>Income</span><strong>&#10003;</strong></div>
         <div class="sv-mini"><span>Soins</span><strong>&#10003;</strong></div>
       </div><div class="sv-col" style="border-color:rgba(138,106,228,.25)">
         <div class="sv-col-h" style="color:var(--purple)">Complet</div>
-        <div class="sv-mini"><span>Durée</span><strong>24 mois</strong></div>
-        <div class="sv-mini"><span>Revenus</span><strong>&#10003;</strong></div>
+        <div class="sv-mini"><span>Term</span><strong>24 months</strong></div>
+        <div class="sv-mini"><span>Income</span><strong>&#10003;</strong></div>
         <div class="sv-mini"><span>Soins</span><strong>&#10003;</strong></div>
       </div></div>`;
     case 'opps': return `
-      <div class="sv-policy"><span class="sv-dot green"></span> Renouvellement hypothèque <span class="sv-val">Mars 2026</span></div>
-      <div class="sv-policy"><span class="sv-dot gold"></span> Révision portefeuille annuelle <span class="sv-val">Juin 2026</span></div>
-      <div class="sv-policy"><span class="sv-dot gold"></span> Naissance — REEE + ajust. vie <span class="sv-val">Auto</span></div>
-      <div class="sv-policy"><span class="sv-dot red"></span> Lead froid — Sophie Roy <span class="sv-val">IA suggère</span></div>
+      <div class="sv-policy"><span class="sv-dot green"></span> Mortgage renewal <span class="sv-val">March 2026</span></div>
+      <div class="sv-policy"><span class="sv-dot gold"></span> Annual portfolio review <span class="sv-val">June 2026</span></div>
+      <div class="sv-policy"><span class="sv-dot gold"></span> Birth — RESP + life adjustment <span class="sv-val">Auto</span></div>
+      <div class="sv-policy"><span class="sv-dot red"></span> Cold lead — Sophie Roy <span class="sv-val">AI suggests</span></div>
       <div class="sv-divider"></div>
-      <div class="sv-row hl"><span>Opportunités actives</span><span class="sv-val gd">9 types</span></div>`;
+      <div class="sv-row hl"><span>Active opportunities</span><span class="sv-val gd">9 types</span></div>`;
     default: return '';
   }
 }
@@ -1559,31 +1559,31 @@ function runComparatorDemo() {
 
   // Disable button
   btn.disabled = true;
-  btn.textContent = '🔍 Recherche en cours...';
+  btn.textContent = '🔍 Searching...';
 
   // Show loading spinner
-  resultsArea.innerHTML = '<div class="comp-demo-loading"><div class="comp-demo-spinner"></div><div style="font-size:14px;font-weight:700;color:var(--cr)">Analyse des meilleures offres...</div><div style="font-size:11px;color:var(--cm)">Connexion à tous les assureurs du Canada</div></div>';
+  resultsArea.innerHTML = '<div class="comp-demo-loading"><div class="comp-demo-spinner"></div><div style="font-size:14px;font-weight:700;color:var(--cr)">Analyzing the best offers...</div><div style="font-size:11px;color:var(--cm)">Connecting to every insurer in Canada</div></div>';
 
   // Real hardcoded results matching actual T20 250k search
   const standardResults = [
-    { rank: 1, company: 'Equitable', product: 'Terme 20 Ans Renouvelable & Convertible', price: '19.01', logo: 'https://www.finox.ca/Images-Assureurs/%C3%89quitable.png' },
-    { rank: 2, company: 'Beneva', product: 'Tempo Plus 20 - Assurance Temporaire 20', price: '19.13', logo: 'https://www.finox.ca/Images-Assureurs/Beneva.png' },
-    { rank: 3, company: 'Co-operators', product: 'Temporaire polyvalente 20', price: '19.13', logo: 'https://www.finox.ca/Images-Assureurs/Cooperators.png' },
-    { rank: 4, company: 'Desjardins', product: 'Temporaire 20 ans', price: '19.13', logo: 'https://www.finox.ca/Images-Assureurs/Desjardins.png' },
-    { rank: 5, company: 'Empire Vie', product: 'Solution 20 - Terme 20 Ans R & C', price: '19.13', logo: 'https://www.finox.ca/Images-Assureurs/Empire.png' },
+    { rank: 1, company: 'Equitable', product: '20-Year Renewable & Convertible Term', price: '19.01', logo: 'https://www.finox.ca/Images-Assureurs/%C3%89quitable.png' },
+    { rank: 2, company: 'Beneva', product: 'Tempo Plus 20 - 20-Year Term Insurance', price: '19.13', logo: 'https://www.finox.ca/Images-Assureurs/Beneva.png' },
+    { rank: 3, company: 'Co-operators', product: 'Versatile Term 20', price: '19.13', logo: 'https://www.finox.ca/Images-Assureurs/Cooperators.png' },
+    { rank: 4, company: 'Desjardins', product: '20-Year Term', price: '19.13', logo: 'https://www.finox.ca/Images-Assureurs/Desjardins.png' },
+    { rank: 5, company: 'Empire Life', product: 'Solution 20 - 20-Year Term R & C', price: '19.13', logo: 'https://www.finox.ca/Images-Assureurs/Empire.png' },
   ];
 
   const simplifiedResults = [
-    { rank: 1, company: 'UV Assurance', product: 'T-20 Supérieur+ (Immédiat)', price: '19.80', logo: 'https://www.finox.ca/Images-Assureurs/UV.png' },
-    { rank: 2, company: 'Beneva', product: 'SI - Vie temporaire 10 simplifiée', price: '23.85', logo: 'https://www.finox.ca/Images-Assureurs/Beneva.png' },
-    { rank: 3, company: 'CPP', product: 'SI - CPP Préféré Terme 20 Ans', price: '29.48', logo: 'https://www.finox.ca/Images-Assureurs/CPP.png' },
-    { rank: 4, company: 'Assomption Vie', product: 'SI - Protection Platine Temporaire 20', price: '32.40', logo: 'https://www.finox.ca/Images-Assureurs/Assomption%20Vie.png' },
-    { rank: 5, company: 'Industrielle Alliance', product: 'Accès Vie T20 Immédiat +', price: '48.38', logo: 'https://www.finox.ca/Images-Assureurs/IA.png' },
+    { rank: 1, company: 'UV Assurance', product: 'T-20 Superior+ (Immediate)', price: '19.80', logo: 'https://www.finox.ca/Images-Assureurs/UV.png' },
+    { rank: 2, company: 'Beneva', product: 'SI - Simplified 10-Year Term Life', price: '23.85', logo: 'https://www.finox.ca/Images-Assureurs/Beneva.png' },
+    { rank: 3, company: 'CPP', product: 'SI - CPP Preferred 20-Year Term', price: '29.48', logo: 'https://www.finox.ca/Images-Assureurs/CPP.png' },
+    { rank: 4, company: 'Assomption Vie', product: 'SI - Platinum Protection Term 20', price: '32.40', logo: 'https://www.finox.ca/Images-Assureurs/Assomption%20Vie.png' },
+    { rank: 5, company: 'Industrielle Alliance', product: 'Access Life T20 Immediate +', price: '48.38', logo: 'https://www.finox.ca/Images-Assureurs/IA.png' },
   ];
 
   // After fake delay show results
   setTimeout(() => {
-    btn.textContent = 'Comparer les prix 🔍';
+    btn.textContent = 'Compare prices 🔍';
     btn.disabled = true; // Keep disabled — demo only
 
     function buildRow(item, isBest) {
@@ -1597,7 +1597,7 @@ function runComparatorDemo() {
         </div>
         <div style="text-align:right;flex-shrink:0">
           <div class="comp-demo-price">${item.price}$</div>
-          <div class="comp-demo-price-label">PAR MOIS</div>
+          <div class="comp-demo-price-label">PER MONTH</div>
         </div>
       </div>`;
     }
@@ -1614,10 +1614,10 @@ function runComparatorDemo() {
       </div>`;
     }
 
-    let html = `<div class="comp-demo-results-header"><span class="comp-results-dot"></span> 10 résultats trouvés — Temporaire 20 ans, 250 000$</div>`;
+    let html = `<div class="comp-demo-results-header"><span class="comp-results-dot"></span> 10 results found — 20-Year Term, $250,000</div>`;
     html += `<div class="comp-demo-cats-grid">`;
-    html += buildCategory('🏆', 'Assurance Standard', '5', standardResults);
-    html += buildCategory('⚡', 'Assurance Simplifiée', '5', simplifiedResults);
+    html += buildCategory('🏆', 'Standard Insurance', '5', standardResults);
+    html += buildCategory('⚡', 'Simplified Insurance', '5', simplifiedResults);
     html += `</div>`;
 
     resultsArea.innerHTML = html;
@@ -1646,15 +1646,15 @@ function initPreavisTypewriter() {
     { id: 'pf-date-vigueur1',      text: '05/08/2021' },
     { id: 'pf-assureur-actuel',    text: 'Humania' },
     { id: 'pf-assureur-propose',   text: 'UV Assurance' },
-    { id: 'pf-nature-actuel',      text: 'Vie Permanente' },
-    { id: 'pf-nature-propose',     text: 'Vie Temporaire, Vie Permanente' },
+    { id: 'pf-nature-actuel',      text: 'Permanent Life' },
+    { id: 'pf-nature-propose',     text: 'Term Life, Permanent Life' },
     { id: 'pf-date-actuel',        text: '05/08/2021' },
-    { id: 'pf-date-propose',       text: 'Ne s\'applique pas' },
+    { id: 'pf-date-propose',       text: 'Not applicable' },
     { id: 'pf-prestation-actuel',  text: '25 000' },
     { id: 'pf-prestation-propose', text: '125 000' },
     { id: 'pf-prime-actuel',       text: '799,44' },
     { id: 'pf-prime-propose',      text: '1 388,40' },
-    { id: 'pf-comment',            text: 'Le client souhaite remplacer son contrat actuel d\'assurance vie permanente chez Humania par une combinaison vie temporaire et vie permanente chez UV Assurance. Le nouveau contrat offre une couverture significativement plus élevée (125 000 $ vs 25 000 $) pour une prime annuelle de 1 388,40 $. Le client a été informé des avantages et inconvénients du remplacement, incluant la nouvelle période de contestabilité de deux ans.' },
+    { id: 'pf-comment',            text: 'The client wishes to replace their current permanent life insurance contract with Humania with a combination of term and permanent life with UV Assurance. The new contract offers significantly higher coverage ($125,000 vs. $25,000) for an annual premium of $1,388.40. The client has been informed of the advantages and disadvantages of the replacement, including the new two-year contestability period.' },
   ];
 
   let running = false;
@@ -1783,7 +1783,7 @@ function initSchedulerShowcase() {
     await wait(1200);
     if (!running) return;
     if (dayEl) dayEl.classList.add('selected');
-    if (dateLabel) { dateLabel.textContent = 'Mardi 10 mars 2026'; dateLabel.classList.add('show'); }
+    if (dateLabel) { dateLabel.textContent = 'Tuesday, March 10, 2026'; dateLabel.classList.add('show'); }
     await wait(1400);
     if (!running) return;
 

@@ -1,0 +1,1808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FINOX OS — The Operating System for Insurance in Quebec</title>
+<meta name="description" content="We were juggling 10 tools that never talked to each other. So we rebuilt everything. FINOX OS — FNA, AI, e-signatures, AMF compliance, fully integrated. Simpler. Better. In every way.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,700&family=JetBrains+Mono:wght@300;400;500&family=Cabinet+Grotesk:wght@400;500;700;800;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="alternate" hreflang="fr" href="/"><link rel="alternate" hreflang="en" href="/en">
+</head>
+<body>
+
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+<div class="noise-overlay"></div>
+<canvas id="particle-canvas"></canvas>
+
+<!-- ═══════════════════════════════════════════ NAV ════ -->
+<nav id="nav">
+  <a href="#" class="nav-logo">FINOX<span class="logo-accent">·</span>OS</a>
+  <div class="crm-nav-wrap">
+    <div class="crm-nav-track" id="crm-nav-track">
+      <div class="crm-nav-line"></div>
+      <div class="crm-nav-line-fill" id="crm-nav-line-fill"></div>
+      <!-- PLATEFORME -->
+      <div class="crm-nav-group">
+        <div class="crm-nav-group-label">Platform</div>
+        <div class="crm-nav-items">
+          <a href="#showcase" class="crm-nav-item" data-section="showcase">
+            <div class="crm-nav-circle"><span>⚡</span></div>
+            <div class="crm-nav-label">Dashboard</div>
+          </a>
+          <a href="#pulse" class="crm-nav-item" data-section="pulse">
+            <div class="crm-nav-circle"><span>💓</span></div>
+            <div class="crm-nav-label">Vital Pulse</div>
+          </a>
+        </div>
+      </div>
+      <!-- ANALYSE -->
+      <div class="crm-nav-group">
+        <div class="crm-nav-group-label">Analysis</div>
+        <div class="crm-nav-items">
+          <a href="#abf" class="crm-nav-item" data-section="abf">
+            <div class="crm-nav-circle"><span>📋</span></div>
+            <div class="crm-nav-label">FNA</div>
+          </a>
+        </div>
+      </div>
+      <!-- AUTOMATISATION -->
+      <div class="crm-nav-group">
+        <div class="crm-nav-group-label">Automation</div>
+        <div class="crm-nav-items">
+          <a href="#ai" class="crm-nav-item" data-section="ai">
+            <div class="crm-nav-circle"><span>🤖</span></div>
+            <div class="crm-nav-label">AI</div>
+          </a>
+          <a href="#comm" class="crm-nav-item" data-section="comm">
+            <div class="crm-nav-circle"><span>📞</span></div>
+            <div class="crm-nav-label">Communication</div>
+          </a>
+        </div>
+      </div>
+      <!-- GESTION -->
+      <div class="crm-nav-group">
+        <div class="crm-nav-group-label">Management</div>
+        <div class="crm-nav-items">
+          <a href="#timeline" class="crm-nav-item" data-section="timeline">
+            <div class="crm-nav-circle"><span>📅</span></div>
+            <div class="crm-nav-label">Timeline</div>
+          </a>
+          <a href="#opps" class="crm-nav-item" data-section="opps">
+            <div class="crm-nav-circle"><span>🎯</span></div>
+            <div class="crm-nav-label">Opportunities</div>
+          </a>
+          <a href="#conf" class="crm-nav-item" data-section="conf">
+            <div class="crm-nav-circle"><span>📄</span></div>
+            <div class="crm-nav-label">Documents</div>
+          </a>
+          <a href="#cabinet" class="crm-nav-item" data-section="cabinet">
+            <div class="crm-nav-circle"><span>🏛️</span></div>
+            <div class="crm-nav-label">Firm</div>
+          </a>
+        </div>
+      </div>
+      <!-- CALCULATEURS -->
+      <div class="crm-nav-group">
+        <div class="crm-nav-group-label">Calculators</div>
+        <div class="crm-nav-items">
+          <a href="#tools" class="crm-nav-item" data-section="tools">
+            <div class="crm-nav-circle"><span>🧮</span></div>
+            <div class="crm-nav-label">Tools</div>
+          </a>
+        </div>
+      </div>
+      <!-- AVENIR -->
+      <div class="crm-nav-group">
+        <div class="crm-nav-group-label">Future</div>
+        <div class="crm-nav-items">
+          <a href="#cta" class="crm-nav-item" data-section="cta">
+            <div class="crm-nav-circle"><span>🚀</span></div>
+            <div class="crm-nav-label">Access</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="#cta" class="nav-cta-btn">
+    <div class="live-dot"></div>Early access
+  </a>
+  <div class="lang-switch"><a href="/" data-lang="fr">FR</a><a href="/en" class="on" data-lang="en">EN</a></div>
+</nav>
+
+<!-- ═══════════════════════════════════════════ HERO ═══ -->
+<section class="hero" id="home">
+  <div class="hero-grid-bg"></div>
+  <div class="corner tl"></div><div class="corner tr"></div>
+  <div class="corner bl"></div><div class="corner br"></div>
+  <div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div>
+
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <span>Built by brokers who had enough · Quebec</span>
+      <span class="arrow-anim">→</span>
+    </div>
+
+    <div class="hero-title-line">
+      <span class="hero-word" style="animation-delay:.48s">The complete</span>
+      <span class="hero-word" style="animation-delay:.62s">&nbsp;OS</span>
+      <span class="hero-word" style="animation-delay:.76s;-webkit-text-stroke:1px rgba(237,232,220,.18);-webkit-text-fill-color:transparent">&nbsp;for</span>
+    </div>
+    <div class="hero-title-line hero-l2">
+      <span class="hero-word" style="animation-delay:.90s;font-weight:700;font-style:italic;background:linear-gradient(140deg,#FFF0B0 0%,#F0D070 30%,#C4A24A 65%,#7A6120 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent">brokers.</span>
+    </div>
+    <div class="hero-title-line" style="margin-top:10px">
+      <span class="hero-word" style="animation-delay:1.04s;font-size:clamp(16px,2.5vw,36px);font-weight:300;color:var(--cd)">FNA · Signatures · AI · AMF Compliance · Fully integrated.</span>
+    </div>
+
+    <p class="hero-sub" style="animation-delay:1.28s">We were juggling 10 tools that never talked to each other. We spent our evenings filling out forms instead of talking to our clients. So we <strong>rebuilt everything on a single platform</strong> — and we're offering it to every broker in Quebec. <strong>Simpler. Better. In every way.</strong></p>
+
+    <div class="hero-stats hero-stats-3" style="animation-delay:1.46s">
+      <div class="stat-item"><div class="stat-num hero-stat-num" data-target="80" data-suffix="%">0%</div><div class="stat-label">Of the admin, handled for you</div></div>
+      <div class="stat-item"><div class="stat-num hero-stat-num" data-target="30" data-suffix="h">0h</div><div class="stat-label">Recovered every week</div></div>
+      <div class="stat-item"><div class="stat-num hero-stat-num" data-target="10" data-suffix="→1">0→1</div><div class="stat-label">Tools merged into one platform</div></div>
+    </div>
+
+    <div class="hero-cta" style="animation-delay:1.65s">
+      <button class="btn-gold btn-gold-lg" onclick="openWaitlistModal()"><div class="btn-shine"></div>Join the waitlist →</button>
+      <div class="spots-bar-row">
+        <div class="spots-track"><div class="spots-fill" style="width:60.8%"></div></div>
+        152 / 250 spots filled
+      </div>
+      <p class="cta-note">Early access · AMF-compatible · Google Workspace included</p>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">
+    <span>Discover</span>
+    <div class="scroll-mouse"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ WAITLIST MODAL ══════════════ -->
+<iframe name="zoho-crm-iframe" id="zoho-crm-iframe" style="display:none"></iframe>
+<div class="wl-overlay" id="wl-overlay" onclick="closeWaitlistModal(event)">
+  <div class="wl-modal" onclick="event.stopPropagation()">
+    <button class="wl-close" onclick="closeWaitlistModal()">&times;</button>
+    <div class="wl-header">
+      <div class="wl-eyebrow">Early access — Limited spots</div>
+      <h3 class="wl-title">Reserve your spot</h3>
+      <p class="wl-sub">Join the brokers who are tired of juggling 10 different tools.</p>
+    </div>
+    <div id="wl-form">
+      <form id="webform43836000007128795" action="https://crm.zohocloud.ca/crm/WebToContactForm"
+            name="WebToContacts43836000007128795" method="POST" target="zoho-crm-iframe"
+            accept-charset="UTF-8" onsubmit="javascript:document.charset='UTF-8'; return handleWaitlistSubmit(event)">
+        <!-- Zoho CRM hidden auth fields — ne pas modifier les type/style -->
+        <input type="text" style="display:none;" name="xnQsjsdp" value="07b79c088889c9c5879b69da765a408ac9f5925c2ccaa56c828400c843374273">
+        <input type="hidden" name="zc_gad" id="zc_gad" value="">
+        <input type="text" style="display:none;" name="xmIwtLD" value="e37808faf6677df188873fcf3e6d622aa8129549b28207a7c302778adae07591f8901a02488f83247455212a99bcd06b">
+        <input type="text" style="display:none;" name="actionType" value="Q29udGFjdHM=">
+        <input type="text" style="display:none;" name="returnURL" value="https://page-web-8rg.pages.dev">
+        <input type="text" style="display:none;" name="aG9uZXlwb3Q" value="">
+        <div class="wl-fields">
+          <div class="wl-field">
+            <label class="wl-label" for="wl-fname">First name <span class="wl-req">*</span></label>
+            <input type="text" class="wl-input" id="wl-fname" name="First Name" placeholder="John" required maxlength="40">
+          </div>
+          <div class="wl-field">
+            <label class="wl-label" for="wl-lname">Last name <span class="wl-req">*</span></label>
+            <input type="text" class="wl-input" id="wl-lname" name="Last Name" placeholder="Smith" required maxlength="80">
+          </div>
+          <div class="wl-field">
+            <label class="wl-label" for="wl-email">Email <span class="wl-req">*</span></label>
+            <input type="email" class="wl-input" id="wl-email" name="Email" placeholder="example@domain.com" required maxlength="100" pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" title="Expected format: example@domain.com">
+          </div>
+          <div class="wl-field">
+            <label class="wl-label" for="wl-phone">Phone <span class="wl-req">*</span></label>
+            <input type="tel" class="wl-input" id="wl-phone" name="Phone" placeholder="555-555-5555" required maxlength="12" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="Format attendu : 555-555-5555">
+          </div>
+        </div>
+        <button type="submit" class="wl-submit">Reserve my spot →</button>
+        <!-- Zoho Analytics Tracking — ne pas supprimer -->
+        <script id="wf_anal" src="https://crm.zohopublic.ca/crm/WebFormAnalyticsServeServlet?rid=6b1d3171223b963d70b0d83ccd3e95a5e0c4c889eb4dd560468e1a9b1aae0f42a6ab946ebdff0b135963c121c837d990gid03dcd2e6c98a954d10b66e473aef3fe4cc8842cfa490ce338dda43683d7d02a6gid662fa347d462573d44d4036495c91592dfaf063c427817eaf0a6ba010503cd98gidcc48d639ba18ac9be7b21a374edae9e844be0625c49ef96ab35a21fc2f26c2e8&tw=a82e8fb21fec3c7ae34bfa8b63cf783ea738469e1fcb514510e6bc99e9da8a78"></script>
+      </form>
+    </div>
+    <div class="wl-success" id="wl-success">
+      <div class="wl-success-icon">✓</div>
+      <div class="wl-success-title">Spot reserved!</div>
+      <div class="wl-success-sub">We'll contact you within 24 hours. Welcome to the future of brokerage.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ MARQUEE ════ -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <div class="marquee-item"><div class="marquee-dot"></div>Complete, AMF-compliant FNA</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Finox Sign & DocuSign e-signature</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>AI — 80% of admin automated</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Communication hub: SMS · Email · Calls</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Vital Pulse — real-time client health</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Multi-carrier calculator: QC & Canada</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Built-in RingCentral telephony</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Built-in calendar · Google Calendar sync</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Google Workspace included</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>RESP module + government grants</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Complete, AMF-compliant FNA</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Finox Sign & DocuSign e-signature</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>AI — 80% of admin automated</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Communication hub: SMS · Email · Calls</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Vital Pulse — real-time client health</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Multi-carrier calculator: QC & Canada</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Built-in RingCentral telephony</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Built-in calendar · Google Calendar sync</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Google Workspace included</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>RESP module + government grants</div>
+  </div>
+</div>
+<div class="marquee-wrap">
+  <div class="marquee-track reverse">
+    <div class="marquee-item"><div class="marquee-dot blue"></div>Replacement notice auto-filled & signed</div>
+    <div class="marquee-item"><div class="marquee-dot blue"></div>Notice automatically sent to both insurers</div>
+    <div class="marquee-item"><div class="marquee-dot blue"></div>Automated AMF explanatory letter</div>
+    <div class="marquee-item"><div class="marquee-dot blue"></div>Automated drawdown plan built into the FNA</div>
+    <div class="marquee-item"><div class="marquee-dot blue"></div>Corporation management module</div>
+    <div class="marquee-item"><div class="marquee-dot blue"></div>Complete timeline for every client</div>
+    <div class="marquee-item"><div class="marquee-dot blue"></div>Automated future opportunities</div>
+    <div class="marquee-item"><div class="marquee-dot blue"></div>MG calculator — shared ownership</div>
+    <div class="marquee-item"><div class="marquee-dot blue"></div>Personal budget + AI recommendations</div>
+    <div class="marquee-item"><div class="marquee-dot blue"></div>Desjardins mortgage insurance vs. market</div>
+    <div class="marquee-item"><div class="marquee-dot blue"></div>AMF-compliant investor profile</div>
+    <div class="marquee-item"><div class="marquee-dot blue"></div>Password-protected secure documents</div>
+    <div class="marquee-item"><div class="marquee-dot blue"></div>Replacement notice auto-filled & signed</div>
+    <div class="marquee-item"><div class="marquee-dot blue"></div>Notice automatically sent to both insurers</div>
+    <div class="marquee-item"><div class="marquee-dot blue"></div>Automated AMF explanatory letter</div>
+    <div class="marquee-item"><div class="marquee-dot blue"></div>Automated drawdown plan built into the FNA</div>
+    <div class="marquee-item"><div class="marquee-dot blue"></div>Corporation management module</div>
+    <div class="marquee-item"><div class="marquee-dot blue"></div>Complete timeline for every client</div>
+    <div class="marquee-item"><div class="marquee-dot blue"></div>Automated future opportunities</div>
+    <div class="marquee-item"><div class="marquee-dot blue"></div>MG calculator — shared ownership</div>
+    <div class="marquee-item"><div class="marquee-dot blue"></div>Personal budget + AI recommendations</div>
+    <div class="marquee-item"><div class="marquee-dot blue"></div>Desjardins mortgage insurance vs. market</div>
+    <div class="marquee-item"><div class="marquee-dot blue"></div>AMF-compliant investor profile</div>
+    <div class="marquee-item"><div class="marquee-dot blue"></div>Password-protected secure documents</div>
+  </div>
+</div>
+
+<!-- ════════════════════════════ DASHBOARD SHOWCASE ════ -->
+<section class="showcase" id="showcase">
+  <div class="showcase-header">
+    <div class="sec-label rx">Platform</div>
+    <h2 class="sec-title rx">We wanted a CRM that actually looks good.<br><em>So we built it.</em></h2>
+    <p class="sec-sub rx">Not a 2000s-era tool with a tax-form interface. A real, modern dashboard, built by advisors who know exactly what you need day to day.</p>
+  </div>
+
+  <div class="db-frame-outer rx" id="db-frame-outer">
+    <div class="db-3d-wrap" id="db3d">
+      <!-- Chrome bar -->
+      <div class="chrome-bar">
+        <div class="chrome-dots">
+          <div class="chrome-dot" style="background:#FF5F57"></div>
+          <div class="chrome-dot" style="background:#FEBC2E"></div>
+          <div class="chrome-dot" style="background:#28C840"></div>
+        </div>
+        <div class="chrome-url">app.finox.ca/dashboard</div>
+        <div class="chrome-tabs">
+          <div class="chrome-tab">Google Workspace ✓</div>
+          <div class="chrome-tab" id="live-ts">—</div>
+        </div>
+      </div>
+      <!-- App -->
+      <div class="app-layout">
+        <!-- Sidebar -->
+        <div class="app-sidebar">
+          <div class="sidebar-logo">FINOX<div class="sidebar-live"></div></div>
+          <div class="sidebar-section">Main</div>
+          <div class="sidebar-item active"><span class="sidebar-icon">⚡</span>Dashboard<span class="sidebar-badge">Live</span></div>
+          <div class="sidebar-item"><span class="sidebar-icon">👥</span>Clients<span class="sidebar-badge">147</span></div>
+          <div class="sidebar-item"><span class="sidebar-icon">🏢</span>Corporations</div>
+          <div class="sidebar-item"><span class="sidebar-icon">🎯</span>Pipeline</div>
+          <div class="sidebar-section">Analysis</div>
+          <div class="sidebar-item"><span class="sidebar-icon">📋</span>FNA & Needs</div>
+          <div class="sidebar-item"><span class="sidebar-icon">📊</span>Tools & Calculators</div>
+          <div class="sidebar-item"><span class="sidebar-icon">📈</span>Opportunities</div>
+          <div class="sidebar-section">Actions</div>
+          <div class="sidebar-item"><span class="sidebar-icon">✍️</span>Signatures<span class="sidebar-badge" style="background:rgba(196,74,74,.12);color:var(--red)">3</span></div>
+          <div class="sidebar-item"><span class="sidebar-icon">📄</span>Documents</div>
+          <div class="sidebar-item"><span class="sidebar-icon">📅</span>Calendar</div>
+          <div class="sidebar-section">Communication</div>
+          <div class="sidebar-item"><span class="sidebar-icon">📞</span>RingCentral<span class="sidebar-badge gn">2</span></div>
+          <div class="sidebar-item"><span class="sidebar-icon">✉️</span>Email<span class="sidebar-badge">8</span></div>
+          <div class="sidebar-item"><span class="sidebar-icon">💬</span>SMS</div>
+          <div class="sidebar-section">Admin</div>
+          <div class="sidebar-item"><span class="sidebar-icon">⚙️</span>Workflows</div>
+          <div class="sidebar-item"><span class="sidebar-icon">📉</span>Reports</div>
+          <div class="sidebar-footer">
+            <div class="user-avatar">DL</div>
+            <div><div class="user-name">Dany Lévesque</div><div class="user-role">Director · FINOX</div></div>
+          </div>
+        </div>
+        <!-- Main -->
+        <div class="app-main">
+          <div class="main-topbar">
+            <div class="main-title">Dashboard — Director view</div>
+            <div class="main-actions">
+              <div class="action-btn">Export</div>
+              <div class="action-btn">Workflows</div>
+              <div class="action-btn primary">+ New client</div>
+            </div>
+          </div>
+          <div class="dashboard-grid">
+            <!-- KPIs -->
+            <div class="kpi-card"><div class="kpi-icon">💰</div><div class="kpi-value gold">$84,240</div><div class="kpi-label">Premiums this month</div><div class="kpi-change up">↑ +23.4%</div></div>
+            <div class="kpi-card"><div class="kpi-icon">💓</div><div class="kpi-value gn">82<span style="font-size:14px">/100</span></div><div class="kpi-label">Average Vital Pulse</div><div class="kpi-change up">↑ +6 pts</div></div>
+            <div class="kpi-card"><div class="kpi-icon">✍️</div><div class="kpi-value bl">18</div><div class="kpi-label">Pending signatures</div><div class="kpi-change dn">↓ -3 today</div></div>
+            <div class="kpi-card"><div class="kpi-icon">🤖</div><div class="kpi-value pu">34</div><div class="kpi-label">AI actions completed</div><div class="kpi-change up">↑ +12 today</div></div>
+            <!-- Chart -->
+            <div class="chart-card">
+              <div class="card-header">
+                <div class="card-title">Monthly premiums — 20 advisors</div>
+                <div class="tab-group"><div class="tab-pill active">6M</div><div class="tab-pill">1A</div><div class="tab-pill">2A</div></div>
+              </div>
+              <svg id="chart-svg" class="chart-svg" viewBox="0 0 400 80" preserveAspectRatio="none"></svg>
+            </div>
+            <!-- Pipeline -->
+            <div class="pipeline-card">
+              <div class="card-header"><div class="card-title">Active insurance pipeline</div></div>
+              <div class="pipeline-row"><div class="pipeline-label">Prospects</div><div class="pipeline-track"><div class="pipeline-bar" style="background:var(--blue);width:90%"></div></div><div class="pipeline-count">47</div></div>
+              <div class="pipeline-row"><div class="pipeline-label">FNA analysis</div><div class="pipeline-track"><div class="pipeline-bar" style="background:var(--g);width:66%"></div></div><div class="pipeline-count">31</div></div>
+              <div class="pipeline-row"><div class="pipeline-label">Underwriting</div><div class="pipeline-track"><div class="pipeline-bar" style="background:var(--purple);width:50%"></div></div><div class="pipeline-count">24</div></div>
+              <div class="pipeline-row"><div class="pipeline-label">Signature</div><div class="pipeline-track"><div class="pipeline-bar" style="background:#E08040;width:33%"></div></div><div class="pipeline-count">15</div></div>
+              <div class="pipeline-row"><div class="pipeline-label">In force</div><div class="pipeline-track"><div class="pipeline-bar" style="background:var(--green);width:22%"></div></div><div class="pipeline-count">11</div></div>
+            </div>
+            <!-- Activity -->
+            <div class="activity-card">
+              <div class="card-header"><div class="card-title">AI activity — real time</div><div class="live-badge">Live</div></div>
+              <div id="activity-feed"></div>
+            </div>
+            <!-- Clients -->
+            <div class="clients-card">
+              <div class="card-header"><div class="card-title">Recent clients — Vital Pulse</div></div>
+              <div class="client-row"><div class="client-avatar">MT</div><div class="client-info"><div class="client-name">Marie Tremblay</div><div class="client-meta">Whole life · Laval</div><div class="client-pulse">💓 Pulse 94/100 — Excellent</div></div><div class="client-value">$412k</div><div class="client-badge badge-gn">Active</div></div>
+              <div class="client-row"><div class="client-avatar">JB</div><div class="client-info"><div class="client-name">Jacques Bergeron</div><div class="client-meta">Disability + Corp · Montreal</div><div class="client-pulse" style="color:var(--amber)">💛 Pulse 75/100 — Stable</div></div><div class="client-value">$2.1M</div><div class="client-badge badge-or">In progress</div></div>
+              <div class="client-row"><div class="client-avatar">SR</div><div class="client-info"><div class="client-name">Sophie Roy</div><div class="client-meta">Mortgage + RESP · Quebec City</div><div class="client-pulse" style="color:var(--blue)">🔵 Pulse 58/100 — Follow up</div></div><div class="client-value">$680k</div><div class="client-badge badge-bl">Prospect</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ APP COMPARISON ══════════ -->
+<section class="compare-section" id="compare">
+  <!-- Header text — scrolls naturally before the sticky pins -->
+  <div class="compare-header-text" id="compare-header-text">
+    <div class="sec-label">Built by brokers, for brokers</div>
+    <h2 class="sec-title">We lived the same problem.<br><em>So we fixed it.</em></h2>
+    <p class="sec-sub">10 tools, 10 logins, 10 passwords — and nothing that talks to anything else. So we rebuilt everything on a single platform, faster and simpler, and we're offering it to every broker in Quebec. Simpler. Better. In every way.</p>
+  </div>
+
+  <div class="compare-scroll-outer">
+    <div class="compare-scroll-sticky">
+      <div class="compare-scroll-content">
+        <!-- Morph stage -->
+        <div class="compare-stage">
+          <div class="compare-card compare-old" id="compare-card-morph">
+            <div class="compare-card-header old" id="compare-card-hdr">
+              <span class="compare-card-title">Your current stack</span>
+              <span class="compare-card-badge old">10 tools + 2 hidden costs</span>
+            </div>
+            <div class="compare-rows" id="compare-rows-wrap">
+              <div class="compare-row">
+                <div class="compare-app">
+                  <img src="https://logo.clearbit.com/equisoft.com" alt="Equisoft" class="compare-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+                  <span class="compare-logo-fallback" style="display:none">É</span>
+                  <div class="compare-name-wrap"><span class="compare-name">Equisoft</span><span class="compare-role">CRM & client files</span></div>
+                </div>
+              </div>
+              <div class="compare-row">
+                <div class="compare-app">
+                  <img src="https://logo.clearbit.com/lifeguide.ca" alt="LifeGuide" class="compare-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+                  <span class="compare-logo-fallback" style="display:none">L</span>
+                  <div class="compare-name-wrap"><span class="compare-name">LifeGuide</span><span class="compare-role">Insurance comparison tool</span></div>
+                </div>
+              </div>
+              <div class="compare-row">
+                <div class="compare-app">
+                  <img src="https://logo.clearbit.com/calendly.com" alt="Calendly" class="compare-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+                  <span class="compare-logo-fallback" style="display:none">C</span>
+                  <div class="compare-name-wrap"><span class="compare-name">Calendly</span><span class="compare-role">Appointment booking</span></div>
+                </div>
+              </div>
+              <div class="compare-row">
+                <div class="compare-app">
+                  <img src="https://logo.clearbit.com/google.com" alt="Google Workspace" class="compare-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+                  <span class="compare-logo-fallback" style="display:none">G</span>
+                  <div class="compare-name-wrap"><span class="compare-name">Google Workspace</span><span class="compare-role">Email & calendar</span></div>
+                </div>
+              </div>
+              <div class="compare-row">
+                <div class="compare-app">
+                  <img src="https://logo.clearbit.com/ringcentral.com" alt="RingCentral" class="compare-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+                  <span class="compare-logo-fallback" style="display:none">R</span>
+                  <div class="compare-name-wrap"><span class="compare-name">RingCentral</span><span class="compare-role">VoIP telephony</span></div>
+                </div>
+              </div>
+              <div class="compare-row">
+                <div class="compare-app">
+                  <img src="https://logo.clearbit.com/ringcentral.com" alt="RingCentral SMS" class="compare-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+                  <span class="compare-logo-fallback" style="display:none">R</span>
+                  <div class="compare-name-wrap"><span class="compare-name">RingCentral SMS</span><span class="compare-role">Text messaging</span></div>
+                </div>
+              </div>
+              <div class="compare-row">
+                <div class="compare-app">
+                  <img src="https://logo.clearbit.com/planvie.ca" alt="Plan Vie" class="compare-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+                  <span class="compare-logo-fallback" style="display:none">P</span>
+                  <div class="compare-name-wrap"><span class="compare-name">Plan Vie</span><span class="compare-role">FNA & AMF compliance</span></div>
+                </div>
+              </div>
+              <div class="compare-row">
+                <div class="compare-app">
+                  <img src="https://logo.clearbit.com/claude.ai" alt="Claude" class="compare-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+                  <span class="compare-logo-fallback" style="display:none">C</span>
+                  <div class="compare-name-wrap"><span class="compare-name">Claude</span><span class="compare-role">Artificial intelligence</span></div>
+                </div>
+              </div>
+              <div class="compare-row">
+                <div class="compare-app">
+                  <img src="https://logo.clearbit.com/fireflies.ai" alt="Fireflies" class="compare-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+                  <span class="compare-logo-fallback" style="display:none">F</span>
+                  <div class="compare-name-wrap"><span class="compare-name">Fireflies</span><span class="compare-role">Meeting transcription</span></div>
+                </div>
+              </div>
+              <div class="compare-row">
+                <div class="compare-app">
+                  <img src="https://logo.clearbit.com/wisestamp.com" alt="WiseStamp" class="compare-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+                  <span class="compare-logo-fallback" style="display:none">W</span>
+                  <div class="compare-name-wrap"><span class="compare-name">WiseStamp</span><span class="compare-role">Email signature</span></div>
+                </div>
+              </div>
+              <div class="compare-row">
+                <div class="compare-app">
+                  <span class="compare-logo-fallback">👩‍💼</span>
+                  <div class="compare-name-wrap"><span class="compare-name">Administrative assistant</span><span class="compare-role">Data entry, follow-ups, manual reminders</span></div>
+                </div>
+              </div>
+              <div class="compare-row">
+                <div class="compare-app">
+                  <span class="compare-logo-fallback">⏱</span>
+                  <div class="compare-name-wrap"><span class="compare-name">Advisor's time</span><span class="compare-role">~10 h/week of administrative tasks</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="compare-total old" id="compare-total-bar">
+              <span class="compare-total-txt">Result: 10 tools that don't talk to each other</span>
+            </div>
+          </div>
+
+          <!-- Circle drawing + sparkle trail (hidden initially) -->
+          <div class="compare-circle-wrap" id="compare-circle-wrap">
+            <svg class="compare-circle-svg" viewBox="0 0 340 340">
+              <defs>
+                <linearGradient id="sparkStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#FFF0B0"/>
+                  <stop offset="40%" stop-color="#F0D070"/>
+                  <stop offset="100%" stop-color="#C4A24A"/>
+                </linearGradient>
+                <filter id="sparkGlow">
+                  <feGaussianBlur stdDeviation="4" result="blur"/>
+                  <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+              </defs>
+              <circle class="compare-circle-bg" cx="170" cy="170" r="155" fill="none" stroke="rgba(196,162,74,0.06)" stroke-width="1.5"/>
+              <circle id="compare-circle-path" cx="170" cy="170" r="155"
+                      fill="none" stroke="url(#sparkStroke)" stroke-width="2.5"
+                      stroke-dasharray="974" stroke-dashoffset="974"
+                      transform="rotate(-90 170 170)"
+                      filter="url(#sparkGlow)" stroke-linecap="round"/>
+            </svg>
+            <div class="compare-spark-head" id="compare-spark-head"></div>
+            <div class="compare-finox-inner" id="compare-finox-inner">
+              <div class="finox-brand-glow"></div>
+              <span class="finox-brand-logo">FINOX<span class="finox-brand-accent">.</span>OS</span>
+            </div>
+          </div>
+
+          <!-- Pricing (below circle, fades in last) -->
+          <div class="compare-finox-pricing-wrap" id="compare-finox-pricing-wrap">
+            <span class="finox-brand-savings soon">Coming soon — Early access</span>
+            <span class="finox-brand-sub">Everything included. One platform. Zero wasted time.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════ PULSE VITAL ═════ -->
+<section class="pulse-section" id="pulse">
+  <div style="max-width:1300px;margin:0 auto;text-align:center">
+    <div class="sec-label rx">Exclusive FINOX innovation</div>
+    <h2 class="sec-title green rx">We were losing clients <em>without even noticing.</em><br>Never again.</h2>
+    <p class="sec-sub rx">We used to find out a client had left when it was already too late. Now every contact has a real-time health score, a complete history and a next action — so no one ever falls through the cracks.</p>
+  </div>
+  <div class="pulse-layout">
+    <div class="rxl">
+      <div class="pulse-card" id="pulse-card"></div>
+    </div>
+    <div class="rxr" style="padding-top:20px">
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(34px,4.2vw,62px);font-weight:300;line-height:1.04;margin-bottom:22px">Every contact, <em style="font-style:italic;color:var(--green)">a complete picture</em></h2>
+      <p style="font-size:15px;line-height:1.9;color:var(--cd);margin-bottom:20px">We were tired of digging through 3 different tools to know where a client stood. The Vital Pulse brings everything into a single record — key info, communications, products in force, pipeline, next steps and health score. At a glance, you know exactly what to do.</p>
+      <p style="font-size:15px;line-height:1.9;color:var(--cd);margin-bottom:22px">A prospect isn't the same as an active client or a corporation. The Pulse adapts automatically — its own criteria, its own journey, its own suggested actions.</p>
+      <div class="tag-row">
+        <span class="pill-tag">Real-time 0–100 score</span>
+        <span class="pill-tag gold">Management hub for each contact</span>
+        <span class="pill-tag">Suggested next step</span>
+        <span class="pill-tag">Churn risk alerts</span>
+        <span class="pill-tag blue">Prospect · Client · Corp</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Pipeline de conversion — gestion A à Z ── -->
+  <div class="pulse-pipeline-section">
+    <div class="pulse-pipeline-header">
+      <h3 class="pulse-pipeline-title">From first contact to sale.<br><em>Every step is tracked.</em></h3>
+      <p class="pulse-pipeline-sub">We tested, refined and optimized this pipeline with our own team of brokers. Every status exists for a reason — to maximize closing volume and eliminate leads that fall through the cracks.</p>
+    </div>
+
+    <!-- Pipeline funnel -->
+    <div class="pulse-funnel">
+      <div class="pulse-funnel-step">
+        <div class="pulse-funnel-icon">📥</div>
+        <div class="pulse-funnel-label">Contact</div>
+        <div class="pulse-funnel-desc">New inbound lead</div>
+      </div>
+      <div class="pulse-funnel-arrow">→</div>
+      <div class="pulse-funnel-step">
+        <div class="pulse-funnel-icon">📞</div>
+        <div class="pulse-funnel-label">Follow-up</div>
+        <div class="pulse-funnel-desc">Outreach & follow-ups</div>
+      </div>
+      <div class="pulse-funnel-arrow">→</div>
+      <div class="pulse-funnel-step">
+        <div class="pulse-funnel-icon">🤝</div>
+        <div class="pulse-funnel-label">Meeting</div>
+        <div class="pulse-funnel-desc">Call or meeting scheduled</div>
+      </div>
+      <div class="pulse-funnel-arrow">→</div>
+      <div class="pulse-funnel-step">
+        <div class="pulse-funnel-icon">📋</div>
+        <div class="pulse-funnel-label">FNA</div>
+        <div class="pulse-funnel-desc">Needs analysis completed</div>
+      </div>
+      <div class="pulse-funnel-arrow">→</div>
+      <div class="pulse-funnel-step accent">
+        <div class="pulse-funnel-icon">✅</div>
+        <div class="pulse-funnel-label">Sale</div>
+        <div class="pulse-funnel-desc">Deal closed, client won</div>
+      </div>
+    </div>
+
+    <!-- Statuts de leads — interface CRM exacte -->
+    <div class="pulse-pipeline-layout">
+      <div class="pulse-statuts-card">
+        <div class="pulse-statuts-header">
+          <span class="pulse-statuts-title">Lead statuses</span>
+          <span class="pulse-statuts-badge">Optimized in the field</span>
+        </div>
+        <div class="pulse-statuts-list">
+          <div class="ps-item"><span class="ps-dot" style="background:#3b82f6"></span>New Lead</div>
+          <div class="ps-item"><span class="ps-dot" style="background:#f59e0b"></span>Lead Not Reached</div>
+          <div class="ps-item"><span class="ps-dot" style="background:#8b5cf6"></span>Call Back</div>
+          <div class="ps-item"><span class="ps-dot" style="background:#06b6d4"></span>Lead Reviewing Everything</div>
+          <div class="ps-item"><span class="ps-dot" style="background:#f97316"></span>Reschedule Meeting</div>
+          <div class="ps-item"><span class="ps-dot" style="background:#ef4444"></span>No Show</div>
+          <div class="ps-item"><span class="ps-dot" style="background:#10b981"></span>Meeting Booked</div>
+          <div class="ps-item"><span class="ps-dot" style="background:#c4a24a"></span>FNA</div>
+          <div class="ps-item"><span class="ps-dot" style="background:#10b981;box-shadow:0 0 8px rgba(16,185,129,.5)"></span>Sale</div>
+          <div class="ps-item"><span class="ps-dot" style="background:#6b7280"></span>Wrong Number</div>
+          <div class="ps-item"><span class="ps-dot" style="background:#374151"></span>Dead Lead</div>
+        </div>
+      </div>
+      <div class="pulse-pipeline-text">
+        <h4 class="pulse-pipeline-text-title">Proven by our team.<br>Optimized in the CRM.</h4>
+        <p class="pulse-pipeline-text-desc">This isn't a generic pipeline pulled from a Salesforce template. It's <strong>ours</strong> — tested with real brokers, on real leads, with real results. Every status exists because it improves the conversion rate.</p>
+        <p class="pulse-pipeline-text-desc">11 statuses. Not one more, not one less. From new lead to sale — or dead lead. The CRM knows exactly where every prospect stands, for how long, and what should happen next.</p>
+        <div class="tag-row">
+          <span class="pill-tag">11 proven statuses</span>
+          <span class="pill-tag gold">Field-tested pipeline</span>
+          <span class="pill-tag">Automated follow-up</span>
+          <span class="pill-tag gold">Smart reminders</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ ABF ════ -->
+<section class="abf-section" id="abf">
+  <div class="abf-header">
+    <div class="sec-label rx">FNA & AMF Compliance</div>
+    <h2 class="sec-title rx">We used to fill out FNAs by hand.<br><em>For hours.</em> Those days are over.</h2>
+    <p class="sec-sub rx">We forgot the explanatory letter every other file. We chased signatures. We lost 45 minutes per file. So we automated everything — AMF compliance from A to Z, signatures in 30 seconds, data synced across every module. And now the FNA includes an <strong>automated drawdown plan</strong> — built from the same information you've already entered. No more typing the same data 40 times.</p>
+  </div>
+
+  <div class="abf-carousel rx" id="abf-carousel"></div>
+
+  <!-- Comment l'ABF est construit -->
+  <div class="abf-steps" style="max-width:1300px;margin:90px auto 0">
+    <div style="text-align:center">
+      <div class="sec-label rx">How the FNA is built</div>
+      <h3 class="sec-title rx" style="font-size:clamp(30px,4vw,54px)">One entry.<br><em>Ten guided steps.</em></h3>
+      <p class="sec-sub rx">Each step feeds the next: a piece of data entered once flows into the needs analysis, the budget, tax at death and the opportunities. At the end, all that's left is to sign.</p>
+    </div>
+    <div class="opps-grid" style="margin-top:50px">
+      <div class="opp-card rx"><div class="opp-icon">👤</div><div class="opp-name">Contact &amp; family</div><div class="opp-desc">Identity, date of birth, sex, smoker status, marital status and dependent children. The spouse has their own record, with their own contracts.</div><span class="opp-tag">Step 1 · Client record</span></div>
+      <div class="opp-card rx"><div class="opp-icon">🏠</div><div class="opp-name">Address &amp; commitments</div><div class="opp-desc">Google Maps address lookup, then mortgage, rent, auto and home insurance. Renewal dates feed the future opportunities.</div><span class="opp-tag">Step 2 · Google Maps</span></div>
+      <div class="opp-card rx"><div class="opp-icon">💼</div><div class="opp-name">Employment &amp; income</div><div class="opp-desc">Type of employment, planned retirement age, and gross salary automatically converted to net income for every calculation that follows.</div><span class="opp-tag">Step 3 · Gross → net</span></div>
+      <div class="opp-card rx"><div class="opp-icon">💰</div><div class="opp-name">Assets &amp; liabilities</div><div class="opp-desc">Current assets, liabilities, owner and marginal rate. You also plan the accounts to open, with a target date and the account's purpose.</div><span class="opp-tag">Step 4 · Balance sheet</span></div>
+      <div class="opp-card rx"><div class="opp-icon">🛡️</div><div class="opp-name">Insurance in force</div><div class="opp-desc">Every policy with the insured, the carrier and the amount. A policy can be excluded from the needs calculation with a single click.</div><span class="opp-tag">Step 5 · Policies</span></div>
+      <div class="opp-card rx"><div class="opp-icon">🎯</div><div class="opp-name">Goals &amp; opportunities</div><div class="opp-desc">The client's goals become opportunities with a title, a target date and a next action. Nothing gets lost.</div><span class="opp-tag">Step 6 · Next action</span></div>
+      <div class="opp-card rx"><div class="opp-icon">📈</div><div class="opp-name">Retirement</div><div class="opp-desc">Asset projection, retirement income and tax impact, based on inflation, salary growth, life expectancy and RRSP contribution room.</div><span class="opp-tag">Step 7 · Projection</span></div>
+      <div class="opp-card rx"><div class="opp-icon">🎓</div><div class="opp-name">Savings projects</div><div class="opp-desc">Each project with its owner, account, target amount, monthly savings, initial amount and rate of return.</div><span class="opp-tag">Step 8 · Quantified goals</span></div>
+      <div class="opp-card rx"><div class="opp-icon">🧮</div><div class="opp-name">Insurance needs</div><div class="opp-desc">Life (income to replace, annuities for the spouse and children, funeral costs, inheritance), disability (income to protect, loan insurance) and critical illness in three plans.</div><span class="opp-tag">Step 9 · Life · Disability · CI</span></div>
+      <div class="opp-card rx"><div class="opp-icon">⚖️</div><div class="opp-name">Tax at death</div><div class="opp-desc">Capital gains and tax at death calculated from the data already entered, then built straight into the life insurance needs.</div><span class="opp-tag">Step 10 · Built into needs</span></div>
+      <div class="opp-card rx"><div class="opp-icon">🏢</div><div class="opp-name">Corporate FNA</div><div class="opp-desc">Profile and company, key people, finances, shareholders and agreement, goals, insurance, group benefits, trust, solo disability and analyses.</div><span class="opp-tag">Business edition</span></div>
+      <div class="opp-card rx"><div class="opp-icon">✍️</div><div class="opp-name">Export, compliance &amp; signature</div><div class="opp-desc">Recommendations generated, explanatory letter and notice ready, then sent for e-signature. The file is compliant from start to finish.</div><span class="opp-tag">30-second signature</span></div>
+    </div>
+  </div>
+
+  <!-- Preavis de remplacement — Section principale -->
+  <div class="preavis-layout" style="margin-top:80px">
+    <div class="rxl">
+      <div class="sec-label" style="justify-content:flex-start">Automated AMF compliance</div>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4vw,58px);font-weight:300;line-height:1.05;margin-bottom:22px">The replacement notice? <em style="font-style:italic;color:var(--g)">30 seconds.</em> Done.</h3>
+      <p style="font-size:15px;line-height:1.9;color:var(--cd);margin-bottom:18px">We were tired of filling out the same fields by hand on every file. Now the notice is <strong>filled in automatically</strong> — names, policies, amounts, reasons for replacement. The meeting transcript is built in, and the whole package goes out for <strong>e-signature</strong> in seconds.</p>
+      <p style="font-size:15px;line-height:1.9;color:var(--cd);margin-bottom:18px">The explanatory letter — the document that <strong style="color:var(--cr)">everyone forgets</strong> but that the AMF expects in every file — is generated and sent for signature automatically. Never a non-compliant file again.</p>
+      <p style="font-size:15px;line-height:1.9;color:var(--cd);margin-bottom:18px">And once it's signed? The notice is <strong>sent automatically to both insurers</strong> — the old one and the new one. No more hunting for "what's Beneva's compliance email again?" FINOX knows <strong style="color:var(--g)">every address for every carrier</strong>. You sign, we handle the rest.</p>
+      <p style="font-size:15px;line-height:1.9;color:var(--cd);margin-bottom:26px">What used to take <strong>45 minutes per file</strong> now takes a few clicks. You focus on the client. The paperwork is handled.</p>
+      <div class="tag-row">
+        <span class="pill-tag gold">Auto-filled notice</span>
+        <span class="pill-tag gold">30-second signature</span>
+        <span class="pill-tag">100% AMF compliant</span>
+        <span class="pill-tag gold">Built-in transcript</span>
+        <span class="pill-tag">Automatic explanatory letter</span>
+        <span class="pill-tag gold">Auto-sent to both insurers</span>
+      </div>
+    </div>
+    <div class="rxr">
+      <div class="preavis-form-wrap">
+        <div class="preavis-form" id="preavis-form">
+
+          <!-- N° du préavis -->
+          <div class="pf-num">Notice no.: <span id="pf-num-val"></span></div>
+
+          <!-- PARTIE 1 header -->
+          <div class="pf-partie-header">PART 1 – General information (continued)</div>
+
+          <!-- Contrats remplacés -->
+          <table class="pf-table">
+            <tr>
+              <td class="pf-lbl-tall" rowspan="3"><strong>Replaced contracts</strong><br><span class="pf-sub">List all insurance contracts replaced by the proposed contract</span></td>
+              <td class="pf-col-header">Policy no.</td>
+              <td class="pf-col-header">Effective date</td>
+            </tr>
+            <tr>
+              <td class="pf-val" id="pf-police1"></td>
+              <td class="pf-val"><span id="pf-date-vigueur1"></span><div class="pf-date-hint">Day&nbsp;&nbsp;&nbsp;Month&nbsp;&nbsp;&nbsp;Year</div></td>
+            </tr>
+            <tr>
+              <td class="pf-val" id="pf-police2"></td>
+              <td class="pf-val"><span id="pf-date-vigueur2"></span><div class="pf-date-hint">Day&nbsp;&nbsp;&nbsp;Month&nbsp;&nbsp;&nbsp;Year</div></td>
+            </tr>
+          </table>
+
+          <!-- Contrat d'assurance — header row -->
+          <table class="pf-table pf-mt">
+            <tr class="pf-subheader">
+              <td class="pf-col-label">Insurance contract</td>
+              <td class="pf-col-mid">Current</td>
+              <td class="pf-col-mid">Proposed</td>
+            </tr>
+            <!-- Nom de l'assureur -->
+            <tr>
+              <td class="pf-row-label"><strong>Insurer name</strong></td>
+              <td class="pf-val" id="pf-assureur-actuel"></td>
+              <td class="pf-val" id="pf-assureur-propose"></td>
+            </tr>
+            <!-- Nature de l'assurance -->
+            <tr>
+              <td class="pf-row-label"><strong>Type of insurance</strong><br><span class="pf-sub">Life, critical illness, disability, etc. (specify the type: term, permanent, universal life, etc.)</span><br><span class="pf-sub">If joint, payable on:</span></td>
+              <td class="pf-val"><span id="pf-nature-actuel"></span><div class="pf-deces-row"><span class="pf-sub">1<sup>st</sup>&nbsp;<span class="pf-checkbox"></span>&nbsp;&nbsp;2<sup>e</sup>&nbsp;<span class="pf-checkbox"></span>&nbsp;death</span></div></td>
+              <td class="pf-val"><span id="pf-nature-propose"></span><div class="pf-deces-row"><span class="pf-sub">1<sup>st</sup>&nbsp;<span class="pf-checkbox"></span>&nbsp;&nbsp;2<sup>e</sup>&nbsp;<span class="pf-checkbox"></span>&nbsp;death</span></div></td>
+            </tr>
+            <!-- Date d'entrée en vigueur -->
+            <tr>
+              <td class="pf-row-label"><strong>Effective date</strong></td>
+              <td class="pf-val"><span id="pf-date-actuel"></span><div class="pf-date-hint">Day&nbsp;&nbsp;&nbsp;Month&nbsp;&nbsp;&nbsp;Year</div></td>
+              <td class="pf-val" id="pf-date-propose"></td>
+            </tr>
+            <!-- Spacer row -->
+            <tr class="pf-spacer-row">
+              <td></td><td></td><td></td>
+            </tr>
+            <!-- Montant de prestation -->
+            <tr>
+              <td class="pf-row-label"><strong>Benefit amount</strong><br><span class="pf-sub">Amount paid when the covered risk occurs</span><br><span class="pf-sub">• List the amount(s).</span></td>
+              <td class="pf-val" id="pf-prestation-actuel"></td>
+              <td class="pf-val" id="pf-prestation-propose"></td>
+            </tr>
+            <!-- Montant de la prime annuelle -->
+            <tr>
+              <td class="pf-row-label"><strong>Annual premium amount</strong></td>
+              <td class="pf-val" id="pf-prime-actuel"></td>
+              <td class="pf-val" id="pf-prime-propose"></td>
+            </tr>
+            <!-- Période d'indemnisation / Délai de carence -->
+            <tr>
+              <td class="pf-row-label"><strong>Benefit period / Elimination period</strong></td>
+              <td class="pf-val"></td>
+              <td class="pf-val"></td>
+            </tr>
+          </table>
+
+          <!-- Commentaires -->
+          <table class="pf-table pf-mt">
+            <tr>
+              <td class="pf-row-label pf-comment-label">
+                <strong>Comments</strong><br>
+                <span class="pf-sub">This section is used to complete the information entered above. Indicate in particular whether the benefit and premium amounts shown above are fixed, guaranteed or not, premiums payable over 10 years, to a specific age, etc.</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="pf-comment-cell" id="pf-comment"></td>
+            </tr>
+          </table>
+
+          <!-- CURSOR -->
+          <div class="pf-cursor" id="pf-cursor"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ════════════════════════════════════════════ IA ════ -->
+<section class="ai-section" id="ai">
+  <div style="text-align:center;max-width:1300px;margin:0 auto">
+    <div class="sec-label rx">Artificial Intelligence</div>
+    <h2 class="sec-title purple rx">We spent our days doing admin.<br><em>AI handles it</em> now.</h2>
+    <p class="sec-sub rx">FINOX AI is plugged into everything — client files, emails, Agenz, calendar. It reads your emails, updates files, creates tasks and alerts you when it really matters. Repetitive work? It's no longer your problem.</p>
+  </div>
+  <div class="ai-layout">
+    <div class="rxl">
+      <div class="ai-chat-box">
+        <div class="ai-chat-top">
+          <div class="ai-bot-av">🤖</div>
+          <div><div class="ai-bot-name">FINOX AI Assistant</div><div class="ai-bot-stat">Connected · 147 files · RingCentral · Gmail · Agenz</div></div>
+        </div>
+        <div class="ai-messages">
+          <div class="ai-msg is-ai"><div class="ai-msg-avatar">🤖</div><div class="ai-bubble"><strong>AI — Automatic update</strong>I received an email from Agenz about Jacques Bergeron. His policy #MT-4821 was approved standard. I updated his file, changed the pipeline status from "Underwriting" to "In force" and created a follow-up reminder for 3 months from now.</div></div>
+          <div class="ai-msg is-user"><div class="ai-msg-avatar">DL</div><div class="ai-bubble">Perfect. Send him a congratulations message and set up the next appointment in 6 months.</div></div>
+          <div class="ai-msg is-ai"><div class="ai-msg-avatar">🤖</div><div class="ai-bubble"><strong>AI — 4 actions completed</strong>✓ SMS sent via RingCentral<br>✓ Appointment created — August 21, 2025, 10:00 AM<br>✓ Future opportunity added — Mortgage renewal March 2027<br>✓ Vital Pulse updated — 75 → 84 (+9 pts)</div></div>
+          <div class="ai-msg is-ai"><div class="ai-msg-avatar">🤖</div><div class="ai-bubble"><strong>AI — Proactive analysis</strong>Sophie Roy hasn't been contacted in 18 days. Her Vital Pulse dropped from 72 to 58. I suggest a call this week — she has a mortgage to renew in March.<div class="ai-typing-dots"><span></span><span></span><span></span></div></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="rxr">
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(34px,4.2vw,62px);font-weight:300;line-height:1.04;margin-bottom:22px">You may need <em style="font-style:italic;color:var(--purple)">an AI</em> more than an assistant</h2>
+      <p style="font-size:15px;line-height:1.9;color:var(--cd);margin-bottom:18px">The AI knows everything about your clients — underwriting stage, file notes, upcoming meetings, previous communications. It reads your emails, updates files automatically and generates contextual replies. You don't even need to ask.</p>
+      <p style="font-size:15px;line-height:1.9;color:var(--cd);margin-bottom:24px">It automatically creates 20% of critical tasks and handles the remaining 80% of admin — without ever distracting you with pointless notifications. We built it to work quietly, like the best assistant you've ever had.</p>
+      <div class="ai-bullets">
+        <div class="ai-bullet"><div class="ai-bullet-icon">📧</div><div class="ai-bullet-text"><h4>Email reading & processing</h4><p>Connected to Gmail, the AI reads emails from Agenz and insurance carriers and updates files automatically — approvals, declines, policy changes.</p></div></div>
+        <div class="ai-bullet"><div class="ai-bullet-icon">🎯</div><div class="ai-bullet-text"><h4>Automatic task creation</h4><p>The AI automatically creates 20% of critical tasks and notifies the advisor, handling the remaining 80% of admin — without ever distracting you.</p></div></div>
+        <div class="ai-bullet"><div class="ai-bullet-icon">💬</div><div class="ai-bullet-text"><h4>Smart contextual replies</h4><p>Generates automatic client replies based on the entire file — underwriting stage, notes, upcoming meetings, previous communications.</p></div></div>
+        <div class="ai-bullet"><div class="ai-bullet-icon">📊</div><div class="ai-bullet-text"><h4>Proactive portfolio analysis</h4><p>Continuously monitors Vital Pulse scores, future opportunities and renewals, and alerts the advisor to clients who need immediate attention.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════ COMMUNICATION HUB ═════ -->
+<section class="comm-section" id="comm">
+  <div style="max-width:1300px;margin:0 auto;text-align:center">
+    <div class="sec-label rx">Communication hub</div>
+    <h2 class="sec-title blue rx">We juggled 4 apps <em>just to talk to our clients.</em><br>That's over.</h2>
+    <p class="sec-sub rx">SMS in one app, emails in another, calls somewhere else, calendar in a fourth. We'd had enough. Now it's a single hub — RingCentral for telephony and SMS, Google Workspace for email, synced calendar — all built into each client's file.</p>
+  </div>
+  <div class="comm-layout">
+    <div class="comm-features rxl">
+      <div class="comm-feat"><div class="comm-feat-icon">📞</div><div class="comm-feat-text"><h4>Built-in RingCentral telephony</h4><p>Call from the client record in one click. Automatic recordings, AI transcriptions and notes linked instantly to the file. Complete history of every call with duration and summary.</p></div></div>
+      <div class="comm-feat"><div class="comm-feat-icon">💬</div><div class="comm-feat-text"><h4>Two-way SMS from the file</h4><p>Send and receive SMS directly from the client record via RingCentral. Automated SMS sequences for D+1, D+3, D+7 follow-ups. Every conversation in one place.</p></div></div>
+      <div class="comm-feat"><div class="comm-feat-icon">✉️</div><div class="comm-feat-text"><h4>Google Workspace · Built-in Gmail</h4><p>Google Workspace suite included with the CRM. Gmail synced with the client file — every email is automatically linked to the right contact. The AI processes incoming emails and updates files.</p></div></div>
+      <div class="comm-feat"><div class="comm-feat-icon">📅</div><div class="comm-feat-text"><h4>Built-in calendar — Google Calendar sync</h4><p>Custom in-house calendar tailored to each meeting type, synced in real time with Google Calendar. The client picks a slot and everything syncs to your calendar automatically.</p></div></div>
+      <div class="comm-feat"><div class="comm-feat-icon">🔔</div><div class="comm-feat-text"><h4>Custom no-code workflows</h4><p>Build automated sequences for everything — pre-meeting reminders, birthday emails, renewal follow-ups, prospect nudges, post-sale sequences. In a few clicks.</p></div></div>
+    </div>
+    <div class="rxr">
+      <div class="comm-inbox-box">
+        <div class="comm-tabs-row">
+          <div class="comm-tab active">📧 Gmail</div>
+          <div class="comm-tab">💬 SMS</div>
+          <div class="comm-tab">📞 Calls</div>
+        </div>
+        <div class="inbox-list">
+          <div class="inbox-item unread"><div class="inbox-avatar">AG</div><div class="inbox-info"><div class="inbox-from">Agenz — Carrier A <span>now</span></div><div class="inbox-preview">Policy #MT-4821 — Approved standard · Issue expected Feb 25, 2025</div><span class="inbox-badge ibadge-gn">✓ AI updated JB's file automatically</span></div></div>
+          <div class="inbox-item"><div class="inbox-avatar">MT</div><div class="inbox-info"><div class="inbox-from">Marie Tremblay <span>14:22</span></div><div class="inbox-preview">Hello, I'd like more information on critical illness coverage for my spouse too</div><span class="inbox-badge ibadge-bl">AI — Reply drafted · Awaiting approval</span></div></div>
+          <div class="inbox-item"><div class="inbox-avatar">SR</div><div class="inbox-info"><div class="inbox-from">Sophie Roy <span>yesterday</span></div><div class="inbox-preview">My mortgage comes up for renewal in March, I'd like us to meet</div><span class="inbox-badge ibadge-or">AI — Opportunity created · Renewal March 2025</span></div></div>
+          <div class="inbox-item"><div class="inbox-avatar">PG</div><div class="inbox-info"><div class="inbox-from">Pierre Gagné <span>Monday</span></div><div class="inbox-preview">Following our meeting, I confirm I want to proceed with plan 2</div><span class="inbox-badge ibadge-gn">✓ FNA completed · Ready for submission</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Showcase Planification Rencontre ── -->
+  <div class="sched-showcase-wrap">
+    <div class="sched-showcase-text">
+      <h3 class="sched-showcase-title">Scheduling a meeting?<br><em>5 clicks. That's it.</em></h3>
+      <p class="sched-showcase-desc">We wanted a calendar that doesn't look like a government form. Select the date, the time, the meeting type — and the client automatically receives their email invitation. Synced with Google Calendar in real time.</p>
+      <div class="sched-steps-list">
+        <div class="sched-step-item" data-step="0"><span class="sched-step-num">1</span><span>Click the calendar icon</span></div>
+        <div class="sched-step-item" data-step="1"><span class="sched-step-num">2</span><span>Select the day</span></div>
+        <div class="sched-step-item" data-step="2"><span class="sched-step-num">3</span><span>Choose the time</span></div>
+        <div class="sched-step-item" data-step="3"><span class="sched-step-num">4</span><span>Select the meeting type</span></div>
+        <div class="sched-step-item" data-step="4"><span class="sched-step-num">5</span><span>Confirm — email sent automatically</span></div>
+      </div>
+      <div class="tag-row" style="margin-top:24px">
+        <span class="pill-tag blue">Google Calendar sync</span>
+        <span class="pill-tag gold">Auto email to client</span>
+        <span class="pill-tag blue">Auto SMS reminder</span>
+        <span class="pill-tag">Built-in Google Meet</span>
+      </div>
+    </div>
+    <div class="sched-showcase-demo">
+      <div class="sched-phone" id="sched-phone">
+
+        <!-- Google Calendar interface — unified view -->
+        <div class="gcal-interface">
+          <!-- Top bar -->
+          <div class="gcal-topbar">
+            <span class="gcal-topbar-title">📅 Schedule a meeting</span>
+            <span class="gcal-topbar-client">Jacques Bergeron</span>
+          </div>
+
+          <!-- Main split: calendar + time slots -->
+          <div class="gcal-body">
+            <!-- Left: Calendar grid -->
+            <div class="gcal-left">
+              <div class="gcal-month-nav">
+                <span class="gcal-arrow">‹</span>
+                <span class="gcal-month-name">March 2026</span>
+                <span class="gcal-arrow">›</span>
+              </div>
+              <div class="gcal-days-grid">
+                <span class="gcal-dh">S</span><span class="gcal-dh">M</span><span class="gcal-dh">T</span><span class="gcal-dh">W</span><span class="gcal-dh">T</span><span class="gcal-dh">F</span><span class="gcal-dh">S</span>
+                <span class="gcal-d e"></span><span class="gcal-d e"></span><span class="gcal-d e"></span><span class="gcal-d e"></span><span class="gcal-d e"></span><span class="gcal-d e"></span><span class="gcal-d">1</span>
+                <span class="gcal-d">2</span><span class="gcal-d">3</span><span class="gcal-d">4</span><span class="gcal-d">5</span><span class="gcal-d">6</span><span class="gcal-d">7</span><span class="gcal-d">8</span>
+                <span class="gcal-d">9</span><span class="gcal-d target" id="gcal-day-10">10</span><span class="gcal-d">11</span><span class="gcal-d">12</span><span class="gcal-d">13</span><span class="gcal-d">14</span><span class="gcal-d">15</span>
+                <span class="gcal-d">16</span><span class="gcal-d">17</span><span class="gcal-d">18</span><span class="gcal-d">19</span><span class="gcal-d">20</span><span class="gcal-d">21</span><span class="gcal-d">22</span>
+                <span class="gcal-d">23</span><span class="gcal-d">24</span><span class="gcal-d">25</span><span class="gcal-d">26</span><span class="gcal-d">27</span><span class="gcal-d">28</span><span class="gcal-d">29</span>
+                <span class="gcal-d">30</span><span class="gcal-d">31</span>
+              </div>
+              <div class="gcal-selected-date" id="gcal-selected-label"></div>
+            </div>
+
+            <!-- Right: Time slots -->
+            <div class="gcal-right">
+              <div class="gcal-right-head">Tuesday, March 10</div>
+              <div class="gcal-slots" id="gcal-slots">
+                <div class="gcal-slot"><span class="gcal-slot-time">09:00</span><span class="gcal-slot-bar dispo"></span><span class="gcal-slot-tag dispo">Available</span></div>
+                <div class="gcal-slot"><span class="gcal-slot-time">09:30</span><span class="gcal-slot-bar dispo"></span><span class="gcal-slot-tag dispo">Available</span></div>
+                <div class="gcal-slot"><span class="gcal-slot-time">10:00</span><span class="gcal-slot-bar dispo"></span><span class="gcal-slot-tag dispo">Available</span></div>
+                <div class="gcal-slot"><span class="gcal-slot-time">10:30</span><span class="gcal-slot-bar dispo"></span><span class="gcal-slot-tag dispo">Available</span></div>
+                <div class="gcal-slot"><span class="gcal-slot-time">11:00</span><span class="gcal-slot-bar busy"></span><span class="gcal-slot-tag busy">Busy</span></div>
+                <div class="gcal-slot"><span class="gcal-slot-time">11:30</span><span class="gcal-slot-bar busy"></span><span class="gcal-slot-tag busy">Busy</span></div>
+                <div class="gcal-slot target" id="gcal-slot-12"><span class="gcal-slot-time">12:00</span><span class="gcal-slot-bar dispo"></span><span class="gcal-slot-tag dispo">Available</span></div>
+                <div class="gcal-slot"><span class="gcal-slot-time">13:00</span><span class="gcal-slot-bar dispo"></span><span class="gcal-slot-tag dispo">Available</span></div>
+                <div class="gcal-slot"><span class="gcal-slot-time">14:00</span><span class="gcal-slot-bar dispo"></span><span class="gcal-slot-tag dispo">Available</span></div>
+                <div class="gcal-slot"><span class="gcal-slot-time">14:30</span><span class="gcal-slot-bar dispo"></span><span class="gcal-slot-tag dispo">Available</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom: RDV types (two columns) -->
+          <div class="gcal-rdv-section" id="gcal-rdv">
+            <div class="gcal-rdv-head">Meeting type</div>
+            <div class="gcal-rdv-cols">
+              <div class="gcal-rdv-col">
+                <div class="gcal-rdv-col-title">📞 Calls</div>
+                <div class="gcal-rdv-item" data-type="call">Life insurance comparison</div>
+                <div class="gcal-rdv-item" data-type="call">Mortgage insurance comparison</div>
+                <div class="gcal-rdv-item target" id="gcal-rdv-target" data-type="call">Disability insurance comparison</div>
+                <div class="gcal-rdv-item" data-type="call">Health qualification / MG</div>
+                <div class="gcal-rdv-item" data-type="call">Existing client follow-up</div>
+              </div>
+              <div class="gcal-rdv-col">
+                <div class="gcal-rdv-col-title">🤝 Meetings</div>
+                <div class="gcal-rdv-item" data-type="meet">Complete FNA presentation</div>
+                <div class="gcal-rdv-item" data-type="meet">Investment meeting</div>
+                <div class="gcal-rdv-item" data-type="meet">Estate planning</div>
+                <div class="gcal-rdv-item" data-type="meet">Document signing</div>
+                <div class="gcal-rdv-item" data-type="meet">Corporation — analysis</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Confirm overlay -->
+          <div class="gcal-confirm-overlay" id="gcal-confirm">
+            <div class="gcal-confirm-box">
+              <div class="gcal-confirm-title">Call — Disability insurance comparison</div>
+              <div class="gcal-confirm-info">
+                <div class="gcal-cf-row"><span>Client</span><span>Jacques Bergeron</span></div>
+                <div class="gcal-cf-row"><span>Date</span><span>Tuesday, March 10, 2026</span></div>
+                <div class="gcal-cf-row"><span>Time</span><span>12:00 — 12:30</span></div>
+                <div class="gcal-cf-row"><span>Term</span><span>30 minutes</span></div>
+              </div>
+              <div class="gcal-cf-opts">
+                <div class="gcal-cf-opt"><span class="gcal-ck on">✓</span>Email invitation to client</div>
+                <div class="gcal-cf-opt"><span class="gcal-ck on">✓</span>SMS reminder 1 hour before</div>
+                <div class="gcal-cf-opt"><span class="gcal-ck">✓</span>Google Meet link</div>
+              </div>
+              <div class="gcal-cf-btn" id="gcal-cf-btn">Confirm meeting</div>
+            </div>
+          </div>
+
+          <!-- Success overlay -->
+          <div class="gcal-success-overlay" id="gcal-success">
+            <div class="gcal-success-box">
+              <div class="gcal-success-ic">✅</div>
+              <div class="gcal-success-t">Meeting confirmed!</div>
+              <div class="gcal-success-sub">Tuesday, March 10, 2026 · 12:00 PM</div>
+              <div class="gcal-success-msgs">
+                <div class="gcal-success-msg" data-i="0"><span>📧</span>Invitation sent to jacques.bergeron@gmail.com</div>
+                <div class="gcal-success-msg" data-i="1"><span>📅</span>Added to Google Calendar</div>
+                <div class="gcal-success-msg" data-i="2"><span>💬</span>SMS reminder scheduled — March 10, 11:00 AM</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA fin de catégorie Automatisation -->
+<div class="section-cta-row" style="background:var(--ink)">
+  <button class="btn-gold btn-gold-lg" onclick="openWaitlistModal()"><div class="btn-shine"></div>Reserve my spot →</button>
+</div>
+
+<!-- ══════════════════════════════════ TIMELINE ════════ -->
+<section class="timeline-section" id="timeline">
+  <div style="max-width:1300px;margin:0 auto;text-align:center">
+    <div class="sec-label rx">Client timeline</div>
+    <h2 class="sec-title rx">"When was the last call?"<br><em>We were always asking ourselves.</em> Never again.</h2>
+    <p class="sec-sub rx">Notes, calls, SMS, emails, meetings, signatures, opportunities — everything on a single timeline. You know exactly where you stand with every client, at a glance.</p>
+  </div>
+  <div class="tl-wrap rx">
+    <div class="tl-top">
+      <div><div class="tl-top-name">Jacques Bergeron — Complete timeline</div><div class="tl-top-sub">47 interactions · Since Jan 12, 2024</div></div>
+      <div class="tl-filters">
+        <div class="tl-filter active">All</div>
+        <div class="tl-filter">Notes</div>
+        <div class="tl-filter">Insurance</div>
+        <div class="tl-filter">Calls</div>
+        <div class="tl-filter">Future</div>
+      </div>
+    </div>
+    <div class="tl-body">
+      <div class="tl-event"><div class="tl-event-icon tl-icon-sign">✍️</div><div class="tl-event-body"><div class="tl-event-title">Signature received — AMF replacement notice <span class="tag-opp">Compliance</span></div><div class="tl-event-desc">Replacement notice signed via DocuSign and explanatory letter signed via Finox Sign. Whole life policy $750k approved. AMF file 100% compliant.</div><div class="tl-event-time">Today · 2:32 PM · Finox Sign</div></div></div>
+      <div class="tl-event"><div class="tl-event-icon tl-icon-email">✉️</div><div class="tl-event-body"><div class="tl-event-title">Agenz email received — Policy approved <span class="tag-opp">AI auto-updated</span></div><div class="tl-event-desc">Policy MT-4821 approved standard. The AI updated the file, changed the pipeline status and created the follow-up tasks automatically.</div><div class="tl-event-time">Today · 1:15 PM · Gmail AI</div></div></div>
+      <div class="tl-event"><div class="tl-event-icon tl-icon-call">📞</div><div class="tl-event-body"><div class="tl-event-title">Call — Final FNA presentation</div><div class="tl-event-desc">45-minute meeting — full FNA presented, life needs $750k, disability $5,400/month accepted. Enthusiastic client, ready to proceed. AI transcript available.</div><div class="tl-event-time">Feb 19 · 10:00 AM · RingCentral · 45 min</div></div></div>
+      <div class="tl-event"><div class="tl-event-icon tl-icon-note">📝</div><div class="tl-event-body"><div class="tl-event-title">FNA completed — Financial needs analysis</div><div class="tl-event-desc">FNA fully completed. Net worth $1.2M. Life need $750k, disability $5,400/month, MG Peace-of-Mind plan. Corporation analyzed — shared-ownership MG proposal to prepare.</div><div class="tl-event-time">Feb 17 · Dany Lévesque</div></div></div>
+      <div class="tl-event"><div class="tl-event-icon tl-icon-future">🏠</div><div class="tl-event-body"><div class="tl-event-title">Future opportunity — Mortgage renewal <span class="tag-fut">Automated in 24 months</span></div><div class="tl-event-desc">$450k mortgage matures March 2027. Automatic reminder created — contact planned 3 months before maturity to prepare the analysis.</div><div class="tl-event-time">March 2027 · Auto reminder · FINOX AI</div></div></div>
+      <div class="tl-event"><div class="tl-event-icon tl-icon-opport">💼</div><div class="tl-event-body"><div class="tl-event-title">Future opportunity — Corporation · Shared-ownership MG <span class="tag-fut">Q3 2025</span></div><div class="tl-event-desc">Shared-ownership MG proposal for Jacques's corporation to prepare. Meeting scheduled with his accountant for Q3 2025.</div><div class="tl-event-time">Sep 2025 · Meeting scheduled · Accountant confirmed</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════ OPPORTUNITÉS ══════════ -->
+<section class="opps-section" id="opps">
+  <div style="max-width:1300px;margin:0 auto;text-align:center">
+    <div class="sec-label rx">Future Opportunities module</div>
+    <h2 class="sec-title rx">We let sales slip by<br><em>without even noticing.</em></h2>
+    <p class="sec-sub rx">Mortgage renewals, life events, deferred contracts — we forgot them or found out too late. FINOX detects them automatically and reminds you at the right moment. Never a missed opportunity again.</p>
+  </div>
+  <div class="opps-grid">
+    <div class="opp-card rx"><div class="opp-icon">🏠</div><div class="opp-name">Mortgage renewals</div><div class="opp-desc">Automatic reminder 3–6 months before the renewal date to prepare the analysis and propose the right private mortgage coverage.</div><span class="opp-tag">Auto · 3 months before</span></div>
+    <div class="opp-card rx"><div class="opp-icon">🚗</div><div class="opp-name">Auto & home insurance</div><div class="opp-desc">Tracking of annual renewals and consolidation opportunities. Never let your clients renew without contacting you.</div><span class="opp-tag">Auto · Annual</span></div>
+    <div class="opp-card rx"><div class="opp-icon">📈</div><div class="opp-name">Investment meetings</div><div class="opp-desc">Automatic scheduling of portfolio review meetings based on your configured frequency and market changes.</div><span class="opp-tag">Per frequency</span></div>
+    <div class="opp-card rx"><div class="opp-icon">👶</div><div class="opp-name">Birth of a child</div><div class="opp-desc">Detection and reminder to add the child to the RESP, adjust life insurance and review family needs after a life event.</div><span class="opp-tag">Life event</span></div>
+    <div class="opp-card rx"><div class="opp-icon">📋</div><div class="opp-name">Deferred contracts — insurability</div><div class="opp-desc">Automatic tracking of clients waiting to become insurable. Reminder on the target date with all the information from the previous file.</div><span class="opp-tag">Auto target date</span></div>
+    <div class="opp-card rx"><div class="opp-icon">🤝</div><div class="opp-name">Referrals & recommendations</div><div class="opp-desc">Strategic reminders to ask high-Vital-Pulse clients for a referral. Full cycle management through to conversion.</div><span class="opp-tag">Pulse > 80</span></div>
+    <div class="opp-card rx"><div class="opp-icon">⚖️</div><div class="opp-name">Wills & estate planning</div><div class="opp-desc">Opportunities created automatically based on age, assets and family events. Reminders coordinated with notaries.</div><span class="opp-tag">Estate event</span></div>
+    <div class="opp-card rx"><div class="opp-icon">🏢</div><div class="opp-name">Corporate opportunities</div><div class="opp-desc">Corporate needs analysis updated automatically as income, assets and structure change. MG proposals suggested.</div><span class="opp-tag">Corporation auto</span></div>
+    <div class="opp-card rx"><div class="opp-icon">🔄</div><div class="opp-name">Cold lead follow-ups & win-backs</div><div class="opp-desc">Automated re-engagement sequences for unconverted leads. The AI suggests the best timing and the right message based on history.</div><span class="opp-tag">Predictive AI</span></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ CONFORMITÉ & DOCS ══════ -->
+<section class="conf-section" id="conf">
+  <div style="max-width:1300px;margin:0 auto;text-align:center;margin-bottom:65px">
+    <div class="sec-label rx">Documents & Compliance</div>
+    <h2 class="sec-title rx">We searched for files for 20 minutes.<br><em>Those days are over.</em></h2>
+    <p class="sec-sub rx">Files named "scan_001.pdf" scattered across Google Drive — we know the feeling. Now everything is renamed automatically to AMF standards, sent securely and e-signed. Compliant without thinking about it.</p>
+  </div>
+  <div class="conf-layout">
+    <div class="conf-list rxl">
+      <div class="conf-item"><div class="conf-ic">📁</div><div class="conf-tx"><h4>Document center for each client</h4><p>All of the client's documents centralized in their file, renamed automatically to AMF standards. Never another file named "scan_001.pdf" in your Drive.</p></div></div>
+      <div class="conf-item"><div class="conf-ic">📨</div><div class="conf-tx"><h4>Secure document requests</h4><p>Send a request directly to the client. They upload their files through a secure portal — no email, no privacy risk, with automatic confirmation.</p></div></div>
+      <div class="conf-item"><div class="conf-ic">🔒</div><div class="conf-tx"><h4>Secure password-protected sharing</h4><p>Share confidential documents through a password-protected link. Complete traceability — who accessed it, when, from which device.</p></div></div>
+      <div class="conf-item"><div class="conf-ic">✍️</div><div class="conf-tx"><h4>Finox Sign & DocuSign e-signature</h4><p>Full integration with Finox Sign (our in-house platform) for FNAs and explanatory letters, and DocuSign for replacement notices. Every signature linked directly to the file — perfect traceability for AMF audits.</p></div></div>
+      <div class="conf-item"><div class="conf-ic">🗂️</div><div class="conf-tx"><h4>AMF-compliant automatic renaming</h4><p>Every document renamed to the AMF naming convention — [Client]_[Date]_[Type]. No more Google Drive chaos, everything findable in 3 seconds.</p></div></div>
+    </div>
+    <div class="rxr">
+      <div class="doc-preview">
+        <div class="dp-header">
+          <div class="dp-icon">📄</div>
+          <div><div class="dp-title">FNA + Explanatory letter — Sent for signature</div><div class="dp-sub">3 documents · Finox Sign · Ready to sign</div></div>
+          <div class="dp-status">Awaiting signature</div>
+        </div>
+        <div class="dp-body">
+          <div class="dp-row"><div class="dp-lbl">Document 1</div><div class="dp-val">FNA_BergeronJacques_2025-02-21.pdf — Complete financial needs analysis</div></div>
+          <div class="dp-row"><div class="dp-lbl">Document 2</div><div class="dp-val">Replacement_Notice_BergeronJacques_2025-02-21.pdf — AMF required</div></div>
+          <div class="dp-row"><div class="dp-lbl">Document 3</div><div class="dp-val">Explanatory_Letter_BergeronJacques_2025-02-21.pdf — Auto-generated</div></div>
+          <div class="dp-row"><div class="dp-lbl">Sent via</div><div class="dp-val">Finox Sign + DocuSign · email to client · link valid 7 days</div></div>
+          <div class="dp-row"><div class="dp-lbl">Auto reminders</div><div class="dp-val">D+1 · D+3 · D+5 if unsigned — SMS + email</div></div>
+          <div class="sig-block">
+            <div class="sig-animated-line" id="sig-line-2"></div>
+            <div class="sig-confirm">⏳ Awaiting Jacques Bergeron's signature — Sent at 2:34 PM</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ GESTION CABINET ══════ -->
+<section class="cabinet-section" id="cabinet">
+  <div style="max-width:1300px;margin:0 auto;text-align:center;margin-bottom:65px">
+    <div class="sec-label rx">Firm management</div>
+    <h2 class="sec-title rx">We ran our firm on spreadsheets.<br><em>Not anymore.</em></h2>
+    <p class="sec-sub rx">Law 25 compliance, complaints register, team stats, sharing partnerships — it was all scattered across 10 tools. We centralized it in one place. Your entire firm, under control.</p>
+  </div>
+  <div class="cabinet-layout">
+    <div class="conf-list rxl">
+      <div class="conf-item"><div class="conf-ic">📜</div><div class="conf-tx"><h4>Disclosure notice & privacy policy</h4><p>Write and manage your disclosure notice and privacy policy right in the CRM. Automatically sent to every new client with electronic read confirmation.</p></div></div>
+      <div class="conf-item"><div class="conf-ic">📋</div><div class="conf-tx"><h4>Complaints Policy & Register</h4><p>Manage your complaint-handling policy and keep your register up to date — compliant with AMF requirements. Everything is centralized, traceable and audit-ready.</p></div></div>
+      <div class="conf-item"><div class="conf-ic">🔐</div><div class="conf-tx"><h4>Security Incident Register & DPO</h4><p>Keep your security incident register and identify your Data Protection Officer (DPO) right in the CRM. Law 25 compliant with no external tool.</p></div></div>
+      <div class="conf-item"><div class="conf-ic">📊</div><div class="conf-tx"><h4>Real-time team statistics</h4><p>Director view with performance statistics per advisor — premiums issued, conversion rate, average Vital Pulse, FNAs completed. Spot your strengths and coach your team.</p></div></div>
+      <div class="conf-item"><div class="conf-ic">👥</div><div class="conf-tx"><h4>Simplified team management</h4><p>Easily manage your team members — add, remove, per-module permissions. Each advisor has their own space, clients and reports, with granular director control.</p></div></div>
+    </div>
+    <div class="rxr">
+      <div class="cabinet-partnership-visual">
+        <div style="text-align:center;margin-bottom:30px">
+          <h3 style="font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3vw,42px);font-weight:300;line-height:1.08;margin-bottom:14px">Sharing partnerships —<br><em style="font-style:italic;color:var(--g)">in one click</em></h3>
+          <p style="font-size:14px;line-height:1.8;color:var(--cd)">We wanted the assistant to access several advisors' files without complex setup. One click. Done.</p>
+        </div>
+        <!-- Partnership diagram -->
+        <div class="partnership-diagram" id="partnership-diagram">
+          <svg viewBox="0 0 480 340" style="width:100%;display:block">
+            <defs>
+              <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="var(--gl)"/>
+                <stop offset="100%" stop-color="var(--g)"/>
+              </linearGradient>
+            </defs>
+            <!-- Dashed background lines (edge to edge) -->
+            <line x1="123" y1="153" x2="335" y2="69" stroke="rgba(196,162,74,.12)" stroke-width="1.5" stroke-dasharray="5 4"/>
+            <line x1="126" y1="170" x2="332" y2="170.01" stroke="rgba(196,162,74,.12)" stroke-width="1.5" stroke-dasharray="5 4"/>
+            <line x1="123" y1="187" x2="335" y2="271" stroke="rgba(196,162,74,.12)" stroke-width="1.5" stroke-dasharray="5 4"/>
+            <!-- Gold animated lines (edge to edge) -->
+            <line class="pline pline-1" x1="123" y1="153" x2="335" y2="69" stroke="url(#goldGrad)" stroke-width="2.5" stroke-linecap="round"/>
+            <line class="pline pline-2" x1="126" y1="170" x2="332" y2="170.01" stroke="url(#goldGrad)" stroke-width="2.5" stroke-linecap="round"/>
+            <line class="pline pline-3" x1="123" y1="187" x2="335" y2="271" stroke="url(#goldGrad)" stroke-width="2.5" stroke-linecap="round"/>
+            <!-- Adjointe circle (left) -->
+            <g class="partner-node" style="cursor:default">
+              <circle cx="80" cy="170" r="46" fill="#111114" stroke="rgba(196,162,74,.3)" stroke-width="2"/>
+              <circle cx="80" cy="170" r="46" fill="none" stroke="rgba(196,162,74,.06)" stroke-width="8"/>
+              <text x="80" y="166" text-anchor="middle" fill="var(--g)" font-size="13" font-family="Cabinet Grotesk,sans-serif" font-weight="700">Assistant</text>
+              <text x="80" y="181" text-anchor="middle" fill="var(--cd)" font-size="8" font-family="JetBrains Mono,monospace">Shared access</text>
+            </g>
+            <!-- Conseiller 1 (top right) -->
+            <g class="partner-node" style="cursor:default">
+              <circle cx="370" cy="55" r="40" fill="#111114" stroke="rgba(100,180,255,.25)" stroke-width="2"/>
+              <circle cx="370" cy="55" r="40" fill="none" stroke="rgba(100,180,255,.04)" stroke-width="6"/>
+              <text x="370" y="51" text-anchor="middle" fill="var(--blue)" font-size="11" font-family="Cabinet Grotesk,sans-serif" font-weight="600">Advisor 1</text>
+              <text x="370" y="65" text-anchor="middle" fill="var(--cd)" font-size="8" font-family="JetBrains Mono,monospace">147 clients</text>
+            </g>
+            <!-- Conseiller 2 (middle right) -->
+            <g class="partner-node" style="cursor:default">
+              <circle cx="370" cy="170" r="40" fill="#111114" stroke="rgba(100,180,255,.25)" stroke-width="2"/>
+              <circle cx="370" cy="170" r="40" fill="none" stroke="rgba(100,180,255,.04)" stroke-width="6"/>
+              <text x="370" y="166" text-anchor="middle" fill="var(--blue)" font-size="11" font-family="Cabinet Grotesk,sans-serif" font-weight="600">Advisor 2</text>
+              <text x="370" y="180" text-anchor="middle" fill="var(--cd)" font-size="8" font-family="JetBrains Mono,monospace">89 clients</text>
+            </g>
+            <!-- Conseiller 3 (bottom right) -->
+            <g class="partner-node" style="cursor:default">
+              <circle cx="370" cy="285" r="40" fill="#111114" stroke="rgba(100,180,255,.25)" stroke-width="2"/>
+              <circle cx="370" cy="285" r="40" fill="none" stroke="rgba(100,180,255,.04)" stroke-width="6"/>
+              <text x="370" y="281" text-anchor="middle" fill="var(--blue)" font-size="11" font-family="Cabinet Grotesk,sans-serif" font-weight="600">Advisor 3</text>
+              <text x="370" y="295" text-anchor="middle" fill="var(--cd)" font-size="8" font-family="JetBrains Mono,monospace">64 clients</text>
+            </g>
+          </svg>
+        </div>
+        <div class="tag-row" style="justify-content:center;margin-top:24px">
+          <span class="pill-tag gold">One-click sharing</span>
+          <span class="pill-tag">Granular permissions</span>
+          <span class="pill-tag blue">Multi-advisor</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tools-section comparator-hero" id="tools">
+  <div style="text-align:center;max-width:1300px;margin:0 auto">
+    <div class="sec-label rx">Insurance comparison tool</div>
+    <h2 class="sec-title rx">We were using an ugly comparison tool.<br><em>Those days are over.</em></h2>
+    <p class="sec-sub rx">LifeGuide, Compulife, WinQuote — we tried them all. 2000s interfaces, data that isn't always current, nothing tied into the client file. So we built our own. Every carrier in Quebec and Canada. One tool. Zero compromise.</p>
+  </div>
+
+  <!-- CTA invitation -->
+  <div class="comp-try-cta rx" style="margin-top:40px;margin-bottom:20px;text-align:center">
+    <p style="font-size:17px;color:var(--cd);line-height:1.7;max-width:700px;margin:0 auto">
+      <span style="font-size:22px">👇</span> <strong style="color:var(--g)">Try it yourself</strong> — Click <em>"Compare prices"</em> to see the comparison tool in action, in real time.
+    </p>
+  </div>
+
+  <div class="comp-frame rx" id="comp-frame">
+    <div class="comp-chrome">
+      <div class="chrome-dots">
+        <div class="chrome-dot" style="background:#FF5F57"></div>
+        <div class="chrome-dot" style="background:#FEBC2E"></div>
+        <div class="chrome-dot" style="background:#28C840"></div>
+      </div>
+      <div class="chrome-url">app.finox.ca/outils/comparateur</div>
+      <div class="comp-chrome-badge">Live · Connected to every carrier</div>
+    </div>
+    <div class="comp-body">
+      <!-- Interactive comparator demo -->
+      <div class="comp-demo" id="comp-demo">
+        <!-- Top bar -->
+        <div class="comp-demo-topbar">
+          <div class="comp-demo-topbar-title"><span>📊</span> Life Insurance Calculator</div>
+          <div class="comp-demo-topbar-actions">
+            <div class="comp-demo-action-btn">📄 Export PDF</div>
+            <div class="comp-demo-action-btn primary">💾 Save</div>
+          </div>
+        </div>
+
+        <div class="comp-demo-grid">
+          <!-- LEFT: Form inputs -->
+          <div class="comp-demo-left">
+            <div class="comp-demo-section-title">👤 Client Profile</div>
+
+            <div class="comp-demo-field">
+              <div class="comp-demo-label">Age nearest</div>
+              <div class="comp-demo-input">35</div>
+            </div>
+            <div class="comp-demo-field">
+              <div class="comp-demo-label">Sex</div>
+              <div class="comp-demo-input">Male <span class="comp-chevron">▾</span></div>
+            </div>
+            <div class="comp-demo-field">
+              <div class="comp-demo-label">Tobacco use</div>
+              <div class="comp-demo-input">Non-smoker <span class="comp-chevron">▾</span></div>
+            </div>
+
+            <div class="comp-demo-section-title" style="margin-top:18px">🔍 Search criteria</div>
+
+            <div class="comp-demo-field">
+              <div class="comp-demo-label">Coverage amount ($)</div>
+              <div class="comp-demo-input">250 000</div>
+            </div>
+            <div class="comp-demo-field">
+              <div class="comp-demo-label">Type of insurance</div>
+              <div class="comp-demo-input">Term <span class="comp-chevron">▾</span></div>
+            </div>
+            <div class="comp-demo-field">
+              <div class="comp-demo-label">Term</div>
+              <div class="comp-demo-input">20 years <span class="comp-chevron">▾</span></div>
+            </div>
+
+            <button class="comp-demo-btn" id="comp-demo-btn" onclick="runComparatorDemo()">
+              Compare prices 🔍
+            </button>
+          </div>
+
+          <!-- RIGHT: Results area -->
+          <div class="comp-demo-right" id="comp-demo-results">
+            <div class="comp-demo-empty">
+              <div style="font-size:42px;margin-bottom:12px">💰</div>
+              <div style="font-size:15px;font-weight:700;color:var(--cr);margin-bottom:6px">Ready to compare?</div>
+              <div style="font-size:12px;color:var(--cm)">Click "Compare prices" to see the results</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Description du comparateur -->
+  <div class="comp-desc-layout rx" style="margin-top:80px">
+    <div class="rxl">
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:clamp(30px,4vw,56px);font-weight:300;line-height:1.05;margin-bottom:22px">The only comparison tool <em style="font-style:italic;color:var(--g)">you'll ever need</em></h3>
+      <p style="font-size:15px;line-height:1.9;color:var(--cd);margin-bottom:18px">Connected to <strong style="color:var(--cr)">every carrier in Quebec and Canada</strong>. The interface is modern and clean — not a 90s DOS screen. Your clients will be impressed.</p>
+      <p style="font-size:15px;line-height:1.9;color:var(--cd);margin-bottom:18px">Decreasing term? Available. Joint first-to-die and last-to-die? Also there. And the FNA data — <strong style="color:var(--cr)">age nearest, sex, smoker status</strong> — is imported automatically. Zero re-entry.</p>
+      <p style="font-size:15px;line-height:1.9;color:var(--cd);margin-bottom:26px">Export to PDF, send to the client by secure email, or drop it straight into the FNA. All in a few clicks. We stopped wasting time — you can too.</p>
+      <div class="tag-row">
+        <span class="pill-tag gold">Every QC & Canada carrier</span>
+        <span class="pill-tag gold">FNA data auto-imported</span>
+        <span class="pill-tag">Decreasing term available</span>
+        <span class="pill-tag">Joint first & last death</span>
+        <span class="pill-tag gold">PDF export & client delivery</span>
+      </div>
+    </div>
+    <div class="rxr" style="display:flex;flex-direction:column;gap:14px">
+      <div class="comp-feature-card">
+        <div class="comp-feature-icon">🏢</div>
+        <div class="comp-feature-text">
+          <h4>Every insurer in Canada</h4>
+          <p>iA, Canada Life, Sun Life, Manulife, Desjardins, RBC, BMO, Empire, Beneva, UV, Humania, Assomption — all connected.</p>
+        </div>
+      </div>
+      <div class="comp-feature-card">
+        <div class="comp-feature-icon">⚡</div>
+        <div class="comp-feature-text">
+          <h4>Real-time results</h4>
+          <p>Rates are always current — synced directly with the carriers' rate tables. Zero delay.</p>
+        </div>
+      </div>
+      <div class="comp-feature-card">
+        <div class="comp-feature-icon">🔗</div>
+        <div class="comp-feature-text">
+          <h4>Built into the client file</h4>
+          <p>Select a product and it's added straight to the FNA file — premiums, coverage, everything is linked.</p>
+        </div>
+      </div>
+      <div class="comp-feature-card">
+        <div class="comp-feature-icon">📄</div>
+        <div class="comp-feature-text">
+          <h4>Professional PDF export</h4>
+          <p>Generate a polished PDF comparison to present to the client — with your logo and contact details.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ CALCULATEURS INDIVIDUELS ═════════ -->
+
+<!-- 02 — Assurance hypothécaire -->
+<section class="tool-individual-section" id="tool-hypo">
+  <div style="text-align:center;max-width:1300px;margin:0 auto 60px">
+    <div class="sec-label rx">Built-in calculator</div>
+    <h2 class="sec-title rx">The client thinks they pay $39/month.<br><em>The reality? $57.</em></h2>
+    <p class="sec-sub rx">We struggled to explain the true cost of bank insurance with words. Now we show it in black and white — numbers, charts, side-by-side comparison. The sale practically closes itself.</p>
+  </div>
+  <div class="calc-frame rx">
+    <div class="comp-chrome">
+      <div class="chrome-dots"><div class="chrome-dot" style="background:#FF5F57"></div><div class="chrome-dot" style="background:#FEBC2E"></div><div class="chrome-dot" style="background:#28C840"></div></div>
+      <div class="chrome-url">app.finox.ca/outils/hypothecaire</div>
+    </div>
+    <div class="calc-app">
+      <div class="calc-topbar">
+        <div class="calc-topbar-title"><span>🏠</span> Mortgage insurance calculator — True bank cost</div>
+      </div>
+      <div class="calc-body-grid">
+        <!-- Left column -->
+        <div class="calc-left">
+          <!-- Params du prêt -->
+          <div class="calc-card">
+            <div class="calc-card-title">Loan parameters</div>
+            <div class="calc-param-grid">
+              <div class="calc-param">
+                <div class="calc-param-label">Mortgage amount</div>
+                <div class="calc-param-value">$360,000</div>
+              </div>
+              <div class="calc-param">
+                <div class="calc-param-label">Loan term</div>
+                <div class="calc-param-value">5 years</div>
+              </div>
+              <div class="calc-param">
+                <div class="calc-param-label">Amortization</div>
+                <div class="calc-param-value">25 years</div>
+              </div>
+              <div class="calc-param">
+                <div class="calc-param-label">Rate WITHOUT insurance</div>
+                <div class="calc-param-value">4,39 %</div>
+              </div>
+              <div class="calc-param">
+                <div class="calc-param-label">Insurance premium</div>
+                <div class="calc-param-value calc-param-accent">0,20 %</div>
+              </div>
+              <div class="calc-param">
+                <div class="calc-param-label">Rate WITH insurance</div>
+                <div class="calc-param-value calc-param-red">4,59 %</div>
+              </div>
+            </div>
+          </div>
+          <!-- Comparison cards -->
+          <div class="hypo-compare-row">
+            <div class="hypo-compare-card hypo-green">
+              <div class="hypo-compare-badge">WITHOUT bank insurance</div>
+              <div class="hypo-compare-big">$1,956.80 <span>/mo</span></div>
+              <div class="hypo-compare-detail">
+                <div class="hypo-detail-row"><span>Rate</span><strong>4,39 %</strong></div>
+                <div class="hypo-detail-row"><span>Balance after 5 years</span><strong>$307,096</strong></div>
+              </div>
+            </div>
+            <div class="hypo-compare-card hypo-red">
+              <div class="hypo-compare-badge">WITH bank insurance</div>
+              <div class="hypo-compare-big">$1,996.03 <span>/mo</span></div>
+              <div class="hypo-compare-detail">
+                <div class="hypo-detail-row"><span>Rate</span><strong>4,59 %</strong></div>
+                <div class="hypo-detail-row"><span>Balance after 5 years</span><strong>$309,149</strong></div>
+              </div>
+            </div>
+          </div>
+          <!-- Ce que le client pense -->
+          <div class="calc-card">
+            <div class="calc-card-title">What the client thinks VS reality</div>
+            <div class="hypo-myth-row">
+              <div class="hypo-myth">
+                <div class="hypo-myth-label">TOTAL REAL cost</div>
+                <div class="hypo-myth-val hypo-val-red">$57.28/mo</div>
+              </div>
+              <div class="hypo-myth">
+                <div class="hypo-myth-label">What the client thinks they pay</div>
+                <div class="hypo-myth-val">$39.23/mo</div>
+              </div>
+              <div class="hypo-myth">
+                <div class="hypo-myth-label">Real cost vs. perception</div>
+                <div class="hypo-myth-val hypo-val-red">+46% more</div>
+              </div>
+            </div>
+          </div>
+          <!-- Décomposition -->
+          <div class="calc-card">
+            <div class="calc-card-title">Breakdown of the REAL cost</div>
+            <div class="hypo-decomp">
+              <div class="hypo-decomp-row"><span>FDCR cost (insurance portion)</span><strong>$39.23/mo</strong></div>
+              <div class="hypo-decomp-row"><span>FCDR cost (lost return)</span><strong>$18.05/mo</strong></div>
+              <div class="hypo-decomp-row hypo-decomp-total"><span>TOTAL REAL cost of bank insurance</span><strong>$57.28/mo</strong></div>
+            </div>
+          </div>
+        </div>
+        <!-- Right column -->
+        <div class="calc-right">
+          <div class="calc-card calc-card-highlight">
+            <div class="calc-card-title" style="color:var(--g)">REAL monthly cost</div>
+            <div class="calc-big-number">$57.28<span>/mo</span></div>
+            <div class="calc-big-sub">vs. what the client thinks they pay: $39.23/mo</div>
+            <div class="hypo-decomp" style="margin-top:16px">
+              <div class="hypo-decomp-row"><span>Per year</span><strong>$687</strong></div>
+              <div class="hypo-decomp-row"><span>Over the term (5 years)</span><strong>$3,437</strong></div>
+            </div>
+          </div>
+          <div class="calc-card">
+            <div class="calc-card-title">Comparison — Individual insurance</div>
+            <div class="hypo-vs-grid">
+              <div class="hypo-vs-item">
+                <div class="hypo-vs-label">Bank coverage</div>
+                <div class="hypo-vs-val hypo-val-red">Decreasing</div>
+              </div>
+              <div class="hypo-vs-item">
+                <div class="hypo-vs-label">Individual coverage</div>
+                <div class="hypo-vs-val hypo-val-green">Fixed</div>
+              </div>
+              <div class="hypo-vs-item">
+                <div class="hypo-vs-label">Assignable</div>
+                <div class="hypo-vs-val hypo-val-red">No</div>
+              </div>
+              <div class="hypo-vs-item">
+                <div class="hypo-vs-label">Assignable (individual)</div>
+                <div class="hypo-vs-val hypo-val-green">Yes</div>
+              </div>
+              <div class="hypo-vs-item">
+                <div class="hypo-vs-label">Beneficiary</div>
+                <div class="hypo-vs-val hypo-val-red">The bank</div>
+              </div>
+              <div class="hypo-vs-item">
+                <div class="hypo-vs-label">Beneficiary (individual)</div>
+                <div class="hypo-vs-val hypo-val-green">Your choice</div>
+              </div>
+            </div>
+          </div>
+          <div class="calc-card">
+            <div class="calc-card-title">Why private insurance wins</div>
+            <div class="hypo-reasons">
+              <div class="hypo-reason"><span class="hypo-reason-icon">✓</span>Fixed coverage — never decreases</div>
+              <div class="hypo-reason"><span class="hypo-reason-icon">✓</span>Transferable to another lender</div>
+              <div class="hypo-reason"><span class="hypo-reason-icon">✓</span>Convertible to permanent</div>
+              <div class="hypo-reason"><span class="hypo-reason-icon">✓</span>The beneficiary is your choice</div>
+              <div class="hypo-reason"><span class="hypo-reason-icon">✓</span>Real cost 3× lower</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 — Budget personnel -->
+<section class="tool-individual-section tool-alt" id="tool-budget">
+  <div style="text-align:center;max-width:1300px;margin:0 auto 60px">
+    <div class="sec-label rx">Built-in calculator</div>
+    <h2 class="sec-title rx">We wanted to see the client's savings capacity.<br><em>At a glance.</em></h2>
+    <p class="sec-sub rx">Detailed budget, financial ratios and automatic recommendations. The client sees clearly where they stand — and you know exactly what to propose. No more guesswork.</p>
+  </div>
+  <div class="calc-frame rx">
+    <div class="comp-chrome">
+      <div class="chrome-dots"><div class="chrome-dot" style="background:#FF5F57"></div><div class="chrome-dot" style="background:#FEBC2E"></div><div class="chrome-dot" style="background:#28C840"></div></div>
+      <div class="chrome-url">app.finox.ca/outils/budget</div>
+    </div>
+    <div class="calc-app">
+      <div class="calc-topbar">
+        <div class="calc-topbar-title"><span>💼</span> Personal Budget</div>
+        <div class="calc-topbar-sub">Complete income and expense analysis</div>
+      </div>
+      <!-- Summary KPIs -->
+      <div class="budget-kpi-row">
+        <div class="budget-kpi">
+          <div class="budget-kpi-label">Expenses</div>
+          <div class="budget-kpi-val" style="color:var(--red)">$2,850</div>
+        </div>
+        <div class="budget-kpi">
+          <div class="budget-kpi-label">Income</div>
+          <div class="budget-kpi-val" style="color:var(--green)">$11,327</div>
+        </div>
+        <div class="budget-kpi">
+          <div class="budget-kpi-label">Surplus</div>
+          <div class="budget-kpi-val" style="color:var(--g)">$8,477</div>
+        </div>
+        <div class="budget-kpi">
+          <div class="budget-kpi-label">Savings capacity</div>
+          <div class="budget-kpi-val" style="color:var(--green)">74,8 %</div>
+        </div>
+      </div>
+      <div class="calc-body-grid">
+        <!-- Left — categories -->
+        <div class="calc-left">
+          <div class="calc-card">
+            <div class="calc-card-title">Income and expense detail</div>
+            <div class="budget-cat-list">
+              <div class="budget-cat budget-cat-income">
+                <div class="budget-cat-icon" style="background:rgba(62,200,154,.12);color:var(--green)">💰</div>
+                <div class="budget-cat-info"><div class="budget-cat-name">Income</div></div>
+                <div class="budget-cat-amount" style="color:var(--green)">$11,327</div>
+              </div>
+              <div class="budget-cat">
+                <div class="budget-cat-icon" style="background:rgba(74,142,212,.12);color:var(--blue)">🏠</div>
+                <div class="budget-cat-info"><div class="budget-cat-name">Housing</div><div class="budget-cat-bar"><div class="budget-cat-fill" style="width:53%;background:var(--blue)"></div></div></div>
+                <div class="budget-cat-amount">$1,500</div>
+              </div>
+              <div class="budget-cat">
+                <div class="budget-cat-icon" style="background:rgba(138,106,228,.12);color:var(--purple)">🚗</div>
+                <div class="budget-cat-info"><div class="budget-cat-name">Transportation</div><div class="budget-cat-bar"><div class="budget-cat-fill" style="width:9%;background:var(--purple)"></div></div></div>
+                <div class="budget-cat-amount">$250</div>
+              </div>
+              <div class="budget-cat">
+                <div class="budget-cat-icon" style="background:rgba(212,130,74,.12);color:var(--orange)">🍔</div>
+                <div class="budget-cat-info"><div class="budget-cat-name">Food</div><div class="budget-cat-bar"><div class="budget-cat-fill" style="width:11%;background:var(--orange)"></div></div></div>
+                <div class="budget-cat-amount">$300</div>
+              </div>
+              <div class="budget-cat">
+                <div class="budget-cat-icon" style="background:rgba(196,162,74,.12);color:var(--g)">🛡️</div>
+                <div class="budget-cat-info"><div class="budget-cat-name">Personal insurance</div><div class="budget-cat-bar"><div class="budget-cat-fill" style="width:5%;background:var(--g)"></div></div></div>
+                <div class="budget-cat-amount">$150</div>
+              </div>
+              <div class="budget-cat">
+                <div class="budget-cat-icon" style="background:rgba(196,74,74,.12);color:var(--red)">🎮</div>
+                <div class="budget-cat-info"><div class="budget-cat-name">Leisure & Personal</div><div class="budget-cat-bar"><div class="budget-cat-fill" style="width:18%;background:var(--red)"></div></div></div>
+                <div class="budget-cat-amount">$500</div>
+              </div>
+              <div class="budget-cat">
+                <div class="budget-cat-icon" style="background:rgba(138,106,228,.12);color:var(--purple)">💳</div>
+                <div class="budget-cat-info"><div class="budget-cat-name">Debt repayment</div><div class="budget-cat-bar"><div class="budget-cat-fill" style="width:5%;background:var(--purple)"></div></div></div>
+                <div class="budget-cat-amount">$150</div>
+              </div>
+              <div class="budget-cat">
+                <div class="budget-cat-icon" style="background:rgba(62,200,154,.12);color:var(--green)">📈</div>
+                <div class="budget-cat-info"><div class="budget-cat-name">Savings & Investments</div><div class="budget-cat-bar"><div class="budget-cat-fill" style="width:0%;background:var(--green)"></div></div></div>
+                <div class="budget-cat-amount" style="color:var(--cm)">$0</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Right — ratios + recommandations -->
+        <div class="calc-right">
+          <div class="calc-card">
+            <div class="calc-card-title">Financial ratios</div>
+            <div class="budget-ratio-grid">
+              <div class="budget-ratio">
+                <div class="budget-ratio-label">Housing ratio</div>
+                <div class="budget-ratio-val" style="color:var(--green)">13 %</div>
+                <div class="budget-ratio-bar"><div class="budget-ratio-fill" style="width:13%;background:var(--green)"></div></div>
+                <div class="budget-ratio-note">Excellent — under the 32% threshold</div>
+              </div>
+              <div class="budget-ratio">
+                <div class="budget-ratio-label">Debt ratio</div>
+                <div class="budget-ratio-val" style="color:var(--green)">15 %</div>
+                <div class="budget-ratio-bar"><div class="budget-ratio-fill" style="width:15%;background:var(--green)"></div></div>
+                <div class="budget-ratio-note">Excellent — under the 40% threshold</div>
+              </div>
+              <div class="budget-ratio">
+                <div class="budget-ratio-label">Budgeted savings</div>
+                <div class="budget-ratio-val" style="color:var(--red)">0 %</div>
+                <div class="budget-ratio-bar"><div class="budget-ratio-fill" style="width:0%;background:var(--red)"></div></div>
+                <div class="budget-ratio-note">No savings budgeted — needs fixing</div>
+              </div>
+            </div>
+          </div>
+          <div class="calc-card calc-card-highlight">
+            <div class="calc-card-title" style="color:var(--g)">Recommendations</div>
+            <div class="budget-reco-list">
+              <div class="budget-reco"><span class="budget-reco-icon" style="color:var(--green)">✓</span><div><strong>Excellent management!</strong><br>Your expenses are well under control with a significant surplus.</div></div>
+              <div class="budget-reco"><span class="budget-reco-icon" style="color:var(--g)">💡</span><div><strong>Allocate your surplus</strong><br>$8,477/month of available surplus — allocate it to savings and investments.</div></div>
+              <div class="budget-reco"><span class="budget-reco-icon" style="color:var(--blue)">🛡️</span><div><strong>Emergency fund</strong><br>Aim for 3 to 6 months of expenses in an emergency fund ($8,550 – $17,100).</div></div>
+              <div class="budget-reco"><span class="budget-reco-icon" style="color:var(--purple)">📈</span><div><strong>Retirement planning</strong><br>With your savings capacity, maximize your RRSP and TFSA.</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 — REEE -->
+<section class="tool-individual-section" id="tool-reee">
+  <div style="text-align:center;max-width:1300px;margin:0 auto 60px">
+    <div class="sec-label rx">Built-in calculator</div>
+    <h2 class="sec-title rx">Parents want concrete numbers.<br><em>We give them.</em></h2>
+    <p class="sec-sub rx">Federal and provincial grants, return projections — all calculated automatically. The client sees how much they'll accumulate for their child's education. No generic brochure. Their real numbers.</p>
+  </div>
+  <div class="calc-frame rx">
+    <div class="comp-chrome">
+      <div class="chrome-dots"><div class="chrome-dot" style="background:#FF5F57"></div><div class="chrome-dot" style="background:#FEBC2E"></div><div class="chrome-dot" style="background:#28C840"></div></div>
+      <div class="chrome-url">app.finox.ca/outils/reee</div>
+    </div>
+    <div class="calc-app">
+      <div class="calc-topbar">
+        <div class="calc-topbar-title"><span>🎓</span> RESP Calculator</div>
+        <div class="calc-topbar-sub">Projections with CESG, QESI and CLB grants</div>
+      </div>
+      <div class="calc-body-grid">
+        <!-- Left — sliders/params -->
+        <div class="calc-left">
+          <div class="calc-card">
+            <div class="calc-card-title">Parameters</div>
+            <div class="reee-sliders">
+              <div class="reee-slider-group">
+                <div class="reee-slider-row"><span class="reee-slider-label">Child's age</span><span class="reee-slider-val">2 years</span></div>
+                <div class="reee-track"><div class="reee-fill" style="width:11%"></div><div class="reee-thumb" style="left:11%"></div></div>
+              </div>
+              <div class="reee-slider-group">
+                <div class="reee-slider-row"><span class="reee-slider-label">Monthly contribution</span><span class="reee-slider-val" style="color:var(--g)">$200</span></div>
+                <div class="reee-track"><div class="reee-fill" style="width:48%"></div><div class="reee-thumb" style="left:48%"></div></div>
+              </div>
+              <div class="reee-slider-group">
+                <div class="reee-slider-row"><span class="reee-slider-label">Net family income</span><span class="reee-slider-val">$50,000 – $100,000</span></div>
+                <div class="reee-track"><div class="reee-fill" style="width:55%"></div><div class="reee-thumb" style="left:55%"></div></div>
+              </div>
+              <div class="reee-slider-group">
+                <div class="reee-slider-row"><span class="reee-slider-label">Annual rate of return</span><span class="reee-slider-val">5,5 %</span></div>
+                <div class="reee-track"><div class="reee-fill" style="width:55%"></div><div class="reee-thumb" style="left:55%"></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="calc-card">
+            <div class="calc-card-title">Grant detail</div>
+            <div class="reee-subs-list">
+              <div class="reee-sub-row">
+                <div class="reee-sub-info"><span class="reee-sub-dot" style="background:var(--blue)"></span>CESG (federal)</div>
+                <div class="reee-sub-val" style="color:var(--blue)">$6,550</div>
+              </div>
+              <div class="reee-sub-row">
+                <div class="reee-sub-info"><span class="reee-sub-dot" style="background:var(--blue)"></span>Additional CESG</div>
+                <div class="reee-sub-val" style="color:var(--blue)">$750</div>
+              </div>
+              <div class="reee-sub-row">
+                <div class="reee-sub-info"><span class="reee-sub-dot" style="background:var(--purple)"></span>QESI (Quebec)</div>
+                <div class="reee-sub-val" style="color:var(--purple)">$3,275</div>
+              </div>
+              <div class="reee-sub-row">
+                <div class="reee-sub-info"><span class="reee-sub-dot" style="background:var(--purple)"></span>Additional QESI</div>
+                <div class="reee-sub-val" style="color:var(--purple)">$375</div>
+              </div>
+              <div class="reee-sub-row reee-sub-total">
+                <div class="reee-sub-info">Total grants</div>
+                <div class="reee-sub-val" style="color:var(--g)">$10,950</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Right — total + breakdown -->
+        <div class="calc-right">
+          <div class="calc-card calc-card-highlight" style="text-align:center">
+            <div class="calc-card-title" style="color:var(--g)">Estimated total value at 18 years</div>
+            <div class="calc-big-number">$74,411</div>
+            <!-- Donut SVG -->
+            <svg viewBox="0 0 140 140" width="160" height="160" style="margin:20px auto;display:block">
+              <circle cx="70" cy="70" r="54" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="16"/>
+              <circle cx="70" cy="70" r="54" fill="none" stroke="var(--g)" stroke-width="16" stroke-dasharray="339.3" stroke-dashoffset="175.3" transform="rotate(-90 70 70)" stroke-linecap="round"/>
+              <circle cx="70" cy="70" r="54" fill="none" stroke="var(--green)" stroke-width="16" stroke-dasharray="339.3" stroke-dashoffset="214.8" transform="rotate(77 70 70)" stroke-linecap="round"/>
+              <circle cx="70" cy="70" r="54" fill="none" stroke="var(--blue)" stroke-width="16" stroke-dasharray="339.3" stroke-dashoffset="289.4" transform="rotate(197 70 70)" stroke-linecap="round"/>
+            </svg>
+            <div class="reee-breakdown">
+              <div class="reee-break-item"><span class="reee-break-dot" style="background:var(--g)"></span><span>Your contributions</span><strong style="color:var(--g)">$36,000</strong></div>
+              <div class="reee-break-item"><span class="reee-break-dot" style="background:var(--blue)"></span><span>Gov. grants</span><strong style="color:var(--blue)">$10,950</strong></div>
+              <div class="reee-break-item"><span class="reee-break-dot" style="background:var(--green)"></span><span>Return</span><strong style="color:var(--green)">$27,461</strong></div>
+            </div>
+          </div>
+          <div class="calc-card" style="text-align:center">
+            <button class="calc-save-btn">Save scenario</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 — Propriété partagée -->
+<section class="tool-individual-section tool-alt" id="tool-mg">
+  <div style="text-align:center;max-width:1300px;margin:0 auto 60px">
+    <div class="sec-label rx">Built-in calculator</div>
+    <h2 class="sec-title rx">Shared-ownership MG,<br><em>simplified for the sale.</em></h2>
+    <p class="sec-sub rx">We struggled to explain the concept to business owners. Now the numbers speak for themselves — tax advantage, net return, direct comparison with a corporate investment. The client gets it in 30 seconds.</p>
+  </div>
+  <div class="calc-frame rx">
+    <div class="comp-chrome">
+      <div class="chrome-dots"><div class="chrome-dot" style="background:#FF5F57"></div><div class="chrome-dot" style="background:#FEBC2E"></div><div class="chrome-dot" style="background:#28C840"></div></div>
+      <div class="chrome-url">app.finox.ca/outils/propriete-partagee</div>
+    </div>
+    <div class="calc-app">
+      <div class="calc-topbar">
+        <div class="calc-topbar-title"><span>🏗️</span> MG Calculator — Shared Ownership</div>
+        <div class="calc-topbar-sub">AMG concept analysis for business owners</div>
+      </div>
+      <!-- KPI cards -->
+      <div class="ibl-kpi-row">
+        <div class="ibl-kpi">
+          <div class="ibl-kpi-label">MG protection</div>
+          <div class="ibl-kpi-val">$800,000</div>
+        </div>
+        <div class="ibl-kpi">
+          <div class="ibl-kpi-label">Total premium/yr</div>
+          <div class="ibl-kpi-val">$10,309</div>
+        </div>
+        <div class="ibl-kpi">
+          <div class="ibl-kpi-label">Net return after 15 years</div>
+          <div class="ibl-kpi-val" style="color:var(--green)">$129,166</div>
+        </div>
+        <div class="ibl-kpi">
+          <div class="ibl-kpi-label">Tax saved</div>
+          <div class="ibl-kpi-val" style="color:var(--g)">$92,992</div>
+        </div>
+      </div>
+      <div class="calc-body-grid">
+        <!-- Left — hypothèses -->
+        <div class="calc-left">
+          <div class="calc-card">
+            <div class="calc-card-title">Assumptions</div>
+            <div class="ibl-hypo-list">
+              <div class="ibl-hypo-section">Tax rates</div>
+              <div class="ibl-hypo-row"><span>Corporate marginal rate</span><strong>26,50 %</strong></div>
+              <div class="ibl-hypo-row"><span>Personal marginal rate</span><strong>53,31 %</strong></div>
+              <div class="ibl-hypo-section">Interest rates</div>
+              <div class="ibl-hypo-row"><span>Investment rate of return</span><strong>5,00 %</strong></div>
+              <div class="ibl-hypo-row"><span>Collateral loan rate</span><strong>4,50 %</strong></div>
+              <div class="ibl-hypo-section">MG parameters</div>
+              <div class="ibl-hypo-row"><span>Insured amount</span><strong>$800,000</strong></div>
+              <div class="ibl-hypo-row"><span>Total annual premium</span><strong>$10,309</strong></div>
+              <div class="ibl-hypo-row"><span>Analysis period</span><strong>15 years</strong></div>
+              <div class="ibl-hypo-row"><span>Corporate share of premium</span><strong>65 %</strong></div>
+            </div>
+          </div>
+        </div>
+        <!-- Right — résultats -->
+        <div class="calc-right">
+          <div class="calc-card">
+            <div class="calc-card-title">Concept results</div>
+            <div class="ibl-results-list">
+              <div class="ibl-hypo-section">Premium allocation</div>
+              <div class="ibl-hypo-row"><span>Corporate premium (65%)</span><strong>$6,701</strong></div>
+              <div class="ibl-hypo-row"><span>Personal premium (35%)</span><strong>$3,608</strong></div>
+              <div class="ibl-hypo-section">Return illustration — 15 years</div>
+              <div class="ibl-hypo-row"><span>Cash surrender value at 15 years</span><strong>$189,450</strong></div>
+              <div class="ibl-hypo-row"><span>Collateral loan repayment</span><strong>-$60,284</strong></div>
+              <div class="ibl-hypo-row ibl-hypo-highlight"><span>Net return to the insured</span><strong style="color:var(--green)">$129,166</strong></div>
+            </div>
+          </div>
+          <!-- Comparison -->
+          <div class="ibl-compare-row">
+            <div class="ibl-compare-card ibl-green">
+              <div class="ibl-compare-label">Shared AMG Concept</div>
+              <div class="ibl-compare-big">$129,166</div>
+            </div>
+            <div class="ibl-compare-vs">VS</div>
+            <div class="ibl-compare-card ibl-dim">
+              <div class="ibl-compare-label">Corporate investment</div>
+              <div class="ibl-compare-big">$103,751</div>
+            </div>
+          </div>
+          <div class="calc-card calc-card-highlight" style="text-align:center">
+            <div class="calc-card-title" style="color:var(--g)">Tax saved thanks to the AMG concept</div>
+            <div class="calc-big-number">$92,992</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA fin de catégorie Analyse -->
+<div class="section-cta-row" style="background:var(--s2)">
+  <button class="btn-gold btn-gold-lg" onclick="openWaitlistModal()"><div class="btn-shine"></div>Reserve my spot →</button>
+</div>
+
+<!-- ════════════════════════════ ET IL Y A PLUS ══════════ -->
+<section class="opps-section" id="more">
+  <div style="max-width:1300px;margin:0 auto;text-align:center">
+    <div class="sec-label rx">Everything else</div>
+    <h2 class="sec-title rx">And that's not all.<br><em>The rest of the CRM, too.</em></h2>
+    <p class="sec-sub rx">Smart inbox, tasks, investment and insurance portfolio, online booking, client import, partner network — every tool we used day to day is already inside.</p>
+  </div>
+  <div class="opps-grid">
+    <div class="opp-card rx"><div class="opp-icon">📥</div><div class="opp-name">AI inbox &amp; Gmail triage</div><div class="opp-desc">The AI scans your Gmail inbox, sorts each email (action to take, note for the file, or ignore) and drafts a reply. You approve with one click.</div><span class="opp-tag">AI · Manual approval</span></div>
+    <div class="opp-card rx"><div class="opp-icon">✅</div><div class="opp-name">AI-organized tasks</div><div class="opp-desc">Your tasks are grouped by priority and duplicates are detected automatically. No more 80-task lists where everything looks the same.</div><span class="opp-tag">Groups · Duplicate detection</span></div>
+    <div class="opp-card rx"><div class="opp-icon">📊</div><div class="opp-name">Investments &amp; insurance per client</div><div class="opp-desc">Every investment contract and insurance policy is attached to the right client — institution, account, owner, product — with documents included, private and secure.</div><span class="opp-tag">Complete portfolio</span></div>
+    <div class="opp-card rx"><div class="opp-icon">🗓️</div><div class="opp-name">Client online booking</div><div class="opp-desc">Send a link: the client picks their own time slot and meeting type, by Google Meet or by phone. Everything lands in your calendar.</div><span class="opp-tag">Self-serve for clients</span></div>
+    <div class="opp-card rx"><div class="opp-icon">📝</div><div class="opp-name">Online client form</div><div class="opp-desc">The client fills in their own information in a secure form. It goes straight into their record — zero re-entry on your side.</div><span class="opp-tag">Zero re-entry</span></div>
+    <div class="opp-card rx"><div class="opp-icon">📦</div><div class="opp-name">Client import &amp; guided onboarding</div><div class="opp-desc">Import clients, FNAs, assets and liabilities, policies and notes from your old CRM, with an audit log of every import. A setup wizard walks you through it: profile, contact details, AMF certificate number.</div><span class="opp-tag">Multi-source · Audited</span></div>
+    <div class="opp-card rx"><div class="opp-icon">🤝</div><div class="opp-name">Partner network &amp; referrals</div><div class="opp-desc">Notaries, accountants, mortgage brokers, lawyers, planners — keep your partners in one place and track every referral, from the moment it's sent or when the meeting is booked.</div><span class="opp-tag">Tracked referrals</span></div>
+    <div class="opp-card rx"><div class="opp-icon">📱</div><div class="opp-name">Installable mobile app</div><div class="opp-desc">Install FINOX on your phone or tablet like a real app. Your files follow you — at the client's, at the office or on the move.</div><span class="opp-tag">Mobile · Tablet</span></div>
+  </div>
+</section>
+
+<!-- ═════���══════════════════════════ CTA FINAL ════════ -->
+<section class="final-section" id="cta">
+  <div class="final-inner">
+    <div class="final-eyebrow rx">Early access — Limited spots</div>
+    <h2 class="final-title rx">We built it for ourselves.<br><em>Now we're sharing it with you.</em></h2>
+    <p class="final-sub rx">Be among the first brokers to discover a new way of working. Simpler. Faster. More human.</p>
+
+    <button class="cta-submit-btn" onclick="openWaitlistModal()">Reserve my spot →</button>
+
+    <div class="spots-bar-row">
+      <div class="spots-track"><div class="spots-fill" style="width:60.8%"></div></div>
+      152 / 250 spots filled
+    </div>
+
+    <div class="trust-row">
+      <div class="trust-item"><div class="trust-check">✓</div>Early access</div>
+      <div class="trust-item"><div class="trust-check">✓</div>AMF-compatible</div>
+      <div class="trust-item"><div class="trust-check">✓</div>Google Workspace included</div>
+      <div class="trust-item"><div class="trust-check">✓</div>Limited spots</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════ FOOTER ═══════════ -->
+<footer>
+  <div class="footer-logo">FINOX<span>·</span>OS</div>
+  <div class="footer-links">
+    <a href="#showcase" class="footer-link">Platform</a>
+    <a href="#abf"      class="footer-link">FNA</a>
+    <a href="#tools"    class="footer-link">Tools</a>
+    <a href="#ai"       class="footer-link">AI</a>
+    <a href="#cabinet"  class="footer-link">Firm</a>
+    <a href="#cta"      class="footer-link">Early access</a>
+  </div>
+  <div class="footer-copy">© 2025 Services Financiers Finox inc. · Quebec · AMF-compatible</div>
+</footer>
+
+<!-- Tidio Chat Widget — replace YOUR_PUBLIC_KEY with your Tidio public key -->
+<!-- To set up: 1) Create free account at tidio.com 2) Get your public key 3) Replace below -->
+<!-- <script src="//code.tidio.co/YOUR_PUBLIC_KEY.js" async></script> -->
+
+<script src="finox.en.js"></script>
+<script>document.querySelectorAll(".lang-switch a").forEach(function(a){a.addEventListener("click",function(){try{localStorage.setItem("finox-lang",a.dataset.lang)}catch(e){}})})</script>
+</body>
+</html>

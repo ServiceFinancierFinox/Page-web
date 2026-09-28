@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FINOX CRM — L'OS de l'Assurance au Québec</title>
-<meta name="description" content="On payait 381 $/mois pour 10 logiciels qui se parlaient pas. Alors on a tout reconstruit. FINOX CRM — ABF, IA, signatures, conformité AMF, tout intégré. Moins cher. Meilleur. En tout point.">
+<title>FINOX OS — L'OS de l'Assurance au Québec</title>
+<meta name="description" content="On jonglait avec 10 logiciels qui se parlaient pas. Alors on a tout reconstruit. FINOX OS — ABF, IA, signatures, conformité AMF, tout intégré. Plus simple. Meilleur. En tout point.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,700&family=JetBrains+Mono:wght@300;400;500&family=Cabinet+Grotesk:wght@400;500;700;800;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<script>try{if(localStorage.getItem("finox-lang")==="en"){location.replace("/en")}}catch(e){}</script>
 </head>
 <body>
 
@@ -44,10 +45,6 @@
           <a href="#abf" class="crm-nav-item" data-section="abf">
             <div class="crm-nav-circle"><span>📋</span></div>
             <div class="crm-nav-label">ABF</div>
-          </a>
-          <a href="#tools" class="crm-nav-item" data-section="tools">
-            <div class="crm-nav-circle"><span>🧮</span></div>
-            <div class="crm-nav-label">Outils</div>
           </a>
         </div>
       </div>
@@ -87,6 +84,16 @@
           </a>
         </div>
       </div>
+      <!-- CALCULATEURS -->
+      <div class="crm-nav-group">
+        <div class="crm-nav-group-label">Calculateurs</div>
+        <div class="crm-nav-items">
+          <a href="#tools" class="crm-nav-item" data-section="tools">
+            <div class="crm-nav-circle"><span>🧮</span></div>
+            <div class="crm-nav-label">Outils</div>
+          </a>
+        </div>
+      </div>
       <!-- AVENIR -->
       <div class="crm-nav-group">
         <div class="crm-nav-group-label">Avenir</div>
@@ -102,6 +109,7 @@
   <a href="#cta" class="nav-cta-btn">
     <div class="live-dot"></div>Accès anticipé
   </a>
+  <div class="lang-switch"><a href="/" class="on" data-lang="fr">FR</a><a href="/en" data-lang="en">EN</a></div>
 </nav>
 
 <!-- ═══════════════════════════════════════════ HERO ═══ -->
@@ -129,12 +137,12 @@
       <span class="hero-word" style="animation-delay:1.04s;font-size:clamp(16px,2.5vw,36px);font-weight:300;color:var(--cd)">ABF · Signatures · IA · Conformité AMF · Tout intégré.</span>
     </div>
 
-    <p class="hero-sub" style="animation-delay:1.28s">On payait 381 $ par mois pour 10 logiciels qui se parlaient pas. On passait nos soirées à remplir des formulaires au lieu de parler à nos clients. Alors on a <strong>tout reconstruit dans une seule plateforme</strong> — et on l'offre à tous les courtiers du Québec. <strong>Moins cher. Meilleur. En tout point.</strong></p>
+    <p class="hero-sub" style="animation-delay:1.28s">On jonglait avec 10 logiciels qui se parlaient pas. On passait nos soirées à remplir des formulaires au lieu de parler à nos clients. Alors on a <strong>tout reconstruit dans une seule plateforme</strong> — et on l'offre à tous les courtiers du Québec. <strong>Plus simple. Meilleur. En tout point.</strong></p>
 
     <div class="hero-stats hero-stats-3" style="animation-delay:1.46s">
       <div class="stat-item"><div class="stat-num hero-stat-num" data-target="80" data-suffix="%">0%</div><div class="stat-label">De l'admin, géré pour vous</div></div>
       <div class="stat-item"><div class="stat-num hero-stat-num" data-target="30" data-suffix="h">0h</div><div class="stat-label">Récupérées par semaine</div></div>
-      <div class="stat-item"><div class="stat-num hero-stat-num" data-target="181" data-suffix="$">0$</div><div class="stat-label">Économisés chaque mois</div></div>
+      <div class="stat-item"><div class="stat-num hero-stat-num" data-target="10" data-suffix="→1">0→1</div><div class="stat-label">Outils fusionnés en une plateforme</div></div>
     </div>
 
     <div class="hero-cta" style="animation-delay:1.65s">
@@ -143,7 +151,7 @@
         <div class="spots-track"><div class="spots-fill" style="width:60.8%"></div></div>
         152 / 250 places remplies
       </div>
-      <p class="cta-note">Gratuit en bêta · Aucune carte · AMF-compatible · Google Workspace fourni</p>
+      <p class="cta-note">Accès anticipé · AMF-compatible · Google Workspace fourni</p>
     </div>
   </div>
 
@@ -370,7 +378,7 @@
   <div class="compare-header-text" id="compare-header-text">
     <div class="sec-label">Construit par des courtiers, pour des courtiers</div>
     <h2 class="sec-title">On a vécu le même problème.<br><em>Alors on l'a réglé.</em></h2>
-    <p class="sec-sub">10 logiciels, 10 factures, 10 mots de passe — et rien qui se parle entre eux. On payait 381 $ par mois juste pour fonctionner. Alors on a tout reconstruit dans une seule plateforme, plus performante, plus simple, et on l'offre à tous les courtiers du Québec. Moins cher. Meilleur. En tout point.</p>
+    <p class="sec-sub">10 logiciels, 10 connexions, 10 mots de passe — et rien qui se parle entre eux. Alors on a tout reconstruit dans une seule plateforme, plus performante, plus simple, et on l'offre à tous les courtiers du Québec. Plus simple. Meilleur. En tout point.</p>
   </div>
 
   <div class="compare-scroll-outer">
@@ -381,7 +389,7 @@
           <div class="compare-card compare-old" id="compare-card-morph">
             <div class="compare-card-header old" id="compare-card-hdr">
               <span class="compare-card-title">Votre stack actuelle</span>
-              <span class="compare-card-badge old">10 abonnements + 2 coûts cachés</span>
+              <span class="compare-card-badge old">10 outils + 2 coûts cachés</span>
             </div>
             <div class="compare-rows" id="compare-rows-wrap">
               <div class="compare-row">
@@ -390,7 +398,6 @@
                   <span class="compare-logo-fallback" style="display:none">É</span>
                   <div class="compare-name-wrap"><span class="compare-name">Équisoft</span><span class="compare-role">CRM & dossiers clients</span></div>
                 </div>
-                <span class="compare-price">105 $<small>/mois</small></span>
               </div>
               <div class="compare-row">
                 <div class="compare-app">
@@ -398,7 +405,6 @@
                   <span class="compare-logo-fallback" style="display:none">L</span>
                   <div class="compare-name-wrap"><span class="compare-name">LifeGuide</span><span class="compare-role">Comparateur assurance</span></div>
                 </div>
-                <span class="compare-price">50 $<small>/mois</small></span>
               </div>
               <div class="compare-row">
                 <div class="compare-app">
@@ -406,7 +412,6 @@
                   <span class="compare-logo-fallback" style="display:none">C</span>
                   <div class="compare-name-wrap"><span class="compare-name">Calendly</span><span class="compare-role">Prise de rendez-vous</span></div>
                 </div>
-                <span class="compare-price">10 $<small>/mois</small></span>
               </div>
               <div class="compare-row">
                 <div class="compare-app">
@@ -414,7 +419,6 @@
                   <span class="compare-logo-fallback" style="display:none">G</span>
                   <div class="compare-name-wrap"><span class="compare-name">Google Workspace</span><span class="compare-role">Courriel & agenda</span></div>
                 </div>
-                <span class="compare-price">22 $<small>/mois</small></span>
               </div>
               <div class="compare-row">
                 <div class="compare-app">
@@ -422,7 +426,6 @@
                   <span class="compare-logo-fallback" style="display:none">R</span>
                   <div class="compare-name-wrap"><span class="compare-name">RingCentral</span><span class="compare-role">Téléphonie VoIP</span></div>
                 </div>
-                <span class="compare-price">35 $<small>/mois</small></span>
               </div>
               <div class="compare-row">
                 <div class="compare-app">
@@ -430,7 +433,6 @@
                   <span class="compare-logo-fallback" style="display:none">R</span>
                   <div class="compare-name-wrap"><span class="compare-name">RingCentral SMS</span><span class="compare-role">Messagerie texte</span></div>
                 </div>
-                <span class="compare-price">55 $<small>/mois</small></span>
               </div>
               <div class="compare-row">
                 <div class="compare-app">
@@ -438,7 +440,6 @@
                   <span class="compare-logo-fallback" style="display:none">P</span>
                   <div class="compare-name-wrap"><span class="compare-name">Plan Vie</span><span class="compare-role">ABF & conformité AMF</span></div>
                 </div>
-                <span class="compare-price">47 $<small>/mois</small></span>
               </div>
               <div class="compare-row">
                 <div class="compare-app">
@@ -446,7 +447,6 @@
                   <span class="compare-logo-fallback" style="display:none">C</span>
                   <div class="compare-name-wrap"><span class="compare-name">Claude</span><span class="compare-role">Intelligence artificielle</span></div>
                 </div>
-                <span class="compare-price">20 $<small>/mois</small></span>
               </div>
               <div class="compare-row">
                 <div class="compare-app">
@@ -454,7 +454,6 @@
                   <span class="compare-logo-fallback" style="display:none">F</span>
                   <div class="compare-name-wrap"><span class="compare-name">Fireflies</span><span class="compare-role">Transcription de rencontres</span></div>
                 </div>
-                <span class="compare-price">18 $<small>/mois</small></span>
               </div>
               <div class="compare-row">
                 <div class="compare-app">
@@ -462,26 +461,22 @@
                   <span class="compare-logo-fallback" style="display:none">W</span>
                   <div class="compare-name-wrap"><span class="compare-name">WiseStamp</span><span class="compare-role">Signature courriel</span></div>
                 </div>
-                <span class="compare-price">19 $<small>/mois</small></span>
               </div>
               <div class="compare-row">
                 <div class="compare-app">
                   <span class="compare-logo-fallback">👩‍💼</span>
                   <div class="compare-name-wrap"><span class="compare-name">Adjointe administrative</span><span class="compare-role">Saisie, suivis, relances manuelles</span></div>
                 </div>
-                <span class="compare-price">1 000 $<small>/mois</small></span>
               </div>
               <div class="compare-row">
                 <div class="compare-app">
                   <span class="compare-logo-fallback">⏱</span>
-                  <div class="compare-name-wrap"><span class="compare-name">Temps du conseiller</span><span class="compare-role">~10h/sem de tâches admin à 50 $/h</span></div>
+                  <div class="compare-name-wrap"><span class="compare-name">Temps du conseiller</span><span class="compare-role">~10 h/sem de tâches administratives</span></div>
                 </div>
-                <span class="compare-price">2 000 $<small>/mois</small></span>
               </div>
             </div>
             <div class="compare-total old" id="compare-total-bar">
-              <span class="compare-total-txt">Total mensuel réel</span>
-              <span class="compare-total-price old">3 381 $<small>/mois</small></span>
+              <span class="compare-total-txt">Résultat : 10 outils qui ne se parlent pas</span>
             </div>
           </div>
 
@@ -515,9 +510,7 @@
 
           <!-- Pricing (below circle, fades in last) -->
           <div class="compare-finox-pricing-wrap" id="compare-finox-pricing-wrap">
-            <span class="finox-brand-price">200 $<small>/mois</small></span>
-            <span class="finox-brand-savings">Économisez 3 181 $/mois</span>
-            <span class="finox-brand-savings-annual">soit 38 172 $ par année</span>
+            <span class="finox-brand-savings soon">Bientôt disponible — Accès anticipé</span>
             <span class="finox-brand-sub">Tout inclus. Une seule plateforme. Zéro perte de temps.</span>
           </div>
         </div>
@@ -637,6 +630,29 @@
 
   <div class="abf-carousel rx" id="abf-carousel"></div>
 
+  <!-- Comment l'ABF est construit -->
+  <div class="abf-steps" style="max-width:1300px;margin:90px auto 0">
+    <div style="text-align:center">
+      <div class="sec-label rx">Comment l'ABF est construit</div>
+      <h3 class="sec-title rx" style="font-size:clamp(30px,4vw,54px)">Une seule saisie.<br><em>Dix étapes guidées.</em></h3>
+      <p class="sec-sub rx">Chaque étape alimente la suivante : une donnée entrée une fois se propage dans les besoins, le budget, l'impôt au décès et les opportunités. À la fin, il ne reste qu'à signer.</p>
+    </div>
+    <div class="opps-grid" style="margin-top:50px">
+      <div class="opp-card rx"><div class="opp-icon">👤</div><div class="opp-name">Contact &amp; famille</div><div class="opp-desc">Identité, date de naissance, sexe, statut fumeur, état civil et enfants à charge. Le conjoint a sa propre fiche, avec ses propres contrats.</div><span class="opp-tag">Étape 1 · Fiche client</span></div>
+      <div class="opp-card rx"><div class="opp-icon">🏠</div><div class="opp-name">Adresse &amp; engagements</div><div class="opp-desc">Recherche d'adresse Google Maps, puis hypothèque, loyer, assurance auto et habitation. Les échéances alimentent les opportunités futures.</div><span class="opp-tag">Étape 2 · Google Maps</span></div>
+      <div class="opp-card rx"><div class="opp-icon">💼</div><div class="opp-name">Emploi &amp; revenus</div><div class="opp-desc">Type d'emploi, âge prévu de retraite, et salaire brut converti automatiquement en revenu net pour tous les calculs qui suivent.</div><span class="opp-tag">Étape 3 · Brut → net</span></div>
+      <div class="opp-card rx"><div class="opp-icon">💰</div><div class="opp-name">Actifs &amp; passifs</div><div class="opp-desc">Actifs actuels, passifs, propriétaire et taux marginal. Vous planifiez aussi les comptes à ouvrir, avec une date cible et l'objectif du compte.</div><span class="opp-tag">Étape 4 · Bilan</span></div>
+      <div class="opp-card rx"><div class="opp-icon">🛡️</div><div class="opp-name">Assurances en vigueur</div><div class="opp-desc">Chaque police avec l'assuré, la compagnie et le montant. Une police peut être exclue du calcul des besoins d'un simple clic.</div><span class="opp-tag">Étape 5 · Polices</span></div>
+      <div class="opp-card rx"><div class="opp-icon">🎯</div><div class="opp-name">Objectifs &amp; opportunités</div><div class="opp-desc">Les objectifs du client deviennent des opportunités avec un titre, une date cible et une prochaine action. Rien ne se perd.</div><span class="opp-tag">Étape 6 · Prochaine action</span></div>
+      <div class="opp-card rx"><div class="opp-icon">📈</div><div class="opp-name">Retraite</div><div class="opp-desc">Projection des actifs, revenus à la retraite et impact fiscal, selon l'inflation, la croissance salariale, l'espérance de vie et les droits REER.</div><span class="opp-tag">Étape 7 · Projection</span></div>
+      <div class="opp-card rx"><div class="opp-icon">🎓</div><div class="opp-name">Projets d'épargne</div><div class="opp-desc">Chaque projet avec son propriétaire, son compte, son montant visé, son épargne mensuelle, son montant initial et son rendement.</div><span class="opp-tag">Étape 8 · Objectifs chiffrés</span></div>
+      <div class="opp-card rx"><div class="opp-icon">🧮</div><div class="opp-name">Besoins d'assurance</div><div class="opp-desc">Vie (revenu à remplacer, rentes au conjoint et aux enfants, funérailles, héritage), invalidité (revenu à protéger, assurance prêt) et maladie grave en trois plans.</div><span class="opp-tag">Étape 9 · Vie · Invalidité · MG</span></div>
+      <div class="opp-card rx"><div class="opp-icon">⚖️</div><div class="opp-name">Impôts au décès</div><div class="opp-desc">Gain en capital et impôts au décès calculés avec les données déjà saisies, puis intégrés directement aux besoins en assurance vie.</div><span class="opp-tag">Étape 10 · Intégré aux besoins</span></div>
+      <div class="opp-card rx"><div class="opp-icon">🏢</div><div class="opp-name">ABF corporatif</div><div class="opp-desc">Profil et société, personnes clés, finances, actionnaires et convention, objectifs, assurances, collectif, fiducie, invalidité solo et analyses.</div><span class="opp-tag">Version entreprise</span></div>
+      <div class="opp-card rx"><div class="opp-icon">✍️</div><div class="opp-name">Export, conformité &amp; signature</div><div class="opp-desc">Recommandations générées, lettre explicative et préavis prêts, puis envoi en signature électronique. Le dossier est conforme du début à la fin.</div><span class="opp-tag">Signature en 30 sec</span></div>
+    </div>
+  </div>
+
   <!-- Preavis de remplacement — Section principale -->
   <div class="preavis-layout" style="margin-top:80px">
     <div class="rxl">
@@ -751,10 +767,380 @@
     </div>
   </div>
 </section>
+<!-- ════════════════════════════════════════════ IA ════ -->
+<section class="ai-section" id="ai">
+  <div style="text-align:center;max-width:1300px;margin:0 auto">
+    <div class="sec-label rx">Intelligence Artificielle</div>
+    <h2 class="sec-title purple rx">On passait nos journées à faire de l'admin.<br><em>L'IA s'en occupe</em> maintenant.</h2>
+    <p class="sec-sub rx">L'IA FINOX est branchée sur tout — dossiers clients, emails, Agenz, calendrier. Elle lit vos emails, met à jour les dossiers, crée des tâches et vous alerte quand ça compte vraiment. Le travail répétitif? C'est plus votre problème.</p>
+  </div>
+  <div class="ai-layout">
+    <div class="rxl">
+      <div class="ai-chat-box">
+        <div class="ai-chat-top">
+          <div class="ai-bot-av">🤖</div>
+          <div><div class="ai-bot-name">FINOX IA Assistant</div><div class="ai-bot-stat">Connecté · 147 dossiers · RingCentral · Gmail · Agenz</div></div>
+        </div>
+        <div class="ai-messages">
+          <div class="ai-msg is-ai"><div class="ai-msg-avatar">🤖</div><div class="ai-bubble"><strong>IA — Mise à jour automatique</strong>J'ai reçu un email d'Agenz concernant Jacques Bergeron. Sa police #MT-4821 a été approuvée standard. J'ai mis à jour son dossier, changé le statut pipeline de "Tarification" à "En vigueur" et créé un rappel de suivi dans 3 mois.</div></div>
+          <div class="ai-msg is-user"><div class="ai-msg-avatar">DL</div><div class="ai-bubble">Parfait. Envoie-lui un message de félicitations et prépare le prochain rendez-vous dans 6 mois.</div></div>
+          <div class="ai-msg is-ai"><div class="ai-msg-avatar">🤖</div><div class="ai-bubble"><strong>IA — 4 actions complétées</strong>✓ SMS envoyé via RingCentral<br>✓ Rendez-vous créé — 21 août 2025, 10h00<br>✓ Opportunité future ajoutée — Renouvellement hypothécaire mars 2027<br>✓ Pulse Vital mis à jour — 75 → 84 (+9 pts)</div></div>
+          <div class="ai-msg is-ai"><div class="ai-msg-avatar">🤖</div><div class="ai-bubble"><strong>IA — Analyse proactive</strong>Sophie Roy n'a pas été contactée depuis 18 jours. Son Pulse Vital est passé de 72 à 58. Je suggère un appel cette semaine — elle a une hypothèque à renouveler en mars.<div class="ai-typing-dots"><span></span><span></span><span></span></div></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="rxr">
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(34px,4.2vw,62px);font-weight:300;line-height:1.04;margin-bottom:22px">Vous avez peut-être plus besoin d'<em style="font-style:italic;color:var(--purple)">une IA</em> que d'une adjointe</h2>
+      <p style="font-size:15px;line-height:1.9;color:var(--cd);margin-bottom:18px">L'IA connaît tout de vos clients — étape de tarification, notes au dossier, rencontres à venir, communications précédentes. Elle lit vos emails, met à jour les dossiers automatiquement et génère des réponses contextuelles. Vous n'avez même pas besoin de lui demander.</p>
+      <p style="font-size:15px;line-height:1.9;color:var(--cd);margin-bottom:24px">Elle crée automatiquement 20% des tâches critiques et s'occupe du 80% administratif restant — sans jamais vous distraire avec des notifications inutiles. On l'a bâtie pour qu'elle travaille en silence, comme la meilleure adjointe que vous avez jamais eue.</p>
+      <div class="ai-bullets">
+        <div class="ai-bullet"><div class="ai-bullet-icon">📧</div><div class="ai-bullet-text"><h4>Lecture & traitement des emails</h4><p>Connectée à Gmail, l'IA lit les emails d'Agenz et des compagnies d'assurance et met à jour les dossiers automatiquement — approbations, refus, modifications de polices.</p></div></div>
+        <div class="ai-bullet"><div class="ai-bullet-icon">🎯</div><div class="ai-bullet-text"><h4>Création automatique de tâches</h4><p>L'IA crée automatiquement 20% des tâches critiques et notifie le conseiller, en s'occupant du 80% administratif restant — sans jamais vous distraire.</p></div></div>
+        <div class="ai-bullet"><div class="ai-bullet-icon">💬</div><div class="ai-bullet-text"><h4>Réponses intelligentes contextuelles</h4><p>Génère des réponses automatiques au client basées sur tout le dossier — étape de tarification, notes, rencontres à venir, communications précédentes.</p></div></div>
+        <div class="ai-bullet"><div class="ai-bullet-icon">📊</div><div class="ai-bullet-text"><h4>Analyse proactive du portefeuille</h4><p>Surveille en continu les Pulse Vital, les opportunités futures, les renouvellements et alerte le conseiller sur les clients qui nécessitent une attention immédiate.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════ COMMUNICATION HUB ═════ -->
+<section class="comm-section" id="comm">
+  <div style="max-width:1300px;margin:0 auto;text-align:center">
+    <div class="sec-label rx">Hub de communication</div>
+    <h2 class="sec-title blue rx">On jonglait entre 4 apps <em>pour parler à nos clients.</em><br>C'est terminé.</h2>
+    <p class="sec-sub rx">SMS dans une app, emails dans une autre, appels ailleurs, calendrier dans un quatrième. On en avait assez. Maintenant c'est un seul hub — RingCentral pour la téléphonie et les SMS, Google Workspace pour les emails, calendrier synchronisé — le tout intégré au dossier de chaque client.</p>
+  </div>
+  <div class="comm-layout">
+    <div class="comm-features rxl">
+      <div class="comm-feat"><div class="comm-feat-icon">📞</div><div class="comm-feat-text"><h4>Téléphonie RingCentral intégrée</h4><p>Appelez depuis la fiche client en un clic. Enregistrements automatiques, transcriptions IA et notes liées instantanément au dossier. Historique complet de tous les appels avec durée et résumé.</p></div></div>
+      <div class="comm-feat"><div class="comm-feat-icon">💬</div><div class="comm-feat-text"><h4>SMS bidirectionnel depuis le dossier</h4><p>Envoyez et recevez des SMS directement depuis la fiche client via RingCentral. Séquences SMS automatisées pour les suivis J+1, J+3, J+7. Toutes les conversations centralisées.</p></div></div>
+      <div class="comm-feat"><div class="comm-feat-icon">✉️</div><div class="comm-feat-text"><h4>Google Workspace · Gmail intégré</h4><p>Suite Google Workspace fournie avec le CRM. Gmail synchronisé avec le dossier client — chaque email est automatiquement lié au bon contact. L'IA traite les emails entrants et met à jour les dossiers.</p></div></div>
+      <div class="comm-feat"><div class="comm-feat-icon">📅</div><div class="comm-feat-text"><h4>Calendrier intégré — Sync Google Calendar</h4><p>Calendrier maison personnalisable selon le type de rencontre, synchronisé en temps réel avec Google Calendar. Le client choisit son créneau, tout se synchronise automatiquement dans votre agenda.</p></div></div>
+      <div class="comm-feat"><div class="comm-feat-icon">🔔</div><div class="comm-feat-text"><h4>Workflows personnalisés sans code</h4><p>Créez des séquences automatisées pour tout — rappels avant rencontre, emails d'anniversaire, suivis de renouvellement, relances de prospects, séquences post-vente. En quelques clics.</p></div></div>
+    </div>
+    <div class="rxr">
+      <div class="comm-inbox-box">
+        <div class="comm-tabs-row">
+          <div class="comm-tab active">📧 Gmail</div>
+          <div class="comm-tab">💬 SMS</div>
+          <div class="comm-tab">📞 Appels</div>
+        </div>
+        <div class="inbox-list">
+          <div class="inbox-item unread"><div class="inbox-avatar">AG</div><div class="inbox-info"><div class="inbox-from">Agenz — Compagnie A <span>maintenant</span></div><div class="inbox-preview">Police #MT-4821 — Approuvée standard · Émission prévue 25 fév 2025</div><span class="inbox-badge ibadge-gn">✓ IA mis à jour dossier JB automatiquement</span></div></div>
+          <div class="inbox-item"><div class="inbox-avatar">MT</div><div class="inbox-info"><div class="inbox-from">Marie Tremblay <span>14:22</span></div><div class="inbox-preview">Bonjour, j'aimerais avoir plus d'information sur la maladie grave pour mon conjoint aussi</div><span class="inbox-badge ibadge-bl">IA — Réponse préparée · En attente approbation</span></div></div>
+          <div class="inbox-item"><div class="inbox-avatar">SR</div><div class="inbox-info"><div class="inbox-from">Sophie Roy <span>hier</span></div><div class="inbox-preview">Mon hypothèque arrive à terme en mars, j'aimerais qu'on se rencontre</div><span class="inbox-badge ibadge-or">IA — Opportunité créée · Renouvellement mars 2025</span></div></div>
+          <div class="inbox-item"><div class="inbox-avatar">PG</div><div class="inbox-info"><div class="inbox-from">Pierre Gagné <span>lundi</span></div><div class="inbox-preview">Suite à notre rencontre, je confirme que je veux procéder avec le plan 2</div><span class="inbox-badge ibadge-gn">✓ ABF complété · Prêt pour soumission</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Showcase Planification Rencontre ── -->
+  <div class="sched-showcase-wrap">
+    <div class="sched-showcase-text">
+      <h3 class="sched-showcase-title">Planifier une rencontre?<br><em>5 clics. C'est tout.</em></h3>
+      <p class="sched-showcase-desc">On voulait un calendrier qui ne ressemble pas à un formulaire de gouvernement. Sélectionnez la date, l'heure, le type de rencontre — et le client reçoit automatiquement son invitation par email. Synchronisé avec Google Calendar en temps réel.</p>
+      <div class="sched-steps-list">
+        <div class="sched-step-item" data-step="0"><span class="sched-step-num">1</span><span>Cliquer sur l'icône calendrier</span></div>
+        <div class="sched-step-item" data-step="1"><span class="sched-step-num">2</span><span>Sélectionner la journée</span></div>
+        <div class="sched-step-item" data-step="2"><span class="sched-step-num">3</span><span>Choisir l'heure</span></div>
+        <div class="sched-step-item" data-step="3"><span class="sched-step-num">4</span><span>Sélectionner le type de rencontre</span></div>
+        <div class="sched-step-item" data-step="4"><span class="sched-step-num">5</span><span>Confirmer — email envoyé automatiquement</span></div>
+      </div>
+      <div class="tag-row" style="margin-top:24px">
+        <span class="pill-tag blue">Sync Google Calendar</span>
+        <span class="pill-tag gold">Email auto au client</span>
+        <span class="pill-tag blue">SMS rappel auto</span>
+        <span class="pill-tag">Google Meet intégré</span>
+      </div>
+    </div>
+    <div class="sched-showcase-demo">
+      <div class="sched-phone" id="sched-phone">
+
+        <!-- Google Calendar interface — unified view -->
+        <div class="gcal-interface">
+          <!-- Top bar -->
+          <div class="gcal-topbar">
+            <span class="gcal-topbar-title">📅 Planifier une rencontre</span>
+            <span class="gcal-topbar-client">Jacques Bergeron</span>
+          </div>
+
+          <!-- Main split: calendar + time slots -->
+          <div class="gcal-body">
+            <!-- Left: Calendar grid -->
+            <div class="gcal-left">
+              <div class="gcal-month-nav">
+                <span class="gcal-arrow">‹</span>
+                <span class="gcal-month-name">Mars 2026</span>
+                <span class="gcal-arrow">›</span>
+              </div>
+              <div class="gcal-days-grid">
+                <span class="gcal-dh">D</span><span class="gcal-dh">L</span><span class="gcal-dh">M</span><span class="gcal-dh">M</span><span class="gcal-dh">J</span><span class="gcal-dh">V</span><span class="gcal-dh">S</span>
+                <span class="gcal-d e"></span><span class="gcal-d e"></span><span class="gcal-d e"></span><span class="gcal-d e"></span><span class="gcal-d e"></span><span class="gcal-d e"></span><span class="gcal-d">1</span>
+                <span class="gcal-d">2</span><span class="gcal-d">3</span><span class="gcal-d">4</span><span class="gcal-d">5</span><span class="gcal-d">6</span><span class="gcal-d">7</span><span class="gcal-d">8</span>
+                <span class="gcal-d">9</span><span class="gcal-d target" id="gcal-day-10">10</span><span class="gcal-d">11</span><span class="gcal-d">12</span><span class="gcal-d">13</span><span class="gcal-d">14</span><span class="gcal-d">15</span>
+                <span class="gcal-d">16</span><span class="gcal-d">17</span><span class="gcal-d">18</span><span class="gcal-d">19</span><span class="gcal-d">20</span><span class="gcal-d">21</span><span class="gcal-d">22</span>
+                <span class="gcal-d">23</span><span class="gcal-d">24</span><span class="gcal-d">25</span><span class="gcal-d">26</span><span class="gcal-d">27</span><span class="gcal-d">28</span><span class="gcal-d">29</span>
+                <span class="gcal-d">30</span><span class="gcal-d">31</span>
+              </div>
+              <div class="gcal-selected-date" id="gcal-selected-label"></div>
+            </div>
+
+            <!-- Right: Time slots -->
+            <div class="gcal-right">
+              <div class="gcal-right-head">Mardi 10 mars</div>
+              <div class="gcal-slots" id="gcal-slots">
+                <div class="gcal-slot"><span class="gcal-slot-time">09:00</span><span class="gcal-slot-bar dispo"></span><span class="gcal-slot-tag dispo">Dispo</span></div>
+                <div class="gcal-slot"><span class="gcal-slot-time">09:30</span><span class="gcal-slot-bar dispo"></span><span class="gcal-slot-tag dispo">Dispo</span></div>
+                <div class="gcal-slot"><span class="gcal-slot-time">10:00</span><span class="gcal-slot-bar dispo"></span><span class="gcal-slot-tag dispo">Dispo</span></div>
+                <div class="gcal-slot"><span class="gcal-slot-time">10:30</span><span class="gcal-slot-bar dispo"></span><span class="gcal-slot-tag dispo">Dispo</span></div>
+                <div class="gcal-slot"><span class="gcal-slot-time">11:00</span><span class="gcal-slot-bar busy"></span><span class="gcal-slot-tag busy">Occupé</span></div>
+                <div class="gcal-slot"><span class="gcal-slot-time">11:30</span><span class="gcal-slot-bar busy"></span><span class="gcal-slot-tag busy">Occupé</span></div>
+                <div class="gcal-slot target" id="gcal-slot-12"><span class="gcal-slot-time">12:00</span><span class="gcal-slot-bar dispo"></span><span class="gcal-slot-tag dispo">Dispo</span></div>
+                <div class="gcal-slot"><span class="gcal-slot-time">13:00</span><span class="gcal-slot-bar dispo"></span><span class="gcal-slot-tag dispo">Dispo</span></div>
+                <div class="gcal-slot"><span class="gcal-slot-time">14:00</span><span class="gcal-slot-bar dispo"></span><span class="gcal-slot-tag dispo">Dispo</span></div>
+                <div class="gcal-slot"><span class="gcal-slot-time">14:30</span><span class="gcal-slot-bar dispo"></span><span class="gcal-slot-tag dispo">Dispo</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom: RDV types (two columns) -->
+          <div class="gcal-rdv-section" id="gcal-rdv">
+            <div class="gcal-rdv-head">Type de RDV</div>
+            <div class="gcal-rdv-cols">
+              <div class="gcal-rdv-col">
+                <div class="gcal-rdv-col-title">📞 Appels</div>
+                <div class="gcal-rdv-item" data-type="call">Comparative assurance vie</div>
+                <div class="gcal-rdv-item" data-type="call">Comparative assurance hypothécaire</div>
+                <div class="gcal-rdv-item target" id="gcal-rdv-target" data-type="call">Comparative assurance invalidité</div>
+                <div class="gcal-rdv-item" data-type="call">Qualification santé / MG</div>
+                <div class="gcal-rdv-item" data-type="call">Suivi client existant</div>
+              </div>
+              <div class="gcal-rdv-col">
+                <div class="gcal-rdv-col-title">🤝 Rencontres</div>
+                <div class="gcal-rdv-item" data-type="meet">Présentation ABF complète</div>
+                <div class="gcal-rdv-item" data-type="meet">Rencontre de placement</div>
+                <div class="gcal-rdv-item" data-type="meet">Planification successorale</div>
+                <div class="gcal-rdv-item" data-type="meet">Signature de documents</div>
+                <div class="gcal-rdv-item" data-type="meet">Corporation — analyse</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Confirm overlay -->
+          <div class="gcal-confirm-overlay" id="gcal-confirm">
+            <div class="gcal-confirm-box">
+              <div class="gcal-confirm-title">Appel — Comparative assurance invalidité</div>
+              <div class="gcal-confirm-info">
+                <div class="gcal-cf-row"><span>Client</span><span>Jacques Bergeron</span></div>
+                <div class="gcal-cf-row"><span>Date</span><span>Mardi 10 mars 2026</span></div>
+                <div class="gcal-cf-row"><span>Heure</span><span>12:00 — 12:30</span></div>
+                <div class="gcal-cf-row"><span>Durée</span><span>30 minutes</span></div>
+              </div>
+              <div class="gcal-cf-opts">
+                <div class="gcal-cf-opt"><span class="gcal-ck on">✓</span>Invitation email au client</div>
+                <div class="gcal-cf-opt"><span class="gcal-ck on">✓</span>Rappel SMS 1h avant</div>
+                <div class="gcal-cf-opt"><span class="gcal-ck">✓</span>Lien Google Meet</div>
+              </div>
+              <div class="gcal-cf-btn" id="gcal-cf-btn">Confirmer la rencontre</div>
+            </div>
+          </div>
+
+          <!-- Success overlay -->
+          <div class="gcal-success-overlay" id="gcal-success">
+            <div class="gcal-success-box">
+              <div class="gcal-success-ic">✅</div>
+              <div class="gcal-success-t">Rencontre confirmée!</div>
+              <div class="gcal-success-sub">Mardi 10 mars 2026 · 12:00</div>
+              <div class="gcal-success-msgs">
+                <div class="gcal-success-msg" data-i="0"><span>📧</span>Invitation envoyée à jacques.bergeron@gmail.com</div>
+                <div class="gcal-success-msg" data-i="1"><span>📅</span>Ajouté à Google Calendar</div>
+                <div class="gcal-success-msg" data-i="2"><span>💬</span>SMS rappel programmé — 10 mars 11:00</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA fin de catégorie Automatisation -->
+<div class="section-cta-row" style="background:var(--ink)">
+  <button class="btn-gold btn-gold-lg" onclick="openWaitlistModal()"><div class="btn-shine"></div>Réserver ma place →</button>
+</div>
+
+<!-- ══════════════════════════════════ TIMELINE ════════ -->
+<section class="timeline-section" id="timeline">
+  <div style="max-width:1300px;margin:0 auto;text-align:center">
+    <div class="sec-label rx">Timeline client</div>
+    <h2 class="sec-title rx">« C'était quand, le dernier appel? »<br><em>On se posait toujours la question.</em> Plus jamais.</h2>
+    <p class="sec-sub rx">Notes, appels, SMS, emails, rencontres, signatures, opportunités — tout est sur une seule ligne du temps. Vous savez exactement où vous en êtes avec chaque client, en un coup d'œil.</p>
+  </div>
+  <div class="tl-wrap rx">
+    <div class="tl-top">
+      <div><div class="tl-top-name">Jacques Bergeron — Timeline complète</div><div class="tl-top-sub">47 interactions · Depuis le 12 jan 2024</div></div>
+      <div class="tl-filters">
+        <div class="tl-filter active">Tout</div>
+        <div class="tl-filter">Notes</div>
+        <div class="tl-filter">Assurances</div>
+        <div class="tl-filter">Appels</div>
+        <div class="tl-filter">Futurs</div>
+      </div>
+    </div>
+    <div class="tl-body">
+      <div class="tl-event"><div class="tl-event-icon tl-icon-sign">✍️</div><div class="tl-event-body"><div class="tl-event-title">Signature reçue — Préavis de remplacement AMF <span class="tag-opp">Conformité</span></div><div class="tl-event-desc">Préavis de remplacement signé via DocuSign et lettre explicative signée via Finox Sign. Police vie entière $750k approuvée. Dossier AMF 100% conforme.</div><div class="tl-event-time">Aujourd'hui · 14:32 · Finox Sign</div></div></div>
+      <div class="tl-event"><div class="tl-event-icon tl-icon-email">✉️</div><div class="tl-event-body"><div class="tl-event-title">Email Agenz reçu — Police approuvée <span class="tag-opp">IA mis à jour auto</span></div><div class="tl-event-desc">Police MT-4821 approuvée standard. IA a mis à jour le dossier, changé le statut pipeline et créé les tâches de suivi automatiquement.</div><div class="tl-event-time">Aujourd'hui · 13:15 · Gmail IA</div></div></div>
+      <div class="tl-event"><div class="tl-event-icon tl-icon-call">📞</div><div class="tl-event-body"><div class="tl-event-title">Appel — Présentation ABF finale</div><div class="tl-event-desc">Rencontre de 45 min — ABF complet présenté, besoins vie $750k, invalidité $5 400/mois acceptés. Client enthousiaste, prêt à procéder. Transcript IA disponible.</div><div class="tl-event-time">19 fév · 10:00 · RingCentral · 45 min</div></div></div>
+      <div class="tl-event"><div class="tl-event-icon tl-icon-note">📝</div><div class="tl-event-body"><div class="tl-event-title">ABF complété — Analyse des besoins financiers</div><div class="tl-event-desc">ABF rempli complet. Valeur nette $1.2M. Besoin vie $750k, invalidité $5 400/mois, MG plan Tranquillité. Corporation analysée — proposition MG propriété partagée à préparer.</div><div class="tl-event-time">17 fév · Dany Lévesque</div></div></div>
+      <div class="tl-event"><div class="tl-event-icon tl-icon-future">🏠</div><div class="tl-event-body"><div class="tl-event-title">Opportunité future — Renouvellement hypothécaire <span class="tag-fut">Automatisé dans 24 mois</span></div><div class="tl-event-desc">Hypothèque $450k arrive à terme mars 2027. Rappel automatique créé — contact prévu 3 mois avant l'échéance pour préparer l'analyse.</div><div class="tl-event-time">Mars 2027 · Rappel auto · IA FINOX</div></div></div>
+      <div class="tl-event"><div class="tl-event-icon tl-icon-opport">💼</div><div class="tl-event-body"><div class="tl-event-title">Opportunité future — Corporation · MG propriété partagée <span class="tag-fut">Q3 2025</span></div><div class="tl-event-desc">Proposition MG propriété partagée pour la corporation de Jacques à préparer. Rencontre planifiée avec son comptable pour Q3 2025.</div><div class="tl-event-time">Sep 2025 · Rencontre planifiée · Comptable confirmé</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════ OPPORTUNITÉS ══════════ -->
+<section class="opps-section" id="opps">
+  <div style="max-width:1300px;margin:0 auto;text-align:center">
+    <div class="sec-label rx">Module Opportunités futures</div>
+    <h2 class="sec-title rx">On laissait passer des ventes<br><em>sans même s'en apercevoir.</em></h2>
+    <p class="sec-sub rx">Renouvellements hypothécaires, événements de vie, contrats délayés — on les oubliait ou on les découvrait trop tard. FINOX les détecte automatiquement et vous rappelle au bon moment. Plus jamais d'occasion manquée.</p>
+  </div>
+  <div class="opps-grid">
+    <div class="opp-card rx"><div class="opp-icon">🏠</div><div class="opp-name">Renouvellements hypothécaires</div><div class="opp-desc">Rappel automatique 3–6 mois avant la date de renouvellement pour préparer l'analyse et proposer la bonne couverture hypothécaire privée.</div><span class="opp-tag">Auto · 3 mois avant</span></div>
+    <div class="opp-card rx"><div class="opp-icon">🚗</div><div class="opp-name">Assurances auto & habitation</div><div class="opp-desc">Suivi des renouvellements annuels et opportunités de consolidation. Ne laissez plus vos clients renouveler sans vous contacter.</div><span class="opp-tag">Auto · Annuel</span></div>
+    <div class="opp-card rx"><div class="opp-icon">📈</div><div class="opp-name">Rencontres de placement</div><div class="opp-desc">Planification automatique des rencontres de révision de portefeuille selon la fréquence configurée et les changements de marché.</div><span class="opp-tag">Selon fréquence</span></div>
+    <div class="opp-card rx"><div class="opp-icon">👶</div><div class="opp-name">Naissance d'un enfant</div><div class="opp-desc">Détection et rappel pour ajouter l'enfant au REEE, ajuster l'assurance vie et revoir les besoins familiaux lors d'un événement de vie.</div><span class="opp-tag">Événement de vie</span></div>
+    <div class="opp-card rx"><div class="opp-icon">📋</div><div class="opp-name">Contrats délayés — qualifiabilité</div><div class="opp-desc">Suivi automatique des clients qui attendent d'être qualifiables. Rappel à la date cible avec toutes les informations du dossier précédent.</div><span class="opp-tag">Date cible auto</span></div>
+    <div class="opp-card rx"><div class="opp-icon">🤝</div><div class="opp-name">Références & recommandations</div><div class="opp-desc">Rappels stratégiques pour demander une référence aux clients avec un Pulse Vital élevé. Gestion complète du cycle jusqu'à la conversion.</div><span class="opp-tag">Pulse > 80</span></div>
+    <div class="opp-card rx"><div class="opp-icon">⚖️</div><div class="opp-name">Testament & planification successorale</div><div class="opp-desc">Opportunités créées automatiquement selon l'âge, les actifs et les événements familiaux. Rappels coordonnés avec notaires.</div><span class="opp-tag">Événement successoral</span></div>
+    <div class="opp-card rx"><div class="opp-icon">🏢</div><div class="opp-name">Opportunités corporatives</div><div class="opp-desc">Analyse des besoins de la corporation mise à jour automatiquement selon les changements de revenus, actifs et structure. Propositions MG suggérées.</div><span class="opp-tag">Corporation auto</span></div>
+    <div class="opp-card rx"><div class="opp-icon">🔄</div><div class="opp-name">Relances & retours de leads froids</div><div class="opp-desc">Séquences de réengagement automatisées pour les leads non convertis. L'IA suggère le meilleur moment et le bon message selon l'historique.</div><span class="opp-tag">IA prédictif</span></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ CONFORMITÉ & DOCS ══════ -->
+<section class="conf-section" id="conf">
+  <div style="max-width:1300px;margin:0 auto;text-align:center;margin-bottom:65px">
+    <div class="sec-label rx">Documents & Conformité</div>
+    <h2 class="sec-title rx">On cherchait des fichiers pendant 20 minutes.<br><em>C'est fini.</em></h2>
+    <p class="sec-sub rx">Des fichiers nommés « scan_001.pdf » éparpillés dans Google Drive — on connaît ça. Maintenant, tout est renommé automatiquement selon les normes AMF, envoyé de façon sécurisée et signé électroniquement. Conforme sans y penser.</p>
+  </div>
+  <div class="conf-layout">
+    <div class="conf-list rxl">
+      <div class="conf-item"><div class="conf-ic">📁</div><div class="conf-tx"><h4>Centre de documentation par client</h4><p>Tous les documents du client centralisés dans son dossier, renommés automatiquement selon les normes AMF. Plus jamais de fichiers nommés "scan_001.pdf" dans votre Drive.</p></div></div>
+      <div class="conf-item"><div class="conf-ic">📨</div><div class="conf-tx"><h4>Demande de documents sécurisée</h4><p>Envoyez une demande directement au client. Il uploade ses fichiers via un portail sécurisé — sans email, sans risque de confidentialité, avec confirmation automatique.</p></div></div>
+      <div class="conf-item"><div class="conf-ic">🔒</div><div class="conf-tx"><h4>Envoi sécurisé avec mot de passe</h4><p>Partagez des documents confidentiels avec un lien protégé par mot de passe. Traçabilité complète — qui a accédé, quand, depuis quel appareil.</p></div></div>
+      <div class="conf-item"><div class="conf-ic">✍️</div><div class="conf-tx"><h4>Signature électronique Finox Sign & DocuSign</h4><p>Intégration complète avec Finox Sign (notre plateforme maison) pour les ABF et lettres explicatives, et DocuSign pour les préavis de remplacement. Toutes les signatures liées directement au dossier — traçabilité parfaite pour les audits AMF.</p></div></div>
+      <div class="conf-item"><div class="conf-ic">🗂️</div><div class="conf-tx"><h4>Renommage automatique conforme AMF</h4><p>Chaque document renommé selon la nomenclature AMF — [Client]_[Date]_[Type]. Fini le chaos dans Google Drive, tout est trouvable en 3 secondes.</p></div></div>
+    </div>
+    <div class="rxr">
+      <div class="doc-preview">
+        <div class="dp-header">
+          <div class="dp-icon">📄</div>
+          <div><div class="dp-title">ABF + Lettre explicative — Envoi signature</div><div class="dp-sub">3 documents · Finox Sign · Prêt à signer</div></div>
+          <div class="dp-status">En attente signature</div>
+        </div>
+        <div class="dp-body">
+          <div class="dp-row"><div class="dp-lbl">Document 1</div><div class="dp-val">ABF_BergeronJacques_2025-02-21.pdf — Analyse complète des besoins financiers</div></div>
+          <div class="dp-row"><div class="dp-lbl">Document 2</div><div class="dp-val">Preavis_Remplacement_BergeronJacques_2025-02-21.pdf — AMF obligatoire</div></div>
+          <div class="dp-row"><div class="dp-lbl">Document 3</div><div class="dp-val">Lettre_Explicative_BergeronJacques_2025-02-21.pdf — Générée auto</div></div>
+          <div class="dp-row"><div class="dp-lbl">Envoyé via</div><div class="dp-val">Finox Sign + DocuSign · courriel au client · lien valide 7 jours</div></div>
+          <div class="dp-row"><div class="dp-lbl">Rappels auto</div><div class="dp-val">J+1 · J+3 · J+5 si non signé — SMS + courriel</div></div>
+          <div class="sig-block">
+            <div class="sig-animated-line" id="sig-line-2"></div>
+            <div class="sig-confirm">⏳ En attente de la signature de Jacques Bergeron — Envoyé à 14:34</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ GESTION CABINET ══════ -->
+<section class="cabinet-section" id="cabinet">
+  <div style="max-width:1300px;margin:0 auto;text-align:center;margin-bottom:65px">
+    <div class="sec-label rx">Gestion de cabinet</div>
+    <h2 class="sec-title rx">On gérait notre cabinet avec des spreadsheets.<br><em>Plus maintenant.</em></h2>
+    <p class="sec-sub rx">Conformité Loi 25, registre des plaintes, stats d'équipe, partenariats de partage — tout ça était éparpillé entre 10 outils. On a tout centralisé dans un seul endroit. Votre cabinet au complet, sous contrôle.</p>
+  </div>
+  <div class="cabinet-layout">
+    <div class="conf-list rxl">
+      <div class="conf-item"><div class="conf-ic">📜</div><div class="conf-tx"><h4>Avis de divulgation & politique de confidentialité</h4><p>Rédigez et gérez votre avis de divulgation et votre politique de confidentialité directement dans le CRM. Envoi automatique à chaque nouveau client avec confirmation de lecture électronique.</p></div></div>
+      <div class="conf-item"><div class="conf-ic">📋</div><div class="conf-tx"><h4>Politique et Registre des Plaintes</h4><p>Gérez votre politique de traitement des plaintes et tenez votre registre à jour — conforme aux exigences de l'AMF. Tout est centralisé, traçable et prêt pour les audits.</p></div></div>
+      <div class="conf-item"><div class="conf-ic">🔐</div><div class="conf-tx"><h4>Registre des Incidents de Sécurité & DPO</h4><p>Tenez votre registre des incidents de sécurité et identifiez votre Responsable de la Protection des Données (DPO) directement dans le CRM. Conforme à la Loi 25 sans outil externe.</p></div></div>
+      <div class="conf-item"><div class="conf-ic">📊</div><div class="conf-tx"><h4>Statistiques d'équipe en temps réel</h4><p>Vue directeur avec statistiques de performance par conseiller — primes émises, taux de conversion, Pulse Vital moyen, ABF complétés. Identifiez vos forces et accompagnez votre équipe.</p></div></div>
+      <div class="conf-item"><div class="conf-ic">👥</div><div class="conf-tx"><h4>Gestion d'équipe simplifiée</h4><p>Gérez facilement vos membres d'équipe — ajout, retrait, permissions par module. Chaque conseiller a son espace, ses clients et ses rapports avec un contrôle granulaire du directeur.</p></div></div>
+    </div>
+    <div class="rxr">
+      <div class="cabinet-partnership-visual">
+        <div style="text-align:center;margin-bottom:30px">
+          <h3 style="font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3vw,42px);font-weight:300;line-height:1.08;margin-bottom:14px">Partenariats de partage —<br><em style="font-style:italic;color:var(--g)">en un clic</em></h3>
+          <p style="font-size:14px;line-height:1.8;color:var(--cd)">On voulait que l'adjointe accède aux dossiers de plusieurs conseillers sans configuration complexe. Un clic. C'est fait.</p>
+        </div>
+        <!-- Partnership diagram -->
+        <div class="partnership-diagram" id="partnership-diagram">
+          <svg viewBox="0 0 480 340" style="width:100%;display:block">
+            <defs>
+              <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="var(--gl)"/>
+                <stop offset="100%" stop-color="var(--g)"/>
+              </linearGradient>
+            </defs>
+            <!-- Dashed background lines (edge to edge) -->
+            <line x1="123" y1="153" x2="335" y2="69" stroke="rgba(196,162,74,.12)" stroke-width="1.5" stroke-dasharray="5 4"/>
+            <line x1="126" y1="170" x2="332" y2="170.01" stroke="rgba(196,162,74,.12)" stroke-width="1.5" stroke-dasharray="5 4"/>
+            <line x1="123" y1="187" x2="335" y2="271" stroke="rgba(196,162,74,.12)" stroke-width="1.5" stroke-dasharray="5 4"/>
+            <!-- Gold animated lines (edge to edge) -->
+            <line class="pline pline-1" x1="123" y1="153" x2="335" y2="69" stroke="url(#goldGrad)" stroke-width="2.5" stroke-linecap="round"/>
+            <line class="pline pline-2" x1="126" y1="170" x2="332" y2="170.01" stroke="url(#goldGrad)" stroke-width="2.5" stroke-linecap="round"/>
+            <line class="pline pline-3" x1="123" y1="187" x2="335" y2="271" stroke="url(#goldGrad)" stroke-width="2.5" stroke-linecap="round"/>
+            <!-- Adjointe circle (left) -->
+            <g class="partner-node" style="cursor:default">
+              <circle cx="80" cy="170" r="46" fill="#111114" stroke="rgba(196,162,74,.3)" stroke-width="2"/>
+              <circle cx="80" cy="170" r="46" fill="none" stroke="rgba(196,162,74,.06)" stroke-width="8"/>
+              <text x="80" y="166" text-anchor="middle" fill="var(--g)" font-size="13" font-family="Cabinet Grotesk,sans-serif" font-weight="700">Adjointe</text>
+              <text x="80" y="181" text-anchor="middle" fill="var(--cd)" font-size="8" font-family="JetBrains Mono,monospace">Accès partagé</text>
+            </g>
+            <!-- Conseiller 1 (top right) -->
+            <g class="partner-node" style="cursor:default">
+              <circle cx="370" cy="55" r="40" fill="#111114" stroke="rgba(100,180,255,.25)" stroke-width="2"/>
+              <circle cx="370" cy="55" r="40" fill="none" stroke="rgba(100,180,255,.04)" stroke-width="6"/>
+              <text x="370" y="51" text-anchor="middle" fill="var(--blue)" font-size="11" font-family="Cabinet Grotesk,sans-serif" font-weight="600">Conseiller 1</text>
+              <text x="370" y="65" text-anchor="middle" fill="var(--cd)" font-size="8" font-family="JetBrains Mono,monospace">147 clients</text>
+            </g>
+            <!-- Conseiller 2 (middle right) -->
+            <g class="partner-node" style="cursor:default">
+              <circle cx="370" cy="170" r="40" fill="#111114" stroke="rgba(100,180,255,.25)" stroke-width="2"/>
+              <circle cx="370" cy="170" r="40" fill="none" stroke="rgba(100,180,255,.04)" stroke-width="6"/>
+              <text x="370" y="166" text-anchor="middle" fill="var(--blue)" font-size="11" font-family="Cabinet Grotesk,sans-serif" font-weight="600">Conseiller 2</text>
+              <text x="370" y="180" text-anchor="middle" fill="var(--cd)" font-size="8" font-family="JetBrains Mono,monospace">89 clients</text>
+            </g>
+            <!-- Conseiller 3 (bottom right) -->
+            <g class="partner-node" style="cursor:default">
+              <circle cx="370" cy="285" r="40" fill="#111114" stroke="rgba(100,180,255,.25)" stroke-width="2"/>
+              <circle cx="370" cy="285" r="40" fill="none" stroke="rgba(100,180,255,.04)" stroke-width="6"/>
+              <text x="370" y="281" text-anchor="middle" fill="var(--blue)" font-size="11" font-family="Cabinet Grotesk,sans-serif" font-weight="600">Conseiller 3</text>
+              <text x="370" y="295" text-anchor="middle" fill="var(--cd)" font-size="8" font-family="JetBrains Mono,monospace">64 clients</text>
+            </g>
+          </svg>
+        </div>
+        <div class="tag-row" style="justify-content:center;margin-top:24px">
+          <span class="pill-tag gold">Partage en un clic</span>
+          <span class="pill-tag">Permissions granulaires</span>
+          <span class="pill-tag blue">Multi-conseiller</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="tools-section comparator-hero" id="tools">
   <div style="text-align:center;max-width:1300px;margin:0 auto">
     <div class="sec-label rx">Comparateur d'assurance</div>
-    <h2 class="sec-title rx">On payait 50 $/mois pour un comparateur laid.<br><em>C'est fini.</em></h2>
+    <h2 class="sec-title rx">On utilisait un comparateur laid.<br><em>C'est fini.</em></h2>
     <p class="sec-sub rx">LifeGuide, Compulife, WinQuote — on les a tous essayés. Interfaces des années 2000, données pas toujours à jour, rien d'intégré au dossier client. Alors on a bâti le nôtre. Toutes les compagnies du Québec et du Canada. Un seul outil. Zéro compromis.</p>
   </div>
 
@@ -1356,383 +1742,31 @@
   <button class="btn-gold btn-gold-lg" onclick="openWaitlistModal()"><div class="btn-shine"></div>Réserver ma place →</button>
 </div>
 
-<!-- ════════════════════════════════════════════ IA ════ -->
-<section class="ai-section" id="ai">
-  <div style="text-align:center;max-width:1300px;margin:0 auto">
-    <div class="sec-label rx">Intelligence Artificielle</div>
-    <h2 class="sec-title purple rx">On passait nos journées à faire de l'admin.<br><em>L'IA s'en occupe</em> maintenant.</h2>
-    <p class="sec-sub rx">L'IA FINOX est branchée sur tout — dossiers clients, emails, Agenz, calendrier. Elle lit vos emails, met à jour les dossiers, crée des tâches et vous alerte quand ça compte vraiment. Le travail répétitif? C'est plus votre problème.</p>
-  </div>
-  <div class="ai-layout">
-    <div class="rxl">
-      <div class="ai-chat-box">
-        <div class="ai-chat-top">
-          <div class="ai-bot-av">🤖</div>
-          <div><div class="ai-bot-name">FINOX IA Assistant</div><div class="ai-bot-stat">Connecté · 147 dossiers · RingCentral · Gmail · Agenz</div></div>
-        </div>
-        <div class="ai-messages">
-          <div class="ai-msg is-ai"><div class="ai-msg-avatar">🤖</div><div class="ai-bubble"><strong>IA — Mise à jour automatique</strong>J'ai reçu un email d'Agenz concernant Jacques Bergeron. Sa police #MT-4821 a été approuvée standard. J'ai mis à jour son dossier, changé le statut pipeline de "Tarification" à "En vigueur" et créé un rappel de suivi dans 3 mois.</div></div>
-          <div class="ai-msg is-user"><div class="ai-msg-avatar">DL</div><div class="ai-bubble">Parfait. Envoie-lui un message de félicitations et prépare le prochain rendez-vous dans 6 mois.</div></div>
-          <div class="ai-msg is-ai"><div class="ai-msg-avatar">🤖</div><div class="ai-bubble"><strong>IA — 4 actions complétées</strong>✓ SMS envoyé via RingCentral<br>✓ Rendez-vous créé — 21 août 2025, 10h00<br>✓ Opportunité future ajoutée — Renouvellement hypothécaire mars 2027<br>✓ Pulse Vital mis à jour — 75 → 84 (+9 pts)</div></div>
-          <div class="ai-msg is-ai"><div class="ai-msg-avatar">🤖</div><div class="ai-bubble"><strong>IA — Analyse proactive</strong>Sophie Roy n'a pas été contactée depuis 18 jours. Son Pulse Vital est passé de 72 à 58. Je suggère un appel cette semaine — elle a une hypothèque à renouveler en mars.<div class="ai-typing-dots"><span></span><span></span><span></span></div></div></div>
-        </div>
-      </div>
-    </div>
-    <div class="rxr">
-      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(34px,4.2vw,62px);font-weight:300;line-height:1.04;margin-bottom:22px">Vous avez peut-être plus besoin d'<em style="font-style:italic;color:var(--purple)">une IA</em> que d'une adjointe</h2>
-      <p style="font-size:15px;line-height:1.9;color:var(--cd);margin-bottom:18px">L'IA connaît tout de vos clients — étape de tarification, notes au dossier, rencontres à venir, communications précédentes. Elle lit vos emails, met à jour les dossiers automatiquement et génère des réponses contextuelles. Vous n'avez même pas besoin de lui demander.</p>
-      <p style="font-size:15px;line-height:1.9;color:var(--cd);margin-bottom:24px">Elle crée automatiquement 20% des tâches critiques et s'occupe du 80% administratif restant — sans jamais vous distraire avec des notifications inutiles. On l'a bâtie pour qu'elle travaille en silence, comme la meilleure adjointe que vous avez jamais eue.</p>
-      <div class="ai-bullets">
-        <div class="ai-bullet"><div class="ai-bullet-icon">📧</div><div class="ai-bullet-text"><h4>Lecture & traitement des emails</h4><p>Connectée à Gmail, l'IA lit les emails d'Agenz et des compagnies d'assurance et met à jour les dossiers automatiquement — approbations, refus, modifications de polices.</p></div></div>
-        <div class="ai-bullet"><div class="ai-bullet-icon">🎯</div><div class="ai-bullet-text"><h4>Création automatique de tâches</h4><p>L'IA crée automatiquement 20% des tâches critiques et notifie le conseiller, en s'occupant du 80% administratif restant — sans jamais vous distraire.</p></div></div>
-        <div class="ai-bullet"><div class="ai-bullet-icon">💬</div><div class="ai-bullet-text"><h4>Réponses intelligentes contextuelles</h4><p>Génère des réponses automatiques au client basées sur tout le dossier — étape de tarification, notes, rencontres à venir, communications précédentes.</p></div></div>
-        <div class="ai-bullet"><div class="ai-bullet-icon">📊</div><div class="ai-bullet-text"><h4>Analyse proactive du portefeuille</h4><p>Surveille en continu les Pulse Vital, les opportunités futures, les renouvellements et alerte le conseiller sur les clients qui nécessitent une attention immédiate.</p></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════ COMMUNICATION HUB ═════ -->
-<section class="comm-section" id="comm">
+<!-- ════════════════════════════ ET IL Y A PLUS ══════════ -->
+<section class="opps-section" id="more">
   <div style="max-width:1300px;margin:0 auto;text-align:center">
-    <div class="sec-label rx">Hub de communication</div>
-    <h2 class="sec-title blue rx">On jonglait entre 4 apps <em>pour parler à nos clients.</em><br>C'est terminé.</h2>
-    <p class="sec-sub rx">SMS dans une app, emails dans une autre, appels ailleurs, calendrier dans un quatrième. On en avait assez. Maintenant c'est un seul hub — RingCentral pour la téléphonie et les SMS, Google Workspace pour les emails, calendrier synchronisé — le tout intégré au dossier de chaque client.</p>
-  </div>
-  <div class="comm-layout">
-    <div class="comm-features rxl">
-      <div class="comm-feat"><div class="comm-feat-icon">📞</div><div class="comm-feat-text"><h4>Téléphonie RingCentral intégrée</h4><p>Appelez depuis la fiche client en un clic. Enregistrements automatiques, transcriptions IA et notes liées instantanément au dossier. Historique complet de tous les appels avec durée et résumé.</p></div></div>
-      <div class="comm-feat"><div class="comm-feat-icon">💬</div><div class="comm-feat-text"><h4>SMS bidirectionnel depuis le dossier</h4><p>Envoyez et recevez des SMS directement depuis la fiche client via RingCentral. Séquences SMS automatisées pour les suivis J+1, J+3, J+7. Toutes les conversations centralisées.</p></div></div>
-      <div class="comm-feat"><div class="comm-feat-icon">✉️</div><div class="comm-feat-text"><h4>Google Workspace · Gmail intégré</h4><p>Suite Google Workspace fournie avec le CRM. Gmail synchronisé avec le dossier client — chaque email est automatiquement lié au bon contact. L'IA traite les emails entrants et met à jour les dossiers.</p></div></div>
-      <div class="comm-feat"><div class="comm-feat-icon">📅</div><div class="comm-feat-text"><h4>Calendrier intégré — Sync Google Calendar</h4><p>Calendrier maison personnalisable selon le type de rencontre, synchronisé en temps réel avec Google Calendar. Le client choisit son créneau, tout se synchronise automatiquement dans votre agenda.</p></div></div>
-      <div class="comm-feat"><div class="comm-feat-icon">🔔</div><div class="comm-feat-text"><h4>Workflows personnalisés sans code</h4><p>Créez des séquences automatisées pour tout — rappels avant rencontre, emails d'anniversaire, suivis de renouvellement, relances de prospects, séquences post-vente. En quelques clics.</p></div></div>
-    </div>
-    <div class="rxr">
-      <div class="comm-inbox-box">
-        <div class="comm-tabs-row">
-          <div class="comm-tab active">📧 Gmail</div>
-          <div class="comm-tab">💬 SMS</div>
-          <div class="comm-tab">📞 Appels</div>
-        </div>
-        <div class="inbox-list">
-          <div class="inbox-item unread"><div class="inbox-avatar">AG</div><div class="inbox-info"><div class="inbox-from">Agenz — Compagnie A <span>maintenant</span></div><div class="inbox-preview">Police #MT-4821 — Approuvée standard · Émission prévue 25 fév 2025</div><span class="inbox-badge ibadge-gn">✓ IA mis à jour dossier JB automatiquement</span></div></div>
-          <div class="inbox-item"><div class="inbox-avatar">MT</div><div class="inbox-info"><div class="inbox-from">Marie Tremblay <span>14:22</span></div><div class="inbox-preview">Bonjour, j'aimerais avoir plus d'information sur la maladie grave pour mon conjoint aussi</div><span class="inbox-badge ibadge-bl">IA — Réponse préparée · En attente approbation</span></div></div>
-          <div class="inbox-item"><div class="inbox-avatar">SR</div><div class="inbox-info"><div class="inbox-from">Sophie Roy <span>hier</span></div><div class="inbox-preview">Mon hypothèque arrive à terme en mars, j'aimerais qu'on se rencontre</div><span class="inbox-badge ibadge-or">IA — Opportunité créée · Renouvellement mars 2025</span></div></div>
-          <div class="inbox-item"><div class="inbox-avatar">PG</div><div class="inbox-info"><div class="inbox-from">Pierre Gagné <span>lundi</span></div><div class="inbox-preview">Suite à notre rencontre, je confirme que je veux procéder avec le plan 2</div><span class="inbox-badge ibadge-gn">✓ ABF complété · Prêt pour soumission</span></div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ── Showcase Planification Rencontre ── -->
-  <div class="sched-showcase-wrap">
-    <div class="sched-showcase-text">
-      <h3 class="sched-showcase-title">Planifier une rencontre?<br><em>5 clics. C'est tout.</em></h3>
-      <p class="sched-showcase-desc">On voulait un calendrier qui ne ressemble pas à un formulaire de gouvernement. Sélectionnez la date, l'heure, le type de rencontre — et le client reçoit automatiquement son invitation par email. Synchronisé avec Google Calendar en temps réel.</p>
-      <div class="sched-steps-list">
-        <div class="sched-step-item" data-step="0"><span class="sched-step-num">1</span><span>Cliquer sur l'icône calendrier</span></div>
-        <div class="sched-step-item" data-step="1"><span class="sched-step-num">2</span><span>Sélectionner la journée</span></div>
-        <div class="sched-step-item" data-step="2"><span class="sched-step-num">3</span><span>Choisir l'heure</span></div>
-        <div class="sched-step-item" data-step="3"><span class="sched-step-num">4</span><span>Sélectionner le type de rencontre</span></div>
-        <div class="sched-step-item" data-step="4"><span class="sched-step-num">5</span><span>Confirmer — email envoyé automatiquement</span></div>
-      </div>
-      <div class="tag-row" style="margin-top:24px">
-        <span class="pill-tag blue">Sync Google Calendar</span>
-        <span class="pill-tag gold">Email auto au client</span>
-        <span class="pill-tag blue">SMS rappel auto</span>
-        <span class="pill-tag">Google Meet intégré</span>
-      </div>
-    </div>
-    <div class="sched-showcase-demo">
-      <div class="sched-phone" id="sched-phone">
-
-        <!-- Google Calendar interface — unified view -->
-        <div class="gcal-interface">
-          <!-- Top bar -->
-          <div class="gcal-topbar">
-            <span class="gcal-topbar-title">📅 Planifier une rencontre</span>
-            <span class="gcal-topbar-client">Jacques Bergeron</span>
-          </div>
-
-          <!-- Main split: calendar + time slots -->
-          <div class="gcal-body">
-            <!-- Left: Calendar grid -->
-            <div class="gcal-left">
-              <div class="gcal-month-nav">
-                <span class="gcal-arrow">‹</span>
-                <span class="gcal-month-name">Mars 2026</span>
-                <span class="gcal-arrow">›</span>
-              </div>
-              <div class="gcal-days-grid">
-                <span class="gcal-dh">D</span><span class="gcal-dh">L</span><span class="gcal-dh">M</span><span class="gcal-dh">M</span><span class="gcal-dh">J</span><span class="gcal-dh">V</span><span class="gcal-dh">S</span>
-                <span class="gcal-d e"></span><span class="gcal-d e"></span><span class="gcal-d e"></span><span class="gcal-d e"></span><span class="gcal-d e"></span><span class="gcal-d e"></span><span class="gcal-d">1</span>
-                <span class="gcal-d">2</span><span class="gcal-d">3</span><span class="gcal-d">4</span><span class="gcal-d">5</span><span class="gcal-d">6</span><span class="gcal-d">7</span><span class="gcal-d">8</span>
-                <span class="gcal-d">9</span><span class="gcal-d target" id="gcal-day-10">10</span><span class="gcal-d">11</span><span class="gcal-d">12</span><span class="gcal-d">13</span><span class="gcal-d">14</span><span class="gcal-d">15</span>
-                <span class="gcal-d">16</span><span class="gcal-d">17</span><span class="gcal-d">18</span><span class="gcal-d">19</span><span class="gcal-d">20</span><span class="gcal-d">21</span><span class="gcal-d">22</span>
-                <span class="gcal-d">23</span><span class="gcal-d">24</span><span class="gcal-d">25</span><span class="gcal-d">26</span><span class="gcal-d">27</span><span class="gcal-d">28</span><span class="gcal-d">29</span>
-                <span class="gcal-d">30</span><span class="gcal-d">31</span>
-              </div>
-              <div class="gcal-selected-date" id="gcal-selected-label"></div>
-            </div>
-
-            <!-- Right: Time slots -->
-            <div class="gcal-right">
-              <div class="gcal-right-head">Mardi 10 mars</div>
-              <div class="gcal-slots" id="gcal-slots">
-                <div class="gcal-slot"><span class="gcal-slot-time">09:00</span><span class="gcal-slot-bar dispo"></span><span class="gcal-slot-tag dispo">Dispo</span></div>
-                <div class="gcal-slot"><span class="gcal-slot-time">09:30</span><span class="gcal-slot-bar dispo"></span><span class="gcal-slot-tag dispo">Dispo</span></div>
-                <div class="gcal-slot"><span class="gcal-slot-time">10:00</span><span class="gcal-slot-bar dispo"></span><span class="gcal-slot-tag dispo">Dispo</span></div>
-                <div class="gcal-slot"><span class="gcal-slot-time">10:30</span><span class="gcal-slot-bar dispo"></span><span class="gcal-slot-tag dispo">Dispo</span></div>
-                <div class="gcal-slot"><span class="gcal-slot-time">11:00</span><span class="gcal-slot-bar busy"></span><span class="gcal-slot-tag busy">Occupé</span></div>
-                <div class="gcal-slot"><span class="gcal-slot-time">11:30</span><span class="gcal-slot-bar busy"></span><span class="gcal-slot-tag busy">Occupé</span></div>
-                <div class="gcal-slot target" id="gcal-slot-12"><span class="gcal-slot-time">12:00</span><span class="gcal-slot-bar dispo"></span><span class="gcal-slot-tag dispo">Dispo</span></div>
-                <div class="gcal-slot"><span class="gcal-slot-time">13:00</span><span class="gcal-slot-bar dispo"></span><span class="gcal-slot-tag dispo">Dispo</span></div>
-                <div class="gcal-slot"><span class="gcal-slot-time">14:00</span><span class="gcal-slot-bar dispo"></span><span class="gcal-slot-tag dispo">Dispo</span></div>
-                <div class="gcal-slot"><span class="gcal-slot-time">14:30</span><span class="gcal-slot-bar dispo"></span><span class="gcal-slot-tag dispo">Dispo</span></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Bottom: RDV types (two columns) -->
-          <div class="gcal-rdv-section" id="gcal-rdv">
-            <div class="gcal-rdv-head">Type de RDV</div>
-            <div class="gcal-rdv-cols">
-              <div class="gcal-rdv-col">
-                <div class="gcal-rdv-col-title">📞 Appels</div>
-                <div class="gcal-rdv-item" data-type="call">Comparative assurance vie</div>
-                <div class="gcal-rdv-item" data-type="call">Comparative assurance hypothécaire</div>
-                <div class="gcal-rdv-item target" id="gcal-rdv-target" data-type="call">Comparative assurance invalidité</div>
-                <div class="gcal-rdv-item" data-type="call">Qualification santé / MG</div>
-                <div class="gcal-rdv-item" data-type="call">Suivi client existant</div>
-              </div>
-              <div class="gcal-rdv-col">
-                <div class="gcal-rdv-col-title">🤝 Rencontres</div>
-                <div class="gcal-rdv-item" data-type="meet">Présentation ABF complète</div>
-                <div class="gcal-rdv-item" data-type="meet">Rencontre de placement</div>
-                <div class="gcal-rdv-item" data-type="meet">Planification successorale</div>
-                <div class="gcal-rdv-item" data-type="meet">Signature de documents</div>
-                <div class="gcal-rdv-item" data-type="meet">Corporation — analyse</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Confirm overlay -->
-          <div class="gcal-confirm-overlay" id="gcal-confirm">
-            <div class="gcal-confirm-box">
-              <div class="gcal-confirm-title">Appel — Comparative assurance invalidité</div>
-              <div class="gcal-confirm-info">
-                <div class="gcal-cf-row"><span>Client</span><span>Jacques Bergeron</span></div>
-                <div class="gcal-cf-row"><span>Date</span><span>Mardi 10 mars 2026</span></div>
-                <div class="gcal-cf-row"><span>Heure</span><span>12:00 — 12:30</span></div>
-                <div class="gcal-cf-row"><span>Durée</span><span>30 minutes</span></div>
-              </div>
-              <div class="gcal-cf-opts">
-                <div class="gcal-cf-opt"><span class="gcal-ck on">✓</span>Invitation email au client</div>
-                <div class="gcal-cf-opt"><span class="gcal-ck on">✓</span>Rappel SMS 1h avant</div>
-                <div class="gcal-cf-opt"><span class="gcal-ck">✓</span>Lien Google Meet</div>
-              </div>
-              <div class="gcal-cf-btn" id="gcal-cf-btn">Confirmer la rencontre</div>
-            </div>
-          </div>
-
-          <!-- Success overlay -->
-          <div class="gcal-success-overlay" id="gcal-success">
-            <div class="gcal-success-box">
-              <div class="gcal-success-ic">✅</div>
-              <div class="gcal-success-t">Rencontre confirmée!</div>
-              <div class="gcal-success-sub">Mardi 10 mars 2026 · 12:00</div>
-              <div class="gcal-success-msgs">
-                <div class="gcal-success-msg" data-i="0"><span>📧</span>Invitation envoyée à jacques.bergeron@gmail.com</div>
-                <div class="gcal-success-msg" data-i="1"><span>📅</span>Ajouté à Google Calendar</div>
-                <div class="gcal-success-msg" data-i="2"><span>💬</span>SMS rappel programmé — 10 mars 11:00</div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA fin de catégorie Automatisation -->
-<div class="section-cta-row" style="background:var(--ink)">
-  <button class="btn-gold btn-gold-lg" onclick="openWaitlistModal()"><div class="btn-shine"></div>Réserver ma place →</button>
-</div>
-
-<!-- ══════════════════════════════════ TIMELINE ════════ -->
-<section class="timeline-section" id="timeline">
-  <div style="max-width:1300px;margin:0 auto;text-align:center">
-    <div class="sec-label rx">Timeline client</div>
-    <h2 class="sec-title rx">« C'était quand, le dernier appel? »<br><em>On se posait toujours la question.</em> Plus jamais.</h2>
-    <p class="sec-sub rx">Notes, appels, SMS, emails, rencontres, signatures, opportunités — tout est sur une seule ligne du temps. Vous savez exactement où vous en êtes avec chaque client, en un coup d'œil.</p>
-  </div>
-  <div class="tl-wrap rx">
-    <div class="tl-top">
-      <div><div class="tl-top-name">Jacques Bergeron — Timeline complète</div><div class="tl-top-sub">47 interactions · Depuis le 12 jan 2024</div></div>
-      <div class="tl-filters">
-        <div class="tl-filter active">Tout</div>
-        <div class="tl-filter">Notes</div>
-        <div class="tl-filter">Assurances</div>
-        <div class="tl-filter">Appels</div>
-        <div class="tl-filter">Futurs</div>
-      </div>
-    </div>
-    <div class="tl-body">
-      <div class="tl-event"><div class="tl-event-icon tl-icon-sign">✍️</div><div class="tl-event-body"><div class="tl-event-title">Signature reçue — Préavis de remplacement AMF <span class="tag-opp">Conformité</span></div><div class="tl-event-desc">Préavis de remplacement signé via DocuSign et lettre explicative signée via Finox Sign. Police vie entière $750k approuvée. Dossier AMF 100% conforme.</div><div class="tl-event-time">Aujourd'hui · 14:32 · Finox Sign</div></div></div>
-      <div class="tl-event"><div class="tl-event-icon tl-icon-email">✉️</div><div class="tl-event-body"><div class="tl-event-title">Email Agenz reçu — Police approuvée <span class="tag-opp">IA mis à jour auto</span></div><div class="tl-event-desc">Police MT-4821 approuvée standard. IA a mis à jour le dossier, changé le statut pipeline et créé les tâches de suivi automatiquement.</div><div class="tl-event-time">Aujourd'hui · 13:15 · Gmail IA</div></div></div>
-      <div class="tl-event"><div class="tl-event-icon tl-icon-call">📞</div><div class="tl-event-body"><div class="tl-event-title">Appel — Présentation ABF finale</div><div class="tl-event-desc">Rencontre de 45 min — ABF complet présenté, besoins vie $750k, invalidité $5 400/mois acceptés. Client enthousiaste, prêt à procéder. Transcript IA disponible.</div><div class="tl-event-time">19 fév · 10:00 · RingCentral · 45 min</div></div></div>
-      <div class="tl-event"><div class="tl-event-icon tl-icon-note">📝</div><div class="tl-event-body"><div class="tl-event-title">ABF complété — Analyse des besoins financiers</div><div class="tl-event-desc">ABF rempli complet. Valeur nette $1.2M. Besoin vie $750k, invalidité $5 400/mois, MG plan Tranquillité. Corporation analysée — proposition MG propriété partagée à préparer.</div><div class="tl-event-time">17 fév · Dany Lévesque</div></div></div>
-      <div class="tl-event"><div class="tl-event-icon tl-icon-future">🏠</div><div class="tl-event-body"><div class="tl-event-title">Opportunité future — Renouvellement hypothécaire <span class="tag-fut">Automatisé dans 24 mois</span></div><div class="tl-event-desc">Hypothèque $450k arrive à terme mars 2027. Rappel automatique créé — contact prévu 3 mois avant l'échéance pour préparer l'analyse.</div><div class="tl-event-time">Mars 2027 · Rappel auto · IA FINOX</div></div></div>
-      <div class="tl-event"><div class="tl-event-icon tl-icon-opport">💼</div><div class="tl-event-body"><div class="tl-event-title">Opportunité future — Corporation · MG propriété partagée <span class="tag-fut">Q3 2025</span></div><div class="tl-event-desc">Proposition MG propriété partagée pour la corporation de Jacques à préparer. Rencontre planifiée avec son comptable pour Q3 2025.</div><div class="tl-event-time">Sep 2025 · Rencontre planifiée · Comptable confirmé</div></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════ OPPORTUNITÉS ══════════ -->
-<section class="opps-section" id="opps">
-  <div style="max-width:1300px;margin:0 auto;text-align:center">
-    <div class="sec-label rx">Module Opportunités futures</div>
-    <h2 class="sec-title rx">On laissait passer des ventes<br><em>sans même s'en apercevoir.</em></h2>
-    <p class="sec-sub rx">Renouvellements hypothécaires, événements de vie, contrats délayés — on les oubliait ou on les découvrait trop tard. FINOX les détecte automatiquement et vous rappelle au bon moment. Plus jamais d'occasion manquée.</p>
+    <div class="sec-label rx">Tout le reste</div>
+    <h2 class="sec-title rx">Et ce n'est pas tout.<br><em>Le reste du CRM aussi.</em></h2>
+    <p class="sec-sub rx">Boîte de réception intelligente, tâches, portefeuille de placements et d'assurances, prise de rendez-vous en ligne, import de votre clientèle, réseau de partenaires — chaque outil qu'on utilisait au quotidien est déjà dedans.</p>
   </div>
   <div class="opps-grid">
-    <div class="opp-card rx"><div class="opp-icon">🏠</div><div class="opp-name">Renouvellements hypothécaires</div><div class="opp-desc">Rappel automatique 3–6 mois avant la date de renouvellement pour préparer l'analyse et proposer la bonne couverture hypothécaire privée.</div><span class="opp-tag">Auto · 3 mois avant</span></div>
-    <div class="opp-card rx"><div class="opp-icon">🚗</div><div class="opp-name">Assurances auto & habitation</div><div class="opp-desc">Suivi des renouvellements annuels et opportunités de consolidation. Ne laissez plus vos clients renouveler sans vous contacter.</div><span class="opp-tag">Auto · Annuel</span></div>
-    <div class="opp-card rx"><div class="opp-icon">📈</div><div class="opp-name">Rencontres de placement</div><div class="opp-desc">Planification automatique des rencontres de révision de portefeuille selon la fréquence configurée et les changements de marché.</div><span class="opp-tag">Selon fréquence</span></div>
-    <div class="opp-card rx"><div class="opp-icon">👶</div><div class="opp-name">Naissance d'un enfant</div><div class="opp-desc">Détection et rappel pour ajouter l'enfant au REEE, ajuster l'assurance vie et revoir les besoins familiaux lors d'un événement de vie.</div><span class="opp-tag">Événement de vie</span></div>
-    <div class="opp-card rx"><div class="opp-icon">📋</div><div class="opp-name">Contrats délayés — qualifiabilité</div><div class="opp-desc">Suivi automatique des clients qui attendent d'être qualifiables. Rappel à la date cible avec toutes les informations du dossier précédent.</div><span class="opp-tag">Date cible auto</span></div>
-    <div class="opp-card rx"><div class="opp-icon">🤝</div><div class="opp-name">Références & recommandations</div><div class="opp-desc">Rappels stratégiques pour demander une référence aux clients avec un Pulse Vital élevé. Gestion complète du cycle jusqu'à la conversion.</div><span class="opp-tag">Pulse > 80</span></div>
-    <div class="opp-card rx"><div class="opp-icon">⚖️</div><div class="opp-name">Testament & planification successorale</div><div class="opp-desc">Opportunités créées automatiquement selon l'âge, les actifs et les événements familiaux. Rappels coordonnés avec notaires.</div><span class="opp-tag">Événement successoral</span></div>
-    <div class="opp-card rx"><div class="opp-icon">🏢</div><div class="opp-name">Opportunités corporatives</div><div class="opp-desc">Analyse des besoins de la corporation mise à jour automatiquement selon les changements de revenus, actifs et structure. Propositions MG suggérées.</div><span class="opp-tag">Corporation auto</span></div>
-    <div class="opp-card rx"><div class="opp-icon">🔄</div><div class="opp-name">Relances & retours de leads froids</div><div class="opp-desc">Séquences de réengagement automatisées pour les leads non convertis. L'IA suggère le meilleur moment et le bon message selon l'historique.</div><span class="opp-tag">IA prédictif</span></div>
+    <div class="opp-card rx"><div class="opp-icon">📥</div><div class="opp-name">Boîte IA &amp; triage Gmail</div><div class="opp-desc">L'IA parcourt votre boîte Gmail, classe chaque courriel (action à poser, note au dossier ou à ignorer) et prépare une réponse. Vous approuvez d'un clic.</div><span class="opp-tag">IA · Approbation manuelle</span></div>
+    <div class="opp-card rx"><div class="opp-icon">✅</div><div class="opp-name">Tâches organisées par l'IA</div><div class="opp-desc">Vos tâches sont regroupées par priorité et les doublons sont détectés automatiquement. Fini la liste de 80 tâches où tout se ressemble.</div><span class="opp-tag">Groupes · Anti-doublons</span></div>
+    <div class="opp-card rx"><div class="opp-icon">📊</div><div class="opp-name">Placements &amp; assurances par client</div><div class="opp-desc">Chaque contrat de placement et chaque police d'assurance est rattaché au bon client — institution, compte, titulaire, produit — avec les documents joints, en privé et sécurisés.</div><span class="opp-tag">Portefeuille complet</span></div>
+    <div class="opp-card rx"><div class="opp-icon">🗓️</div><div class="opp-name">Réservation en ligne par le client</div><div class="opp-desc">Envoyez un lien : le client choisit lui-même son créneau et son type de rencontre, par Google Meet ou par téléphone. Tout tombe dans votre calendrier.</div><span class="opp-tag">Client autonome</span></div>
+    <div class="opp-card rx"><div class="opp-icon">📝</div><div class="opp-name">Formulaire client en ligne</div><div class="opp-desc">Le client remplit lui-même ses informations dans un formulaire sécurisé. Elles arrivent directement dans sa fiche — zéro ressaisie de votre côté.</div><span class="opp-tag">Zéro ressaisie</span></div>
+    <div class="opp-card rx"><div class="opp-icon">📦</div><div class="opp-name">Import de votre clientèle &amp; démarrage guidé</div><div class="opp-desc">Importez clients, ABF, actifs et passifs, polices et notes depuis votre ancien CRM, avec journal d'audit de chaque import. Un assistant vous guide : profil, coordonnées, numéro de certificat AMF.</div><span class="opp-tag">Multi-sources · Audité</span></div>
+    <div class="opp-card rx"><div class="opp-icon">🤝</div><div class="opp-name">Réseau de partenaires &amp; référencements</div><div class="opp-desc">Notaires, comptables, courtiers hypothécaires, avocats, planificateurs — gardez vos partenaires au même endroit et suivez chaque référence, à l'envoi ou au rendez-vous planifié.</div><span class="opp-tag">Références suivies</span></div>
+    <div class="opp-card rx"><div class="opp-icon">📱</div><div class="opp-name">Application installable sur mobile</div><div class="opp-desc">Installez FINOX sur votre téléphone ou votre tablette comme une vraie application. Vos dossiers vous suivent chez le client, au bureau ou en déplacement.</div><span class="opp-tag">Mobile · Tablette</span></div>
   </div>
 </section>
-
-<!-- ══════════════════════════ CONFORMITÉ & DOCS ══════ -->
-<section class="conf-section" id="conf">
-  <div style="max-width:1300px;margin:0 auto;text-align:center;margin-bottom:65px">
-    <div class="sec-label rx">Documents & Conformité</div>
-    <h2 class="sec-title rx">On cherchait des fichiers pendant 20 minutes.<br><em>C'est fini.</em></h2>
-    <p class="sec-sub rx">Des fichiers nommés « scan_001.pdf » éparpillés dans Google Drive — on connaît ça. Maintenant, tout est renommé automatiquement selon les normes AMF, envoyé de façon sécurisée et signé électroniquement. Conforme sans y penser.</p>
-  </div>
-  <div class="conf-layout">
-    <div class="conf-list rxl">
-      <div class="conf-item"><div class="conf-ic">📁</div><div class="conf-tx"><h4>Centre de documentation par client</h4><p>Tous les documents du client centralisés dans son dossier, renommés automatiquement selon les normes AMF. Plus jamais de fichiers nommés "scan_001.pdf" dans votre Drive.</p></div></div>
-      <div class="conf-item"><div class="conf-ic">📨</div><div class="conf-tx"><h4>Demande de documents sécurisée</h4><p>Envoyez une demande directement au client. Il uploade ses fichiers via un portail sécurisé — sans email, sans risque de confidentialité, avec confirmation automatique.</p></div></div>
-      <div class="conf-item"><div class="conf-ic">🔒</div><div class="conf-tx"><h4>Envoi sécurisé avec mot de passe</h4><p>Partagez des documents confidentiels avec un lien protégé par mot de passe. Traçabilité complète — qui a accédé, quand, depuis quel appareil.</p></div></div>
-      <div class="conf-item"><div class="conf-ic">✍️</div><div class="conf-tx"><h4>Signature électronique Finox Sign & DocuSign</h4><p>Intégration complète avec Finox Sign (notre plateforme maison) pour les ABF et lettres explicatives, et DocuSign pour les préavis de remplacement. Toutes les signatures liées directement au dossier — traçabilité parfaite pour les audits AMF.</p></div></div>
-      <div class="conf-item"><div class="conf-ic">🗂️</div><div class="conf-tx"><h4>Renommage automatique conforme AMF</h4><p>Chaque document renommé selon la nomenclature AMF — [Client]_[Date]_[Type]. Fini le chaos dans Google Drive, tout est trouvable en 3 secondes.</p></div></div>
-    </div>
-    <div class="rxr">
-      <div class="doc-preview">
-        <div class="dp-header">
-          <div class="dp-icon">📄</div>
-          <div><div class="dp-title">ABF + Lettre explicative — Envoi signature</div><div class="dp-sub">3 documents · Finox Sign · Prêt à signer</div></div>
-          <div class="dp-status">En attente signature</div>
-        </div>
-        <div class="dp-body">
-          <div class="dp-row"><div class="dp-lbl">Document 1</div><div class="dp-val">ABF_BergeronJacques_2025-02-21.pdf — Analyse complète des besoins financiers</div></div>
-          <div class="dp-row"><div class="dp-lbl">Document 2</div><div class="dp-val">Preavis_Remplacement_BergeronJacques_2025-02-21.pdf — AMF obligatoire</div></div>
-          <div class="dp-row"><div class="dp-lbl">Document 3</div><div class="dp-val">Lettre_Explicative_BergeronJacques_2025-02-21.pdf — Générée auto</div></div>
-          <div class="dp-row"><div class="dp-lbl">Envoyé via</div><div class="dp-val">Finox Sign + DocuSign · courriel au client · lien valide 7 jours</div></div>
-          <div class="dp-row"><div class="dp-lbl">Rappels auto</div><div class="dp-val">J+1 · J+3 · J+5 si non signé — SMS + courriel</div></div>
-          <div class="sig-block">
-            <div class="sig-animated-line" id="sig-line-2"></div>
-            <div class="sig-confirm">⏳ En attente de la signature de Jacques Bergeron — Envoyé à 14:34</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════ GESTION CABINET ══════ -->
-<section class="cabinet-section" id="cabinet">
-  <div style="max-width:1300px;margin:0 auto;text-align:center;margin-bottom:65px">
-    <div class="sec-label rx">Gestion de cabinet</div>
-    <h2 class="sec-title rx">On gérait notre cabinet avec des spreadsheets.<br><em>Plus maintenant.</em></h2>
-    <p class="sec-sub rx">Conformité Loi 25, registre des plaintes, stats d'équipe, partenariats de partage — tout ça était éparpillé entre 10 outils. On a tout centralisé dans un seul endroit. Votre cabinet au complet, sous contrôle.</p>
-  </div>
-  <div class="cabinet-layout">
-    <div class="conf-list rxl">
-      <div class="conf-item"><div class="conf-ic">📜</div><div class="conf-tx"><h4>Avis de divulgation & politique de confidentialité</h4><p>Rédigez et gérez votre avis de divulgation et votre politique de confidentialité directement dans le CRM. Envoi automatique à chaque nouveau client avec confirmation de lecture électronique.</p></div></div>
-      <div class="conf-item"><div class="conf-ic">📋</div><div class="conf-tx"><h4>Politique et Registre des Plaintes</h4><p>Gérez votre politique de traitement des plaintes et tenez votre registre à jour — conforme aux exigences de l'AMF. Tout est centralisé, traçable et prêt pour les audits.</p></div></div>
-      <div class="conf-item"><div class="conf-ic">🔐</div><div class="conf-tx"><h4>Registre des Incidents de Sécurité & DPO</h4><p>Tenez votre registre des incidents de sécurité et identifiez votre Responsable de la Protection des Données (DPO) directement dans le CRM. Conforme à la Loi 25 sans outil externe.</p></div></div>
-      <div class="conf-item"><div class="conf-ic">📊</div><div class="conf-tx"><h4>Statistiques d'équipe en temps réel</h4><p>Vue directeur avec statistiques de performance par conseiller — primes émises, taux de conversion, Pulse Vital moyen, ABF complétés. Identifiez vos forces et accompagnez votre équipe.</p></div></div>
-      <div class="conf-item"><div class="conf-ic">👥</div><div class="conf-tx"><h4>Gestion d'équipe simplifiée</h4><p>Gérez facilement vos membres d'équipe — ajout, retrait, permissions par module. Chaque conseiller a son espace, ses clients et ses rapports avec un contrôle granulaire du directeur.</p></div></div>
-    </div>
-    <div class="rxr">
-      <div class="cabinet-partnership-visual">
-        <div style="text-align:center;margin-bottom:30px">
-          <h3 style="font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3vw,42px);font-weight:300;line-height:1.08;margin-bottom:14px">Partenariats de partage —<br><em style="font-style:italic;color:var(--g)">en un clic</em></h3>
-          <p style="font-size:14px;line-height:1.8;color:var(--cd)">On voulait que l'adjointe accède aux dossiers de plusieurs conseillers sans configuration complexe. Un clic. C'est fait.</p>
-        </div>
-        <!-- Partnership diagram -->
-        <div class="partnership-diagram" id="partnership-diagram">
-          <svg viewBox="0 0 480 340" style="width:100%;display:block">
-            <defs>
-              <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="var(--gl)"/>
-                <stop offset="100%" stop-color="var(--g)"/>
-              </linearGradient>
-            </defs>
-            <!-- Dashed background lines (edge to edge) -->
-            <line x1="123" y1="153" x2="335" y2="69" stroke="rgba(196,162,74,.12)" stroke-width="1.5" stroke-dasharray="5 4"/>
-            <line x1="126" y1="170" x2="332" y2="170.01" stroke="rgba(196,162,74,.12)" stroke-width="1.5" stroke-dasharray="5 4"/>
-            <line x1="123" y1="187" x2="335" y2="271" stroke="rgba(196,162,74,.12)" stroke-width="1.5" stroke-dasharray="5 4"/>
-            <!-- Gold animated lines (edge to edge) -->
-            <line class="pline pline-1" x1="123" y1="153" x2="335" y2="69" stroke="url(#goldGrad)" stroke-width="2.5" stroke-linecap="round"/>
-            <line class="pline pline-2" x1="126" y1="170" x2="332" y2="170.01" stroke="url(#goldGrad)" stroke-width="2.5" stroke-linecap="round"/>
-            <line class="pline pline-3" x1="123" y1="187" x2="335" y2="271" stroke="url(#goldGrad)" stroke-width="2.5" stroke-linecap="round"/>
-            <!-- Adjointe circle (left) -->
-            <g class="partner-node" style="cursor:default">
-              <circle cx="80" cy="170" r="46" fill="#111114" stroke="rgba(196,162,74,.3)" stroke-width="2"/>
-              <circle cx="80" cy="170" r="46" fill="none" stroke="rgba(196,162,74,.06)" stroke-width="8"/>
-              <text x="80" y="166" text-anchor="middle" fill="var(--g)" font-size="13" font-family="Cabinet Grotesk,sans-serif" font-weight="700">Adjointe</text>
-              <text x="80" y="181" text-anchor="middle" fill="var(--cd)" font-size="8" font-family="JetBrains Mono,monospace">Accès partagé</text>
-            </g>
-            <!-- Conseiller 1 (top right) -->
-            <g class="partner-node" style="cursor:default">
-              <circle cx="370" cy="55" r="40" fill="#111114" stroke="rgba(100,180,255,.25)" stroke-width="2"/>
-              <circle cx="370" cy="55" r="40" fill="none" stroke="rgba(100,180,255,.04)" stroke-width="6"/>
-              <text x="370" y="51" text-anchor="middle" fill="var(--blue)" font-size="11" font-family="Cabinet Grotesk,sans-serif" font-weight="600">Conseiller 1</text>
-              <text x="370" y="65" text-anchor="middle" fill="var(--cd)" font-size="8" font-family="JetBrains Mono,monospace">147 clients</text>
-            </g>
-            <!-- Conseiller 2 (middle right) -->
-            <g class="partner-node" style="cursor:default">
-              <circle cx="370" cy="170" r="40" fill="#111114" stroke="rgba(100,180,255,.25)" stroke-width="2"/>
-              <circle cx="370" cy="170" r="40" fill="none" stroke="rgba(100,180,255,.04)" stroke-width="6"/>
-              <text x="370" y="166" text-anchor="middle" fill="var(--blue)" font-size="11" font-family="Cabinet Grotesk,sans-serif" font-weight="600">Conseiller 2</text>
-              <text x="370" y="180" text-anchor="middle" fill="var(--cd)" font-size="8" font-family="JetBrains Mono,monospace">89 clients</text>
-            </g>
-            <!-- Conseiller 3 (bottom right) -->
-            <g class="partner-node" style="cursor:default">
-              <circle cx="370" cy="285" r="40" fill="#111114" stroke="rgba(100,180,255,.25)" stroke-width="2"/>
-              <circle cx="370" cy="285" r="40" fill="none" stroke="rgba(100,180,255,.04)" stroke-width="6"/>
-              <text x="370" y="281" text-anchor="middle" fill="var(--blue)" font-size="11" font-family="Cabinet Grotesk,sans-serif" font-weight="600">Conseiller 3</text>
-              <text x="370" y="295" text-anchor="middle" fill="var(--cd)" font-size="8" font-family="JetBrains Mono,monospace">64 clients</text>
-            </g>
-          </svg>
-        </div>
-        <div class="tag-row" style="justify-content:center;margin-top:24px">
-          <span class="pill-tag gold">Partage en un clic</span>
-          <span class="pill-tag">Permissions granulaires</span>
-          <span class="pill-tag blue">Multi-conseiller</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 
 <!-- ═════���══════════════════════════ CTA FINAL ════════ -->
 <section class="final-section" id="cta">
   <div class="final-inner">
     <div class="final-eyebrow rx">Accès anticipé — Places limitées</div>
     <h2 class="final-title rx">On l'a bâti pour nous.<br><em>On le partage avec vous.</em></h2>
-    <p class="final-sub rx">Faites partie des premiers courtiers à découvrir une nouvelle manière de travailler. Plus simple. Plus performante. Et moins chère.</p>
+    <p class="final-sub rx">Faites partie des premiers courtiers à découvrir une nouvelle manière de travailler. Plus simple. Plus performante. Plus humaine.</p>
 
     <button class="cta-submit-btn" onclick="openWaitlistModal()">Réserver ma place →</button>
 
@@ -1769,5 +1803,6 @@
 <!-- <script src="//code.tidio.co/YOUR_PUBLIC_KEY.js" async></script> -->
 
 <script src="finox.js"></script>
+<script>document.querySelectorAll(".lang-switch a").forEach(function(a){a.addEventListener("click",function(){try{localStorage.setItem("finox-lang",a.dataset.lang)}catch(e){}})})</script>
 </body>
 </html>

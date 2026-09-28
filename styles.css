@@ -1465,3 +1465,11 @@ footer{padding:48px 60px;display:flex;flex-direction:column;align-items:center;g
 @media(max-height:650px){
   .compare-stage{transform:scale(.65);transform-origin:center center}
 }
+
+.finox-brand-savings.soon::before{content:"●";font-size:9px}
+
+.lang-switch{display:flex;border:1px solid rgba(196,162,74,.2);border-radius:100px;overflow:hidden;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;flex-shrink:0}
+.lang-switch a{padding:10px 13px;color:var(--cm);text-decoration:none;cursor:none;transition:all .3s}
+.lang-switch a:hover{color:var(--g)}
+.lang-switch a.on{background:rgba(196,162,74,.16);color:var(--g)}
+@media(max-width:700px){.lang-switch a{padding:8px 10px}}
